@@ -2,7 +2,6 @@
 AI Search Agent for determining the best search method based on query type.
 """
 import os
-import re
 import json
 import logging
 from typing import List, Dict, Any, Optional, Tuple, Union
@@ -12,6 +11,7 @@ from app.models.search import SearchResult, SearchType
 from app.utils.validation import validate_api_keys
 from app.utils.embedding import get_text_embedding
 from app.utils.image_processor import extract_text_from_image
+from app.utils.query_classifier import classify_query_with_fallback, SEARCH_METHOD_BM25, SEARCH_METHOD_VECTOR, SEARCH_METHOD_CUSTOMER_SUPPORT, SEARCH_METHOD_IMAGE
 
 # Configure logging
 logging.basicConfig(
@@ -20,37 +20,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Search method types
-SEARCH_METHOD_BM25 = "bm25"
-SEARCH_METHOD_VECTOR = "vector"
-SEARCH_METHOD_CUSTOMER_SUPPORT = "customer_support"
-SEARCH_METHOD_IMAGE = "image"
-
-# Regular expressions for query classification
-PRECISION_PATTERNS = [
-    r'\b[a-zA-Z0-9]+-[a-zA-Z0-9]+\b',  # Model numbers like "deskjet-2734e"
-    r'\b\d+\s*(?:inch|in|")\b',  # Sizes like "65 inch" or "65""
-    r'\b[a-zA-Z0-9]+\s+\d+\s+[a-zA-Z0-9]+\b',  # Specific product names like "iPhone 13 Pro"
-    r'\bprinter\s+ink\b',  # Specific product types like "printer ink"
-    r'\bsamsung\s+tv\b',  # Specific product types like "samsung tv"
-    r'\bwireless\s+headphones\b',  # Specific product types like "wireless headphones"
-]
-
-CUSTOMER_SUPPORT_PATTERNS = [
-    r'\bhow\s+(?:do|can|to)\b',  # "How do I", "How can I", "How to"
-    r'\breturn\s+(?:an\s+)?item\b',  # Return an item
-    r'\breturn\s+policy\b',  # Return policy
-    r'\btrack\s+(?:my\s+)?order\b',  # Track order
-    r'\bwhere\s+is\s+my\s+package\b',  # Where is my package
-    r'\bcontact\s+(?:customer\s+)?(?:service|support)\b',  # Contact customer service
-    r'\breset\s+(?:my\s+)?password\b',  # Reset password
-    r'\bchange\s+(?:my\s+)?password\b',  # Change password
-    r'\bunsubscribe\b',  # Unsubscribe
-    r'\bcancel\s+(?:my\s+)?(?:order|subscription)\b',  # Cancel order or subscription
-    r'\brefund\b',  # Refund
-    r'\bshipping\s+(?:time|status)\b',  # Shipping time or status
-    r'\bpayment\s+(?:method|issue)\b',  # Payment method or issue
-]
+# Search method types are now imported from query_classifier.py
 
 class SearchAgent:
     """
@@ -95,7 +65,7 @@ class SearchAgent:
     
     def determine_search_method(self, query: str) -> str:
         """
-        Determine the best search method for a given query.
+        Determine the best search method for a given query using Ollama.
         
         Args:
             query: User search query
@@ -103,42 +73,13 @@ class SearchAgent:
         Returns:
             Search method type (bm25, vector, customer_support, or image)
         """
-        # First check if this is a customer support query
-        if any(re.search(pattern, query, re.IGNORECASE) for pattern in CUSTOMER_SUPPORT_PATTERNS):
-            logger.info(f"Query '{query}' classified as customer support query")
-            return SEARCH_METHOD_CUSTOMER_SUPPORT
+        # Use Ollama to classify the query
+        search_method = classify_query_with_fallback(query)
         
-        # Check for specific semantic query patterns
-        semantic_patterns = [
-            r'something to\b',  # "something to keep drinks cold"
-            r'for\s+\w+ing\b',  # "for hiking", "for gaming"
-            r'\b(?:best|good|better|top)\b',  # Quality indicators
-            r'\bcomfortable\b',  # Comfort-related
-            r'\brecommend\b',  # Recommendation requests
-            r'\blike\b',  # Similarity queries
-        ]
+        # Log the classification result
+        logger.info(f"Query '{query}' classified as {search_method} using Ollama")
         
-        if any(re.search(pattern, query, re.IGNORECASE) for pattern in semantic_patterns):
-            logger.info(f"Query '{query}' classified as semantic search, using vector search")
-            return SEARCH_METHOD_VECTOR
-        
-        # Then check if this is a precision search (exact model numbers, specific product names)
-        if any(re.search(pattern, query, re.IGNORECASE) for pattern in PRECISION_PATTERNS):
-            # Additional check to filter out semantic queries that might match precision patterns
-            # Avoid classifying queries with certain semantic indicators as BM25
-            semantic_indicators = ["for", "that", "with", "best", "good", "comfortable", "recommend"]
-            
-            # Count the number of semantic indicators in the query
-            semantic_count = sum(1 for indicator in semantic_indicators if indicator in query.lower().split())
-            
-            # If there are multiple semantic indicators, it's likely a semantic query
-            if semantic_count < 2:
-                logger.info(f"Query '{query}' classified as precision search, using BM25")
-                return SEARCH_METHOD_BM25
-        
-        # For all other queries, use vector search for better semantic understanding
-        logger.info(f"Query '{query}' classified as semantic search, using vector search")
-        return SEARCH_METHOD_VECTOR
+        return search_method
     
     def process_query(self, query: str, image_path: Optional[str] = None) -> Dict[str, Any]:
         """
@@ -585,20 +526,16 @@ def determine_search_method(query: str) -> SearchType:
     Returns:
         SearchType: The determined search type
     """
-    query_lower = query.lower()
+    # Use the query classifier to determine the search method
+    search_method = classify_query_with_fallback(query)
     
-    # Check for customer support queries
-    support_keywords = ["how to", "return", "refund", "cancel", "help", "support", "contact"]
-    if any(keyword in query_lower for keyword in support_keywords):
-        return SearchType.CUSTOMER_SUPPORT
-    
-    # Check for precise model numbers or specific product identifiers
-    if any(char.isdigit() for char in query) and any(char.isalpha() for char in query):
-        # Queries with alphanumeric patterns are likely precise searches
+    # Map the string search method to SearchType enum
+    if search_method == SEARCH_METHOD_BM25:
         return SearchType.BM25
-    
-    # Default to vector search for semantic understanding
-    return SearchType.VECTOR
+    elif search_method == SEARCH_METHOD_CUSTOMER_SUPPORT:
+        return SearchType.CUSTOMER_SUPPORT
+    else:
+        return SearchType.VECTOR
 
 def perform_search(
     query: str,
