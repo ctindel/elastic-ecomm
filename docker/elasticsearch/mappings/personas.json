@@ -1,0 +1,88 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "age": {
+        "type": "integer"
+      },
+      "gender": {
+        "type": "keyword"
+      },
+      "occupation": {
+        "type": "keyword"
+      },
+      "interests": {
+        "type": "keyword"
+      },
+      "search_history": {
+        "type": "nested",
+        "properties": {
+          "query": {
+            "type": "text"
+          },
+          "timestamp": {
+            "type": "date"
+          },
+          "results_clicked": {
+            "type": "keyword"
+          }
+        }
+      },
+      "clickstream": {
+        "type": "nested",
+        "properties": {
+          "product_id": {
+            "type": "keyword"
+          },
+          "timestamp": {
+            "type": "date"
+          },
+          "time_spent": {
+            "type": "float"
+          }
+        }
+      },
+      "purchase_history": {
+        "type": "nested",
+        "properties": {
+          "product_id": {
+            "type": "keyword"
+          },
+          "timestamp": {
+            "type": "date"
+          },
+          "price": {
+            "type": "float"
+          },
+          "quantity": {
+            "type": "integer"
+          }
+        }
+      },
+      "created_at": {
+        "type": "date"
+      },
+      "updated_at": {
+        "type": "date"
+      }
+    }
+  },
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "index": {
+      "refresh_interval": "1s"
+    }
+  }
+}
