@@ -1,0 +1,37 @@
+{
+  "keyword_search": [
+    {"query": "deskjet 2734e printer ink", "expected": "keyword"},
+    {"query": "model XPS 15 laptop", "expected": "keyword"},
+    {"query": "iPhone 13 Pro Max case", "expected": "keyword"},
+    {"query": "Samsung 65-inch TV", "expected": "keyword"},
+    {"query": "Logitech MX Master 3 mouse", "expected": "keyword"}
+  ],
+  "semantic_search": [
+    {"query": "comfortable office chair for long hours", "expected": "semantic"},
+    {"query": "best laptop for graphic design", "expected": "semantic"},
+    {"query": "waterproof bluetooth speaker for shower", "expected": "semantic"},
+    {"query": "lightweight vacuum for elderly", "expected": "semantic"},
+    {"query": "energy efficient refrigerator", "expected": "semantic"}
+  ],
+  "customer_support": [
+    {"query": "how do I return an item?", "expected": "customer_support"},
+    {"query": "where is my order?", "expected": "customer_support"},
+    {"query": "cancel my subscription", "expected": "customer_support"},
+    {"query": "refund policy for damaged items", "expected": "customer_support"},
+    {"query": "how to track my package", "expected": "customer_support"}
+  ],
+  "image_based": [
+    {"query": "find items in this picture", "expected": "image_based"},
+    {"query": "what products match this image?", "expected": "image_based"},
+    {"query": "search for products like this photo", "expected": "image_based"},
+    {"query": "identify items in this school supply list", "expected": "image_based"},
+    {"query": "find similar products to this image", "expected": "image_based"}
+  ],
+  "mixed_intent": [
+    {"query": "return policy for Samsung TV", "expected": "customer_support"},
+    {"query": "best price for iPhone 13", "expected": "semantic"},
+    {"query": "HP printer model 6978 ink cartridge", "expected": "keyword"},
+    {"query": "compare this laptop with similar models", "expected": "image_based"},
+    {"query": "warranty information for Dyson vacuum", "expected": "customer_support"}
+  ]
+}
