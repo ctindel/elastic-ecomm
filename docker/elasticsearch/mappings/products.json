@@ -1,0 +1,62 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "english",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "description": {
+        "type": "text",
+        "analyzer": "english"
+      },
+      "category": {
+        "type": "keyword"
+      },
+      "price": {
+        "type": "float"
+      },
+      "brand": {
+        "type": "keyword"
+      },
+      "attributes": {
+        "type": "object",
+        "dynamic": true
+      },
+      "image": {
+        "properties": {
+          "url": {
+            "type": "keyword"
+          },
+          "vector_embedding": {
+            "type": "dense_vector",
+            "dims": 512,
+            "index": true,
+            "similarity": "cosine"
+          }
+        }
+      },
+      "text_embedding": {
+        "type": "dense_vector",
+        "dims": 384,
+        "index": true,
+        "similarity": "cosine"
+      }
+    }
+  },
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "index": {
+      "refresh_interval": "1s"
+    }
+  }
+}
