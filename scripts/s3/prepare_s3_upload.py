@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Prepare S3 upload manifest for product images
-This script creates a manifest file for S3 upload
+Prepare S3 upload manifest
+This script prepares a manifest file for uploading product images to S3
 """
 import os
 import sys
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 def prepare_s3_upload_manifest(images_dir, output_file="data/s3_upload_manifest.json"):
     """
-    Prepare S3 upload manifest for product images
+    Prepare S3 upload manifest
     
     Args:
         images_dir: Directory containing product images
@@ -45,41 +45,51 @@ def prepare_s3_upload_manifest(images_dir, output_file="data/s3_upload_manifest.
         # Create manifest
         manifest = {
             "timestamp": datetime.now().isoformat(),
+            "images_dir": images_dir,
             "total_images": len(image_files),
-            "total_size_bytes": 0,
             "images": []
         }
         
-        # Process image files
+        # Calculate total size
+        total_size = 0
+        
+        # Add images to manifest
         for image_file in image_files:
             # Get file size
             file_size = os.path.getsize(image_file)
+            total_size += file_size
             
-            # Get product ID from filename
+            # Get product ID from file name
             product_id = os.path.splitext(os.path.basename(image_file))[0]
             
-            # Add to manifest
+            # Get content type
+            content_type = None
+            ext = os.path.splitext(image_file)[1].lower()
+            
+            if ext == ".jpg" or ext == ".jpeg":
+                content_type = "image/jpeg"
+            elif ext == ".png":
+                content_type = "image/png"
+            elif ext == ".gif":
+                content_type = "image/gif"
+            
+            # Add image to manifest
             manifest["images"].append({
                 "product_id": product_id,
                 "file_path": image_file,
                 "file_size": file_size,
-                "content_type": "image/jpeg" if image_file.lower().endswith(('.jpg', '.jpeg')) else "image/png"
+                "content_type": content_type
             })
-            
-            # Update total size
-            manifest["total_size_bytes"] += file_size
         
-        # Add total size in MB
-        manifest["total_size_mb"] = manifest["total_size_bytes"] / (1024 * 1024)
-        
-        # Create output directory if it doesn't exist
-        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+        # Add total size to manifest
+        manifest["total_size_mb"] = total_size / (1024 * 1024)
         
         # Save manifest
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
         with open(output_file, "w") as f:
             json.dump(manifest, f, indent=2)
         
-        logger.info(f"Created S3 upload manifest with {len(image_files)} images ({manifest['total_size_mb']:.2f} MB)")
+        logger.info(f"Generated S3 upload manifest at {output_file}")
         
         return manifest
     
