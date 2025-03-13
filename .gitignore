@@ -1,0 +1,15 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test data
+data/test_products.json
+
+# Log files
+*.log
+*.pid
+
+# Keep the images directory but not its contents
+data/images/*
+!data/images/.gitkeep
