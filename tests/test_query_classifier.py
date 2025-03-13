@@ -16,25 +16,59 @@ if project_root not in sys.path:
 from app.utils.query_classifier import classify_query, QueryType, get_search_method
 from app.utils.query_classifier import SEARCH_METHOD_BM25, SEARCH_METHOD_VECTOR, SEARCH_METHOD_CUSTOMER_SUPPORT, SEARCH_METHOD_IMAGE
 
-# Load test data
-TEST_DATA_PATH = os.path.join(project_root, "tests", "test_data", "query_classifier_test_cases.json")
-with open(TEST_DATA_PATH, "r") as f:
-    TEST_DATA = json.load(f)
+# Define test cases for each query type
+KEYWORD_QUERIES = [
+    "deskjet 2734e printer ink",
+    "samsung galaxy s21 case",
+    "nike air max size 10",
+    "sony wh-1000xm4 headphones",
+    "apple macbook pro 16 inch 2023"
+]
 
-# Map string query types to enum values
-QUERY_TYPE_MAP = {
-    "keyword": QueryType.KEYWORD,
-    "semantic": QueryType.SEMANTIC,
-    "customer_support": QueryType.CUSTOMER_SUPPORT,
-    "image_based": QueryType.IMAGE_BASED,
-    "mixed_intent": QueryType.MIXED_INTENT
-}
+SEMANTIC_QUERIES = [
+    "comfortable shoes for standing all day",
+    "best laptop for college students",
+    "waterproof jacket for hiking",
+    "noise cancelling headphones for travel",
+    "energy efficient refrigerator for small kitchen"
+]
 
-# Generate test cases from test data
+CUSTOMER_SUPPORT_QUERIES = [
+    "how do I return an item?",
+    "where is my order?",
+    "can I change my shipping address?",
+    "how do I cancel my subscription?",
+    "what is your refund policy?"
+]
+
+IMAGE_BASED_QUERIES = [
+    "items in this picture",
+    "find products similar to image",
+    "what is this product in my photo?",
+    "search using my school supply list image",
+    "identify this item from my picture"
+]
+
+MIXED_INTENT_QUERIES = [
+    "return policy for nike shoes",
+    "find headphones like the ones in this image",
+    "where is my order for macbook pro",
+    "comfortable shoes similar to the ones in this picture",
+    "how do I use the coupon code for samsung tv?"
+]
+
+# Generate test cases
 TEST_CASES = []
-for query_type, queries in TEST_DATA.items():
-    for query_data in queries:
-        TEST_CASES.append((query_data["query"], QUERY_TYPE_MAP[query_data["expected"]]))
+for query in KEYWORD_QUERIES:
+    TEST_CASES.append((query, QueryType.KEYWORD))
+for query in SEMANTIC_QUERIES:
+    TEST_CASES.append((query, QueryType.SEMANTIC))
+for query in CUSTOMER_SUPPORT_QUERIES:
+    TEST_CASES.append((query, QueryType.CUSTOMER_SUPPORT))
+for query in IMAGE_BASED_QUERIES:
+    TEST_CASES.append((query, QueryType.IMAGE_BASED))
+for query in MIXED_INTENT_QUERIES:
+    TEST_CASES.append((query, QueryType.MIXED_INTENT))
 
 @pytest.mark.parametrize("query,expected_type", TEST_CASES)
 def test_query_classification(query, expected_type):
@@ -47,13 +81,40 @@ def test_overall_accuracy():
     total = 0
     correct = 0
     
-    for query_type, queries in TEST_DATA.items():
-        expected_type = QUERY_TYPE_MAP[query_type]
-        for query_data in queries:
-            total += 1
-            result = classify_query(query_data["query"], mock=True)
-            if result == expected_type:
-                correct += 1
+    # Test keyword queries
+    for query in KEYWORD_QUERIES:
+        total += 1
+        result = classify_query(query, mock=True)
+        if result == QueryType.KEYWORD:
+            correct += 1
+    
+    # Test semantic queries
+    for query in SEMANTIC_QUERIES:
+        total += 1
+        result = classify_query(query, mock=True)
+        if result == QueryType.SEMANTIC:
+            correct += 1
+    
+    # Test customer support queries
+    for query in CUSTOMER_SUPPORT_QUERIES:
+        total += 1
+        result = classify_query(query, mock=True)
+        if result == QueryType.CUSTOMER_SUPPORT:
+            correct += 1
+    
+    # Test image-based queries
+    for query in IMAGE_BASED_QUERIES:
+        total += 1
+        result = classify_query(query, mock=True)
+        if result == QueryType.IMAGE_BASED:
+            correct += 1
+    
+    # Test mixed intent queries
+    for query in MIXED_INTENT_QUERIES:
+        total += 1
+        result = classify_query(query, mock=True)
+        if result == QueryType.MIXED_INTENT:
+            correct += 1
     
     accuracy = correct / total * 100 if total > 0 else 0
     assert accuracy >= 90, f"Overall accuracy is {accuracy:.2f}%, expected at least 90%"
@@ -68,30 +129,49 @@ def test_search_method_mapping():
 
 def test_keyword_queries():
     """Test keyword queries specifically"""
-    for query_data in TEST_DATA["keyword_search"]:
-        result = classify_query(query_data["query"], mock=True)
-        assert result == QueryType.KEYWORD, f"Expected KEYWORD for '{query_data['query']}', got {result.name}"
+    for query in KEYWORD_QUERIES:
+        result = classify_query(query, mock=True)
+        assert result == QueryType.KEYWORD, f"Expected KEYWORD for '{query}', got {result.name}"
 
 def test_semantic_queries():
     """Test semantic queries specifically"""
-    for query_data in TEST_DATA["semantic_search"]:
-        result = classify_query(query_data["query"], mock=True)
-        assert result == QueryType.SEMANTIC, f"Expected SEMANTIC for '{query_data['query']}', got {result.name}"
+    for query in SEMANTIC_QUERIES:
+        result = classify_query(query, mock=True)
+        assert result == QueryType.SEMANTIC, f"Expected SEMANTIC for '{query}', got {result.name}"
 
 def test_customer_support_queries():
     """Test customer support queries specifically"""
-    for query_data in TEST_DATA["customer_support"]:
-        result = classify_query(query_data["query"], mock=True)
-        assert result == QueryType.CUSTOMER_SUPPORT, f"Expected CUSTOMER_SUPPORT for '{query_data['query']}', got {result.name}"
+    for query in CUSTOMER_SUPPORT_QUERIES:
+        result = classify_query(query, mock=True)
+        assert result == QueryType.CUSTOMER_SUPPORT, f"Expected CUSTOMER_SUPPORT for '{query}', got {result.name}"
 
 def test_image_based_queries():
     """Test image-based queries specifically"""
-    for query_data in TEST_DATA["image_based"]:
-        result = classify_query(query_data["query"], mock=True)
-        assert result == QueryType.IMAGE_BASED, f"Expected IMAGE_BASED for '{query_data['query']}', got {result.name}"
+    for query in IMAGE_BASED_QUERIES:
+        result = classify_query(query, mock=True)
+        assert result == QueryType.IMAGE_BASED, f"Expected IMAGE_BASED for '{query}', got {result.name}"
 
 def test_mixed_intent_queries():
     """Test mixed intent queries specifically"""
-    for query_data in TEST_DATA["mixed_intent"]:
-        result = classify_query(query_data["query"], mock=True)
-        assert result == QueryType.MIXED_INTENT, f"Expected MIXED_INTENT for '{query_data['query']}', got {result.name}"
+    for query in MIXED_INTENT_QUERIES:
+        result = classify_query(query, mock=True)
+        assert result == QueryType.MIXED_INTENT, f"Expected MIXED_INTENT for '{query}', got {result.name}"
+
+# Additional test cases for edge cases
+def test_edge_cases():
+    """Test edge cases for the query classifier"""
+    # Empty query
+    assert classify_query("", mock=True) == QueryType.KEYWORD
+    
+    # Very short query
+    assert classify_query("tv", mock=True) == QueryType.KEYWORD
+    
+    # Query with multiple intents
+    assert classify_query("return policy for headphones in this image", mock=True) == QueryType.MIXED_INTENT
+    
+    # Query with numbers and special characters
+    assert classify_query("iphone 13 pro max $999", mock=True) == QueryType.KEYWORD
+    
+    # Very long query
+    long_query = "I am looking for a comfortable office chair that provides good lumbar support for long hours of sitting and helps prevent back pain while working from home during the pandemic"
+    assert classify_query(long_query, mock=True) == QueryType.SEMANTIC
