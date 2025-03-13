@@ -25,6 +25,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Search method constants
+SEARCH_METHOD_BM25 = "bm25"
+SEARCH_METHOD_VECTOR = "vector"
+SEARCH_METHOD_CUSTOMER_SUPPORT = "customer_support"
+SEARCH_METHOD_IMAGE = "image"
+
 class QueryType(enum.Enum):
     """Enum for query types"""
     KEYWORD = "keyword"
@@ -160,3 +166,28 @@ def classify_query(query: str, mock: bool = False) -> QueryType:
         return classify_query_mock(query)
     else:
         return classify_query_with_ollama(query)
+
+def get_search_method(query_type: QueryType) -> str:
+    """
+    Get the search method for a query type
+    
+    Args:
+        query_type: The query type
+    
+    Returns:
+        str: The search method
+    """
+    if query_type == QueryType.KEYWORD:
+        return SEARCH_METHOD_BM25
+    elif query_type == QueryType.SEMANTIC:
+        return SEARCH_METHOD_VECTOR
+    elif query_type == QueryType.CUSTOMER_SUPPORT:
+        return SEARCH_METHOD_CUSTOMER_SUPPORT
+    elif query_type == QueryType.IMAGE_BASED:
+        return SEARCH_METHOD_IMAGE
+    elif query_type == QueryType.MIXED_INTENT:
+        # For mixed intent, default to vector search
+        return SEARCH_METHOD_VECTOR
+    else:
+        # Default to BM25
+        return SEARCH_METHOD_BM25

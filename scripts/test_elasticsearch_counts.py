@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Test script to check Elasticsearch document and vector counts
+Test script to count documents and vector embeddings in Elasticsearch
 """
 import os
 import sys
 import json
-import requests
 import logging
+import requests
 from pathlib import Path
 
 # Add project root to Python path
@@ -16,8 +16,7 @@ if project_root not in sys.path:
 
 from app.config.settings import (
     ELASTICSEARCH_HOST,
-    ELASTICSEARCH_INDEX_PRODUCTS,
-    TEXT_EMBEDDING_DIMS
+    ELASTICSEARCH_INDEX_PRODUCTS
 )
 
 # Configure logging
@@ -27,28 +26,27 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def check_elasticsearch_document_count():
-    """Check the number of documents in Elasticsearch"""
+def count_documents():
+    """Count the total number of documents in the products index"""
     try:
         response = requests.get(f"{ELASTICSEARCH_HOST}/{ELASTICSEARCH_INDEX_PRODUCTS}/_count")
         
         if response.status_code != 200:
-            logger.error(f"Error checking Elasticsearch: {response.text}")
+            logger.error(f"Error counting documents: {response.text}")
             return 0
         
-        data = response.json()
-        count = data.get("count", 0)
-        
+        count = response.json().get("count", 0)
         logger.info(f"Found {count} products in Elasticsearch")
         return count
     
     except Exception as e:
-        logger.error(f"Error checking Elasticsearch document count: {str(e)}")
+        logger.error(f"Error counting documents: {str(e)}")
         return 0
 
-def check_elasticsearch_vector_count():
-    """Check the number of documents with vector embeddings in Elasticsearch"""
+def count_documents_with_vectors():
+    """Count the number of documents with vector embeddings"""
     try:
+        # Query for documents with text embeddings
         query = {
             "query": {
                 "exists": {
@@ -64,34 +62,32 @@ def check_elasticsearch_vector_count():
         )
         
         if response.status_code != 200:
-            logger.error(f"Error checking vector embeddings: {response.text}")
+            logger.error(f"Error counting documents with vectors: {response.text}")
             return 0
         
-        data = response.json()
-        count = data.get("count", 0)
-        
+        count = response.json().get("count", 0)
         logger.info(f"Found {count} products with text embeddings")
         return count
     
     except Exception as e:
-        logger.error(f"Error checking vector embeddings count: {str(e)}")
+        logger.error(f"Error counting documents with vectors: {str(e)}")
         return 0
 
 def main():
     """Main entry point"""
-    # Check document count
-    doc_count = check_elasticsearch_document_count()
+    # Count documents
+    total_docs = count_documents()
     
-    # Check vector count
-    vector_count = check_elasticsearch_vector_count()
+    # Count documents with vectors
+    vector_docs = count_documents_with_vectors()
     
     # Calculate percentage
-    percentage = (vector_count / doc_count * 100) if doc_count > 0 else 0
+    percentage = (vector_docs / total_docs * 100) if total_docs > 0 else 0
     
     # Print results
-    print(f"\nElasticsearch Document Counts:")
-    print(f"Total documents: {doc_count}")
-    print(f"Documents with vector embeddings: {vector_count}")
+    print("\nElasticsearch Document Counts:")
+    print(f"Total documents: {total_docs}")
+    print(f"Documents with vector embeddings: {vector_docs}")
     print(f"Percentage with vector embeddings: {percentage:.2f}%")
 
 if __name__ == "__main__":

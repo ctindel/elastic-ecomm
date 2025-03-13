@@ -1,37 +1,37 @@
 {
   "keyword_search": [
     {"query": "deskjet 2734e printer ink", "expected": "keyword"},
-    {"query": "model XPS 15 laptop", "expected": "keyword"},
-    {"query": "iPhone 13 Pro Max case", "expected": "keyword"},
-    {"query": "Samsung 65-inch TV", "expected": "keyword"},
-    {"query": "Logitech MX Master 3 mouse", "expected": "keyword"}
+    {"query": "samsung galaxy s21 case", "expected": "keyword"},
+    {"query": "nike air max size 10", "expected": "keyword"},
+    {"query": "sony wh-1000xm4 headphones", "expected": "keyword"},
+    {"query": "apple macbook pro 16 inch 2023", "expected": "keyword"}
   ],
   "semantic_search": [
-    {"query": "comfortable office chair for long hours", "expected": "semantic"},
-    {"query": "best laptop for graphic design", "expected": "semantic"},
-    {"query": "waterproof bluetooth speaker for shower", "expected": "semantic"},
-    {"query": "lightweight vacuum for elderly", "expected": "semantic"},
-    {"query": "energy efficient refrigerator", "expected": "semantic"}
+    {"query": "comfortable shoes for standing all day", "expected": "semantic"},
+    {"query": "best laptop for college students", "expected": "semantic"},
+    {"query": "waterproof jacket for hiking", "expected": "semantic"},
+    {"query": "noise cancelling headphones for travel", "expected": "semantic"},
+    {"query": "energy efficient refrigerator for small kitchen", "expected": "semantic"}
   ],
   "customer_support": [
     {"query": "how do I return an item?", "expected": "customer_support"},
     {"query": "where is my order?", "expected": "customer_support"},
-    {"query": "cancel my subscription", "expected": "customer_support"},
-    {"query": "refund policy for damaged items", "expected": "customer_support"},
-    {"query": "how to track my package", "expected": "customer_support"}
+    {"query": "can I change my shipping address?", "expected": "customer_support"},
+    {"query": "how do I cancel my subscription?", "expected": "customer_support"},
+    {"query": "what is your refund policy?", "expected": "customer_support"}
   ],
   "image_based": [
-    {"query": "find items in this picture", "expected": "image_based"},
-    {"query": "what products match this image?", "expected": "image_based"},
-    {"query": "search for products like this photo", "expected": "image_based"},
-    {"query": "identify items in this school supply list", "expected": "image_based"},
-    {"query": "find similar products to this image", "expected": "image_based"}
+    {"query": "items in this picture", "expected": "image_based"},
+    {"query": "find products similar to image", "expected": "image_based"},
+    {"query": "what is this product in my photo?", "expected": "image_based"},
+    {"query": "search using my school supply list image", "expected": "image_based"},
+    {"query": "identify this item from my picture", "expected": "image_based"}
   ],
   "mixed_intent": [
-    {"query": "return policy for Samsung TV", "expected": "customer_support"},
-    {"query": "best price for iPhone 13", "expected": "semantic"},
-    {"query": "HP printer model 6978 ink cartridge", "expected": "keyword"},
-    {"query": "compare this laptop with similar models", "expected": "image_based"},
-    {"query": "warranty information for Dyson vacuum", "expected": "customer_support"}
+    {"query": "return policy for nike shoes", "expected": "mixed_intent"},
+    {"query": "find headphones like the ones in this image", "expected": "mixed_intent"},
+    {"query": "where is my order for macbook pro", "expected": "mixed_intent"},
+    {"query": "comfortable shoes similar to the ones in this picture", "expected": "mixed_intent"},
+    {"query": "how do I use the coupon code for samsung tv?", "expected": "mixed_intent"}
   ]
 }
