@@ -1,12 +1,12 @@
 {
-  "keyword_search": [
+  "keyword": [
     {"query": "deskjet 2734e printer ink", "expected": "keyword"},
     {"query": "samsung galaxy s21 case", "expected": "keyword"},
     {"query": "nike air max size 10", "expected": "keyword"},
     {"query": "sony wh-1000xm4 headphones", "expected": "keyword"},
     {"query": "apple macbook pro 16 inch 2023", "expected": "keyword"}
   ],
-  "semantic_search": [
+  "semantic": [
     {"query": "comfortable shoes for standing all day", "expected": "semantic"},
     {"query": "best laptop for college students", "expected": "semantic"},
     {"query": "waterproof jacket for hiking", "expected": "semantic"},
