@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """
-Test script for the query classifier
+Test the query classifier with pytest
 """
 import os
 import sys
-import json
 import pytest
 from pathlib import Path
 
@@ -13,68 +12,68 @@ project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.utils.query_classifier import classify_query
+from app.utils.query_classifier import classify_query, QueryType
 
-# Load test cases
-TEST_DATA_PATH = os.path.join(Path(__file__).parent, "test_data", "query_classifier_test_cases.json")
+# Test queries for each type
+TEST_QUERIES = {
+    QueryType.KEYWORD: [
+        "deskjet 2734e printer ink",
+        "samsung galaxy s21 case",
+        "nike air max size 10",
+        "sony wh-1000xm4 headphones",
+        "apple macbook pro 16 inch 2023"
+    ],
+    QueryType.SEMANTIC: [
+        "comfortable shoes for standing all day",
+        "best laptop for college students",
+        "waterproof jacket for hiking",
+        "noise cancelling headphones for travel",
+        "energy efficient refrigerator for small kitchen"
+    ],
+    QueryType.CUSTOMER_SUPPORT: [
+        "how do I return an item?",
+        "where is my order?",
+        "can I change my shipping address?",
+        "how do I cancel my subscription?",
+        "what is your refund policy?"
+    ],
+    QueryType.IMAGE_BASED: [
+        "items in this picture",
+        "find products similar to image",
+        "what is this product in my photo?",
+        "search using my school supply list image",
+        "identify this item from my picture"
+    ],
+    QueryType.MIXED_INTENT: [
+        "return policy for nike shoes",
+        "find headphones like the ones in this image",
+        "where is my order for macbook pro",
+        "comfortable shoes similar to the ones in this picture",
+        "how do I use the coupon code for samsung tv?"
+    ]
+}
 
-def load_test_cases():
-    """Load test cases from JSON file"""
-    if not os.path.exists(TEST_DATA_PATH):
-        pytest.skip(f"Test data file not found: {TEST_DATA_PATH}")
-    
-    with open(TEST_DATA_PATH, 'r') as f:
-        return json.load(f)
-
-@pytest.mark.parametrize("query,expected", [
-    (case["query"], case["expected"]) 
-    for category in load_test_cases().values() 
-    for case in category
+@pytest.mark.parametrize("query_type,query", [
+    (expected_type, query)
+    for expected_type, queries in TEST_QUERIES.items()
+    for query in queries
 ])
-def test_query_classification(query, expected):
+def test_query_classification(query_type, query):
     """Test that queries are classified correctly"""
     result = classify_query(query, mock=True)
-    assert result == expected, f"Query '{query}' was classified as '{result}' but expected '{expected}'"
+    assert result == query_type, f"Expected {query_type.name} for '{query}', got {result.name}"
 
-# Test specific categories
-@pytest.mark.parametrize("query", [case["query"] for case in load_test_cases().get("keyword_search", [])])
-def test_keyword_search_queries(query):
-    """Test that keyword search queries are classified correctly"""
-    result = classify_query(query, mock=True)
-    assert result == "keyword", f"Keyword query '{query}' was classified as '{result}'"
-
-@pytest.mark.parametrize("query", [case["query"] for case in load_test_cases().get("semantic_search", [])])
-def test_semantic_search_queries(query):
-    """Test that semantic search queries are classified correctly"""
-    result = classify_query(query, mock=True)
-    assert result == "semantic", f"Semantic query '{query}' was classified as '{result}'"
-
-@pytest.mark.parametrize("query", [case["query"] for case in load_test_cases().get("customer_support", [])])
-def test_customer_support_queries(query):
-    """Test that customer support queries are classified correctly"""
-    result = classify_query(query, mock=True)
-    assert result == "customer_support", f"Customer support query '{query}' was classified as '{result}'"
-
-@pytest.mark.parametrize("query", [case["query"] for case in load_test_cases().get("image_based", [])])
-def test_image_based_queries(query):
-    """Test that image-based queries are classified correctly"""
-    result = classify_query(query, mock=True)
-    assert result == "image_based", f"Image-based query '{query}' was classified as '{result}'"
-
-if __name__ == "__main__":
-    # Run tests directly
-    test_cases = load_test_cases()
+def test_overall_accuracy():
+    """Test the overall accuracy of the classifier"""
+    total = 0
+    correct = 0
     
-    print(f"Testing {sum(len(category) for category in test_cases.values())} queries")
-    
-    for category, cases in test_cases.items():
-        print(f"\nTesting {category} queries:")
-        for case in cases:
-            query = case["query"]
-            expected = case["expected"]
+    for expected_type, queries in TEST_QUERIES.items():
+        for query in queries:
+            total += 1
             result = classify_query(query, mock=True)
-            
-            if result == expected:
-                print(f"✓ '{query}' -> {result}")
-            else:
-                print(f"✗ '{query}' -> {result} (expected {expected})")
+            if result == expected_type:
+                correct += 1
+    
+    accuracy = correct / total * 100 if total > 0 else 0
+    assert accuracy >= 90, f"Overall accuracy is {accuracy:.2f}%, expected at least 90%"

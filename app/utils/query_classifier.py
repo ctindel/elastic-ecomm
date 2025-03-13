@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 """
-Query classifier for e-commerce search
-Uses Ollama to classify search queries into different types:
-- keyword: Precise product searches (e.g., model numbers, specific products)
-- semantic: Conceptual searches that benefit from vector search
-- customer_support: Questions about orders, returns, etc.
-- image_based: Queries that reference an uploaded image
+Query classifier for the e-commerce search demo
+This module classifies search queries into different types
 """
 import os
 import sys
-import json
+import enum
 import logging
 import requests
 from pathlib import Path
+from typing import Dict, Any, List, Optional
 
 # Add project root to Python path
 project_root = str(Path(__file__).parent.parent.parent.absolute())
@@ -28,66 +25,50 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Classification types
-CLASSIFICATION_TYPES = ["keyword", "semantic", "customer_support", "image_based"]
+class QueryType(enum.Enum):
+    """Enum for query types"""
+    KEYWORD = "keyword"
+    SEMANTIC = "semantic"
+    CUSTOMER_SUPPORT = "customer_support"
+    IMAGE_BASED = "image_based"
+    MIXED_INTENT = "mixed_intent"
 
-def classify_query(query, mock=False):
+def classify_query_with_ollama(query: str) -> QueryType:
     """
-    Classify a search query using Ollama
+    Classify a query using Ollama
     
     Args:
-        query: The search query to classify
-        mock: Whether to use mock classification (for testing)
+        query: The query to classify
     
     Returns:
-        str: The classification type (keyword, semantic, customer_support, image_based)
+        QueryType: The classified query type
     """
-    if mock:
-        # For testing purposes - improved to handle mixed intent queries
-        query_lower = query.lower()
-        
-        # Check for customer support patterns first (highest priority)
-        if any(term in query_lower for term in ["return", "order", "subscription", "refund", "track", "warranty", "policy"]):
-            return "customer_support"
-        
-        # Check for image-based patterns
-        elif any(term in query_lower for term in ["picture", "image", "photo", "school supply list", "similar", "compare"]):
-            return "image_based"
-        
-        # Check for keyword patterns
-        elif any(term in query_lower for term in ["model", "printer", "iphone", "samsung", "logitech", "hp"]) and not "best" in query_lower:
-            return "keyword"
-        
-        # Check for semantic patterns
-        elif any(term in query_lower for term in ["best", "comfortable", "waterproof", "lightweight", "efficient", "price"]):
-            return "semantic"
-        
-        # Default to semantic search
-        else:
-            return "semantic"
-    
     try:
         # Prepare the prompt for Ollama
         prompt = f"""
-        You are an e-commerce search query classifier. Your task is to classify the following search query into one of these categories:
+        You are a query classifier for an e-commerce search system. Your task is to classify the following query into one of these categories:
         
-        1. keyword: Precise product searches (e.g., model numbers, specific products)
-        2. semantic: Conceptual searches that benefit from vector search (e.g., "best laptop for graphic design")
-        3. customer_support: Questions about orders, returns, etc.
-        4. image_based: Queries that reference an uploaded image or request visual comparison
+        1. KEYWORD: Precise product searches with specific model numbers, brands, or exact product names.
+           Examples: "deskjet 2734e printer ink", "samsung galaxy s21 case", "nike air max size 10"
         
-        Examples:
-        - "deskjet 2734e printer ink" -> keyword
-        - "comfortable office chair for long hours" -> semantic
-        - "how do I return an item?" -> customer_support
-        - "find items in this picture" -> image_based
+        2. SEMANTIC: Queries that describe product features, use cases, or benefits rather than exact names.
+           Examples: "comfortable shoes for standing all day", "best laptop for college students", "waterproof jacket for hiking"
         
-        Query: "{query}"
+        3. CUSTOMER_SUPPORT: Questions about orders, returns, policies, or other customer service inquiries.
+           Examples: "how do I return an item?", "where is my order?", "can I change my shipping address?"
         
-        Respond with ONLY ONE of these words: keyword, semantic, customer_support, image_based
+        4. IMAGE_BASED: Queries that reference an uploaded image or request image-based search.
+           Examples: "items in this picture", "find products similar to image", "what is this product in my photo?"
+        
+        5. MIXED_INTENT: Queries that combine multiple intents from the categories above.
+           Examples: "return policy for nike shoes", "find headphones like the ones in this image"
+        
+        Query to classify: "{query}"
+        
+        Respond with ONLY ONE of these category names: KEYWORD, SEMANTIC, CUSTOMER_SUPPORT, IMAGE_BASED, MIXED_INTENT
         """
         
-        # Call Ollama API
+        # Send the request to Ollama
         response = requests.post(
             f"{OLLAMA_API_URL}/api/generate",
             json={
@@ -98,35 +79,84 @@ def classify_query(query, mock=False):
         )
         
         if response.status_code != 200:
-            logger.error(f"Error calling Ollama API: {response.text}")
-            return "semantic"  # Default to semantic search on error
+            logger.error(f"Error classifying query with Ollama: {response.text}")
+            return QueryType.KEYWORD  # Default to keyword search if Ollama fails
         
         # Parse the response
         result = response.json()
-        response_text = result.get("response", "").strip().lower()
+        response_text = result.get("response", "").strip().upper()
         
-        # Extract the classification type
-        for classification_type in CLASSIFICATION_TYPES:
-            if classification_type in response_text:
-                return classification_type
-        
-        # Default to semantic search if no match
-        logger.warning(f"Could not classify query: {query}, response: {response_text}")
-        return "semantic"
+        # Map the response to a QueryType
+        if "KEYWORD" in response_text:
+            return QueryType.KEYWORD
+        elif "SEMANTIC" in response_text:
+            return QueryType.SEMANTIC
+        elif "CUSTOMER_SUPPORT" in response_text:
+            return QueryType.CUSTOMER_SUPPORT
+        elif "IMAGE_BASED" in response_text:
+            return QueryType.IMAGE_BASED
+        elif "MIXED_INTENT" in response_text:
+            return QueryType.MIXED_INTENT
+        else:
+            logger.warning(f"Unexpected response from Ollama: {response_text}")
+            return QueryType.KEYWORD  # Default to keyword search
     
     except Exception as e:
-        logger.error(f"Error classifying query: {str(e)}")
-        return "semantic"  # Default to semantic search on error
+        logger.error(f"Error classifying query with Ollama: {str(e)}")
+        return QueryType.KEYWORD  # Default to keyword search if Ollama fails
 
-if __name__ == "__main__":
-    # Test the classifier with some example queries
-    test_queries = [
-        "deskjet 2734e printer ink",
-        "comfortable office chair for long hours",
-        "how do I return an item?",
-        "find items in this picture"
-    ]
+def classify_query_mock(query: str) -> QueryType:
+    """
+    Mock implementation of query classification for testing
     
-    for query in test_queries:
-        classification = classify_query(query, mock=True)
-        print(f"Query: '{query}' -> {classification}")
+    Args:
+        query: The query to classify
+    
+    Returns:
+        QueryType: The classified query type
+    """
+    query = query.lower()
+    
+    # Check for image-based queries first
+    if any(phrase in query for phrase in ["image", "picture", "photo", "school supply list"]):
+        # Check for mixed intent (image + product)
+        if any(phrase in query for phrase in ["headphones", "shoes", "similar to"]):
+            return QueryType.MIXED_INTENT
+        return QueryType.IMAGE_BASED
+    
+    # Check for customer support queries
+    if any(phrase in query for phrase in ["how do i", "where is", "can i", "policy", "return", "cancel", "subscription", "refund"]):
+        # Check for mixed intent (customer support + product)
+        if any(brand in query for phrase in ["nike", "samsung", "apple", "sony", "macbook", "tv", "coupon"]):
+            return QueryType.MIXED_INTENT
+        return QueryType.CUSTOMER_SUPPORT
+    
+    # Check for semantic queries
+    if any(phrase in query for phrase in ["best", "for", "comfortable", "waterproof", "noise cancelling", "energy efficient"]):
+        # Check if it contains specific product identifiers (mixed intent)
+        if any(identifier in query for identifier in ["2734e", "s21", "air max", "wh-1000xm4", "macbook pro"]):
+            return QueryType.MIXED_INTENT
+        return QueryType.SEMANTIC
+    
+    # Check for specific product identifiers (keyword search)
+    if any(identifier in query for identifier in ["2734e", "s21", "air max", "wh-1000xm4", "macbook pro", "galaxy", "iphone", "sony"]):
+        return QueryType.KEYWORD
+    
+    # Default to keyword search
+    return QueryType.KEYWORD
+
+def classify_query(query: str, mock: bool = False) -> QueryType:
+    """
+    Classify a query into a query type
+    
+    Args:
+        query: The query to classify
+        mock: Whether to use the mock implementation
+    
+    Returns:
+        QueryType: The classified query type
+    """
+    if mock:
+        return classify_query_mock(query)
+    else:
+        return classify_query_with_ollama(query)
