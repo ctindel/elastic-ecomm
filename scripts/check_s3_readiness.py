@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-Check S3 upload readiness
-This script checks if the system is ready for S3 upload
+Check S3 readiness for product image upload
+This script checks if AWS credentials are configured and if the S3 bucket is accessible
 """
 import os
 import sys
 import json
 import logging
 import argparse
+import subprocess
 from pathlib import Path
+from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
@@ -22,11 +24,10 @@ def check_aws_credentials():
     Check if AWS credentials are configured
     
     Returns:
-        bool: True if AWS credentials are configured, False otherwise
+        bool: True if credentials are configured, False otherwise
     """
     try:
         # Check if AWS CLI is installed
-        import subprocess
         process = subprocess.run(["aws", "--version"], capture_output=True, text=True)
         
         if process.returncode != 0:
@@ -40,54 +41,76 @@ def check_aws_credentials():
             logger.error("AWS credentials are not configured")
             return False
         
-        logger.info("AWS credentials are configured")
+        # Parse the response
+        response = json.loads(process.stdout)
+        
+        # Log the caller identity
+        logger.info(f"AWS credentials are configured for {response.get('Arn')}")
+        
         return True
     
     except Exception as e:
         logger.error(f"Error checking AWS credentials: {str(e)}")
         return False
 
-def check_s3_bucket(bucket_name):
+def check_s3_bucket_access(bucket_name):
     """
-    Check if S3 bucket exists and is accessible
+    Check if the S3 bucket is accessible
     
     Args:
         bucket_name: S3 bucket name
     
     Returns:
-        bool: True if S3 bucket exists and is accessible, False otherwise
+        bool: True if the bucket is accessible, False otherwise
     """
     try:
-        # Check if S3 bucket exists
-        import subprocess
+        # Check if the bucket exists
+        process = subprocess.run(["aws", "s3api", "head-bucket", "--bucket", bucket_name], capture_output=True, text=True)
+        
+        if process.returncode != 0:
+            logger.error(f"S3 bucket {bucket_name} is not accessible: {process.stderr}")
+            return False
+        
+        # Check if we can list objects in the bucket
         process = subprocess.run(["aws", "s3", "ls", f"s3://{bucket_name}"], capture_output=True, text=True)
         
         if process.returncode != 0:
-            logger.error(f"S3 bucket {bucket_name} does not exist or is not accessible")
+            logger.error(f"Cannot list objects in S3 bucket {bucket_name}: {process.stderr}")
             return False
         
-        logger.info(f"S3 bucket {bucket_name} exists and is accessible")
+        logger.info(f"S3 bucket {bucket_name} is accessible")
+        
         return True
     
     except Exception as e:
-        logger.error(f"Error checking S3 bucket: {str(e)}")
+        logger.error(f"Error checking S3 bucket access: {str(e)}")
         return False
 
-def check_image_generation_status(images_dir):
+def check_image_generation_completion(images_dir, products_file):
     """
-    Check the status of image generation
+    Check if image generation is complete
     
     Args:
         images_dir: Directory containing product images
+        products_file: Path to the product catalog file
     
     Returns:
-        dict: Status data
+        bool: True if image generation is complete, False otherwise
     """
     try:
         # Check if the images directory exists
         if not os.path.exists(images_dir):
             logger.error(f"Images directory {images_dir} does not exist")
-            return None
+            return False
+        
+        # Check if the products file exists
+        if not os.path.exists(products_file):
+            logger.error(f"Products file {products_file} does not exist")
+            return False
+        
+        # Load product catalog
+        with open(products_file, "r") as f:
+            products = json.load(f)
         
         # Get all image files
         image_files = []
@@ -96,81 +119,92 @@ def check_image_generation_status(images_dir):
                 if file.lower().endswith(('.jpg', '.jpeg', '.png', '.gif')):
                     image_files.append(os.path.join(root, file))
         
-        # Calculate total size
-        total_size = sum(os.path.getsize(image_file) for image_file in image_files)
+        # Get product IDs
+        product_ids = [product.get("id") for product in products if product.get("id")]
         
-        # Create status data
-        status = {
-            "total_images": len(image_files),
-            "total_size_bytes": total_size,
-            "total_size_mb": total_size / (1024 * 1024),
-            "average_size_mb": total_size / (1024 * 1024) / len(image_files) if image_files else 0,
-            "is_complete": len(image_files) >= 100  # Assuming 100 images for the test batch
-        }
+        # Calculate completion percentage
+        total_products = len(product_ids)
+        total_images = len(image_files)
+        completion_percentage = (total_images / total_products) * 100 if total_products > 0 else 0
         
-        return status
+        logger.info(f"Image generation is {completion_percentage:.2f}% complete ({total_images}/{total_products} images)")
+        
+        return total_images >= total_products
     
     except Exception as e:
-        logger.error(f"Error checking image generation status: {str(e)}")
-        return None
+        logger.error(f"Error checking image generation completion: {str(e)}")
+        return False
 
-def check_s3_readiness(bucket_name=None, images_dir="data/images"):
+def generate_readiness_report(bucket_name, images_dir, products_file, output_file="data/s3_readiness_report.json"):
     """
-    Check if the system is ready for S3 upload
+    Generate a report about S3 upload readiness
     
     Args:
         bucket_name: S3 bucket name
         images_dir: Directory containing product images
+        products_file: Path to the product catalog file
+        output_file: Output file for the report
     
     Returns:
-        dict: Readiness data
+        dict: Readiness report
     """
     try:
         # Check AWS credentials
-        aws_credentials = check_aws_credentials()
+        aws_credentials_ready = check_aws_credentials()
         
-        # Check S3 bucket if provided
-        s3_bucket = check_s3_bucket(bucket_name) if bucket_name else False
+        # Check S3 bucket access
+        s3_bucket_ready = check_s3_bucket_access(bucket_name) if aws_credentials_ready else False
         
-        # Check image generation status
-        image_status = check_image_generation_status(images_dir)
+        # Check image generation completion
+        image_generation_ready = check_image_generation_completion(images_dir, products_file)
         
-        # Create readiness data
-        readiness = {
-            "aws_credentials": aws_credentials,
-            "s3_bucket": s3_bucket,
-            "image_status": image_status,
-            "is_ready": aws_credentials and s3_bucket and image_status and image_status["is_complete"]
+        # Create report
+        report = {
+            "timestamp": datetime.now().isoformat(),
+            "aws_credentials_ready": aws_credentials_ready,
+            "s3_bucket_ready": s3_bucket_ready,
+            "image_generation_ready": image_generation_ready,
+            "overall_ready": aws_credentials_ready and s3_bucket_ready and image_generation_ready,
+            "next_steps": []
         }
         
-        return readiness
+        # Add next steps
+        if not aws_credentials_ready:
+            report["next_steps"].append("Configure AWS credentials using `aws configure`")
+        
+        if not s3_bucket_ready and aws_credentials_ready:
+            report["next_steps"].append(f"Check if S3 bucket {bucket_name} exists and if you have the necessary permissions")
+        
+        if not image_generation_ready:
+            report["next_steps"].append("Wait for image generation to complete")
+        
+        if report["overall_ready"]:
+            report["next_steps"].append(f"Run `python scripts/s3/upload_to_s3.py --manifest-file data/s3_upload_manifest.json --bucket-name {bucket_name}`")
+        
+        # Save report
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+        with open(output_file, "w") as f:
+            json.dump(report, f, indent=2)
+        
+        logger.info(f"Generated readiness report at {output_file}")
+        
+        return report
     
     except Exception as e:
-        logger.error(f"Error checking S3 readiness: {str(e)}")
+        logger.error(f"Error generating readiness report: {str(e)}")
         return None
 
 def main():
     """Main entry point"""
-    parser = argparse.ArgumentParser(description="Check S3 upload readiness")
-    parser.add_argument("--bucket-name", help="S3 bucket name")
+    parser = argparse.ArgumentParser(description="Check S3 readiness for product image upload")
+    parser.add_argument("--bucket-name", required=True, help="S3 bucket name")
     parser.add_argument("--images-dir", default="data/images", help="Directory containing product images")
-    parser.add_argument("--output-file", help="Output file for the readiness data")
+    parser.add_argument("--products-file", default="data/sample_products.json", help="Path to the product catalog file")
+    parser.add_argument("--output-file", default="data/s3_readiness_report.json", help="Output file for the readiness report")
     args = parser.parse_args()
     
-    # Check S3 readiness
-    readiness = check_s3_readiness(args.bucket_name, args.images_dir)
-    
-    if readiness:
-        # Print readiness data
-        print(json.dumps(readiness, indent=2))
-        
-        # Save readiness data to file
-        if args.output_file:
-            with open(args.output_file, "w") as f:
-                json.dump(readiness, f, indent=2)
-    
-    # Return success or failure
-    return 0 if readiness and readiness["is_ready"] else 1
+    # Generate readiness report
+    generate_readiness_report(args.bucket_name, args.images_dir, args.products_file, args.output_file)
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
