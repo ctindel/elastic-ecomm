@@ -120,14 +120,14 @@ def classify_query_mock(query: str) -> QueryType:
     # Check for image-based queries first
     if any(phrase in query for phrase in ["image", "picture", "photo", "school supply list"]):
         # Check for mixed intent (image + product)
-        if any(phrase in query for phrase in ["headphones", "shoes", "similar to"]):
+        if any(word in query for word in ["headphones", "shoes", "similar to"]):
             return QueryType.MIXED_INTENT
         return QueryType.IMAGE_BASED
     
     # Check for customer support queries
     if any(phrase in query for phrase in ["how do i", "where is", "can i", "policy", "return", "cancel", "subscription", "refund"]):
         # Check for mixed intent (customer support + product)
-        if any(brand in query for phrase in ["nike", "samsung", "apple", "sony", "macbook", "tv", "coupon"]):
+        if any(word in query for word in ["nike", "samsung", "apple", "sony", "macbook", "tv", "coupon"]):
             return QueryType.MIXED_INTENT
         return QueryType.CUSTOMER_SUPPORT
     
