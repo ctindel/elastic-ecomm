@@ -184,11 +184,11 @@ async def health_check():
         logger.warning(f"Ollama health check failed: {str(e)}")
         response["ollama"]["error"] = str(e)
     
-    # Check OpenAI API key
+    # Check OpenAI API key and connectivity
     try:
-        from app.config.settings import OPENAI_API_KEY
-        openai_configured = bool(OPENAI_API_KEY)
-        response["openai"]["configured"] = openai_configured
+        from app.utils.validation import check_openai_connection
+        openai_status = check_openai_connection()
+        response["openai"] = openai_status
     except Exception as e:
         logger.warning(f"OpenAI API key check failed: {str(e)}")
         response["openai"]["error"] = str(e)

@@ -12,7 +12,7 @@ project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.utils.query_classifier import SEARCH_METHOD_BM25, SEARCH_METHOD_VECTOR, SEARCH_METHOD_CUSTOMER_SUPPORT
+from app.models.search import SearchType
 
 # Mock for the query classifier
 @pytest.fixture(autouse=True)
@@ -29,17 +29,17 @@ def mock_query_classifier():
             if any(term in query_lower for term in [
                 "printer ink", "deskjet", "iphone", "samsung tv", "inch", "qled"
             ]):
-                return SEARCH_METHOD_BM25
+                return SearchType.BM25
             
             # Customer support queries
             elif any(term in query_lower for term in [
                 "how do i", "return", "track", "order", "unsubscribe", "password"
             ]):
-                return SEARCH_METHOD_CUSTOMER_SUPPORT
+                return SearchType.CUSTOMER_SUPPORT
             
             # Default to vector search for semantic understanding
             else:
-                return SEARCH_METHOD_VECTOR
+                return SearchType.VECTOR
         
         # Set the side effect of the mock
         mock_classify.side_effect = mock_implementation
@@ -50,7 +50,7 @@ def mock_query_classifier_with_fallback():
     """
     Mock the query classifier with fallback to avoid calling Ollama during tests.
     """
-    with patch('app.utils.query_classifier.classify_query_with_fallback') as mock_classify:
+    with patch('app.utils.query_classifier.classify_query') as mock_classify:
         # Define a mock implementation that returns expected values for test queries
         def mock_implementation(query):
             query_lower = query.lower()
@@ -59,17 +59,17 @@ def mock_query_classifier_with_fallback():
             if any(term in query_lower for term in [
                 "printer ink", "deskjet", "iphone", "samsung tv", "inch", "qled"
             ]):
-                return SEARCH_METHOD_BM25
+                return SearchType.BM25
             
             # Customer support queries
             elif any(term in query_lower for term in [
                 "how do i", "return", "track", "order", "unsubscribe", "password"
             ]):
-                return SEARCH_METHOD_CUSTOMER_SUPPORT
+                return SearchType.CUSTOMER_SUPPORT
             
             # Default to vector search for semantic understanding
             else:
-                return SEARCH_METHOD_VECTOR
+                return SearchType.VECTOR
         
         # Set the side effect of the mock
         mock_classify.side_effect = mock_implementation
@@ -80,6 +80,6 @@ def mock_ollama_connection():
     """
     Mock the Ollama connection check to avoid calling Ollama during tests.
     """
-    with patch('app.utils.query_classifier.check_ollama_connection') as mock_check:
+    with patch('app.utils.embedding.check_ollama_connection') as mock_check:
         mock_check.return_value = True
         yield mock_check

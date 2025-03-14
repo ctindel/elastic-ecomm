@@ -14,7 +14,7 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 from app.utils.embedding import get_text_embedding, get_image_embedding, check_ollama_connection
-from app.config.settings import OLLAMA_HOST, OLLAMA_MODEL
+from app.config.settings import OLLAMA_API_URL, OLLAMA_MODEL
 
 # Skip all tests if Ollama is not available
 pytestmark = pytest.mark.skipif(
