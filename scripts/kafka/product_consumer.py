@@ -82,84 +82,105 @@ def check_ollama_available(ollama_url):
         ollama_circuit_breaker.record_failure()
         return False
 
-def generate_text_embedding(text, ollama_url, ollama_model):
-    """Generate vector embedding for text using Ollama"""
-    try:
-        if not ollama_circuit_breaker.allow_request():
-            logger.warning("Ollama circuit breaker is open, skipping embedding generation")
-            return None
-        
-        payload = {
-            "model": ollama_model,
-            "prompt": text
-        }
-        
-        response = requests.post(f"{ollama_url}/api/embeddings", json=payload, timeout=30)
-        
-        if response.status_code == 200:
-            embedding = response.json().get("embedding")
-            ollama_circuit_breaker.record_success()
-            return embedding
-        else:
-            logger.error(f"Error generating embedding: {response.status_code} - {response.text}")
+def generate_text_embedding(text, ollama_url, ollama_model, max_retries=10, retry_delay=5):
+    """Generate vector embedding for text using Ollama with retries"""
+    retries = 0
+    while True:  # Retry indefinitely until successful
+        try:
+            if not ollama_circuit_breaker.allow_request():
+                logger.warning("Ollama circuit breaker is open, waiting before retry")
+                time.sleep(retry_delay)
+                continue
+            
+            payload = {
+                "model": ollama_model,
+                "prompt": text
+            }
+            
+            response = requests.post(f"{ollama_url}/api/embeddings", json=payload, timeout=30)
+            
+            if response.status_code == 200:
+                embedding = response.json().get("embedding")
+                ollama_circuit_breaker.record_success()
+                return embedding
+            else:
+                logger.error(f"Error generating embedding: {response.status_code} - {response.text}")
+                ollama_circuit_breaker.record_failure()
+                retries += 1
+                logger.warning(f"Retrying embedding generation (attempt {retries})")
+                time.sleep(retry_delay)
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Request error generating embedding: {e}")
             ollama_circuit_breaker.record_failure()
-            return None
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Request error generating embedding: {e}")
-        ollama_circuit_breaker.record_failure()
-        return None
-    except Exception as e:
-        logger.error(f"Error generating embedding: {e}")
-        ollama_circuit_breaker.record_failure()
-        return None
+            retries += 1
+            logger.warning(f"Retrying embedding generation after request error (attempt {retries})")
+            time.sleep(retry_delay)
+        except Exception as e:
+            logger.error(f"Error generating embedding: {e}")
+            ollama_circuit_breaker.record_failure()
+            retries += 1
+            logger.warning(f"Retrying embedding generation after error (attempt {retries})")
+            time.sleep(retry_delay)
 
-def generate_image_embedding(image_path, ollama_url, ollama_model):
-    """Generate vector embedding for image using Ollama"""
+def generate_image_embedding(image_path, ollama_url, ollama_model, max_retries=10, retry_delay=5):
+    """Generate vector embedding for image using Ollama with retries"""
+    retries = 0
+    
+    # Check if image exists
+    if not os.path.exists(image_path):
+        logger.error(f"Image not found: {image_path}")
+        return None
+    
+    # Read image file as base64
     try:
-        if not ollama_circuit_breaker.allow_request():
-            logger.warning("Ollama circuit breaker is open, skipping image embedding generation")
-            return None
-        
-        # Check if image exists
-        if not os.path.exists(image_path):
-            logger.error(f"Image not found: {image_path}")
-            return None
-        
-        # Read image file as base64
         with open(image_path, "rb") as f:
             image_data = base64.b64encode(f.read()).decode("utf-8")
-        
-        # Generate embedding using Ollama
-        payload = {
-            "model": ollama_model,
-            "prompt": "",
-            "image_data": f"data:image/jpeg;base64,{image_data}"
-        }
-        
-        response = requests.post(f"{ollama_url}/api/embeddings", json=payload, timeout=60)
-        
-        if response.status_code == 200:
-            embedding = response.json().get("embedding")
-            ollama_circuit_breaker.record_success()
-            return embedding
-        else:
-            logger.error(f"Error generating image embedding: {response.status_code} - {response.text}")
-            ollama_circuit_breaker.record_failure()
-            return None
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Request error generating image embedding: {e}")
-        ollama_circuit_breaker.record_failure()
-        return None
     except Exception as e:
-        logger.error(f"Error generating image embedding: {e}")
-        ollama_circuit_breaker.record_failure()
+        logger.error(f"Error reading image file: {e}")
         return None
+    
+    while True:  # Retry indefinitely until successful
+        try:
+            if not ollama_circuit_breaker.allow_request():
+                logger.warning("Ollama circuit breaker is open, waiting before retry")
+                time.sleep(retry_delay)
+                continue
+            
+            # Generate embedding using Ollama
+            payload = {
+                "model": ollama_model,
+                "prompt": "",
+                "image_data": f"data:image/jpeg;base64,{image_data}"
+            }
+            
+            response = requests.post(f"{ollama_url}/api/embeddings", json=payload, timeout=60)
+            
+            if response.status_code == 200:
+                embedding = response.json().get("embedding")
+                ollama_circuit_breaker.record_success()
+                return embedding
+            else:
+                logger.error(f"Error generating image embedding: {response.status_code} - {response.text}")
+                ollama_circuit_breaker.record_failure()
+                retries += 1
+                logger.warning(f"Retrying image embedding generation (attempt {retries})")
+                time.sleep(retry_delay)
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Request error generating image embedding: {e}")
+            ollama_circuit_breaker.record_failure()
+            retries += 1
+            logger.warning(f"Retrying image embedding generation after request error (attempt {retries})")
+            time.sleep(retry_delay)
+        except Exception as e:
+            logger.error(f"Error generating image embedding: {e}")
+            ollama_circuit_breaker.record_failure()
+            retries += 1
+            logger.warning(f"Retrying image embedding generation after error (attempt {retries})")
+            time.sleep(retry_delay)
 
-def generate_mock_embedding(size=384):
-    """Generate a mock vector embedding for testing"""
-    return [random.uniform(-1, 1) for _ in range(size)]
+# Mock embedding generation has been removed to ensure we always use real embeddings from Ollama
 
-def index_product(es, product, ollama_url, ollama_model, use_mock=False):
+def index_product(es, product, ollama_url, ollama_model):
     """Index a product in Elasticsearch"""
     try:
         if not es_circuit_breaker.allow_request():
@@ -171,14 +192,12 @@ def index_product(es, product, ollama_url, ollama_model, use_mock=False):
             # Combine name and description for better embedding
             text = f"{product.get('name', '')} {product.get('description', '')}"
             
-            if use_mock:
-                product["text_embedding"] = generate_mock_embedding()
-                logger.info(f"Generated mock text embedding for product {product['id']}")
-            else:
-                product["text_embedding"] = generate_text_embedding(text, ollama_url, ollama_model)
-                if not product["text_embedding"]:
-                    logger.error(f"Failed to generate text embedding for product {product['id']}")
-                    return False
+            # Generate embedding with retries
+            product["text_embedding"] = generate_text_embedding(text, ollama_url, ollama_model)
+            if not product["text_embedding"]:
+                logger.error(f"Failed to generate text embedding for product {product['id']}")
+                return False
+            logger.info(f"Generated text embedding for product {product['id']}")
         
         # Index the product
         result = es.index(index="products", document=product, id=product["id"])
@@ -308,7 +327,7 @@ def send_to_dead_letter_queue(record, error, topic):
         if os.path.exists(temp_file):
             os.remove(temp_file)
 
-def process_product(record, es, ollama_url, ollama_model, use_mock=False):
+def process_product(record, es, ollama_url, ollama_model):
     """Process a product record from Kafka"""
     try:
         # Check if this is a retry
@@ -321,7 +340,7 @@ def process_product(record, es, ollama_url, ollama_model, use_mock=False):
             return True
         
         # Index the product
-        success = index_product(es, record, ollama_url, ollama_model, use_mock)
+        success = index_product(es, record, ollama_url, ollama_model)
         
         if not success and retry_count < 5:
             logger.warning(f"Failed to index product {record.get('id')}, sending to retry topic")
@@ -336,7 +355,7 @@ def process_product(record, es, ollama_url, ollama_model, use_mock=False):
             send_to_dead_letter_queue(record, str(e), "products")
         return False
 
-def process_product_image(record, es, ollama_url, ollama_model, use_mock=False):
+def process_product_image(record, es, ollama_url, ollama_model):
     """Process a product image record from Kafka"""
     try:
         # Check if this is a retry
@@ -357,12 +376,8 @@ def process_product_image(record, es, ollama_url, ollama_model, use_mock=False):
             send_to_dead_letter_queue(record, "Missing product_id or image_path", "product-images")
             return False
         
-        # Generate image embedding
-        if use_mock:
-            image_embedding = generate_mock_embedding()
-            logger.info(f"Generated mock image embedding for product {product_id}")
-        else:
-            image_embedding = generate_image_embedding(image_path, ollama_url, ollama_model)
+        # Generate image embedding with retries
+        image_embedding = generate_image_embedding(image_path, ollama_url, ollama_model)
         
         if not image_embedding:
             logger.error(f"Failed to generate image embedding for product {product_id}")
@@ -371,6 +386,8 @@ def process_product_image(record, es, ollama_url, ollama_model, use_mock=False):
             else:
                 send_to_dead_letter_queue(record, "Failed to generate image embedding", "product-images")
             return False
+        
+        logger.info(f"Generated image embedding for product {product_id}")
         
         # Update product with image embedding
         success = update_product_image_embedding(es, product_id, image_embedding)
@@ -389,7 +406,7 @@ def process_product_image(record, es, ollama_url, ollama_model, use_mock=False):
         return False
 
 def consume_from_topic(topic, max_messages=None, es_host="http://localhost:9200", 
-                      ollama_host="http://localhost:11434", ollama_model="llama3", use_mock=False):
+                      ollama_host="http://localhost:11434", ollama_model="llama3"):
     """Consume messages from a Kafka topic"""
     logger.info(f"Starting consumer for topic {topic}")
     
@@ -399,12 +416,11 @@ def consume_from_topic(topic, max_messages=None, es_host="http://localhost:9200"
         logger.error("Could not connect to Elasticsearch, exiting")
         return 0, 0, 0
     
-    # Check if Ollama is available (if not using mock)
-    if not use_mock:
-        ollama_available = check_ollama_available(ollama_host)
-        if not ollama_available:
-            logger.warning("Ollama is not available, using mock embeddings instead")
-            use_mock = True
+    # Check if Ollama is available
+    ollama_available = check_ollama_available(ollama_host)
+    if not ollama_available:
+        logger.warning("Ollama is not available, will retry until it becomes available")
+        # We'll continue and let the retry mechanism handle it
     
     # Use kafka-console-consumer to get messages
     cmd = f"docker exec -i kafka kafka-console-consumer --bootstrap-server localhost:9092 --topic {topic} --from-beginning"
@@ -445,9 +461,9 @@ def consume_from_topic(topic, max_messages=None, es_host="http://localhost:9200"
                         
                         # Process based on topic
                         if topic == "products":
-                            success = process_product(record, es, ollama_host, ollama_model, use_mock)
+                            success = process_product(record, es, ollama_host, ollama_model)
                         elif topic == "product-images":
-                            success = process_product_image(record, es, ollama_host, ollama_model, use_mock)
+                            success = process_product_image(record, es, ollama_host, ollama_model)
                         else:
                             logger.warning(f"Unknown topic: {topic}")
                             success = False
@@ -492,19 +508,18 @@ def main():
     parser.add_argument("--es-host", default="http://localhost:9200", help="Elasticsearch host")
     parser.add_argument("--ollama-host", default="http://localhost:11434", help="Ollama host")
     parser.add_argument("--ollama-model", default="llama3", help="Ollama model to use for embeddings")
-    parser.add_argument("--use-mock", action="store_true", help="Use mock embeddings instead of Ollama")
     args = parser.parse_args()
     
     # Consume from topics
     if args.topic == "all":
         # Consume from products topic first
         products_count, products_success, products_failure = consume_from_topic(
-            "products", args.max_messages, args.es_host, args.ollama_host, args.ollama_model, args.use_mock
+            "products", args.max_messages, args.es_host, args.ollama_host, args.ollama_model
         )
         
         # Then consume from product-images topic
         images_count, images_success, images_failure = consume_from_topic(
-            "product-images", args.max_messages, args.es_host, args.ollama_host, args.ollama_model, args.use_mock
+            "product-images", args.max_messages, args.es_host, args.ollama_host, args.ollama_model
         )
         
         # Log overall stats
@@ -516,7 +531,7 @@ def main():
     else:
         # Consume from specified topic
         count, success, failure = consume_from_topic(
-            args.topic, args.max_messages, args.es_host, args.ollama_host, args.ollama_model, args.use_mock
+            args.topic, args.max_messages, args.es_host, args.ollama_host, args.ollama_model
         )
         
         logger.info(f"Overall stats: {count} messages processed, {success} successful, {failure} failed")

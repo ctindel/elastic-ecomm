@@ -105,16 +105,12 @@ def run_producer(products_file="data/products.json", images_dir="data/images", b
         logger.error(f"Error running producer: {e}")
         return False
 
-def run_consumer(topic="all", max_messages=None, use_mock=True):
+def run_consumer(topic="all", max_messages=None):
     """Run the Kafka consumer to process product data"""
     try:
         logger.info(f"Running Kafka consumer for topic {topic}...")
         
-        # Use mock consumer if Ollama is not available
-        if use_mock:
-            cmd = f"python scripts/kafka/mock_product_consumer.py --topic {topic}"
-        else:
-            cmd = f"python scripts/kafka/product_consumer.py --topic {topic}"
+        cmd = f"python scripts/kafka/product_consumer.py --topic {topic}"
         
         if max_messages:
             cmd += f" --max-messages {max_messages}"
@@ -180,8 +176,15 @@ def check_ollama_available():
             capture_output=True,
             text=True
         )
-        return response.returncode == 0 and response.stdout.strip() != ""
-    except Exception:
+        is_available = response.returncode == 0 and response.stdout.strip() != ""
+        if is_available:
+            logger.info("Ollama is available")
+        else:
+            logger.warning("Ollama is not available, but consumer will retry indefinitely")
+        return is_available
+    except Exception as e:
+        logger.error(f"Error checking Ollama availability: {e}")
+        logger.warning("Ollama is not available, but consumer will retry indefinitely")
         return False
 
 def main():
@@ -197,14 +200,12 @@ def main():
     parser.add_argument("--skip-consumer", action="store_true", help="Skip running the consumer")
     parser.add_argument("--skip-retry", action="store_true", help="Skip running the retry processor")
     parser.add_argument("--topic", choices=["products", "product-images", "all"], default="all", help="Kafka topic to consume from")
-    parser.add_argument("--use-mock", action="store_true", help="Use mock consumer instead of real consumer")
     args = parser.parse_args()
     
     # Check if Ollama is available
     ollama_available = check_ollama_available()
-    if not ollama_available and not args.use_mock:
-        logger.warning("Ollama is not available. Using mock consumer instead.")
-        args.use_mock = True
+    if not ollama_available:
+        logger.warning("Ollama is not available, but consumer will retry indefinitely until it becomes available")
     
     # Count products and images before ingestion
     product_count = count_products_in_file(args.products_file)
@@ -237,7 +238,7 @@ def main():
     
     # Run consumer
     if not args.skip_consumer:
-        if not run_consumer(args.topic, args.max_messages, args.use_mock):
+        if not run_consumer(args.topic, args.max_messages):
             logger.error("Failed to run consumer")
             return 1
     
