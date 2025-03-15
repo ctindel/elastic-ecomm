@@ -149,7 +149,7 @@ def process_batch(batch, batch_num, total_batches, start_index):
     
     return results
 
-def generate_images_parallel(start_index=6, num_workers=4, batch_size=10):
+def generate_images_parallel(start_index=6, num_workers=2, batch_size=5):
     """Generate images for all remaining products in parallel"""
     # Load products
     with open("data/products.json", "r") as f:
@@ -159,6 +159,26 @@ def generate_images_parallel(start_index=6, num_workers=4, batch_size=10):
         logger.error("No products found in data/products.json")
         return
     
+    # Count existing images to determine actual start index
+    image_dir = Path("data/images")
+    existing_images = list(image_dir.glob("product_*.png"))
+    logger.info(f"Found {len(existing_images)} existing images")
+    
+    # If we have existing images, update the start index to continue from where we left off
+    if len(existing_images) > 0:
+        # Get the highest index of existing images
+        existing_indices = []
+        for product_idx, product in enumerate(products):
+            product_id = product['id']
+            image_path = image_dir / f"product_{product_id}.png"
+            if image_path.exists():
+                existing_indices.append(product_idx)
+        
+        if existing_indices:
+            max_existing_index = max(existing_indices)
+            start_index = max_existing_index + 1
+            logger.info(f"Continuing from index {start_index} based on existing images")
+    
     # Calculate total remaining products
     total_remaining = len(products) - start_index
     
@@ -167,6 +187,7 @@ def generate_images_parallel(start_index=6, num_workers=4, batch_size=10):
         return
     
     logger.info(f"Generating images for {total_remaining} remaining products using {num_workers} parallel workers")
+    logger.info(f"Using smaller batch size ({batch_size}) and fewer workers ({num_workers}) to avoid rate limits")
     
     # Process in batches to avoid overwhelming the API
     num_batches = (total_remaining + batch_size - 1) // batch_size  # Ceiling division
@@ -178,18 +199,38 @@ def generate_images_parallel(start_index=6, num_workers=4, batch_size=10):
         batch_end = min(batch_start + batch_size, len(products))
         batches.append((products[batch_start:batch_end], batch_num, num_batches, batch_start))
     
-    # Process batches in parallel
+    # Process batches in parallel with rate limiting
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
-        futures = {executor.submit(process_batch, *batch): batch for batch in batches}
+        futures = {}
         
+        # Submit initial batches (equal to number of workers)
+        for i in range(min(num_workers, len(batches))):
+            if i < len(batches):
+                futures[executor.submit(process_batch, *batches[i])] = batches[i]
+        
+        # Process remaining batches with controlled submission
+        next_batch_idx = num_workers
         for future in as_completed(futures):
             batch = futures[future]
             try:
                 results = future.result()
                 batch_num = batch[1]
                 logger.info(f"Batch {batch_num+1}/{num_batches} completed. Generated {len(results)} images.")
+                
+                # Add a longer delay between batches to avoid rate limits
+                time.sleep(10)  # Increased from 2 to 10 seconds
+                
+                # Submit next batch if available
+                if next_batch_idx < len(batches):
+                    futures[executor.submit(process_batch, *batches[next_batch_idx])] = batches[next_batch_idx]
+                    next_batch_idx += 1
             except Exception as e:
                 logger.error(f"Batch processing error: {e}")
+                
+                # If a batch fails, still try to submit the next one
+                if next_batch_idx < len(batches):
+                    futures[executor.submit(process_batch, *batches[next_batch_idx])] = batches[next_batch_idx]
+                    next_batch_idx += 1
     
     logger.info(f"\nAll product images generated successfully!")
     return True
@@ -223,8 +264,10 @@ if __name__ == "__main__":
         logger.error("Please set it with: export OPENAI_API_KEY='your-api-key'")
         sys.exit(1)
     
-    # Number of parallel workers (adjust based on your system capabilities)
-    num_workers = 4
+    # Reduce workers and batch size to avoid rate limits
+    num_workers = 2  # Reduced from 4 to 2
+    batch_size = 5   # Reduced from 10 to 5
     
     # Generate all remaining products in parallel
-    generate_images_parallel(start_index=6, num_workers=num_workers, batch_size=10)
+    # Start index will be determined automatically based on existing images
+    generate_images_parallel(start_index=0, num_workers=num_workers, batch_size=batch_size)
