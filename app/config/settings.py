@@ -39,5 +39,5 @@ API_DEBUG = os.getenv("API_DEBUG", "True").lower() in ("true", "1", "t")
 API_RELOAD = os.getenv("API_RELOAD", "True").lower() in ("true", "1", "t")
 
 # Data generation settings
-NUM_PRODUCTS = 5000
+NUM_PRODUCTS = 10000
 NUM_PERSONAS = 5
