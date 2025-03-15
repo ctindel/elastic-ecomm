@@ -14,9 +14,8 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./docker/elasticsearch/config:/usr/share/elasticsearch/config
-      - ./docker/elasticsearch/mappings:/usr/share/elasticsearch/mappings
-      - esdata:/usr/share/elasticsearch/data
+      - ./config/elasticsearch:/usr/share/elasticsearch/config
+      - ./docker-data/elasticsearch:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -26,7 +25,7 @@ services:
   kafka:
     image: confluentinc/cp-kafka:7.3.0
     container_name: kafka
-    user: "1001:1001"
+    user: root
     depends_on:
       - zookeeper
     ports:
@@ -41,19 +40,20 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     volumes:
-      - ./docker/kafka/kafka-data:/var/lib/kafka/data
+      - ./docker-data/kafka/kafka-data:/var/lib/kafka/data
     networks:
       - elastic-ecomm
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
+    user: root
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     volumes:
-      - ./docker/kafka/zookeeper-data:/var/lib/zookeeper/data
-      - ./docker/kafka/zookeeper-log:/var/lib/zookeeper/log
+      - ./docker-data/kafka/zookeeper-data:/var/lib/zookeeper/data
+      - ./docker-data/kafka/zookeeper-log:/var/lib/zookeeper/log
     ports:
       - "2181:2181"
     networks:

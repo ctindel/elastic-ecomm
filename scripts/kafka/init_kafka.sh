@@ -7,7 +7,7 @@ set -e
 trap 'echo "Error: Command failed at line $LINENO"' ERR
 
 # Define variables
-KAFKA_HOST="kafka:9092"
+KAFKA_HOST="localhost:9092"
 KAFKA_PARTITIONS=3
 RETENTION_MS=604800000  # Standardized retention period for all topics
 
@@ -30,7 +30,7 @@ for topic in "${KAFKA_TOPICS[@]}"; do
   if [ "$topic" == "dead-letter-queue" ]; then
     partitions=1
   fi
-  docker exec -i kafka kafka-topics --create --bootstrap-server $KAFKA_HOST \
+  docker exec -i kafka kafka-topics --create --bootstrap-server kafka:9092 \
     --topic $topic \
     --partitions $partitions \
     --replication-factor 1 \
