@@ -114,6 +114,7 @@ def generate_image_for_product(product):
             # For unexpected errors, log and retry with a delay
             logger.error(f"Error generating image: {image_filename} for product ID: {product['id']} - {e}")
             # Wait before retrying
+            backoff_time = min(10 + random.uniform(0, 5), 30)
             logger.warning(f"Unexpected error for product ID: {product['id']}, filename: {image_filename}. Retrying in {backoff_time:.2f} seconds...")
             time.sleep(backoff_time)
         
