@@ -239,17 +239,17 @@ if __name__ == "__main__":
         
         if success:
             logger.info(f"Successfully generated all images for partition {partition_num}")
-            # Exit with success, but the runner script will restart us anyway
-            # to ensure we keep checking for any missed images
-            sys.exit(0)
+            # Exit with non-zero code to indicate we need to keep running
+            # This ensures the runner script will restart us to check for any missed images
+            sys.exit(1)
         else:
             logger.info(f"Not all images were generated for partition {partition_num}, will continue in next run")
-            # Exit with code 0 so the runner script doesn't think we failed
-            # This ensures we don't get stuck in a tight retry loop
-            sys.exit(0)
+            # Exit with non-zero code to ensure the runner script keeps retrying
+            # This ensures we keep trying until ALL images are generated
+            sys.exit(1)
     except Exception as e:
         # Catch any unexpected exceptions to prevent the script from crashing
         logger.error(f"Unexpected error in main: {e}")
-        # Exit with code 0 so the runner script doesn't think we failed
-        # This ensures we don't get stuck in a tight retry loop
-        sys.exit(0)
+        # Exit with non-zero code to ensure the runner script keeps retrying
+        # This ensures we keep trying until ALL images are generated
+        sys.exit(1)
