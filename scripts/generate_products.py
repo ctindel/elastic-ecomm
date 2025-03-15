@@ -478,7 +478,8 @@ def generate_product_image(product_id, category, subcategory, color=None):
     
     # Return image info
     return {
-        "url": f"data/images/{image_filename}"
+        "url": f"data/images/{image_filename}",
+        "vector_embedding": None  # Placeholder for vector embedding
     }
 
 def generate_mock_embedding(dims):
@@ -536,7 +537,8 @@ def generate_products(num_products):
             color=attributes.get("color")
         )
         
-
+        # Generate mock text embedding
+        text_embedding = generate_mock_embedding(TEXT_EMBEDDING_DIMS)
         
         # Create product object
         product = {
@@ -549,6 +551,7 @@ def generate_products(num_products):
             "brand": brand,
             "attributes": attributes,
             "image": image,
+            "text_embedding": text_embedding,
             "created_at": datetime.now().isoformat()
         }
         

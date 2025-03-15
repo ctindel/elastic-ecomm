@@ -1,0 +1,12 @@
+# Dockerfile-zookeeper
+FROM confluentinc/cp-zookeeper:7.3.0
+
+# Switch to root to set permissions
+USER root
+
+# Make /var/lib/zookeeper and /etc/zookeeper owned by UID=1001, GID=1001
+RUN chown -R 1001:1001 /var/lib/zookeeper /etc/zookeeper /etc/kafka /var/log/kafka 
+
+# Drop privileges back to non-root (UID=1001, GID=1001)
+USER 1001
+

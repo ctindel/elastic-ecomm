@@ -191,8 +191,6 @@ def index_products(es: Elasticsearch, use_ollama: bool = True):
             image_embedding = generate_mock_embedding(IMAGE_EMBEDDING_DIMS)
         
         # Update product with image embedding
-        if "vector_embedding" not in product["image"]:
-            product["image"]["vector_embedding"] = {}
         product["image"]["vector_embedding"] = image_embedding
     
     # Prepare bulk indexing actions

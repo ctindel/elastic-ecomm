@@ -1,0 +1,11 @@
+# Dockerfile-kafka
+FROM confluentinc/cp-kafka:7.3.0
+
+# Switch to root so we can change ownership
+USER root
+
+# Make /etc/kafka and /var/lib/kafka owned by UID=1001
+RUN chown -R 1001:1001 /etc/kafka /var/lib/kafka /var/log/kafka
+
+# Drop back to user 1001
+USER 1001

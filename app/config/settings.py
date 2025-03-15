@@ -37,3 +37,7 @@ API_HOST = os.getenv("API_HOST", "0.0.0.0")
 API_PORT = int(os.getenv("API_PORT", "8000"))
 API_DEBUG = os.getenv("API_DEBUG", "True").lower() in ("true", "1", "t")
 API_RELOAD = os.getenv("API_RELOAD", "True").lower() in ("true", "1", "t")
+
+# Data generation settings
+NUM_PRODUCTS = 5000
+NUM_PERSONAS = 5

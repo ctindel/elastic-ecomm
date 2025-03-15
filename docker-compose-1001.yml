@@ -24,7 +24,9 @@ services:
       - elastic-ecomm
 
   kafka:
-    image: confluentinc/cp-kafka:7.3.0
+    build:
+      context: .
+      dockerfile: Dockerfile-kafka
     container_name: kafka
     user: "1001:1001"
     depends_on:
@@ -46,8 +48,11 @@ services:
       - elastic-ecomm
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.3.0
+    build:
+      context: .
+      dockerfile: Dockerfile-zookeeper
     container_name: zookeeper
+    user: "1001:1001"
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000

@@ -6,70 +6,48 @@
 set -e
 trap 'echo "Error: Command failed at line $LINENO"' ERR
 
+# Define variables
+KAFKA_HOST="localhost:9092"
+KAFKA_PARTITIONS=3
+RETENTION_MS=604800000  # Standardized retention period for all topics
+
+# List of Kafka topics
+KAFKA_TOPICS=("products" "product-images" "products-retry" "product-images-retry" "dead-letter-queue")
+
 # Check if Kafka is running
 echo "Checking if Kafka is running..."
-docker exec -i kafka bash -c "ls" > /dev/null 2>&1
-if [ $? -ne 0 ]; then
-  echo "Error: Kafka container is not running. Please start it with docker-compose up -d"
+IFS=':' read -r KAFKA_IP KAFKA_PORT <<< "$KAFKA_HOST"
+kafka_test=$(echo "test" | nc -w 5 $KAFKA_IP $KAFKA_PORT > /dev/null 2>&1; echo $?)
+if [ $kafka_test -ne 0 ]; then
+  echo "Error: Kafka is not running or not reachable at $KAFKA_HOST. Please ensure it is started and accessible."
   exit 1
 fi
 
 # Create topics with appropriate configurations
 echo "Creating Kafka topics..."
-
-# Products topic - for product data
-docker exec -i kafka kafka-topics --create --bootstrap-server localhost:9092 \
-  --topic products \
-  --partitions 3 \
-  --replication-factor 1 \
-  --config retention.ms=604800000 \
-  --config cleanup.policy=delete \
-  --if-not-exists
-
-# Product images topic - for product image data
-docker exec -i kafka kafka-topics --create --bootstrap-server localhost:9092 \
-  --topic product-images \
-  --partitions 3 \
-  --replication-factor 1 \
-  --config retention.ms=604800000 \
-  --config cleanup.policy=delete \
-  --if-not-exists
-
-# Retry topics - for failed ingestion attempts
-docker exec -i kafka kafka-topics --create --bootstrap-server localhost:9092 \
-  --topic products-retry \
-  --partitions 3 \
-  --replication-factor 1 \
-  --config retention.ms=1209600000 \
-  --config cleanup.policy=delete \
-  --if-not-exists
-
-docker exec -i kafka kafka-topics --create --bootstrap-server localhost:9092 \
-  --topic product-images-retry \
-  --partitions 3 \
-  --replication-factor 1 \
-  --config retention.ms=1209600000 \
-  --config cleanup.policy=delete \
-  --if-not-exists
-
-# Dead letter queue - for messages that failed after max retries
-docker exec -i kafka kafka-topics --create --bootstrap-server localhost:9092 \
-  --topic dead-letter-queue \
-  --partitions 1 \
-  --replication-factor 1 \
-  --config retention.ms=2592000000 \
-  --config cleanup.policy=delete \
-  --if-not-exists
+for topic in "${KAFKA_TOPICS[@]}"; do
+  partitions=$KAFKA_PARTITIONS
+  if [ "$topic" == "dead-letter-queue" ]; then
+    partitions=1
+  fi
+  docker exec -i kafka kafka-topics --create --bootstrap-server $KAFKA_HOST \
+    --topic $topic \
+    --partitions $partitions \
+    --replication-factor 1 \
+    --config retention.ms=$RETENTION_MS \
+    --config cleanup.policy=delete \
+    --if-not-exists
+done
 
 # List created topics
 echo "Listing created topics:"
-docker exec -i kafka kafka-topics --list --bootstrap-server localhost:9092
+docker exec -i kafka kafka-topics --list --bootstrap-server $KAFKA_HOST
 
 # Describe topics to verify configurations
 echo "Verifying topic configurations:"
-for topic in products product-images products-retry product-images-retry dead-letter-queue; do
+for topic in "${KAFKA_TOPICS[@]}"; do
   echo "Topic: $topic"
-  docker exec -i kafka kafka-topics --describe --bootstrap-server localhost:9092 --topic $topic
+  docker exec -i kafka kafka-topics --describe --bootstrap-server $KAFKA_HOST --topic $topic
 done
 
 echo "Kafka initialization completed successfully!"
