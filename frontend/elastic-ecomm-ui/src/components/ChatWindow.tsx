@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import { Message, SearchResult, SearchType } from '../types';
+import { Message, SearchResult } from '../types';
 import { searchProducts, classifySearchQuery, generateSearchExplanation } from '../services/api';
 
 interface ChatWindowProps {
