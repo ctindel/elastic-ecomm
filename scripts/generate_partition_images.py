@@ -12,7 +12,6 @@ import logging
 from pathlib import Path
 import requests
 from openai import OpenAI
-from openai.types.error import APIError, RateLimitError
 
 # Configure logging
 logging.basicConfig(
@@ -122,30 +121,18 @@ def generate_image_for_product(product, client):
                 logger.info(f"Successfully generated image: {filename} for product ID: {product_id}")
                 return True
             else:
-                logger.error(f"Error downloading image: {filename} for product ID: {product_id}, status code: {image_response.status_code}")
+                logger.error(f"Error generating image: {filename} for product ID: {product_id} - HTTP error: {image_response.status_code}")
         
-        except RateLimitError as e:
-            logger.error(f"Error generating image: {filename} for product ID: {product_id} - Rate limit error: {e}")
+        except Exception as e:
+            if "rate limit" in str(e).lower():
+                logger.error(f"Error generating image: {filename} for product ID: {product_id} - Rate limit error: {e}")
+            else:
+                logger.error(f"Error generating image: {filename} for product ID: {product_id} - Exception: {e}")
+            
             delay = calculate_backoff(retry_count)
             logger.info(f"Backing off for {delay:.2f} seconds before retrying image: {filename} for product ID: {product_id}")
             time.sleep(delay)
             retry_count = min(retry_count + 1, 10)  # Cap retry count for backoff calculation
-            continue
-            
-        except APIError as e:
-            logger.error(f"Error generating image: {filename} for product ID: {product_id} - API error: {e}")
-            delay = calculate_backoff(retry_count)
-            logger.info(f"Backing off for {delay:.2f} seconds before retrying image: {filename} for product ID: {product_id}")
-            time.sleep(delay)
-            retry_count = min(retry_count + 1, 10)
-            continue
-            
-        except Exception as e:
-            logger.error(f"Error generating image: {filename} for product ID: {product_id} - Exception: {e}")
-            delay = calculate_backoff(retry_count)
-            logger.info(f"Backing off for {delay:.2f} seconds before retrying image: {filename} for product ID: {product_id}")
-            time.sleep(delay)
-            retry_count = min(retry_count + 1, 10)
             continue
 
 def generate_images_for_partition(partition_file, partition_num):
@@ -173,7 +160,6 @@ def generate_images_for_partition(partition_file, partition_num):
     # Process each product
     for product in products:
         product_id = product['id']
-        filename = f"product_{product_id}.png"
         
         # Skip if already processed in this run
         if product_id in processed_ids:
@@ -191,7 +177,7 @@ def generate_images_for_partition(partition_file, partition_num):
     missing_images = [p['id'] for p in products if not image_exists(p['id'])]
     
     if missing_images:
-        logger.warning(f"Partition {partition_num}: {len(missing_images)} products still missing images. First few: {missing_images[:5]}")
+        logger.warning(f"Partition {partition_num}: {len(missing_images)} products still missing images: {missing_images[:5]}...")
         return False
     else:
         logger.info(f"Partition {partition_num}: All {len(products)} products have images")
