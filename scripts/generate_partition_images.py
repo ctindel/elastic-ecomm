@@ -41,7 +41,7 @@ def generate_image_for_product(product):
     
     # Skip if image already exists
     if image_path.exists():
-        logger.info(f"Image already exists at {image_path}, skipping")
+        logger.info(f"Image already exists: {image_filename} for product ID: {product['id']}, skipping")
         return str(image_path)
     
     # Create a detailed prompt for the image
@@ -58,7 +58,7 @@ def generate_image_for_product(product):
     # Add style context
     prompt += f". High-quality e-commerce product image with white background, professional lighting."
     
-    logger.info(f"Generating image for: {product['name']}")
+    logger.info(f"Attempting to generate image: {image_filename} for product ID: {product['id']} - {product['name']}")
     logger.info(f"Prompt: {prompt}")
     
     # Call OpenAI API with true infinite retry logic
@@ -90,7 +90,7 @@ def generate_image_for_product(product):
             with open(image_path, "wb") as f:
                 f.write(base64.b64decode(image_data))
             
-            logger.info(f"Success! Image saved to {image_path}")
+            logger.info(f"Success! Image saved: {image_filename} for product ID: {product['id']} to {image_path}")
             return str(image_path)
         
         except requests.RequestException as e:
@@ -98,24 +98,23 @@ def generate_image_for_product(product):
             if hasattr(e, 'response') and e.response and e.response.status_code == 429:
                 # Calculate backoff time with exponential increase and jitter
                 backoff_time = min(2 ** min(attempt, 10) + random.uniform(0, 1), 60)
-                logger.warning(f"Rate limit hit. Retrying in {backoff_time:.2f} seconds... (Attempt {attempt+1}/∞)")
+                logger.warning(f"Rate limit hit for product ID: {product['id']}, filename: {image_filename}. Retrying in {backoff_time:.2f} seconds... (Attempt {attempt+1}/∞)")
                 time.sleep(backoff_time)
             else:
                 # For other request errors, log and retry with a delay
-                logger.error(f"Error generating image: {e}")
+                logger.error(f"Error generating image: {image_filename} for product ID: {product['id']} - {e}")
                 if hasattr(e, 'response') and e.response:
                     logger.error(f"Response: {e.response.text}")
                 # Wait before retrying
                 backoff_time = min(10 + random.uniform(0, 5), 30)
-                logger.warning(f"Request error. Retrying in {backoff_time:.2f} seconds...")
+                logger.warning(f"Request error for product ID: {product['id']}, filename: {image_filename}. Retrying in {backoff_time:.2f} seconds...")
                 time.sleep(backoff_time)
                 
         except Exception as e:
             # For unexpected errors, log and retry with a delay
-            logger.error(f"Unexpected error generating image: {e}")
+            logger.error(f"Error generating image: {image_filename} for product ID: {product['id']} - {e}")
             # Wait before retrying
-            backoff_time = min(10 + random.uniform(0, 5), 30)
-            logger.warning(f"Unexpected error. Retrying in {backoff_time:.2f} seconds...")
+            logger.warning(f"Unexpected error for product ID: {product['id']}, filename: {image_filename}. Retrying in {backoff_time:.2f} seconds...")
             time.sleep(backoff_time)
         
         # Increment attempt counter for backoff calculation
