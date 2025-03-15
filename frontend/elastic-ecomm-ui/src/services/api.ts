@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SearchQuery, SearchResult, SearchType } from '../types';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export const searchProducts = async (query: SearchQuery): Promise<SearchResult[]> => {
   try {
