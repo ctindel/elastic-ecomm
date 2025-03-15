@@ -27,9 +27,9 @@ project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-def generate_image_for_product(product, max_retries=10):
+def generate_image_for_product(product):
     """
-    Generate an image for a product using OpenAI's DALL-E API.
+    Generate an image for a product using OpenAI's DALL-E API with true infinite retry.
     """
     # Create directory for images if it doesn't exist
     image_dir = Path("data/images")
@@ -61,7 +61,7 @@ def generate_image_for_product(product, max_retries=10):
     logger.info(f"Generating image for: {product['name']}")
     logger.info(f"Prompt: {prompt}")
     
-    # Call OpenAI API with retry logic
+    # Call OpenAI API with true infinite retry logic
     url = "https://api.openai.com/v1/images/generations"
     headers = {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ def generate_image_for_product(product, max_retries=10):
         "response_format": "b64_json"
     }
     
-    # Implement exponential backoff with jitter - INFINITE RETRIES
+    # Implement exponential backoff with jitter - TRUE INFINITE RETRIES
     attempt = 0
     while True:  # Loop forever until we succeed or explicitly return
         try:
@@ -90,7 +90,8 @@ def generate_image_for_product(product, max_retries=10):
             with open(image_path, "wb") as f:
                 f.write(base64.b64decode(image_data))
             
-            logger.info(f"Image saved to {image_path}")
+            # Only log success for newly generated images
+            logger.info(f"Success! Generated new image for {product['name']} and saved to {image_path}")
             return str(image_path)
         
         except requests.RequestException as e:
@@ -148,6 +149,28 @@ def generate_images_for_partition(partition_file, partition_num):
                 logger.info(f"Loaded checkpoint with {len(processed_ids)} processed products")
         except Exception as e:
             logger.error(f"Error loading checkpoint: {e}")
+            # Create an empty checkpoint file to ensure we can write to it
+            try:
+                with open(checkpoint_file, "w") as f:
+                    json.dump({"processed_ids": []}, f)
+                logger.info(f"Created new empty checkpoint file at {checkpoint_file}")
+            except Exception as e2:
+                logger.error(f"Failed to create checkpoint file: {e2}")
+    else:
+        # Create an empty checkpoint file
+        try:
+            with open(checkpoint_file, "w") as f:
+                json.dump({"processed_ids": []}, f)
+            logger.info(f"Created new empty checkpoint file at {checkpoint_file}")
+        except Exception as e:
+            logger.error(f"Failed to create checkpoint file: {e}")
+    
+    # Also check for existing images in the data/images directory
+    image_dir = Path("data/images")
+    for product in products:
+        image_path = image_dir / f"product_{product['id']}.png"
+        if image_path.exists():
+            processed_ids.add(product["id"])
     
     # Filter products that haven't been processed yet
     remaining_products = [p for p in products if p["id"] not in processed_ids]
@@ -163,7 +186,7 @@ def generate_images_for_partition(partition_file, partition_num):
         image_path = generate_image_for_product(product)
         
         if image_path:
-            logger.info(f"Success! Image saved to {image_path}")
+            # Don't log success here since it's already logged in generate_image_for_product
             success_count += 1
             
             # Update checkpoint - write after each successful image generation
@@ -174,6 +197,13 @@ def generate_images_for_partition(partition_file, partition_num):
                 logger.info(f"Updated checkpoint file with {len(processed_ids)} processed products")
             except Exception as e:
                 logger.error(f"Error writing checkpoint: {e}")
+                logger.error(f"Checkpoint file path: {checkpoint_file}")
+                # Try to debug the issue
+                try:
+                    logger.info(f"Checking /tmp permissions: {os.access('/tmp', os.W_OK)}")
+                    logger.info(f"Current working directory: {os.getcwd()}")
+                except Exception as e2:
+                    logger.error(f"Error checking permissions: {e2}")
         else:
             logger.error(f"Failed to generate image for product: {product['name']}")
         
