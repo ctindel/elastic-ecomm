@@ -1,0 +1,156 @@
+2025-03-15 03:11:48,325 - INFO - === PHASE 1: Generating Office & School Supplies Images ===
+2025-03-15 03:11:48,375 - INFO - Found 1953 office and school supplies products
+2025-03-15 03:11:48,376 - INFO - Of these, 1940 don't have images yet
+2025-03-15 03:11:48,376 - INFO - Generating images for 1940 office products using 2 parallel workers
+2025-03-15 03:11:48,376 - INFO - Using batch size of 5 to avoid rate limits
+2025-03-15 03:11:48,381 - INFO - Processing product 1/5: Faber-Castell Wireless Staplers (Batch 1/388)
+2025-03-15 03:11:48,382 - INFO - Generating image for: Faber-Castell Wireless Staplers
+2025-03-15 03:11:48,382 - INFO - Processing product 6/5: Pilot Deluxe Pens & Pencils (Batch 2/388)
+2025-03-15 03:11:48,382 - INFO - Prompt: A professional product photo of a Faber-Castell Staplers, Yellow color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:11:48,382 - INFO - Generating image for: Pilot Deluxe Pens & Pencils
+2025-03-15 03:11:48,382 - INFO - Prompt: A professional product photo of a Pilot Pens & Pencils, made of Metal. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:11:59,330 - INFO - Image saved to data/images/product_7d0ce9d8-3deb-4b32-bb95-cae8627241aa.png
+2025-03-15 03:11:59,331 - INFO - Success! Image saved to data/images/product_7d0ce9d8-3deb-4b32-bb95-cae8627241aa.png
+2025-03-15 03:11:59,331 - INFO - Processing product 7/5: Zebra Advanced Printers & Ink C930 (Batch 2/388)
+2025-03-15 03:11:59,331 - INFO - Generating image for: Zebra Advanced Printers & Ink C930
+2025-03-15 03:11:59,331 - INFO - Prompt: A professional product photo of a Zebra Printers & Ink, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:02,307 - INFO - Image saved to data/images/product_667ebf12-e01b-4f59-ada6-714226a3ea1f.png
+2025-03-15 03:12:02,307 - INFO - Success! Image saved to data/images/product_667ebf12-e01b-4f59-ada6-714226a3ea1f.png
+2025-03-15 03:12:02,307 - INFO - Processing product 2/5: Sharpie Modern Calendars (Batch 1/388)
+2025-03-15 03:12:02,307 - INFO - Generating image for: Sharpie Modern Calendars
+2025-03-15 03:12:02,308 - INFO - Prompt: A professional product photo of a Sharpie Calendars, Black color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:12,034 - INFO - Image saved to data/images/product_d176903b-c580-4051-8691-d2f274ff9905.png
+2025-03-15 03:12:12,034 - INFO - Success! Image saved to data/images/product_d176903b-c580-4051-8691-d2f274ff9905.png
+2025-03-15 03:12:12,034 - INFO - Processing product 8/5: Bic Compact Calendars (Batch 2/388)
+2025-03-15 03:12:12,034 - INFO - Generating image for: Bic Compact Calendars
+2025-03-15 03:12:12,034 - INFO - Prompt: A professional product photo of a Bic Calendars, Blue color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:13,338 - INFO - Image saved to data/images/product_b607a2a9-ee48-4f0b-bfa7-08c016aedb1c.png
+2025-03-15 03:12:13,339 - INFO - Success! Image saved to data/images/product_b607a2a9-ee48-4f0b-bfa7-08c016aedb1c.png
+2025-03-15 03:12:13,339 - INFO - Processing product 3/5: Faber-Castell Portable Pens & Pencils (Batch 1/388)
+2025-03-15 03:12:13,339 - INFO - Generating image for: Faber-Castell Portable Pens & Pencils
+2025-03-15 03:12:13,339 - INFO - Prompt: A professional product photo of a Faber-Castell Pens & Pencils, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:23,781 - INFO - Image saved to data/images/product_bd2fa6c2-9d47-4f07-91a6-929ccc92f89b.png
+2025-03-15 03:12:23,781 - INFO - Success! Image saved to data/images/product_bd2fa6c2-9d47-4f07-91a6-929ccc92f89b.png
+2025-03-15 03:12:23,782 - INFO - Processing product 9/5: Staples Ultimate Printers & Ink (Batch 2/388)
+2025-03-15 03:12:23,782 - INFO - Generating image for: Staples Ultimate Printers & Ink
+2025-03-15 03:12:23,782 - INFO - Prompt: A professional product photo of a Staples Printers & Ink, Blue color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:25,592 - INFO - Image saved to data/images/product_3e7578c7-0b0d-4715-a838-514c44d62c0d.png
+2025-03-15 03:12:25,592 - INFO - Success! Image saved to data/images/product_3e7578c7-0b0d-4715-a838-514c44d62c0d.png
+2025-03-15 03:12:25,592 - INFO - Processing product 4/5: Avery Ultra Pens & Pencils J683 (Batch 1/388)
+2025-03-15 03:12:25,593 - INFO - Generating image for: Avery Ultra Pens & Pencils J683
+2025-03-15 03:12:25,593 - INFO - Prompt: A professional product photo of a Avery Pens & Pencils, Green color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:36,002 - INFO - Image saved to data/images/product_e2ae3de4-fa82-4cdd-8fb0-58cabcec5447.png
+2025-03-15 03:12:36,002 - INFO - Success! Image saved to data/images/product_e2ae3de4-fa82-4cdd-8fb0-58cabcec5447.png
+2025-03-15 03:12:36,002 - INFO - Processing product 10/5: Sharpie Premium Notebooks X581 (Batch 2/388)
+2025-03-15 03:12:36,002 - INFO - Generating image for: Sharpie Premium Notebooks X581
+2025-03-15 03:12:36,003 - INFO - Prompt: A professional product photo of a Sharpie Notebooks, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:38,465 - INFO - Image saved to data/images/product_1006d09b-d68f-4c3f-bef7-ae20e25bcb5b.png
+2025-03-15 03:12:38,465 - INFO - Success! Image saved to data/images/product_1006d09b-d68f-4c3f-bef7-ae20e25bcb5b.png
+2025-03-15 03:12:38,466 - INFO - Processing product 5/5: Brother Luxury Binders (Batch 1/388)
+2025-03-15 03:12:38,466 - INFO - Generating image for: Brother Luxury Binders
+2025-03-15 03:12:38,466 - INFO - Prompt: A professional product photo of a Brother Binders, Green color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:47,572 - INFO - Image saved to data/images/product_19dc1f1c-ee0c-48ea-863e-463fb06e42ac.png
+2025-03-15 03:12:47,573 - INFO - Success! Image saved to data/images/product_19dc1f1c-ee0c-48ea-863e-463fb06e42ac.png
+2025-03-15 03:12:47,574 - INFO - Batch 1/388 completed. Generated 5 images.
+2025-03-15 03:12:48,123 - INFO - Image saved to data/images/product_f3d47499-6123-4ec8-95fb-ac81289df930.png
+2025-03-15 03:12:48,123 - INFO - Success! Image saved to data/images/product_f3d47499-6123-4ec8-95fb-ac81289df930.png
+2025-03-15 03:12:49,574 - INFO - Batch 2/388 completed. Generated 5 images.
+2025-03-15 03:12:49,575 - INFO - Processing product 11/5: Papermate Modern Binders G369 (Batch 3/388)
+2025-03-15 03:12:49,576 - INFO - Generating image for: Papermate Modern Binders G369
+2025-03-15 03:12:49,576 - INFO - Prompt: A professional product photo of a Papermate Binders, Yellow color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:12:51,576 - INFO - Processing product 16/5: Bic High-end Notebooks L243 (Batch 4/388)
+2025-03-15 03:12:51,576 - INFO - Generating image for: Bic High-end Notebooks L243
+2025-03-15 03:12:51,576 - INFO - Prompt: A professional product photo of a Bic Notebooks, Green color, made of Paper. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:00,957 - INFO - Image saved to data/images/product_9950b275-366f-43c5-a207-7b170243f38d.png
+2025-03-15 03:13:00,958 - INFO - Success! Image saved to data/images/product_9950b275-366f-43c5-a207-7b170243f38d.png
+2025-03-15 03:13:00,958 - INFO - Processing product 12/5: Staples Ultra Scissors K130 (Batch 3/388)
+2025-03-15 03:13:00,958 - INFO - Generating image for: Staples Ultra Scissors K130
+2025-03-15 03:13:00,958 - INFO - Prompt: A professional product photo of a Staples Scissors, Yellow color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:03,851 - INFO - Image saved to data/images/product_3b625a3b-a30a-45ef-96f5-387d5bbe2e47.png
+2025-03-15 03:13:03,852 - INFO - Success! Image saved to data/images/product_3b625a3b-a30a-45ef-96f5-387d5bbe2e47.png
+2025-03-15 03:13:03,852 - INFO - Processing product 17/5: Zebra Deluxe Desk Accessories F444 (Batch 4/388)
+2025-03-15 03:13:03,852 - INFO - Generating image for: Zebra Deluxe Desk Accessories F444
+2025-03-15 03:13:03,852 - INFO - Prompt: A professional product photo of a Zebra Desk Accessories, made of Metal. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:14,117 - INFO - Image saved to data/images/product_14a99ba1-40d7-42a7-8da9-8a8551481b68.png
+2025-03-15 03:13:14,117 - INFO - Success! Image saved to data/images/product_14a99ba1-40d7-42a7-8da9-8a8551481b68.png
+2025-03-15 03:13:14,117 - INFO - Processing product 13/5: Staples Ultra Markers D207 (Batch 3/388)
+2025-03-15 03:13:14,118 - INFO - Generating image for: Staples Ultra Markers D207
+2025-03-15 03:13:14,118 - INFO - Prompt: A professional product photo of a Staples Markers. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:14,665 - INFO - Image saved to data/images/product_a07f327a-19fc-416c-a028-edc06883f00c.png
+2025-03-15 03:13:14,665 - INFO - Success! Image saved to data/images/product_a07f327a-19fc-416c-a028-edc06883f00c.png
+2025-03-15 03:13:14,665 - INFO - Processing product 18/5: Moleskine Ultimate Desk Accessories J221 (Batch 4/388)
+2025-03-15 03:13:14,665 - INFO - Generating image for: Moleskine Ultimate Desk Accessories J221
+2025-03-15 03:13:14,665 - INFO - Prompt: A professional product photo of a Moleskine Desk Accessories, Red color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:25,427 - INFO - Image saved to data/images/product_4fda5e1a-44b9-4844-beae-d6e5edf83cf4.png
+2025-03-15 03:13:25,428 - INFO - Success! Image saved to data/images/product_4fda5e1a-44b9-4844-beae-d6e5edf83cf4.png
+2025-03-15 03:13:25,428 - INFO - Processing product 14/5: Bic Compact Binders B302 (Batch 3/388)
+2025-03-15 03:13:25,428 - INFO - Generating image for: Bic Compact Binders B302
+2025-03-15 03:13:25,429 - INFO - Prompt: A professional product photo of a Bic Binders, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:28,409 - INFO - Image saved to data/images/product_c9dee822-d7e6-4d53-8dee-713b65cc3e1e.png
+2025-03-15 03:13:28,410 - INFO - Success! Image saved to data/images/product_c9dee822-d7e6-4d53-8dee-713b65cc3e1e.png
+2025-03-15 03:13:28,410 - INFO - Processing product 19/5: Staples Classic Staplers (Batch 4/388)
+2025-03-15 03:13:28,410 - INFO - Generating image for: Staples Classic Staplers
+2025-03-15 03:13:28,411 - INFO - Prompt: A professional product photo of a Staples Staplers, Yellow color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:37,692 - INFO - Image saved to data/images/product_bacc4037-f6d3-4f03-afc7-70afa0de2ce2.png
+2025-03-15 03:13:37,693 - INFO - Success! Image saved to data/images/product_bacc4037-f6d3-4f03-afc7-70afa0de2ce2.png
+2025-03-15 03:13:37,693 - INFO - Processing product 15/5: HP Eco-friendly Paper V786 (Batch 3/388)
+2025-03-15 03:13:37,694 - INFO - Generating image for: HP Eco-friendly Paper V786
+2025-03-15 03:13:37,694 - INFO - Prompt: A professional product photo of a HP Paper, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:39,524 - INFO - Image saved to data/images/product_788a8383-365d-4c17-b73d-b806cdc69e13.png
+2025-03-15 03:13:39,525 - INFO - Success! Image saved to data/images/product_788a8383-365d-4c17-b73d-b806cdc69e13.png
+2025-03-15 03:13:39,525 - INFO - Processing product 20/5: Bic Smart Paper (Batch 4/388)
+2025-03-15 03:13:39,525 - INFO - Generating image for: Bic Smart Paper
+2025-03-15 03:13:39,525 - INFO - Prompt: A professional product photo of a Bic Paper, Black color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:51,049 - INFO - Image saved to data/images/product_471d96e5-35f9-46f4-b43c-4e89e0d1daca.png
+2025-03-15 03:13:51,049 - INFO - Success! Image saved to data/images/product_471d96e5-35f9-46f4-b43c-4e89e0d1daca.png
+2025-03-15 03:13:52,709 - INFO - Image saved to data/images/product_0245d068-bfca-4acc-bef1-f128adfed530.png
+2025-03-15 03:13:52,709 - INFO - Success! Image saved to data/images/product_0245d068-bfca-4acc-bef1-f128adfed530.png
+2025-03-15 03:13:52,714 - INFO - 
+All office and school supplies images generated successfully!
+2025-03-15 03:13:52,727 - INFO - 
+=== PHASE 2: Generating Remaining Product Images ===
+2025-03-15 03:13:52,776 - INFO - Found 8047 non-office products
+2025-03-15 03:13:52,776 - INFO - Of these, 7990 don't have images yet
+2025-03-15 03:13:52,776 - INFO - Generating images for 7990 non-office products using 2 parallel workers
+2025-03-15 03:13:52,776 - INFO - Using batch size of 5 to avoid rate limits
+2025-03-15 03:13:52,782 - INFO - Processing product 1/5: Bose Ultra Laptops F219 (Batch 1/1598)
+2025-03-15 03:13:52,782 - INFO - Processing product 6/5: Garnier Modern Men's Grooming Y411 (Batch 2/1598)
+2025-03-15 03:13:52,782 - INFO - Generating image for: Bose Ultra Laptops F219
+2025-03-15 03:13:52,782 - INFO - Generating image for: Garnier Modern Men's Grooming Y411
+2025-03-15 03:13:52,782 - INFO - Prompt: A professional product photo of a Bose Laptops, Red color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:13:52,782 - INFO - Prompt: A professional product photo of a Garnier Men's Grooming. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:04,271 - INFO - Image saved to data/images/product_f99fd163-c587-4750-a1a8-7c9c616f8df7.png
+2025-03-15 03:14:04,271 - INFO - Success! Image saved to data/images/product_f99fd163-c587-4750-a1a8-7c9c616f8df7.png
+2025-03-15 03:14:04,272 - INFO - Processing product 2/5: Nivea Smart Tools & Accessories (Batch 1/1598)
+2025-03-15 03:14:04,272 - INFO - Generating image for: Nivea Smart Tools & Accessories
+2025-03-15 03:14:04,272 - INFO - Prompt: A professional product photo of a Nivea Tools & Accessories. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:06,721 - INFO - Image saved to data/images/product_b7f41a6e-eb6c-44b4-9e91-0373bbfa382d.png
+2025-03-15 03:14:06,722 - INFO - Success! Image saved to data/images/product_b7f41a6e-eb6c-44b4-9e91-0373bbfa382d.png
+2025-03-15 03:14:06,722 - INFO - Processing product 7/5: Dell Ultra Wearables R330 (Batch 2/1598)
+2025-03-15 03:14:06,722 - INFO - Generating image for: Dell Ultra Wearables R330
+2025-03-15 03:14:06,722 - INFO - Prompt: A professional product photo of a Dell Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:16,482 - INFO - Image saved to data/images/product_675ed277-1610-405a-9d55-3aa5cad3c713.png
+2025-03-15 03:14:16,482 - INFO - Success! Image saved to data/images/product_675ed277-1610-405a-9d55-3aa5cad3c713.png
+2025-03-15 03:14:16,482 - INFO - Processing product 3/5: Pantene Ultra Hair Care (Batch 1/1598)
+2025-03-15 03:14:16,483 - INFO - Generating image for: Pantene Ultra Hair Care
+2025-03-15 03:14:16,483 - INFO - Prompt: A professional product photo of a Pantene Hair Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:20,745 - INFO - Image saved to data/images/product_ae6d0fb3-10b2-4b80-9510-6605e46edfd8.png
+2025-03-15 03:14:20,746 - INFO - Success! Image saved to data/images/product_ae6d0fb3-10b2-4b80-9510-6605e46edfd8.png
+2025-03-15 03:14:20,746 - INFO - Processing product 8/5: Breville Ultimate Storage (Batch 2/1598)
+2025-03-15 03:14:20,746 - INFO - Generating image for: Breville Ultimate Storage
+2025-03-15 03:14:20,746 - INFO - Prompt: A professional product photo of a Breville Storage, Blue color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:27,750 - INFO - Image saved to data/images/product_7b4a9d8d-2b85-4546-b2a0-a714abd53414.png
+2025-03-15 03:14:27,750 - INFO - Success! Image saved to data/images/product_7b4a9d8d-2b85-4546-b2a0-a714abd53414.png
+2025-03-15 03:14:27,750 - INFO - Processing product 4/5: Nike Premium Men's Shirts A162 (Batch 1/1598)
+2025-03-15 03:14:27,751 - INFO - Generating image for: Nike Premium Men's Shirts A162
+2025-03-15 03:14:27,751 - INFO - Prompt: A professional product photo of a Nike Men's Shirts, made of Silk. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:37,036 - INFO - Image saved to data/images/product_cd05fac5-c890-46b2-86e0-9daaf896d12c.png
+2025-03-15 03:14:37,037 - INFO - Success! Image saved to data/images/product_cd05fac5-c890-46b2-86e0-9daaf896d12c.png
+2025-03-15 03:14:37,037 - INFO - Processing product 9/5: Shark Essential Decor (Batch 2/1598)
+2025-03-15 03:14:37,037 - INFO - Generating image for: Shark Essential Decor
+2025-03-15 03:14:37,037 - INFO - Prompt: A professional product photo of a Shark Decor, made of Silicone. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:39,196 - INFO - Image saved to data/images/product_e0039818-816a-43c0-93a2-265246023ae2.png
+2025-03-15 03:14:39,197 - INFO - Success! Image saved to data/images/product_e0039818-816a-43c0-93a2-265246023ae2.png
+2025-03-15 03:14:39,197 - INFO - Processing product 5/5: KitchenAid Ergonomic Bedding (Batch 1/1598)
+2025-03-15 03:14:39,197 - INFO - Generating image for: KitchenAid Ergonomic Bedding
+2025-03-15 03:14:39,198 - INFO - Prompt: A professional product photo of a KitchenAid Bedding, Red color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
