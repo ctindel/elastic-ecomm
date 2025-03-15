@@ -27,7 +27,7 @@ project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-def generate_image_for_product(product, max_retries=5):
+def generate_image_for_product(product, max_retries=10):
     """
     Generate an image for a product using OpenAI's DALL-E API.
     """
@@ -76,8 +76,9 @@ def generate_image_for_product(product, max_retries=5):
         "response_format": "b64_json"
     }
     
-    # Implement exponential backoff with jitter
-    for attempt in range(max_retries):
+    # Implement exponential backoff with jitter - INFINITE RETRIES
+    attempt = 0
+    while True:  # Loop forever until we succeed or explicitly return
         try:
             response = requests.post(url, headers=headers, json=data)
             response.raise_for_status()
@@ -96,29 +97,34 @@ def generate_image_for_product(product, max_retries=5):
             # Check if it's a rate limit error (429)
             if hasattr(e, 'response') and e.response and e.response.status_code == 429:
                 # Calculate backoff time with exponential increase and jitter
-                backoff_time = min(2 ** attempt + random.uniform(0, 1), 60)
-                logger.warning(f"Rate limit hit. Retrying in {backoff_time:.2f} seconds... (Attempt {attempt+1}/{max_retries})")
+                # Cap at 60 seconds max backoff
+                backoff_time = min(30 + (2 ** min(attempt, 10)) + random.uniform(0, 10), 60)
+                logger.warning(f"Rate limit hit. Retrying in {backoff_time:.2f} seconds... (Attempt {attempt+1}/∞)")
                 time.sleep(backoff_time)
-                
-                # If this is the last attempt, log and return None
-                if attempt == max_retries - 1:
-                    logger.error(f"Max retries reached for rate limiting. Failed to generate image for: {product['name']}")
-                    return None
             else:
-                # For other request errors, log and return None
+                # For other request errors, log and retry with a delay
                 logger.error(f"Error generating image: {e}")
                 if hasattr(e, 'response') and e.response:
                     logger.error(f"Response: {e.response.text}")
-                return None
+                # Wait before retrying
+                backoff_time = min(10 + random.uniform(0, 5), 30)
+                logger.warning(f"Request error. Retrying in {backoff_time:.2f} seconds...")
+                time.sleep(backoff_time)
                 
         except Exception as e:
+            # For unexpected errors, log and retry with a delay
             logger.error(f"Unexpected error generating image: {e}")
-            return None
-    
-    return None
+            # Wait before retrying
+            backoff_time = min(10 + random.uniform(0, 5), 30)
+            logger.warning(f"Unexpected error. Retrying in {backoff_time:.2f} seconds...")
+            time.sleep(backoff_time)
+        
+        # Increment attempt counter for backoff calculation
+        attempt += 1
 
 def generate_images_for_partition(partition_file, partition_num):
     """Generate images for products in a partition."""
+    partition_num = int(partition_num) if not isinstance(partition_num, int) else partition_num
     logger.info(f"Processing partition {partition_num} from {partition_file}")
     
     # Load products from partition file
@@ -129,25 +135,59 @@ def generate_images_for_partition(partition_file, partition_num):
         logger.error(f"No products found in {partition_file}")
         return False
     
-    logger.info(f"Generating images for {len(products)} products in partition {partition_num}")
+    # Create checkpoint file path
+    checkpoint_file = f"/tmp/partition_{partition_num}_checkpoint.json"
+    
+    # Load checkpoint if exists
+    processed_ids = set()
+    if os.path.exists(checkpoint_file):
+        try:
+            with open(checkpoint_file, "r") as f:
+                checkpoint_data = json.load(f)
+                processed_ids = set(checkpoint_data.get("processed_ids", []))
+                logger.info(f"Loaded checkpoint with {len(processed_ids)} processed products")
+        except Exception as e:
+            logger.error(f"Error loading checkpoint: {e}")
+    
+    # Filter products that haven't been processed yet
+    remaining_products = [p for p in products if p["id"] not in processed_ids]
+    
+    logger.info(f"Generating images for {len(remaining_products)}/{len(products)} remaining products in partition {partition_num}")
     
     # Process products one by one with a small delay between each
-    for i, product in enumerate(products):
-        logger.info(f"Processing product {i+1}/{len(products)} in partition {partition_num}: {product['name']}")
+    success_count = 0
+    for i, product in enumerate(remaining_products):
+        logger.info(f"Processing product {i+1}/{len(remaining_products)} in partition {partition_num}: {product['name']}")
         
         # Generate image
         image_path = generate_image_for_product(product)
         
         if image_path:
             logger.info(f"Success! Image saved to {image_path}")
+            success_count += 1
+            
+            # Update checkpoint - write after each successful image generation
+            processed_ids.add(product["id"])
+            try:
+                with open(checkpoint_file, "w") as f:
+                    json.dump({"processed_ids": list(processed_ids)}, f)
+                logger.info(f"Updated checkpoint file with {len(processed_ids)} processed products")
+            except Exception as e:
+                logger.error(f"Error writing checkpoint: {e}")
         else:
             logger.error(f"Failed to generate image for product: {product['name']}")
         
-        # Add a small delay between products to avoid rate limits
-        time.sleep(1)
+        # Add a delay between products to avoid rate limits
+        delay = 2 + random.uniform(0, 1)
+        logger.info(f"Waiting {delay:.2f}s before next product...")
+        time.sleep(delay)
     
-    logger.info(f"Completed image generation for partition {partition_num}")
-    return True
+    total_processed = len(processed_ids)
+    logger.info(f"Completed image generation for partition {partition_num}. Generated {success_count}/{len(remaining_products)} images this run.")
+    logger.info(f"Total progress: {total_processed}/{len(products)} products processed ({total_processed/len(products)*100:.2f}%)")
+    
+    # Return True only if all products have been processed
+    return total_processed == len(products)
 
 if __name__ == "__main__":
     # Check command line arguments
@@ -163,12 +203,23 @@ if __name__ == "__main__":
         logger.error("Error: OPENAI_API_KEY environment variable is not set.")
         sys.exit(1)
     
-    # Generate images for the partition
-    success = generate_images_for_partition(partition_file, partition_num)
-    
-    if success:
-        logger.info(f"Successfully generated all images for partition {partition_num}")
+    try:
+        # Generate images for the partition
+        success = generate_images_for_partition(partition_file, partition_num)
+        
+        if success:
+            logger.info(f"Successfully generated all images for partition {partition_num}")
+            # Exit with success, but the runner script will restart us anyway
+            # to ensure we keep checking for any missed images
+            sys.exit(0)
+        else:
+            logger.info(f"Not all images were generated for partition {partition_num}, will continue in next run")
+            # Exit with code 0 so the runner script doesn't think we failed
+            # This ensures we don't get stuck in a tight retry loop
+            sys.exit(0)
+    except Exception as e:
+        # Catch any unexpected exceptions to prevent the script from crashing
+        logger.error(f"Unexpected error in main: {e}")
+        # Exit with code 0 so the runner script doesn't think we failed
+        # This ensures we don't get stuck in a tight retry loop
         sys.exit(0)
-    else:
-        logger.error(f"Failed to generate all images for partition {partition_num}")
-        sys.exit(1)
