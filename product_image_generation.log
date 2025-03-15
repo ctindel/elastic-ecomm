@@ -1,0 +1,138 @@
+2025-03-15 03:06:15,956 - INFO - Generating images for 9994 remaining products using 4 parallel workers
+2025-03-15 03:06:15,986 - INFO - Processing product 7/10000: Zara Budget Activewear Z879 (Batch 1/1000)
+2025-03-15 03:06:15,986 - INFO - Image already exists at data/images/product_ff1d8bb1-6a05-486a-aab3-816456d14b05.png, skipping
+2025-03-15 03:06:15,986 - INFO - Success! Image saved to data/images/product_ff1d8bb1-6a05-486a-aab3-816456d14b05.png
+2025-03-15 03:06:15,986 - INFO - Processing product 8/10000: Avery Luxury Pens & Pencils (Batch 1/1000)
+2025-03-15 03:06:15,986 - INFO - Processing product 17/10000: Pilot Super Desk Accessories S859 (Batch 2/1000)
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_a8fd64c4-5793-494f-a21a-c0d8e411727a.png, skipping
+2025-03-15 03:06:15,987 - INFO - Success! Image saved to data/images/product_a8fd64c4-5793-494f-a21a-c0d8e411727a.png
+2025-03-15 03:06:15,987 - INFO - Processing product 9/10000: Zebra Professional Staplers B212 (Batch 1/1000)
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_4705f4bf-8c33-478c-889c-703f29d23bb3.png, skipping
+2025-03-15 03:06:15,987 - INFO - Success! Image saved to data/images/product_4705f4bf-8c33-478c-889c-703f29d23bb3.png
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_d56e30c7-cedb-453b-ac58-535ec0e1c074.png, skipping
+2025-03-15 03:06:15,987 - INFO - Processing product 10/10000: Garnier Deluxe Makeup M135 (Batch 1/1000)
+2025-03-15 03:06:15,987 - INFO - Processing product 27/10000: Ikea Modern Cookware Y716 (Batch 3/1000)
+2025-03-15 03:06:15,987 - INFO - Success! Image saved to data/images/product_d56e30c7-cedb-453b-ac58-535ec0e1c074.png
+2025-03-15 03:06:15,987 - INFO - Processing product 18/10000: Avery Deluxe Paper (Batch 2/1000)
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_01b1038e-756b-451e-8407-747c64823f4a.png, skipping
+2025-03-15 03:06:15,987 - INFO - Success! Image saved to data/images/product_01b1038e-756b-451e-8407-747c64823f4a.png
+2025-03-15 03:06:15,987 - INFO - Processing product 11/10000: JBL Budget Printers (Batch 1/1000)
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_0ec087ce-90f4-4ebb-b4fa-ac5d8ead7ead.png, skipping
+2025-03-15 03:06:15,987 - INFO - Success! Image saved to data/images/product_0ec087ce-90f4-4ebb-b4fa-ac5d8ead7ead.png
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_f6372f43-1dda-44f9-afe9-28fc11959e2c.png, skipping
+2025-03-15 03:06:15,987 - INFO - Processing product 19/10000: LG Modern Smart Home X804 (Batch 2/1000)
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_382e546f-9566-4560-98b8-fcede20febcf.png, skipping
+2025-03-15 03:06:15,987 - INFO - Success! Image saved to data/images/product_f6372f43-1dda-44f9-afe9-28fc11959e2c.png
+2025-03-15 03:06:15,987 - INFO - Success! Image saved to data/images/product_382e546f-9566-4560-98b8-fcede20febcf.png
+2025-03-15 03:06:15,987 - INFO - Processing product 12/10000: Uniqlo Luxury Underwear (Batch 1/1000)
+2025-03-15 03:06:15,987 - INFO - Processing product 28/10000: Gillette Ultimate Makeup (Batch 3/1000)
+2025-03-15 03:06:15,987 - INFO - Image already exists at data/images/product_8fda9675-9b90-476f-9a38-41625778eb1e.png, skipping
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_8fda9675-9b90-476f-9a38-41625778eb1e.png
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_4c8197b6-b0e0-4f78-8f3b-c57b8cbf1965.png, skipping
+2025-03-15 03:06:15,988 - INFO - Processing product 20/10000: Sharpie Ultimate Calendars (Batch 2/1000)
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_b6765d42-bd76-46b2-937e-6d3e2c4f3b61.png, skipping
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_4c8197b6-b0e0-4f78-8f3b-c57b8cbf1965.png
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_b6765d42-bd76-46b2-937e-6d3e2c4f3b61.png
+2025-03-15 03:06:15,988 - INFO - Processing product 13/10000: Papermate Professional Calendars (Batch 1/1000)
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_130c0c88-2b38-42d9-a15d-2ca18f76e45d.png, skipping
+2025-03-15 03:06:15,988 - INFO - Processing product 29/10000: Gucci Super Women's Dresses (Batch 3/1000)
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_130c0c88-2b38-42d9-a15d-2ca18f76e45d.png
+2025-03-15 03:06:15,988 - INFO - Processing product 37/10000: Calphalon Portable Cookware D443 (Batch 4/1000)
+2025-03-15 03:06:15,988 - INFO - Processing product 21/10000: Dell Smart Laptops (Batch 2/1000)
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_50211a61-d8c3-4892-a7be-d20109146070.png, skipping
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_50211a61-d8c3-4892-a7be-d20109146070.png
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_7c1ece41-1be1-4fce-be5b-8ecf97ac4915.png, skipping
+2025-03-15 03:06:15,988 - INFO - Processing product 14/10000: KitchenAid Portable Bath (Batch 1/1000)
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_7f41407e-3978-436d-b059-353136be7d84.png, skipping
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_7c1ece41-1be1-4fce-be5b-8ecf97ac4915.png
+2025-03-15 03:06:15,988 - INFO - Processing product 30/10000: L'Oreal Wireless Skincare (Batch 3/1000)
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_7f41407e-3978-436d-b059-353136be7d84.png
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_0e47204b-803a-4eb8-a3f5-86a22a511c31.png, skipping
+2025-03-15 03:06:15,988 - INFO - Processing product 22/10000: Nivea Professional Men's Grooming (Batch 2/1000)
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_0e47204b-803a-4eb8-a3f5-86a22a511c31.png
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_c7b322db-2866-4785-a6b8-409976d36204.png, skipping
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_99c3a12d-8a88-4324-b3b4-514ac9f01b1c.png, skipping
+2025-03-15 03:06:15,988 - INFO - Processing product 15/10000: HP Modern Headphones (Batch 1/1000)
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_be9d0cb0-f5f8-4749-9dc8-c50de8607e71.png, skipping
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_99c3a12d-8a88-4324-b3b4-514ac9f01b1c.png
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_c7b322db-2866-4785-a6b8-409976d36204.png
+2025-03-15 03:06:15,988 - INFO - Processing product 31/10000: Instant Pot Portable Cookware M508 (Batch 3/1000)
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_be9d0cb0-f5f8-4749-9dc8-c50de8607e71.png
+2025-03-15 03:06:15,988 - INFO - Processing product 38/10000: Tommy Hilfiger Advanced Men's Shirts (Batch 4/1000)
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_d23b818c-bbe3-48cd-860c-b0eec1eca587.png, skipping
+2025-03-15 03:06:15,988 - INFO - Processing product 23/10000: Sharpie Super Printers & Ink (Batch 2/1000)
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_d23b818c-bbe3-48cd-860c-b0eec1eca587.png
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_cc6d7018-39d2-4423-9939-1cf71f42263f.png, skipping
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_58492285-e326-40f8-8fdd-a632baebcb33.png, skipping
+2025-03-15 03:06:15,988 - INFO - Processing product 16/10000: Breville Durable Storage (Batch 1/1000)
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_cc6d7018-39d2-4423-9939-1cf71f42263f.png
+2025-03-15 03:06:15,988 - INFO - Image already exists at data/images/product_bbbfef2d-0547-4894-9286-95bea506b604.png, skipping
+2025-03-15 03:06:15,988 - INFO - Success! Image saved to data/images/product_58492285-e326-40f8-8fdd-a632baebcb33.png
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_bbbfef2d-0547-4894-9286-95bea506b604.png
+2025-03-15 03:06:15,989 - INFO - Processing product 32/10000: Puma Portable Underwear Y337 (Batch 3/1000)
+2025-03-15 03:06:15,989 - INFO - Processing product 39/10000: Maybelline Portable Hair Care A607 (Batch 4/1000)
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_d42ae48a-e046-4e82-96f8-c6f4bce98bc1.png, skipping
+2025-03-15 03:06:15,989 - INFO - Processing product 24/10000: Pyrex Essential Decor (Batch 2/1000)
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_d42ae48a-e046-4e82-96f8-c6f4bce98bc1.png
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_059dca8c-3889-4f3c-8fac-d8762b415f40.png, skipping
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_88027e03-5660-4587-91cb-bde633308342.png, skipping
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_059dca8c-3889-4f3c-8fac-d8762b415f40.png
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_88027e03-5660-4587-91cb-bde633308342.png
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_ea029887-0274-4929-a284-2fb14085d366.png, skipping
+2025-03-15 03:06:15,989 - INFO - Processing product 33/10000: Levi's Deluxe Shoes X759 (Batch 3/1000)
+2025-03-15 03:06:15,989 - INFO - Processing product 40/10000: Ikea Modern Dining (Batch 4/1000)
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_ea029887-0274-4929-a284-2fb14085d366.png
+2025-03-15 03:06:15,989 - INFO - Processing product 25/10000: Calphalon Eco-friendly Decor T692 (Batch 2/1000)
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_a784da3b-83c5-4162-8b6f-d3072a02c320.png, skipping
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_1bd5b5a4-6e05-47b8-8c10-cd0f20590605.png, skipping
+2025-03-15 03:06:15,989 - INFO - Processing product 47/10000: Ninja Portable Storage J976 (Batch 5/1000)
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_a784da3b-83c5-4162-8b6f-d3072a02c320.png
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_1bd5b5a4-6e05-47b8-8c10-cd0f20590605.png
+2025-03-15 03:06:15,989 - INFO - Processing product 34/10000: Estee Lauder Ultimate Hair Care F219 (Batch 3/1000)
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_060c8bad-6497-4796-8841-5f6f7c8a6444.png, skipping
+2025-03-15 03:06:15,989 - INFO - Processing product 41/10000: Gucci High-end Socks Z210 (Batch 4/1000)
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_060c8bad-6497-4796-8841-5f6f7c8a6444.png
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_96245ff5-1b6a-448c-84d2-87d603fb1550.png, skipping
+2025-03-15 03:06:15,989 - INFO - Processing product 26/10000: Calphalon Budget Appliances (Batch 2/1000)
+2025-03-15 03:06:15,989 - INFO - Generating image for: Ninja Portable Storage J976
+2025-03-15 03:06:15,989 - INFO - Prompt: A professional product photo of a Ninja Storage, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_96245ff5-1b6a-448c-84d2-87d603fb1550.png
+2025-03-15 03:06:15,989 - INFO - Generating image for: Gucci High-end Socks Z210
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_ccb17d7a-ea4b-4347-bb5e-f673cbc5832e.png, skipping
+2025-03-15 03:06:15,989 - INFO - Processing product 35/10000: Pilot Professional Paper N540 (Batch 3/1000)
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_ccb17d7a-ea4b-4347-bb5e-f673cbc5832e.png
+2025-03-15 03:06:15,989 - INFO - Prompt: A professional product photo of a Gucci Socks, Gray color, made of Silk. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:15,989 - INFO - Image already exists at data/images/product_45601707-5144-4cf2-8fef-22887546b429.png, skipping
+2025-03-15 03:06:15,989 - INFO - Success! Image saved to data/images/product_45601707-5144-4cf2-8fef-22887546b429.png
+2025-03-15 03:06:15,989 - INFO - Processing product 36/10000: Pilot Ergonomic Printers & Ink (Batch 3/1000)
+2025-03-15 03:06:15,989 - INFO - Processing product 57/10000: Zebra Budget Desk Accessories Q554 (Batch 6/1000)
+2025-03-15 03:06:15,990 - INFO - Image already exists at data/images/product_543ecff3-3a72-4600-aeff-2629af695553.png, skipping
+2025-03-15 03:06:15,990 - INFO - Success! Image saved to data/images/product_543ecff3-3a72-4600-aeff-2629af695553.png
+2025-03-15 03:06:15,990 - INFO - Generating image for: Zebra Budget Desk Accessories Q554
+2025-03-15 03:06:15,990 - INFO - Prompt: A professional product photo of a Zebra Desk Accessories, Yellow color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:15,991 - INFO - Processing product 67/10000: Shark Advanced Appliances T376 (Batch 7/1000)
+2025-03-15 03:06:15,991 - INFO - Generating image for: Shark Advanced Appliances T376
+2025-03-15 03:06:15,991 - INFO - Prompt: A professional product photo of a Shark Appliances, Silver color, made of Ceramic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:15,999 - INFO - Batch 1/1000 completed. Generated 10 images.
+2025-03-15 03:06:15,999 - INFO - Batch 2/1000 completed. Generated 10 images.
+2025-03-15 03:06:15,999 - INFO - Batch 3/1000 completed. Generated 10 images.
+2025-03-15 03:06:26,100 - INFO - Image saved to data/images/product_f2124d91-47b4-4a4e-ba3e-b7050c697af7.png
+2025-03-15 03:06:26,101 - INFO - Success! Image saved to data/images/product_f2124d91-47b4-4a4e-ba3e-b7050c697af7.png
+2025-03-15 03:06:26,101 - INFO - Processing product 68/10000: Bic Ultra Markers (Batch 7/1000)
+2025-03-15 03:06:26,101 - INFO - Generating image for: Bic Ultra Markers
+2025-03-15 03:06:26,101 - INFO - Prompt: A professional product photo of a Bic Markers, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:26,706 - INFO - Image saved to data/images/product_90bd048c-aa85-4faa-afb1-81c0207f7c06.png
+2025-03-15 03:06:26,706 - INFO - Success! Image saved to data/images/product_90bd048c-aa85-4faa-afb1-81c0207f7c06.png
+2025-03-15 03:06:26,706 - INFO - Processing product 42/10000: Nivea Durable Makeup (Batch 4/1000)
+2025-03-15 03:06:26,706 - INFO - Generating image for: Nivea Durable Makeup
+2025-03-15 03:06:26,707 - INFO - Prompt: A professional product photo of a Nivea Makeup. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:26,735 - INFO - Image saved to data/images/product_7ed19cf8-23b7-40fe-808f-efc4396a9f6a.png
+2025-03-15 03:06:26,735 - INFO - Success! Image saved to data/images/product_7ed19cf8-23b7-40fe-808f-efc4396a9f6a.png
+2025-03-15 03:06:26,736 - INFO - Processing product 48/10000: Levi's Wireless Women's Dresses (Batch 5/1000)
+2025-03-15 03:06:26,736 - INFO - Generating image for: Levi's Wireless Women's Dresses
+2025-03-15 03:06:26,736 - INFO - Prompt: A professional product photo of a Levi's Women's Dresses, Brown color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:30,528 - INFO - Image saved to data/images/product_dbbcc858-c10a-4c23-a927-c8cefec47b99.png
+2025-03-15 03:06:30,528 - INFO - Success! Image saved to data/images/product_dbbcc858-c10a-4c23-a927-c8cefec47b99.png
+2025-03-15 03:06:30,529 - INFO - Processing product 58/10000: Breville Portable Cookware R490 (Batch 6/1000)
+2025-03-15 03:06:30,529 - INFO - Generating image for: Breville Portable Cookware R490
+2025-03-15 03:06:30,529 - INFO - Prompt: A professional product photo of a Breville Cookware, made of Ceramic. High-quality e-commerce product image with white background, professional lighting.
