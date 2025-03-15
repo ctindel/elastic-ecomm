@@ -123,7 +123,12 @@ def generate_image_for_product(product):
 
 def generate_images_for_partition(partition_file, partition_num):
     """Generate images for products in a partition."""
-    partition_num = int(partition_num) if not isinstance(partition_num, int) else partition_num
+    # Handle non-integer partition numbers safely
+    try:
+        partition_num = int(partition_num) if not isinstance(partition_num, int) else partition_num
+    except ValueError:
+        # If partition_num is not convertible to int, keep it as is
+        pass
     logger.info(f"Processing partition {partition_num} from {partition_file}")
     
     # Load products from partition file
