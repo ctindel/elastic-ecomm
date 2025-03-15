@@ -17,6 +17,10 @@ ELASTICSEARCH_INDEX_QUERIES = os.getenv("ELASTICSEARCH_INDEX_QUERIES", "queries"
 # Ollama settings
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3")
 OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://localhost:11434/api/generate")
+OLLAMA_VISION_MODEL = os.getenv("OLLAMA_VISION_MODEL", "llava:34b")
+
+# Image processing settings
+VISION_PROVIDER = os.getenv("VISION_PROVIDER", "openai")  # Options: "openai" or "ollama"
 
 # OpenAI settings
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")

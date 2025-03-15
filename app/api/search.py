@@ -1,11 +1,16 @@
-from app.utils.image_processor import process_image_query
 """
 Search API endpoints for the E-Commerce Search Demo.
 """
+import os
+import logging
+import traceback
 from fastapi import APIRouter, HTTPException, File, UploadFile, Form, Query, Depends
 from typing import List, Optional, Dict, Any
 from pydantic import BaseModel
 from elasticsearch import Elasticsearch
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 from app.models.search import SearchResult, SearchType
 from app.utils.search_agent import determine_search_method, perform_search
@@ -128,24 +133,29 @@ async def upload_image(
     """
     Process an uploaded image containing a list of supplies and return recommended products.
     
-    This endpoint accepts an uploaded image, extracts text using OpenAI's API,
+    This endpoint accepts an uploaded image, extracts text using the configured vision provider,
     identifies required items, and suggests products from the catalog.
     """
+    import traceback
+    from app.config.settings import VISION_PROVIDER
+    from app.utils.validation import check_vision_provider
+    
     # Validate image file
     valid_mime_types = ["image/jpeg", "image/png", "application/pdf"]
     if image_file.content_type not in valid_mime_types:
         raise HTTPException(status_code=400, detail=f"File must be one of: {', '.join(valid_mime_types)}")
     
-    # Check if OpenAI API key is available
-    from app.config.settings import OPENAI_API_KEY
-    if not OPENAI_API_KEY:
+    # Check if vision provider is available
+    vision_status = check_vision_provider()
+    if not vision_status["available"]:
         raise HTTPException(
             status_code=503, 
-            detail="Image-based search is currently unavailable. OpenAI API key is missing or invalid."
+            detail=f"Image-based search is currently unavailable. Vision provider '{VISION_PROVIDER}' is not available: {vision_status['error']}"
         )
     
     try:
         # Process the image to extract text and identify items
+        from app.utils.image_processor import process_image_query
         results = await process_image_query(
             image_file=image_file,
             user_id=user_id,
@@ -155,4 +165,7 @@ async def upload_image(
         
         return results
     except Exception as e:
+        # Log the full traceback for debugging
+        logger.error(f"Image processing failed: {str(e)}")
+        logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Image processing failed: {str(e)}")

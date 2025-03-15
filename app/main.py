@@ -199,6 +199,24 @@ async def health_check():
         logger.warning(f"OpenAI API key check failed: {str(e)}")
         response["openai"]["error"] = str(e)
     
+    # Check vision provider
+    try:
+        from app.utils.validation import check_vision_provider
+        from app.config.settings import VISION_PROVIDER
+        vision_status = check_vision_provider()
+        response["vision"] = {
+            "provider": VISION_PROVIDER,
+            "available": vision_status["available"],
+            "error": vision_status["error"]
+        }
+    except Exception as e:
+        logger.warning(f"Vision provider check failed: {str(e)}")
+        response["vision"] = {
+            "provider": "unknown",
+            "available": False,
+            "error": str(e)
+        }
+    
     # Determine overall status
     if not response["elasticsearch"]["connection"]:
         response["status"] = "degraded"
@@ -207,12 +225,16 @@ async def health_check():
 
 if __name__ == "__main__":
     import uvicorn
-    from app.utils.validation import check_openai_connection
+    from app.utils.validation import check_vision_provider
+    from app.config.settings import VISION_PROVIDER
     
-    # Verify OpenAI API key at startup
-    openai_status = check_openai_connection()
-    if not openai_status["configured"] or not openai_status["api_key_valid"]:
-        error_msg = "ERROR: OpenAI API key is missing or invalid. Please set a valid OPENAI_API_KEY environment variable."
+    # Verify vision provider at startup
+    vision_status = check_vision_provider()
+    if not vision_status["available"]:
+        if VISION_PROVIDER == "openai":
+            error_msg = "ERROR: OpenAI API key is missing or invalid. Please set a valid OPENAI_API_KEY environment variable."
+        else:
+            error_msg = f"ERROR: Vision provider '{VISION_PROVIDER}' is not available: {vision_status['error']}"
         logger.error(error_msg)
         sys.exit(1)
     
