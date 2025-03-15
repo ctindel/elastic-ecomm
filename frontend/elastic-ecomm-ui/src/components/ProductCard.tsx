@@ -14,7 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         sx={{ width: 150, objectFit: 'contain' }}
         image={product.image_url ? 
           (product.image_url.startsWith('http') ? product.image_url : `${import.meta.env.VITE_API_URL}${product.image_url}`) 
-          : '/placeholder-image.png'}
+          : '/images/image-not-found.svg'}
         alt={product.product_name}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
