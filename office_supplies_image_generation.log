@@ -154,3 +154,35 @@ All office and school supplies images generated successfully!
 2025-03-15 03:14:39,197 - INFO - Processing product 5/5: KitchenAid Ergonomic Bedding (Batch 1/1598)
 2025-03-15 03:14:39,197 - INFO - Generating image for: KitchenAid Ergonomic Bedding
 2025-03-15 03:14:39,198 - INFO - Prompt: A professional product photo of a KitchenAid Bedding, Red color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:14:48,539 - INFO - Image saved to data/images/product_079d5582-81a0-4789-a812-747ce2e4e2ea.png
+2025-03-15 03:14:48,539 - INFO - Success! Image saved to data/images/product_079d5582-81a0-4789-a812-747ce2e4e2ea.png
+2025-03-15 03:14:48,539 - INFO - Processing product 10/5: KitchenAid Portable Dining (Batch 2/1598)
+2025-03-15 03:14:48,540 - INFO - Generating image for: KitchenAid Portable Dining
+2025-03-15 03:14:48,540 - INFO - Prompt: A professional product photo of a KitchenAid Dining, Green color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:01,914 - INFO - Image saved to data/images/product_f3e00e42-ef7b-466b-8088-396d272b8d41.png
+2025-03-15 03:15:01,914 - INFO - Success! Image saved to data/images/product_f3e00e42-ef7b-466b-8088-396d272b8d41.png
+2025-03-15 03:15:01,915 - INFO - Batch 2/1598 completed. Generated 5 images.
+2025-03-15 03:15:03,916 - INFO - Processing product 11/5: Shark Advanced Decor (Batch 3/1598)
+2025-03-15 03:15:03,917 - INFO - Generating image for: Shark Advanced Decor
+2025-03-15 03:15:03,917 - INFO - Prompt: A professional product photo of a Shark Decor, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:14,077 - INFO - Image saved to data/images/product_37ed2454-8809-4d86-b0b4-7d25665bf722.png
+2025-03-15 03:15:14,078 - INFO - Success! Image saved to data/images/product_37ed2454-8809-4d86-b0b4-7d25665bf722.png
+2025-03-15 03:15:14,078 - INFO - Processing product 12/5: Microsoft High-end Printers (Batch 3/1598)
+2025-03-15 03:15:14,078 - INFO - Generating image for: Microsoft High-end Printers
+2025-03-15 03:15:14,078 - INFO - Prompt: A professional product photo of a Microsoft Printers, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:26,829 - INFO - Image saved to data/images/product_634229e4-df6d-4735-8b21-89dc4433866f.png
+2025-03-15 03:15:26,829 - INFO - Success! Image saved to data/images/product_634229e4-df6d-4735-8b21-89dc4433866f.png
+2025-03-15 03:15:26,829 - INFO - Processing product 13/5: Levi's Eco-friendly Men's Shirts (Batch 3/1598)
+2025-03-15 03:15:26,829 - INFO - Generating image for: Levi's Eco-friendly Men's Shirts
+2025-03-15 03:15:26,829 - INFO - Prompt: A professional product photo of a Levi's Men's Shirts, Green color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:37,922 - INFO - Image saved to data/images/product_e1dcc931-a419-48eb-90ad-d77192b4e8c6.png
+2025-03-15 03:15:37,923 - INFO - Success! Image saved to data/images/product_e1dcc931-a419-48eb-90ad-d77192b4e8c6.png
+2025-03-15 03:15:37,923 - INFO - Processing product 14/5: Zara Ultimate Socks (Batch 3/1598)
+2025-03-15 03:15:37,924 - INFO - Generating image for: Zara Ultimate Socks
+2025-03-15 03:15:37,924 - INFO - Prompt: A professional product photo of a Zara Socks, made of Leather. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:39,306 - ERROR - Error generating image: 504 Server Error: Gateway Time-out for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:15:39,306 - ERROR - Failed to generate image for product: KitchenAid Ergonomic Bedding
+2025-03-15 03:15:39,307 - INFO - Batch 1/1598 completed. Generated 4 images.
+2025-03-15 03:15:41,308 - INFO - Processing product 16/5: Tommy Hilfiger Compact Jackets I971 (Batch 4/1598)
+2025-03-15 03:15:41,309 - INFO - Generating image for: Tommy Hilfiger Compact Jackets I971
+2025-03-15 03:15:41,309 - INFO - Prompt: A professional product photo of a Tommy Hilfiger Jackets, Red color, made of Denim. High-quality e-commerce product image with white background, professional lighting.
