@@ -136,3 +136,1048 @@
 2025-03-15 03:06:30,529 - INFO - Processing product 58/10000: Breville Portable Cookware R490 (Batch 6/1000)
 2025-03-15 03:06:30,529 - INFO - Generating image for: Breville Portable Cookware R490
 2025-03-15 03:06:30,529 - INFO - Prompt: A professional product photo of a Breville Cookware, made of Ceramic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:37,568 - INFO - Image saved to data/images/product_20b74f28-74a4-43a2-ba0a-623b14751e14.png
+2025-03-15 03:06:37,568 - INFO - Success! Image saved to data/images/product_20b74f28-74a4-43a2-ba0a-623b14751e14.png
+2025-03-15 03:06:37,569 - INFO - Processing product 69/10000: Calvin Klein Advanced Jeans (Batch 7/1000)
+2025-03-15 03:06:37,569 - INFO - Generating image for: Calvin Klein Advanced Jeans
+2025-03-15 03:06:37,569 - INFO - Prompt: A professional product photo of a Calvin Klein Jeans, Red color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:38,746 - INFO - Image saved to data/images/product_bcf2346a-0874-45d3-8c2d-a321224384b6.png
+2025-03-15 03:06:38,747 - INFO - Success! Image saved to data/images/product_bcf2346a-0874-45d3-8c2d-a321224384b6.png
+2025-03-15 03:06:38,747 - INFO - Processing product 43/10000: Lenovo Essential Tablets W372 (Batch 4/1000)
+2025-03-15 03:06:38,747 - INFO - Generating image for: Lenovo Essential Tablets W372
+2025-03-15 03:06:38,747 - INFO - Prompt: A professional product photo of a Lenovo Tablets, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:40,720 - INFO - Image saved to data/images/product_2aadeb28-7ec0-4967-b881-5df60193e9e5.png
+2025-03-15 03:06:40,720 - INFO - Success! Image saved to data/images/product_2aadeb28-7ec0-4967-b881-5df60193e9e5.png
+2025-03-15 03:06:40,720 - INFO - Processing product 49/10000: Colgate Advanced Skincare (Batch 5/1000)
+2025-03-15 03:06:40,720 - INFO - Generating image for: Colgate Advanced Skincare
+2025-03-15 03:06:40,720 - INFO - Prompt: A professional product photo of a Colgate Skincare. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:49,241 - INFO - Image saved to data/images/product_a28a1f42-7d79-4149-9608-d8b417023c04.png
+2025-03-15 03:06:49,242 - INFO - Success! Image saved to data/images/product_a28a1f42-7d79-4149-9608-d8b417023c04.png
+2025-03-15 03:06:49,242 - INFO - Processing product 70/10000: Asus Luxury Smartphones (Batch 7/1000)
+2025-03-15 03:06:49,242 - INFO - Generating image for: Asus Luxury Smartphones
+2025-03-15 03:06:49,242 - INFO - Prompt: A professional product photo of a Asus Smartphones, Gray color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:49,875 - INFO - Image saved to data/images/product_772b7df1-9ba7-45f9-ba1c-e5eb8b2eb7ee.png
+2025-03-15 03:06:49,876 - INFO - Success! Image saved to data/images/product_772b7df1-9ba7-45f9-ba1c-e5eb8b2eb7ee.png
+2025-03-15 03:06:49,876 - INFO - Processing product 59/10000: Rubbermaid Portable Lighting Y997 (Batch 6/1000)
+2025-03-15 03:06:49,876 - INFO - Generating image for: Rubbermaid Portable Lighting Y997
+2025-03-15 03:06:49,876 - INFO - Prompt: A professional product photo of a Rubbermaid Lighting, made of Glass. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:52,183 - INFO - Image saved to data/images/product_c3b35b3e-216d-4514-a08d-16cfdd60e1e1.png
+2025-03-15 03:06:52,184 - INFO - Success! Image saved to data/images/product_c3b35b3e-216d-4514-a08d-16cfdd60e1e1.png
+2025-03-15 03:06:52,184 - INFO - Processing product 44/10000: Gap Durable Shoes (Batch 4/1000)
+2025-03-15 03:06:52,184 - INFO - Generating image for: Gap Durable Shoes
+2025-03-15 03:06:52,184 - INFO - Prompt: A professional product photo of a Gap Shoes, Yellow color, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:06:53,818 - INFO - Image saved to data/images/product_d56ea843-0c1f-4910-b53e-96ad5749471c.png
+2025-03-15 03:06:53,818 - INFO - Success! Image saved to data/images/product_d56ea843-0c1f-4910-b53e-96ad5749471c.png
+2025-03-15 03:06:53,818 - INFO - Processing product 50/10000: Faber-Castell Premium Calendars (Batch 5/1000)
+2025-03-15 03:06:53,818 - INFO - Generating image for: Faber-Castell Premium Calendars
+2025-03-15 03:06:53,818 - INFO - Prompt: A professional product photo of a Faber-Castell Calendars, Red color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:01,376 - INFO - Image saved to data/images/product_530294f6-dc03-4774-9280-b3194a686a9b.png
+2025-03-15 03:07:01,377 - INFO - Success! Image saved to data/images/product_530294f6-dc03-4774-9280-b3194a686a9b.png
+2025-03-15 03:07:01,377 - INFO - Processing product 71/10000: Faber-Castell Wireless Staplers (Batch 7/1000)
+2025-03-15 03:07:01,377 - INFO - Generating image for: Faber-Castell Wireless Staplers
+2025-03-15 03:07:01,377 - INFO - Prompt: A professional product photo of a Faber-Castell Staplers, Yellow color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:01,554 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:01,554 - ERROR - Failed to generate image for product: Faber-Castell Wireless Staplers
+2025-03-15 03:07:01,555 - INFO - Processing product 72/10000: Dell Ultra Wearables R330 (Batch 7/1000)
+2025-03-15 03:07:01,555 - INFO - Generating image for: Dell Ultra Wearables R330
+2025-03-15 03:07:01,555 - INFO - Prompt: A professional product photo of a Dell Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:01,729 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:01,730 - ERROR - Failed to generate image for product: Dell Ultra Wearables R330
+2025-03-15 03:07:01,730 - INFO - Processing product 73/10000: Bose Ultra Smart Home A429 (Batch 7/1000)
+2025-03-15 03:07:01,730 - INFO - Generating image for: Bose Ultra Smart Home A429
+2025-03-15 03:07:01,730 - INFO - Prompt: A professional product photo of a Bose Smart Home, Silver color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:03,506 - INFO - Image saved to data/images/product_528b527e-fb46-453a-aa8d-1b60cf02a5c1.png
+2025-03-15 03:07:03,506 - INFO - Success! Image saved to data/images/product_528b527e-fb46-453a-aa8d-1b60cf02a5c1.png
+2025-03-15 03:07:03,506 - INFO - Processing product 45/10000: Samsung Portable Wearables (Batch 4/1000)
+2025-03-15 03:07:03,507 - INFO - Generating image for: Samsung Portable Wearables
+2025-03-15 03:07:03,507 - INFO - Prompt: A professional product photo of a Samsung Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:04,755 - INFO - Image saved to data/images/product_faf9f4dc-f965-4e12-a9d9-7b1bfc030858.png
+2025-03-15 03:07:04,756 - INFO - Success! Image saved to data/images/product_faf9f4dc-f965-4e12-a9d9-7b1bfc030858.png
+2025-03-15 03:07:04,756 - INFO - Processing product 60/10000: Zara Deluxe Shoes (Batch 6/1000)
+2025-03-15 03:07:04,756 - INFO - Generating image for: Zara Deluxe Shoes
+2025-03-15 03:07:04,756 - INFO - Prompt: A professional product photo of a Zara Shoes, Brown color, made of Cotton. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:06,861 - INFO - Image saved to data/images/product_83784a95-2d49-46a5-914d-6030a33e0e31.png
+2025-03-15 03:07:06,861 - INFO - Success! Image saved to data/images/product_83784a95-2d49-46a5-914d-6030a33e0e31.png
+2025-03-15 03:07:06,861 - INFO - Processing product 51/10000: Dove Deluxe Skincare J265 (Batch 5/1000)
+2025-03-15 03:07:06,861 - INFO - Generating image for: Dove Deluxe Skincare J265
+2025-03-15 03:07:06,861 - INFO - Prompt: A professional product photo of a Dove Skincare. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:14,283 - INFO - Image saved to data/images/product_3e36aee7-4e89-4631-9f58-34dceb1b0de0.png
+2025-03-15 03:07:14,283 - INFO - Success! Image saved to data/images/product_3e36aee7-4e89-4631-9f58-34dceb1b0de0.png
+2025-03-15 03:07:14,283 - INFO - Processing product 74/10000: Asus Smart Wearables F173 (Batch 7/1000)
+2025-03-15 03:07:14,283 - INFO - Generating image for: Asus Smart Wearables F173
+2025-03-15 03:07:14,283 - INFO - Prompt: A professional product photo of a Asus Wearables, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:15,127 - INFO - Image saved to data/images/product_9e87f592-05f5-4589-a4dc-780094b247ed.png
+2025-03-15 03:07:15,127 - INFO - Success! Image saved to data/images/product_9e87f592-05f5-4589-a4dc-780094b247ed.png
+2025-03-15 03:07:15,128 - INFO - Processing product 46/10000: Olay Luxury Men's Grooming (Batch 4/1000)
+2025-03-15 03:07:15,128 - INFO - Generating image for: Olay Luxury Men's Grooming
+2025-03-15 03:07:15,128 - INFO - Prompt: A professional product photo of a Olay Men's Grooming. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:16,419 - INFO - Image saved to data/images/product_fb8ab4b6-b15b-4825-b803-990562dbe1d8.png
+2025-03-15 03:07:16,419 - INFO - Success! Image saved to data/images/product_fb8ab4b6-b15b-4825-b803-990562dbe1d8.png
+2025-03-15 03:07:16,419 - INFO - Processing product 61/10000: Asus Professional Headphones N410 (Batch 6/1000)
+2025-03-15 03:07:16,419 - INFO - Generating image for: Asus Professional Headphones N410
+2025-03-15 03:07:16,419 - INFO - Prompt: A professional product photo of a Asus Headphones, Red color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:20,658 - INFO - Image saved to data/images/product_c4541403-a01d-4852-be13-d940234227ac.png
+2025-03-15 03:07:20,659 - INFO - Success! Image saved to data/images/product_c4541403-a01d-4852-be13-d940234227ac.png
+2025-03-15 03:07:20,659 - INFO - Processing product 52/10000: Lenovo Professional Wearables (Batch 5/1000)
+2025-03-15 03:07:20,659 - INFO - Generating image for: Lenovo Professional Wearables
+2025-03-15 03:07:20,659 - INFO - Prompt: A professional product photo of a Lenovo Wearables, Red color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:26,445 - INFO - Image saved to data/images/product_887ba18d-6ceb-46d6-bf65-f540d8364566.png
+2025-03-15 03:07:26,445 - INFO - Success! Image saved to data/images/product_887ba18d-6ceb-46d6-bf65-f540d8364566.png
+2025-03-15 03:07:26,446 - INFO - Processing product 75/10000: Papermate Luxury Desk Accessories (Batch 7/1000)
+2025-03-15 03:07:26,446 - INFO - Generating image for: Papermate Luxury Desk Accessories
+2025-03-15 03:07:26,446 - INFO - Prompt: A professional product photo of a Papermate Desk Accessories, Green color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:26,604 - INFO - Image saved to data/images/product_377403b3-4895-4ef2-8fa9-484480e2fdc0.png
+2025-03-15 03:07:26,604 - INFO - Success! Image saved to data/images/product_377403b3-4895-4ef2-8fa9-484480e2fdc0.png
+2025-03-15 03:07:26,605 - INFO - Processing product 77/10000: Clinique Budget Hair Care (Batch 8/1000)
+2025-03-15 03:07:26,605 - INFO - Generating image for: Clinique Budget Hair Care
+2025-03-15 03:07:26,605 - INFO - Prompt: A professional product photo of a Clinique Hair Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:26,605 - INFO - Batch 4/1000 completed. Generated 10 images.
+2025-03-15 03:07:30,996 - INFO - Image saved to data/images/product_b08ba2f7-c4cc-4e6a-a823-f0f6a752f718.png
+2025-03-15 03:07:30,997 - INFO - Success! Image saved to data/images/product_b08ba2f7-c4cc-4e6a-a823-f0f6a752f718.png
+2025-03-15 03:07:30,997 - INFO - Processing product 53/10000: Ninja Compact Bath (Batch 5/1000)
+2025-03-15 03:07:30,997 - INFO - Generating image for: Ninja Compact Bath
+2025-03-15 03:07:30,997 - INFO - Prompt: A professional product photo of a Ninja Bath, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:33,751 - INFO - Image saved to data/images/product_db5f2f01-a4cc-41d4-86d9-6f9da0195503.png
+2025-03-15 03:07:33,752 - INFO - Success! Image saved to data/images/product_db5f2f01-a4cc-41d4-86d9-6f9da0195503.png
+2025-03-15 03:07:33,752 - INFO - Processing product 62/10000: Rubbermaid Modern Decor (Batch 6/1000)
+2025-03-15 03:07:33,752 - INFO - Generating image for: Rubbermaid Modern Decor
+2025-03-15 03:07:33,752 - INFO - Prompt: A professional product photo of a Rubbermaid Decor, made of Silicone. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:39,127 - INFO - Image saved to data/images/product_95659bba-949e-404d-90b7-1f9f0d476f39.png
+2025-03-15 03:07:39,127 - INFO - Success! Image saved to data/images/product_95659bba-949e-404d-90b7-1f9f0d476f39.png
+2025-03-15 03:07:39,127 - INFO - Processing product 78/10000: JBL Luxury Speakers Z697 (Batch 8/1000)
+2025-03-15 03:07:39,127 - INFO - Generating image for: JBL Luxury Speakers Z697
+2025-03-15 03:07:39,127 - INFO - Prompt: A professional product photo of a JBL Speakers. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:39,877 - INFO - Image saved to data/images/product_f788e092-c715-4b7b-acfb-ddfafd2342a2.png
+2025-03-15 03:07:39,877 - INFO - Success! Image saved to data/images/product_f788e092-c715-4b7b-acfb-ddfafd2342a2.png
+2025-03-15 03:07:39,877 - INFO - Processing product 76/10000: KitchenAid Eco-friendly Dining (Batch 7/1000)
+2025-03-15 03:07:39,877 - INFO - Generating image for: KitchenAid Eco-friendly Dining
+2025-03-15 03:07:39,877 - INFO - Prompt: A professional product photo of a KitchenAid Dining, Silver color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:42,426 - INFO - Image saved to data/images/product_89dab452-4a20-4eb6-81c6-60e83ea00259.png
+2025-03-15 03:07:42,426 - INFO - Success! Image saved to data/images/product_89dab452-4a20-4eb6-81c6-60e83ea00259.png
+2025-03-15 03:07:42,427 - INFO - Processing product 54/10000: Lenovo Luxury Cameras G390 (Batch 5/1000)
+2025-03-15 03:07:42,427 - INFO - Generating image for: Lenovo Luxury Cameras G390
+2025-03-15 03:07:42,427 - INFO - Prompt: A professional product photo of a Lenovo Cameras, Red color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:46,276 - INFO - Image saved to data/images/product_5c7eb9ac-8be1-42ab-ac06-1bcd2ac9842f.png
+2025-03-15 03:07:46,277 - INFO - Success! Image saved to data/images/product_5c7eb9ac-8be1-42ab-ac06-1bcd2ac9842f.png
+2025-03-15 03:07:46,277 - INFO - Processing product 63/10000: Pantene Ultra Hair Care (Batch 6/1000)
+2025-03-15 03:07:46,277 - INFO - Generating image for: Pantene Ultra Hair Care
+2025-03-15 03:07:46,277 - INFO - Prompt: A professional product photo of a Pantene Hair Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:46,445 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:46,445 - ERROR - Failed to generate image for product: Pantene Ultra Hair Care
+2025-03-15 03:07:46,445 - INFO - Processing product 64/10000: Nike Premium Men's Shirts A162 (Batch 6/1000)
+2025-03-15 03:07:46,445 - INFO - Generating image for: Nike Premium Men's Shirts A162
+2025-03-15 03:07:46,446 - INFO - Prompt: A professional product photo of a Nike Men's Shirts, made of Silk. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:46,606 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:46,607 - ERROR - Failed to generate image for product: Nike Premium Men's Shirts A162
+2025-03-15 03:07:46,607 - INFO - Processing product 65/10000: KitchenAid Ergonomic Bedding (Batch 6/1000)
+2025-03-15 03:07:46,607 - INFO - Generating image for: KitchenAid Ergonomic Bedding
+2025-03-15 03:07:46,607 - INFO - Prompt: A professional product photo of a KitchenAid Bedding, Red color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:46,777 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:46,777 - ERROR - Failed to generate image for product: KitchenAid Ergonomic Bedding
+2025-03-15 03:07:46,777 - INFO - Processing product 66/10000: Garnier Modern Men's Grooming Y411 (Batch 6/1000)
+2025-03-15 03:07:46,777 - INFO - Generating image for: Garnier Modern Men's Grooming Y411
+2025-03-15 03:07:46,777 - INFO - Prompt: A professional product photo of a Garnier Men's Grooming. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:46,951 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:46,952 - ERROR - Failed to generate image for product: Garnier Modern Men's Grooming Y411
+2025-03-15 03:07:46,952 - INFO - Processing product 87/10000: Nivea Durable Tools & Accessories K191 (Batch 9/1000)
+2025-03-15 03:07:46,952 - INFO - Generating image for: Nivea Durable Tools & Accessories K191
+2025-03-15 03:07:46,952 - INFO - Prompt: A professional product photo of a Nivea Tools & Accessories. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:46,952 - INFO - Batch 6/1000 completed. Generated 6 images.
+2025-03-15 03:07:47,126 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:47,126 - ERROR - Failed to generate image for product: Nivea Durable Tools & Accessories K191
+2025-03-15 03:07:47,126 - INFO - Processing product 88/10000: Tommy Hilfiger Compact Jackets I971 (Batch 9/1000)
+2025-03-15 03:07:47,126 - INFO - Generating image for: Tommy Hilfiger Compact Jackets I971
+2025-03-15 03:07:47,127 - INFO - Prompt: A professional product photo of a Tommy Hilfiger Jackets, Red color, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:47,314 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:47,314 - ERROR - Failed to generate image for product: Tommy Hilfiger Compact Jackets I971
+2025-03-15 03:07:47,314 - INFO - Processing product 89/10000: Under Armour Durable Jackets (Batch 9/1000)
+2025-03-15 03:07:47,315 - INFO - Generating image for: Under Armour Durable Jackets
+2025-03-15 03:07:47,315 - INFO - Prompt: A professional product photo of a Under Armour Jackets, Pink color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:47,500 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:47,501 - ERROR - Failed to generate image for product: Under Armour Durable Jackets
+2025-03-15 03:07:47,501 - INFO - Processing product 90/10000: H&M Super Men's Shirts X384 (Batch 9/1000)
+2025-03-15 03:07:47,501 - INFO - Generating image for: H&M Super Men's Shirts X384
+2025-03-15 03:07:47,501 - INFO - Prompt: A professional product photo of a H&M Men's Shirts, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:47,703 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:47,704 - ERROR - Failed to generate image for product: H&M Super Men's Shirts X384
+2025-03-15 03:07:47,704 - INFO - Processing product 91/10000: Gucci Advanced Women's Dresses L122 (Batch 9/1000)
+2025-03-15 03:07:47,704 - INFO - Generating image for: Gucci Advanced Women's Dresses L122
+2025-03-15 03:07:47,704 - INFO - Prompt: A professional product photo of a Gucci Women's Dresses, Black color, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:47,886 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:47,886 - ERROR - Failed to generate image for product: Gucci Advanced Women's Dresses L122
+2025-03-15 03:07:47,886 - INFO - Processing product 92/10000: Apple Advanced Printers C161 (Batch 9/1000)
+2025-03-15 03:07:47,886 - INFO - Generating image for: Apple Advanced Printers C161
+2025-03-15 03:07:47,886 - INFO - Prompt: A professional product photo of a Apple Printers, Gray color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:48,078 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:48,078 - ERROR - Failed to generate image for product: Apple Advanced Printers C161
+2025-03-15 03:07:48,078 - INFO - Processing product 93/10000: Faber-Castell Portable Pens & Pencils (Batch 9/1000)
+2025-03-15 03:07:48,078 - INFO - Generating image for: Faber-Castell Portable Pens & Pencils
+2025-03-15 03:07:48,078 - INFO - Prompt: A professional product photo of a Faber-Castell Pens & Pencils, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:48,257 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:48,258 - ERROR - Failed to generate image for product: Faber-Castell Portable Pens & Pencils
+2025-03-15 03:07:48,258 - INFO - Processing product 94/10000: Garnier Ultra Fragrances (Batch 9/1000)
+2025-03-15 03:07:48,258 - INFO - Generating image for: Garnier Ultra Fragrances
+2025-03-15 03:07:48,258 - INFO - Prompt: A professional product photo of a Garnier Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:48,459 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:48,459 - ERROR - Failed to generate image for product: Garnier Ultra Fragrances
+2025-03-15 03:07:48,459 - INFO - Processing product 95/10000: Samsung Deluxe Speakers V174 (Batch 9/1000)
+2025-03-15 03:07:48,459 - INFO - Generating image for: Samsung Deluxe Speakers V174
+2025-03-15 03:07:48,459 - INFO - Prompt: A professional product photo of a Samsung Speakers, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:48,658 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:48,659 - ERROR - Failed to generate image for product: Samsung Deluxe Speakers V174
+2025-03-15 03:07:48,659 - INFO - Processing product 96/10000: Avery Ultra Pens & Pencils J683 (Batch 9/1000)
+2025-03-15 03:07:48,659 - INFO - Generating image for: Avery Ultra Pens & Pencils J683
+2025-03-15 03:07:48,659 - INFO - Prompt: A professional product photo of a Avery Pens & Pencils, Green color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:48,835 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:48,835 - ERROR - Failed to generate image for product: Avery Ultra Pens & Pencils J683
+2025-03-15 03:07:48,836 - INFO - Processing product 97/10000: Neutrogena Luxury Bath & Body E774 (Batch 10/1000)
+2025-03-15 03:07:48,836 - INFO - Generating image for: Neutrogena Luxury Bath & Body E774
+2025-03-15 03:07:48,836 - INFO - Prompt: A professional product photo of a Neutrogena Bath & Body. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:48,836 - INFO - Batch 9/1000 completed. Generated 0 images.
+2025-03-15 03:07:49,018 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:49,018 - ERROR - Failed to generate image for product: Neutrogena Luxury Bath & Body E774
+2025-03-15 03:07:49,018 - INFO - Processing product 98/10000: Ikea Professional Furniture R342 (Batch 10/1000)
+2025-03-15 03:07:49,018 - INFO - Generating image for: Ikea Professional Furniture R342
+2025-03-15 03:07:49,018 - INFO - Prompt: A professional product photo of a Ikea Furniture, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:49,203 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:49,203 - ERROR - Failed to generate image for product: Ikea Professional Furniture R342
+2025-03-15 03:07:49,204 - INFO - Processing product 99/10000: Brother Luxury Binders (Batch 10/1000)
+2025-03-15 03:07:49,204 - INFO - Generating image for: Brother Luxury Binders
+2025-03-15 03:07:49,204 - INFO - Prompt: A professional product photo of a Brother Binders, Green color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:49,379 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:49,380 - ERROR - Failed to generate image for product: Brother Luxury Binders
+2025-03-15 03:07:49,380 - INFO - Processing product 100/10000: Neutrogena Ergonomic Oral Care G650 (Batch 10/1000)
+2025-03-15 03:07:49,380 - INFO - Generating image for: Neutrogena Ergonomic Oral Care G650
+2025-03-15 03:07:49,380 - INFO - Prompt: A professional product photo of a Neutrogena Oral Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:49,550 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:49,550 - ERROR - Failed to generate image for product: Neutrogena Ergonomic Oral Care G650
+2025-03-15 03:07:49,550 - INFO - Processing product 101/10000: Estee Lauder Eco-friendly Tools & Accessories I316 (Batch 10/1000)
+2025-03-15 03:07:49,550 - INFO - Generating image for: Estee Lauder Eco-friendly Tools & Accessories I316
+2025-03-15 03:07:49,550 - INFO - Prompt: A professional product photo of a Estee Lauder Tools & Accessories. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:49,718 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:49,718 - ERROR - Failed to generate image for product: Estee Lauder Eco-friendly Tools & Accessories I316
+2025-03-15 03:07:49,718 - INFO - Processing product 102/10000: Dell Luxury Cameras Z905 (Batch 10/1000)
+2025-03-15 03:07:49,718 - INFO - Generating image for: Dell Luxury Cameras Z905
+2025-03-15 03:07:49,718 - INFO - Prompt: A professional product photo of a Dell Cameras. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:49,898 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:49,898 - ERROR - Failed to generate image for product: Dell Luxury Cameras Z905
+2025-03-15 03:07:49,898 - INFO - Processing product 103/10000: Adidas Advanced Hats (Batch 10/1000)
+2025-03-15 03:07:49,898 - INFO - Generating image for: Adidas Advanced Hats
+2025-03-15 03:07:49,898 - INFO - Prompt: A professional product photo of a Adidas Hats, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:50,094 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:50,094 - ERROR - Failed to generate image for product: Adidas Advanced Hats
+2025-03-15 03:07:50,094 - INFO - Processing product 104/10000: Microsoft Eco-friendly Printers B598 (Batch 10/1000)
+2025-03-15 03:07:50,094 - INFO - Generating image for: Microsoft Eco-friendly Printers B598
+2025-03-15 03:07:50,094 - INFO - Prompt: A professional product photo of a Microsoft Printers. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:50,256 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:50,257 - ERROR - Failed to generate image for product: Microsoft Eco-friendly Printers B598
+2025-03-15 03:07:50,257 - INFO - Processing product 105/10000: Levi's Essential Shoes (Batch 10/1000)
+2025-03-15 03:07:50,257 - INFO - Generating image for: Levi's Essential Shoes
+2025-03-15 03:07:50,257 - INFO - Prompt: A professional product photo of a Levi's Shoes, Brown color, made of Silk. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:50,436 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:50,437 - ERROR - Failed to generate image for product: Levi's Essential Shoes
+2025-03-15 03:07:50,437 - INFO - Processing product 106/10000: Pilot Deluxe Pens & Pencils (Batch 10/1000)
+2025-03-15 03:07:50,437 - INFO - Generating image for: Pilot Deluxe Pens & Pencils
+2025-03-15 03:07:50,437 - INFO - Prompt: A professional product photo of a Pilot Pens & Pencils, made of Metal. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:50,636 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:50,637 - ERROR - Failed to generate image for product: Pilot Deluxe Pens & Pencils
+2025-03-15 03:07:50,637 - INFO - Processing product 107/10000: Gillette High-end Nail Care (Batch 11/1000)
+2025-03-15 03:07:50,637 - INFO - Generating image for: Gillette High-end Nail Care
+2025-03-15 03:07:50,637 - INFO - Prompt: A professional product photo of a Gillette Nail Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:50,637 - INFO - Batch 10/1000 completed. Generated 0 images.
+2025-03-15 03:07:50,820 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:50,820 - ERROR - Failed to generate image for product: Gillette High-end Nail Care
+2025-03-15 03:07:50,820 - INFO - Processing product 108/10000: LG Classic Cameras (Batch 11/1000)
+2025-03-15 03:07:50,821 - INFO - Generating image for: LG Classic Cameras
+2025-03-15 03:07:50,821 - INFO - Prompt: A professional product photo of a LG Cameras, Black color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:50,985 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:50,985 - ERROR - Failed to generate image for product: LG Classic Cameras
+2025-03-15 03:07:50,985 - INFO - Processing product 109/10000: Adidas Budget Men's Shirts (Batch 11/1000)
+2025-03-15 03:07:50,986 - INFO - Generating image for: Adidas Budget Men's Shirts
+2025-03-15 03:07:50,986 - INFO - Prompt: A professional product photo of a Adidas Men's Shirts, Brown color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:51,173 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:51,173 - ERROR - Failed to generate image for product: Adidas Budget Men's Shirts
+2025-03-15 03:07:51,173 - INFO - Processing product 110/10000: Neutrogena Premium Fragrances W218 (Batch 11/1000)
+2025-03-15 03:07:51,173 - INFO - Generating image for: Neutrogena Premium Fragrances W218
+2025-03-15 03:07:51,173 - INFO - Prompt: A professional product photo of a Neutrogena Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:51,361 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:51,362 - ERROR - Failed to generate image for product: Neutrogena Premium Fragrances W218
+2025-03-15 03:07:51,362 - INFO - Processing product 111/10000: Gucci Ultra Jeans (Batch 11/1000)
+2025-03-15 03:07:51,362 - INFO - Generating image for: Gucci Ultra Jeans
+2025-03-15 03:07:51,362 - INFO - Prompt: A professional product photo of a Gucci Jeans, Gray color, made of Polyester. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:51,570 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:51,570 - ERROR - Failed to generate image for product: Gucci Ultra Jeans
+2025-03-15 03:07:51,570 - INFO - Processing product 112/10000: Microsoft Classic Smartphones G917 (Batch 11/1000)
+2025-03-15 03:07:51,570 - INFO - Generating image for: Microsoft Classic Smartphones G917
+2025-03-15 03:07:51,571 - INFO - Prompt: A professional product photo of a Microsoft Smartphones. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:51,759 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:51,759 - ERROR - Failed to generate image for product: Microsoft Classic Smartphones G917
+2025-03-15 03:07:51,759 - INFO - Processing product 113/10000: HP Ergonomic Wearables Y192 (Batch 11/1000)
+2025-03-15 03:07:51,759 - INFO - Generating image for: HP Ergonomic Wearables Y192
+2025-03-15 03:07:51,759 - INFO - Prompt: A professional product photo of a HP Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:51,773 - INFO - Image saved to data/images/product_c015ae1a-f802-44d0-a6dc-75c13d35f2b3.png
+2025-03-15 03:07:51,773 - INFO - Success! Image saved to data/images/product_c015ae1a-f802-44d0-a6dc-75c13d35f2b3.png
+2025-03-15 03:07:51,773 - INFO - Processing product 79/10000: Breville Ultimate Storage (Batch 8/1000)
+2025-03-15 03:07:51,773 - INFO - Generating image for: Breville Ultimate Storage
+2025-03-15 03:07:51,773 - INFO - Prompt: A professional product photo of a Breville Storage, Blue color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:51,946 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:51,946 - ERROR - Failed to generate image for product: HP Ergonomic Wearables Y192
+2025-03-15 03:07:51,946 - INFO - Processing product 114/10000: Revlon Classic Fragrances J825 (Batch 11/1000)
+2025-03-15 03:07:51,947 - INFO - Generating image for: Revlon Classic Fragrances J825
+2025-03-15 03:07:51,947 - INFO - Prompt: A professional product photo of a Revlon Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:51,959 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:51,960 - ERROR - Failed to generate image for product: Breville Ultimate Storage
+2025-03-15 03:07:51,960 - INFO - Processing product 80/10000: Shark Essential Decor (Batch 8/1000)
+2025-03-15 03:07:51,960 - INFO - Generating image for: Shark Essential Decor
+2025-03-15 03:07:51,960 - INFO - Prompt: A professional product photo of a Shark Decor, made of Silicone. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,142 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,143 - ERROR - Failed to generate image for product: Revlon Classic Fragrances J825
+2025-03-15 03:07:52,143 - INFO - Processing product 115/10000: Adidas Super Hats M822 (Batch 11/1000)
+2025-03-15 03:07:52,143 - INFO - Generating image for: Adidas Super Hats M822
+2025-03-15 03:07:52,143 - INFO - Prompt: A professional product photo of a Adidas Hats, Yellow color, made of Cotton. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,159 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,159 - ERROR - Failed to generate image for product: Shark Essential Decor
+2025-03-15 03:07:52,159 - INFO - Processing product 81/10000: KitchenAid Portable Dining (Batch 8/1000)
+2025-03-15 03:07:52,159 - INFO - Generating image for: KitchenAid Portable Dining
+2025-03-15 03:07:52,159 - INFO - Prompt: A professional product photo of a KitchenAid Dining, Green color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,335 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,335 - ERROR - Failed to generate image for product: KitchenAid Portable Dining
+2025-03-15 03:07:52,336 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,335 - INFO - Processing product 82/10000: Shark Advanced Decor (Batch 8/1000)
+2025-03-15 03:07:52,336 - INFO - Generating image for: Shark Advanced Decor
+2025-03-15 03:07:52,336 - ERROR - Failed to generate image for product: Adidas Super Hats M822
+2025-03-15 03:07:52,336 - INFO - Processing product 116/10000: Neutrogena Durable Oral Care K630 (Batch 11/1000)
+2025-03-15 03:07:52,336 - INFO - Generating image for: Neutrogena Durable Oral Care K630
+2025-03-15 03:07:52,336 - INFO - Prompt: A professional product photo of a Shark Decor, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,336 - INFO - Prompt: A professional product photo of a Neutrogena Oral Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,501 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,502 - ERROR - Failed to generate image for product: Shark Advanced Decor
+2025-03-15 03:07:52,502 - INFO - Processing product 83/10000: Microsoft High-end Printers (Batch 8/1000)
+2025-03-15 03:07:52,502 - INFO - Generating image for: Microsoft High-end Printers
+2025-03-15 03:07:52,502 - INFO - Prompt: A professional product photo of a Microsoft Printers, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,515 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,516 - ERROR - Failed to generate image for product: Neutrogena Durable Oral Care K630
+2025-03-15 03:07:52,516 - INFO - Processing product 117/10000: OXO Premium Appliances Z931 (Batch 12/1000)
+2025-03-15 03:07:52,516 - INFO - Generating image for: OXO Premium Appliances Z931
+2025-03-15 03:07:52,517 - INFO - Prompt: A professional product photo of a OXO Appliances, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,517 - INFO - Batch 11/1000 completed. Generated 0 images.
+2025-03-15 03:07:52,672 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,672 - ERROR - Failed to generate image for product: OXO Premium Appliances Z931
+2025-03-15 03:07:52,672 - INFO - Processing product 118/10000: Colgate Ergonomic Men's Grooming (Batch 12/1000)
+2025-03-15 03:07:52,672 - INFO - Generating image for: Colgate Ergonomic Men's Grooming
+2025-03-15 03:07:52,673 - INFO - Prompt: A professional product photo of a Colgate Men's Grooming. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,704 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,704 - ERROR - Failed to generate image for product: Microsoft High-end Printers
+2025-03-15 03:07:52,704 - INFO - Processing product 84/10000: Sharpie Modern Calendars (Batch 8/1000)
+2025-03-15 03:07:52,704 - INFO - Generating image for: Sharpie Modern Calendars
+2025-03-15 03:07:52,705 - INFO - Prompt: A professional product photo of a Sharpie Calendars, Black color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,816 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,816 - ERROR - Failed to generate image for product: Colgate Ergonomic Men's Grooming
+2025-03-15 03:07:52,816 - INFO - Processing product 119/10000: Rubbermaid Super Cleaning (Batch 12/1000)
+2025-03-15 03:07:52,816 - INFO - Generating image for: Rubbermaid Super Cleaning
+2025-03-15 03:07:52,816 - INFO - Prompt: A professional product photo of a Rubbermaid Cleaning, Black color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:52,907 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:52,907 - ERROR - Failed to generate image for product: Sharpie Modern Calendars
+2025-03-15 03:07:52,907 - INFO - Processing product 85/10000: Levi's Eco-friendly Men's Shirts (Batch 8/1000)
+2025-03-15 03:07:52,907 - INFO - Generating image for: Levi's Eco-friendly Men's Shirts
+2025-03-15 03:07:52,907 - INFO - Prompt: A professional product photo of a Levi's Men's Shirts, Green color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,029 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,029 - ERROR - Failed to generate image for product: Rubbermaid Super Cleaning
+2025-03-15 03:07:53,029 - INFO - Processing product 120/10000: Maybelline Professional Nail Care (Batch 12/1000)
+2025-03-15 03:07:53,030 - INFO - Generating image for: Maybelline Professional Nail Care
+2025-03-15 03:07:53,030 - INFO - Prompt: A professional product photo of a Maybelline Nail Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,079 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,079 - ERROR - Failed to generate image for product: Levi's Eco-friendly Men's Shirts
+2025-03-15 03:07:53,079 - INFO - Processing product 86/10000: Zara Ultimate Socks (Batch 8/1000)
+2025-03-15 03:07:53,079 - INFO - Generating image for: Zara Ultimate Socks
+2025-03-15 03:07:53,079 - INFO - Prompt: A professional product photo of a Zara Socks, made of Leather. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,192 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,193 - ERROR - Failed to generate image for product: Maybelline Professional Nail Care
+2025-03-15 03:07:53,193 - INFO - Processing product 121/10000: Zebra Advanced Printers & Ink C930 (Batch 12/1000)
+2025-03-15 03:07:53,193 - INFO - Generating image for: Zebra Advanced Printers & Ink C930
+2025-03-15 03:07:53,193 - INFO - Prompt: A professional product photo of a Zebra Printers & Ink, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,286 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,286 - ERROR - Failed to generate image for product: Zara Ultimate Socks
+2025-03-15 03:07:53,287 - INFO - Processing product 127/10000: Acer Budget Wearables (Batch 13/1000)
+2025-03-15 03:07:53,287 - INFO - Generating image for: Acer Budget Wearables
+2025-03-15 03:07:53,287 - INFO - Prompt: A professional product photo of a Acer Wearables, Black color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,287 - INFO - Batch 8/1000 completed. Generated 2 images.
+2025-03-15 03:07:53,385 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,385 - ERROR - Failed to generate image for product: Zebra Advanced Printers & Ink C930
+2025-03-15 03:07:53,385 - INFO - Processing product 122/10000: Calvin Klein Smart Women's Dresses C929 (Batch 12/1000)
+2025-03-15 03:07:53,385 - INFO - Generating image for: Calvin Klein Smart Women's Dresses C929
+2025-03-15 03:07:53,385 - INFO - Prompt: A professional product photo of a Calvin Klein Women's Dresses, made of Cotton. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,437 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,437 - ERROR - Failed to generate image for product: Acer Budget Wearables
+2025-03-15 03:07:53,437 - INFO - Processing product 128/10000: Estee Lauder Super Shaving J350 (Batch 13/1000)
+2025-03-15 03:07:53,438 - INFO - Generating image for: Estee Lauder Super Shaving J350
+2025-03-15 03:07:53,438 - INFO - Prompt: A professional product photo of a Estee Lauder Shaving. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,563 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,563 - ERROR - Failed to generate image for product: Calvin Klein Smart Women's Dresses C929
+2025-03-15 03:07:53,563 - INFO - Processing product 123/10000: Neutrogena Super Fragrances J625 (Batch 12/1000)
+2025-03-15 03:07:53,564 - INFO - Generating image for: Neutrogena Super Fragrances J625
+2025-03-15 03:07:53,564 - INFO - Prompt: A professional product photo of a Neutrogena Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,638 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,639 - ERROR - Failed to generate image for product: Estee Lauder Super Shaving J350
+2025-03-15 03:07:53,639 - INFO - Processing product 129/10000: Lenovo Advanced Monitors (Batch 13/1000)
+2025-03-15 03:07:53,639 - INFO - Generating image for: Lenovo Advanced Monitors
+2025-03-15 03:07:53,639 - INFO - Prompt: A professional product photo of a Lenovo Monitors, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,748 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,749 - ERROR - Failed to generate image for product: Neutrogena Super Fragrances J625
+2025-03-15 03:07:53,749 - INFO - Processing product 124/10000: Apple Ergonomic Headphones (Batch 12/1000)
+2025-03-15 03:07:53,749 - INFO - Generating image for: Apple Ergonomic Headphones
+2025-03-15 03:07:53,749 - INFO - Prompt: A professional product photo of a Apple Headphones, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,809 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,810 - ERROR - Failed to generate image for product: Lenovo Advanced Monitors
+2025-03-15 03:07:53,810 - INFO - Processing product 130/10000: Dell Professional Cameras (Batch 13/1000)
+2025-03-15 03:07:53,810 - INFO - Generating image for: Dell Professional Cameras
+2025-03-15 03:07:53,810 - INFO - Prompt: A professional product photo of a Dell Cameras, Red color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,947 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,948 - ERROR - Failed to generate image for product: Apple Ergonomic Headphones
+2025-03-15 03:07:53,948 - INFO - Processing product 125/10000: Nike Wireless Women's Dresses (Batch 12/1000)
+2025-03-15 03:07:53,948 - INFO - Generating image for: Nike Wireless Women's Dresses
+2025-03-15 03:07:53,948 - INFO - Prompt: A professional product photo of a Nike Women's Dresses, Black color, made of Linen. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:53,994 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:53,994 - ERROR - Failed to generate image for product: Dell Professional Cameras
+2025-03-15 03:07:53,994 - INFO - Processing product 131/10000: Pantene Budget Shaving F876 (Batch 13/1000)
+2025-03-15 03:07:53,995 - INFO - Generating image for: Pantene Budget Shaving F876
+2025-03-15 03:07:53,995 - INFO - Prompt: A professional product photo of a Pantene Shaving. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,133 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,133 - ERROR - Failed to generate image for product: Nike Wireless Women's Dresses
+2025-03-15 03:07:54,133 - INFO - Processing product 126/10000: Tommy Hilfiger Super Hats D231 (Batch 12/1000)
+2025-03-15 03:07:54,133 - INFO - Generating image for: Tommy Hilfiger Super Hats D231
+2025-03-15 03:07:54,133 - INFO - Prompt: A professional product photo of a Tommy Hilfiger Hats, Brown color, made of Silk. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,173 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,173 - ERROR - Failed to generate image for product: Pantene Budget Shaving F876
+2025-03-15 03:07:54,173 - INFO - Processing product 132/10000: Cuisinart Budget Furniture (Batch 13/1000)
+2025-03-15 03:07:54,173 - INFO - Generating image for: Cuisinart Budget Furniture
+2025-03-15 03:07:54,174 - INFO - Prompt: A professional product photo of a Cuisinart Furniture. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,332 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,332 - ERROR - Failed to generate image for product: Tommy Hilfiger Super Hats D231
+2025-03-15 03:07:54,332 - INFO - Processing product 137/10000: Bic Compact Calendars (Batch 14/1000)
+2025-03-15 03:07:54,332 - INFO - Generating image for: Bic Compact Calendars
+2025-03-15 03:07:54,333 - INFO - Prompt: A professional product photo of a Bic Calendars, Blue color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,332 - INFO - Batch 12/1000 completed. Generated 0 images.
+2025-03-15 03:07:54,366 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,366 - ERROR - Failed to generate image for product: Cuisinart Budget Furniture
+2025-03-15 03:07:54,366 - INFO - Processing product 133/10000: Pantene Deluxe Oral Care Q941 (Batch 13/1000)
+2025-03-15 03:07:54,366 - INFO - Generating image for: Pantene Deluxe Oral Care Q941
+2025-03-15 03:07:54,366 - INFO - Prompt: A professional product photo of a Pantene Oral Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,407 - INFO - Image saved to data/images/product_b5982ea3-a96a-4602-a08d-6c0a991cc41d.png
+2025-03-15 03:07:54,407 - INFO - Success! Image saved to data/images/product_b5982ea3-a96a-4602-a08d-6c0a991cc41d.png
+2025-03-15 03:07:54,407 - INFO - Processing product 55/10000: Bose Ultra Laptops F219 (Batch 5/1000)
+2025-03-15 03:07:54,407 - INFO - Generating image for: Bose Ultra Laptops F219
+2025-03-15 03:07:54,407 - INFO - Prompt: A professional product photo of a Bose Laptops, Red color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,518 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,518 - ERROR - Failed to generate image for product: Bic Compact Calendars
+2025-03-15 03:07:54,518 - INFO - Processing product 138/10000: Gucci Deluxe Underwear (Batch 14/1000)
+2025-03-15 03:07:54,519 - INFO - Generating image for: Gucci Deluxe Underwear
+2025-03-15 03:07:54,519 - INFO - Prompt: A professional product photo of a Gucci Underwear, Black color, made of Wool. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,567 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,567 - ERROR - Failed to generate image for product: Pantene Deluxe Oral Care Q941
+2025-03-15 03:07:54,567 - INFO - Processing product 134/10000: L'Oreal Portable Bath & Body (Batch 13/1000)
+2025-03-15 03:07:54,567 - INFO - Generating image for: L'Oreal Portable Bath & Body
+2025-03-15 03:07:54,567 - INFO - Prompt: A professional product photo of a L'Oreal Bath & Body. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,572 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,573 - ERROR - Failed to generate image for product: Bose Ultra Laptops F219
+2025-03-15 03:07:54,573 - INFO - Processing product 56/10000: Nivea Smart Tools & Accessories (Batch 5/1000)
+2025-03-15 03:07:54,573 - INFO - Generating image for: Nivea Smart Tools & Accessories
+2025-03-15 03:07:54,573 - INFO - Prompt: A professional product photo of a Nivea Tools & Accessories. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,733 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,734 - ERROR - Failed to generate image for product: Gucci Deluxe Underwear
+2025-03-15 03:07:54,734 - INFO - Processing product 139/10000: Gillette Classic Nail Care M205 (Batch 14/1000)
+2025-03-15 03:07:54,734 - INFO - Generating image for: Gillette Classic Nail Care M205
+2025-03-15 03:07:54,734 - INFO - Prompt: A professional product photo of a Gillette Nail Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,737 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,737 - ERROR - Failed to generate image for product: Nivea Smart Tools & Accessories
+2025-03-15 03:07:54,738 - INFO - Processing product 147/10000: Adidas Modern Activewear T166 (Batch 15/1000)
+2025-03-15 03:07:54,738 - INFO - Batch 5/1000 completed. Generated 8 images.
+2025-03-15 03:07:54,738 - INFO - Generating image for: Adidas Modern Activewear T166
+2025-03-15 03:07:54,738 - INFO - Prompt: A professional product photo of a Adidas Activewear, made of Cotton. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,746 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,747 - ERROR - Failed to generate image for product: L'Oreal Portable Bath & Body
+2025-03-15 03:07:54,747 - INFO - Processing product 135/10000: Logitech Budget Tablets (Batch 13/1000)
+2025-03-15 03:07:54,747 - INFO - Generating image for: Logitech Budget Tablets
+2025-03-15 03:07:54,747 - INFO - Prompt: A professional product photo of a Logitech Tablets. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,914 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,914 - ERROR - Failed to generate image for product: Adidas Modern Activewear T166
+2025-03-15 03:07:54,915 - INFO - Processing product 148/10000: Cuisinart Modern Decor (Batch 15/1000)
+2025-03-15 03:07:54,915 - INFO - Generating image for: Cuisinart Modern Decor
+2025-03-15 03:07:54,915 - INFO - Prompt: A professional product photo of a Cuisinart Decor, Black color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,919 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,919 - ERROR - Failed to generate image for product: Gillette Classic Nail Care M205
+2025-03-15 03:07:54,919 - INFO - Processing product 140/10000: Revlon Ultra Men's Grooming (Batch 14/1000)
+2025-03-15 03:07:54,919 - INFO - Generating image for: Revlon Ultra Men's Grooming
+2025-03-15 03:07:54,919 - INFO - Prompt: A professional product photo of a Revlon Men's Grooming. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:54,951 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:54,951 - ERROR - Failed to generate image for product: Logitech Budget Tablets
+2025-03-15 03:07:54,951 - INFO - Processing product 136/10000: Clinique High-end Makeup (Batch 13/1000)
+2025-03-15 03:07:54,951 - INFO - Generating image for: Clinique High-end Makeup
+2025-03-15 03:07:54,951 - INFO - Prompt: A professional product photo of a Clinique Makeup. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,087 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,087 - ERROR - Failed to generate image for product: Cuisinart Modern Decor
+2025-03-15 03:07:55,087 - INFO - Processing product 149/10000: Staples Ultimate Printers & Ink (Batch 15/1000)
+2025-03-15 03:07:55,088 - INFO - Generating image for: Staples Ultimate Printers & Ink
+2025-03-15 03:07:55,088 - INFO - Prompt: A professional product photo of a Staples Printers & Ink, Blue color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,100 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,100 - ERROR - Failed to generate image for product: Revlon Ultra Men's Grooming
+2025-03-15 03:07:55,100 - INFO - Processing product 141/10000: Maybelline Classic Nail Care (Batch 14/1000)
+2025-03-15 03:07:55,101 - INFO - Generating image for: Maybelline Classic Nail Care
+2025-03-15 03:07:55,101 - INFO - Prompt: A professional product photo of a Maybelline Nail Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,130 - INFO - Image saved to data/images/product_db7fd318-4025-4806-abc4-a29afed4c5c3.png
+2025-03-15 03:07:55,130 - INFO - Success! Image saved to data/images/product_db7fd318-4025-4806-abc4-a29afed4c5c3.png
+2025-03-15 03:07:55,131 - INFO - Processing product 157/10000: Instant Pot Ultra Bedding T673 (Batch 16/1000)
+2025-03-15 03:07:55,131 - INFO - Generating image for: Instant Pot Ultra Bedding T673
+2025-03-15 03:07:55,131 - INFO - Prompt: A professional product photo of a Instant Pot Bedding. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,131 - INFO - Batch 7/1000 completed. Generated 8 images.
+2025-03-15 03:07:55,157 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,157 - ERROR - Failed to generate image for product: Clinique High-end Makeup
+2025-03-15 03:07:55,157 - INFO - Processing product 167/10000: OXO Advanced Furniture (Batch 17/1000)
+2025-03-15 03:07:55,158 - INFO - Generating image for: OXO Advanced Furniture
+2025-03-15 03:07:55,158 - INFO - Prompt: A professional product photo of a OXO Furniture, Yellow color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,158 - INFO - Batch 13/1000 completed. Generated 0 images.
+2025-03-15 03:07:55,252 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,252 - ERROR - Failed to generate image for product: Staples Ultimate Printers & Ink
+2025-03-15 03:07:55,252 - INFO - Processing product 150/10000: Lenovo Portable Wearables Y407 (Batch 15/1000)
+2025-03-15 03:07:55,252 - INFO - Generating image for: Lenovo Portable Wearables Y407
+2025-03-15 03:07:55,253 - INFO - Prompt: A professional product photo of a Lenovo Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,290 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,291 - ERROR - Failed to generate image for product: Maybelline Classic Nail Care
+2025-03-15 03:07:55,291 - INFO - Processing product 142/10000: Neutrogena Professional Shaving (Batch 14/1000)
+2025-03-15 03:07:55,291 - INFO - Generating image for: Neutrogena Professional Shaving
+2025-03-15 03:07:55,291 - INFO - Prompt: A professional product photo of a Neutrogena Shaving. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,344 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,345 - ERROR - Failed to generate image for product: OXO Advanced Furniture
+2025-03-15 03:07:55,345 - INFO - Processing product 168/10000: Papermate Modern Binders G369 (Batch 17/1000)
+2025-03-15 03:07:55,345 - INFO - Generating image for: Papermate Modern Binders G369
+2025-03-15 03:07:55,345 - INFO - Prompt: A professional product photo of a Papermate Binders, Yellow color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,454 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,455 - ERROR - Failed to generate image for product: Lenovo Portable Wearables Y407
+2025-03-15 03:07:55,455 - INFO - Processing product 151/10000: Microsoft Eco-friendly Headphones V561 (Batch 15/1000)
+2025-03-15 03:07:55,455 - INFO - Generating image for: Microsoft Eco-friendly Headphones V561
+2025-03-15 03:07:55,455 - INFO - Prompt: A professional product photo of a Microsoft Headphones. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,487 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,487 - ERROR - Failed to generate image for product: Neutrogena Professional Shaving
+2025-03-15 03:07:55,488 - INFO - Processing product 143/10000: Keurig Eco-friendly Cleaning (Batch 14/1000)
+2025-03-15 03:07:55,488 - INFO - Generating image for: Keurig Eco-friendly Cleaning
+2025-03-15 03:07:55,488 - INFO - Prompt: A professional product photo of a Keurig Cleaning, Yellow color, made of Silicone. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,532 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,533 - ERROR - Failed to generate image for product: Papermate Modern Binders G369
+2025-03-15 03:07:55,533 - INFO - Processing product 169/10000: Calphalon Classic Storage U558 (Batch 17/1000)
+2025-03-15 03:07:55,533 - INFO - Generating image for: Calphalon Classic Storage U558
+2025-03-15 03:07:55,533 - INFO - Prompt: A professional product photo of a Calphalon Storage. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,688 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,688 - ERROR - Failed to generate image for product: Microsoft Eco-friendly Headphones V561
+2025-03-15 03:07:55,688 - INFO - Processing product 152/10000: Pyrex Classic Storage H641 (Batch 15/1000)
+2025-03-15 03:07:55,688 - INFO - Generating image for: Pyrex Classic Storage H641
+2025-03-15 03:07:55,689 - INFO - Prompt: A professional product photo of a Pyrex Storage, White color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,692 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,692 - ERROR - Failed to generate image for product: Keurig Eco-friendly Cleaning
+2025-03-15 03:07:55,692 - INFO - Processing product 144/10000: Nivea Smart Tools & Accessories (Batch 14/1000)
+2025-03-15 03:07:55,692 - INFO - Generating image for: Nivea Smart Tools & Accessories
+2025-03-15 03:07:55,693 - INFO - Prompt: A professional product photo of a Nivea Tools & Accessories. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,707 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,707 - ERROR - Failed to generate image for product: Calphalon Classic Storage U558
+2025-03-15 03:07:55,708 - INFO - Processing product 170/10000: Clinique Eco-friendly Hair Care P682 (Batch 17/1000)
+2025-03-15 03:07:55,708 - INFO - Generating image for: Clinique Eco-friendly Hair Care P682
+2025-03-15 03:07:55,708 - INFO - Prompt: A professional product photo of a Clinique Hair Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,860 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,860 - ERROR - Failed to generate image for product: Nivea Smart Tools & Accessories
+2025-03-15 03:07:55,861 - INFO - Processing product 145/10000: Zara Portable Jackets E302 (Batch 14/1000)
+2025-03-15 03:07:55,861 - INFO - Generating image for: Zara Portable Jackets E302
+2025-03-15 03:07:55,861 - INFO - Prompt: A professional product photo of a Zara Jackets, Brown color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,870 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,870 - ERROR - Failed to generate image for product: Pyrex Classic Storage H641
+2025-03-15 03:07:55,871 - INFO - Processing product 153/10000: Ikea Essential Decor G371 (Batch 15/1000)
+2025-03-15 03:07:55,871 - INFO - Generating image for: Ikea Essential Decor G371
+2025-03-15 03:07:55,871 - INFO - Prompt: A professional product photo of a Ikea Decor, Brown color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:55,894 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:55,895 - ERROR - Failed to generate image for product: Clinique Eco-friendly Hair Care P682
+2025-03-15 03:07:55,895 - INFO - Processing product 171/10000: KitchenAid Modern Furniture M470 (Batch 17/1000)
+2025-03-15 03:07:55,895 - INFO - Generating image for: KitchenAid Modern Furniture M470
+2025-03-15 03:07:55,895 - INFO - Prompt: A professional product photo of a KitchenAid Furniture, Green color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,051 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,051 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,051 - ERROR - Failed to generate image for product: Zara Portable Jackets E302
+2025-03-15 03:07:56,051 - ERROR - Failed to generate image for product: Ikea Essential Decor G371
+2025-03-15 03:07:56,051 - INFO - Processing product 146/10000: Under Armour Ergonomic Shoes Z286 (Batch 14/1000)
+2025-03-15 03:07:56,051 - INFO - Processing product 154/10000: Sharpie Premium Notebooks X581 (Batch 15/1000)
+2025-03-15 03:07:56,052 - INFO - Generating image for: Under Armour Ergonomic Shoes Z286
+2025-03-15 03:07:56,052 - INFO - Prompt: A professional product photo of a Under Armour Shoes, Yellow color, made of Leather. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,052 - INFO - Generating image for: Sharpie Premium Notebooks X581
+2025-03-15 03:07:56,052 - INFO - Prompt: A professional product photo of a Sharpie Notebooks, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,065 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,066 - ERROR - Failed to generate image for product: KitchenAid Modern Furniture M470
+2025-03-15 03:07:56,066 - INFO - Processing product 172/10000: Microsoft Compact Smartphones (Batch 17/1000)
+2025-03-15 03:07:56,066 - INFO - Generating image for: Microsoft Compact Smartphones
+2025-03-15 03:07:56,066 - INFO - Prompt: A professional product photo of a Microsoft Smartphones, Gray color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,229 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,229 - ERROR - Failed to generate image for product: Under Armour Ergonomic Shoes Z286
+2025-03-15 03:07:56,230 - INFO - Processing product 177/10000: Calvin Klein Classic Jackets B455 (Batch 18/1000)
+2025-03-15 03:07:56,230 - INFO - Generating image for: Calvin Klein Classic Jackets B455
+2025-03-15 03:07:56,230 - INFO - Prompt: A professional product photo of a Calvin Klein Jackets, Blue color, made of Wool. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,230 - INFO - Batch 14/1000 completed. Generated 0 images.
+2025-03-15 03:07:56,254 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,254 - ERROR - Failed to generate image for product: Sharpie Premium Notebooks X581
+2025-03-15 03:07:56,255 - INFO - Processing product 155/10000: Uniqlo Compact Socks (Batch 15/1000)
+2025-03-15 03:07:56,255 - INFO - Generating image for: Uniqlo Compact Socks
+2025-03-15 03:07:56,255 - INFO - Prompt: A professional product photo of a Uniqlo Socks, made of Leather. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,259 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,260 - ERROR - Failed to generate image for product: Microsoft Compact Smartphones
+2025-03-15 03:07:56,260 - INFO - Processing product 173/10000: Lenovo Ergonomic Headphones (Batch 17/1000)
+2025-03-15 03:07:56,260 - INFO - Generating image for: Lenovo Ergonomic Headphones
+2025-03-15 03:07:56,260 - INFO - Prompt: A professional product photo of a Lenovo Headphones. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,320 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,320 - ERROR - Failed to generate image for product: Instant Pot Ultra Bedding T673
+2025-03-15 03:07:56,320 - INFO - Processing product 158/10000: Cuisinart Eco-friendly Decor D174 (Batch 16/1000)
+2025-03-15 03:07:56,321 - INFO - Generating image for: Cuisinart Eco-friendly Decor D174
+2025-03-15 03:07:56,321 - INFO - Prompt: A professional product photo of a Cuisinart Decor. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,409 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,409 - ERROR - Failed to generate image for product: Calvin Klein Classic Jackets B455
+2025-03-15 03:07:56,409 - INFO - Processing product 178/10000: Philips Deluxe Printers (Batch 18/1000)
+2025-03-15 03:07:56,409 - INFO - Generating image for: Philips Deluxe Printers
+2025-03-15 03:07:56,409 - INFO - Prompt: A professional product photo of a Philips Printers. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,437 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,437 - ERROR - Failed to generate image for product: Uniqlo Compact Socks
+2025-03-15 03:07:56,438 - INFO - Processing product 156/10000: Instant Pot Super Cleaning (Batch 15/1000)
+2025-03-15 03:07:56,438 - INFO - Generating image for: Instant Pot Super Cleaning
+2025-03-15 03:07:56,438 - INFO - Prompt: A professional product photo of a Instant Pot Cleaning, Black color, made of Silicone. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,447 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,447 - ERROR - Failed to generate image for product: Lenovo Ergonomic Headphones
+2025-03-15 03:07:56,447 - INFO - Processing product 174/10000: Maybelline Ultra Nail Care Z567 (Batch 17/1000)
+2025-03-15 03:07:56,448 - INFO - Generating image for: Maybelline Ultra Nail Care Z567
+2025-03-15 03:07:56,448 - INFO - Prompt: A professional product photo of a Maybelline Nail Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,490 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,491 - ERROR - Failed to generate image for product: Cuisinart Eco-friendly Decor D174
+2025-03-15 03:07:56,491 - INFO - Processing product 159/10000: Ralph Lauren Deluxe Activewear (Batch 16/1000)
+2025-03-15 03:07:56,491 - INFO - Generating image for: Ralph Lauren Deluxe Activewear
+2025-03-15 03:07:56,491 - INFO - Prompt: A professional product photo of a Ralph Lauren Activewear, Purple color, made of Silk. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,593 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,593 - ERROR - Failed to generate image for product: Philips Deluxe Printers
+2025-03-15 03:07:56,593 - INFO - Processing product 179/10000: OXO Professional Decor T572 (Batch 18/1000)
+2025-03-15 03:07:56,593 - INFO - Generating image for: OXO Professional Decor T572
+2025-03-15 03:07:56,593 - INFO - Prompt: A professional product photo of a OXO Decor, Yellow color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,603 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,603 - ERROR - Failed to generate image for product: Instant Pot Super Cleaning
+2025-03-15 03:07:56,603 - INFO - Processing product 187/10000: Samsung Eco-friendly Monitors (Batch 19/1000)
+2025-03-15 03:07:56,603 - INFO - Generating image for: Samsung Eco-friendly Monitors
+2025-03-15 03:07:56,603 - INFO - Batch 15/1000 completed. Generated 0 images.
+2025-03-15 03:07:56,604 - INFO - Prompt: A professional product photo of a Samsung Monitors. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,619 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,619 - ERROR - Failed to generate image for product: Maybelline Ultra Nail Care Z567
+2025-03-15 03:07:56,619 - INFO - Processing product 175/10000: Ninja Smart Bath (Batch 17/1000)
+2025-03-15 03:07:56,620 - INFO - Generating image for: Ninja Smart Bath
+2025-03-15 03:07:56,620 - INFO - Prompt: A professional product photo of a Ninja Bath, Red color, made of Ceramic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,673 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,674 - ERROR - Failed to generate image for product: Ralph Lauren Deluxe Activewear
+2025-03-15 03:07:56,674 - INFO - Processing product 160/10000: Ikea High-end Lighting (Batch 16/1000)
+2025-03-15 03:07:56,674 - INFO - Generating image for: Ikea High-end Lighting
+2025-03-15 03:07:56,674 - INFO - Prompt: A professional product photo of a Ikea Lighting, Red color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,773 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,773 - ERROR - Failed to generate image for product: OXO Professional Decor T572
+2025-03-15 03:07:56,773 - INFO - Processing product 180/10000: Ninja Advanced Cookware X475 (Batch 18/1000)
+2025-03-15 03:07:56,773 - INFO - Generating image for: Ninja Advanced Cookware X475
+2025-03-15 03:07:56,773 - INFO - Prompt: A professional product photo of a Ninja Cookware, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,782 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,782 - ERROR - Failed to generate image for product: Samsung Eco-friendly Monitors
+2025-03-15 03:07:56,782 - INFO - Processing product 188/10000: KitchenAid Premium Bedding F441 (Batch 19/1000)
+2025-03-15 03:07:56,782 - INFO - Generating image for: KitchenAid Premium Bedding F441
+2025-03-15 03:07:56,783 - INFO - Prompt: A professional product photo of a KitchenAid Bedding, Green color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,811 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,811 - ERROR - Failed to generate image for product: Ninja Smart Bath
+2025-03-15 03:07:56,811 - INFO - Processing product 176/10000: Shark Ultra Storage T613 (Batch 17/1000)
+2025-03-15 03:07:56,811 - INFO - Generating image for: Shark Ultra Storage T613
+2025-03-15 03:07:56,812 - INFO - Prompt: A professional product photo of a Shark Storage, Black color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,852 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,852 - ERROR - Failed to generate image for product: Ikea High-end Lighting
+2025-03-15 03:07:56,852 - INFO - Processing product 161/10000: Adidas Ergonomic Activewear I930 (Batch 16/1000)
+2025-03-15 03:07:56,852 - INFO - Generating image for: Adidas Ergonomic Activewear I930
+2025-03-15 03:07:56,852 - INFO - Prompt: A professional product photo of a Adidas Activewear, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,949 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,950 - ERROR - Failed to generate image for product: KitchenAid Premium Bedding F441
+2025-03-15 03:07:56,950 - INFO - Processing product 189/10000: Gucci Budget Women's Dresses (Batch 19/1000)
+2025-03-15 03:07:56,950 - INFO - Generating image for: Gucci Budget Women's Dresses
+2025-03-15 03:07:56,950 - INFO - Prompt: A professional product photo of a Gucci Women's Dresses, Purple color, made of Leather. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,969 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,969 - ERROR - Failed to generate image for product: Ninja Advanced Cookware X475
+2025-03-15 03:07:56,969 - INFO - Processing product 181/10000: Adidas Durable Accessories (Batch 18/1000)
+2025-03-15 03:07:56,970 - INFO - Generating image for: Adidas Durable Accessories
+2025-03-15 03:07:56,970 - INFO - Prompt: A professional product photo of a Adidas Accessories, Red color, made of Leather. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:56,979 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:56,979 - ERROR - Failed to generate image for product: Shark Ultra Storage T613
+2025-03-15 03:07:56,979 - INFO - Processing product 197/10000: Gucci Modern Jeans (Batch 20/1000)
+2025-03-15 03:07:56,980 - INFO - Generating image for: Gucci Modern Jeans
+2025-03-15 03:07:56,980 - INFO - Batch 17/1000 completed. Generated 0 images.
+2025-03-15 03:07:56,980 - INFO - Prompt: A professional product photo of a Gucci Jeans, Green color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,031 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,031 - ERROR - Failed to generate image for product: Adidas Ergonomic Activewear I930
+2025-03-15 03:07:57,031 - INFO - Processing product 162/10000: LG Classic Smart Home G890 (Batch 16/1000)
+2025-03-15 03:07:57,031 - INFO - Generating image for: LG Classic Smart Home G890
+2025-03-15 03:07:57,032 - INFO - Prompt: A professional product photo of a LG Smart Home. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,167 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,167 - ERROR - Failed to generate image for product: Gucci Modern Jeans
+2025-03-15 03:07:57,167 - INFO - Processing product 198/10000: Estee Lauder Eco-friendly Hair Care (Batch 20/1000)
+2025-03-15 03:07:57,167 - INFO - Generating image for: Estee Lauder Eco-friendly Hair Care
+2025-03-15 03:07:57,167 - INFO - Prompt: A professional product photo of a Estee Lauder Hair Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,168 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,168 - ERROR - Failed to generate image for product: Gucci Budget Women's Dresses
+2025-03-15 03:07:57,168 - INFO - Processing product 190/10000: Calvin Klein Eco-friendly Underwear (Batch 19/1000)
+2025-03-15 03:07:57,169 - INFO - Generating image for: Calvin Klein Eco-friendly Underwear
+2025-03-15 03:07:57,169 - INFO - Prompt: A professional product photo of a Calvin Klein Underwear, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,170 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,170 - ERROR - Failed to generate image for product: Adidas Durable Accessories
+2025-03-15 03:07:57,170 - INFO - Processing product 182/10000: Maybelline Compact Nail Care (Batch 18/1000)
+2025-03-15 03:07:57,171 - INFO - Generating image for: Maybelline Compact Nail Care
+2025-03-15 03:07:57,171 - INFO - Prompt: A professional product photo of a Maybelline Nail Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,207 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,207 - ERROR - Failed to generate image for product: LG Classic Smart Home G890
+2025-03-15 03:07:57,207 - INFO - Processing product 163/10000: Gillette Premium Makeup (Batch 16/1000)
+2025-03-15 03:07:57,207 - INFO - Generating image for: Gillette Premium Makeup
+2025-03-15 03:07:57,208 - INFO - Prompt: A professional product photo of a Gillette Makeup. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,317 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,317 - ERROR - Failed to generate image for product: Maybelline Compact Nail Care
+2025-03-15 03:07:57,318 - INFO - Processing product 183/10000: Breville Super Storage L910 (Batch 18/1000)
+2025-03-15 03:07:57,318 - INFO - Generating image for: Breville Super Storage L910
+2025-03-15 03:07:57,318 - INFO - Prompt: A professional product photo of a Breville Storage, made of Glass. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,339 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,340 - ERROR - Failed to generate image for product: Estee Lauder Eco-friendly Hair Care
+2025-03-15 03:07:57,340 - INFO - Processing product 199/10000: Gillette Classic Tools & Accessories B193 (Batch 20/1000)
+2025-03-15 03:07:57,340 - INFO - Generating image for: Gillette Classic Tools & Accessories B193
+2025-03-15 03:07:57,340 - INFO - Prompt: A professional product photo of a Gillette Tools & Accessories. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,361 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,361 - ERROR - Failed to generate image for product: Calvin Klein Eco-friendly Underwear
+2025-03-15 03:07:57,361 - INFO - Processing product 191/10000: KitchenAid Durable Appliances (Batch 19/1000)
+2025-03-15 03:07:57,361 - INFO - Generating image for: KitchenAid Durable Appliances
+2025-03-15 03:07:57,361 - INFO - Prompt: A professional product photo of a KitchenAid Appliances, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,398 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,399 - ERROR - Failed to generate image for product: Gillette Premium Makeup
+2025-03-15 03:07:57,399 - INFO - Processing product 164/10000: Dell Deluxe Wearables (Batch 16/1000)
+2025-03-15 03:07:57,399 - INFO - Generating image for: Dell Deluxe Wearables
+2025-03-15 03:07:57,399 - INFO - Prompt: A professional product photo of a Dell Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,503 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,503 - ERROR - Failed to generate image for product: Breville Super Storage L910
+2025-03-15 03:07:57,504 - INFO - Processing product 184/10000: Staples Ultra Scissors K130 (Batch 18/1000)
+2025-03-15 03:07:57,504 - INFO - Generating image for: Staples Ultra Scissors K130
+2025-03-15 03:07:57,504 - INFO - Prompt: A professional product photo of a Staples Scissors, Yellow color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,532 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,532 - ERROR - Failed to generate image for product: KitchenAid Durable Appliances
+2025-03-15 03:07:57,532 - INFO - Processing product 192/10000: Neutrogena Super Skincare (Batch 19/1000)
+2025-03-15 03:07:57,532 - INFO - Generating image for: Neutrogena Super Skincare
+2025-03-15 03:07:57,532 - INFO - Prompt: A professional product photo of a Neutrogena Skincare. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,546 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,546 - ERROR - Failed to generate image for product: Gillette Classic Tools & Accessories B193
+2025-03-15 03:07:57,546 - INFO - Processing product 200/10000: HP Eco-friendly Paper V786 (Batch 20/1000)
+2025-03-15 03:07:57,547 - INFO - Generating image for: HP Eco-friendly Paper V786
+2025-03-15 03:07:57,547 - INFO - Prompt: A professional product photo of a HP Paper, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,599 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,600 - ERROR - Failed to generate image for product: Dell Deluxe Wearables
+2025-03-15 03:07:57,600 - INFO - Processing product 165/10000: Gucci Deluxe Men's Shirts (Batch 16/1000)
+2025-03-15 03:07:57,600 - INFO - Generating image for: Gucci Deluxe Men's Shirts
+2025-03-15 03:07:57,600 - INFO - Prompt: A professional product photo of a Gucci Men's Shirts, Black color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,688 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,689 - ERROR - Failed to generate image for product: Staples Ultra Scissors K130
+2025-03-15 03:07:57,689 - INFO - Processing product 185/10000: Gillette Essential Shaving M579 (Batch 18/1000)
+2025-03-15 03:07:57,689 - INFO - Generating image for: Gillette Essential Shaving M579
+2025-03-15 03:07:57,689 - INFO - Prompt: A professional product photo of a Gillette Shaving. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,709 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,709 - ERROR - Failed to generate image for product: Neutrogena Super Skincare
+2025-03-15 03:07:57,709 - INFO - Processing product 193/10000: Zara Luxury Hats L708 (Batch 19/1000)
+2025-03-15 03:07:57,709 - INFO - Generating image for: Zara Luxury Hats L708
+2025-03-15 03:07:57,710 - INFO - Prompt: A professional product photo of a Zara Hats. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,722 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,722 - ERROR - Failed to generate image for product: HP Eco-friendly Paper V786
+2025-03-15 03:07:57,722 - INFO - Processing product 201/10000: Bic High-end Notebooks L243 (Batch 20/1000)
+2025-03-15 03:07:57,722 - INFO - Generating image for: Bic High-end Notebooks L243
+2025-03-15 03:07:57,723 - INFO - Prompt: A professional product photo of a Bic Notebooks, Green color, made of Paper. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,788 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,788 - ERROR - Failed to generate image for product: Gucci Deluxe Men's Shirts
+2025-03-15 03:07:57,788 - INFO - Processing product 166/10000: Logitech Portable Printers I953 (Batch 16/1000)
+2025-03-15 03:07:57,788 - INFO - Generating image for: Logitech Portable Printers I953
+2025-03-15 03:07:57,789 - INFO - Prompt: A professional product photo of a Logitech Printers, Gray color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,863 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,863 - ERROR - Failed to generate image for product: Zara Luxury Hats L708
+2025-03-15 03:07:57,864 - INFO - Processing product 194/10000: Staples Ultra Markers D207 (Batch 19/1000)
+2025-03-15 03:07:57,864 - INFO - Generating image for: Staples Ultra Markers D207
+2025-03-15 03:07:57,864 - INFO - Prompt: A professional product photo of a Staples Markers. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,866 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,866 - ERROR - Failed to generate image for product: Gillette Essential Shaving M579
+2025-03-15 03:07:57,866 - INFO - Processing product 186/10000: Cuisinart Durable Appliances (Batch 18/1000)
+2025-03-15 03:07:57,866 - INFO - Generating image for: Cuisinart Durable Appliances
+2025-03-15 03:07:57,866 - INFO - Prompt: A professional product photo of a Cuisinart Appliances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,918 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,918 - ERROR - Failed to generate image for product: Bic High-end Notebooks L243
+2025-03-15 03:07:57,919 - INFO - Processing product 202/10000: Zebra Deluxe Desk Accessories F444 (Batch 20/1000)
+2025-03-15 03:07:57,919 - INFO - Generating image for: Zebra Deluxe Desk Accessories F444
+2025-03-15 03:07:57,919 - INFO - Prompt: A professional product photo of a Zebra Desk Accessories, made of Metal. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,937 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:57,937 - ERROR - Failed to generate image for product: Logitech Portable Printers I953
+2025-03-15 03:07:57,937 - INFO - Processing product 207/10000: Moleskine Ultimate Desk Accessories J221 (Batch 21/1000)
+2025-03-15 03:07:57,937 - INFO - Generating image for: Moleskine Ultimate Desk Accessories J221
+2025-03-15 03:07:57,938 - INFO - Prompt: A professional product photo of a Moleskine Desk Accessories, Red color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:57,938 - INFO - Batch 16/1000 completed. Generated 0 images.
+2025-03-15 03:07:58,032 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,032 - ERROR - Failed to generate image for product: Cuisinart Durable Appliances
+2025-03-15 03:07:58,032 - INFO - Processing product 217/10000: OXO Classic Cleaning T235 (Batch 22/1000)
+2025-03-15 03:07:58,032 - INFO - Generating image for: OXO Classic Cleaning T235
+2025-03-15 03:07:58,032 - INFO - Prompt: A professional product photo of a OXO Cleaning, Red color, made of Silicone. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,033 - INFO - Batch 18/1000 completed. Generated 0 images.
+2025-03-15 03:07:58,045 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,046 - ERROR - Failed to generate image for product: Staples Ultra Markers D207
+2025-03-15 03:07:58,046 - INFO - Processing product 195/10000: Bic Compact Binders B302 (Batch 19/1000)
+2025-03-15 03:07:58,046 - INFO - Generating image for: Bic Compact Binders B302
+2025-03-15 03:07:58,046 - INFO - Prompt: A professional product photo of a Bic Binders, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,112 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,112 - ERROR - Failed to generate image for product: Zebra Deluxe Desk Accessories F444
+2025-03-15 03:07:58,112 - INFO - Processing product 203/10000: Olay Eco-friendly Shaving (Batch 20/1000)
+2025-03-15 03:07:58,112 - INFO - Generating image for: Olay Eco-friendly Shaving
+2025-03-15 03:07:58,112 - INFO - Prompt: A professional product photo of a Olay Shaving. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,159 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,159 - ERROR - Failed to generate image for product: Moleskine Ultimate Desk Accessories J221
+2025-03-15 03:07:58,160 - INFO - Processing product 208/10000: Staples Classic Staplers (Batch 21/1000)
+2025-03-15 03:07:58,160 - INFO - Generating image for: Staples Classic Staplers
+2025-03-15 03:07:58,160 - INFO - Prompt: A professional product photo of a Staples Staplers, Yellow color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,184 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,184 - ERROR - Failed to generate image for product: OXO Classic Cleaning T235
+2025-03-15 03:07:58,184 - INFO - Processing product 218/10000: Olay Portable Fragrances (Batch 22/1000)
+2025-03-15 03:07:58,185 - INFO - Generating image for: Olay Portable Fragrances
+2025-03-15 03:07:58,185 - INFO - Prompt: A professional product photo of a Olay Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,238 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,238 - ERROR - Failed to generate image for product: Bic Compact Binders B302
+2025-03-15 03:07:58,238 - INFO - Processing product 196/10000: Zara Advanced Men's Shirts (Batch 19/1000)
+2025-03-15 03:07:58,238 - INFO - Generating image for: Zara Advanced Men's Shirts
+2025-03-15 03:07:58,238 - INFO - Prompt: A professional product photo of a Zara Men's Shirts, White color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,293 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,293 - ERROR - Failed to generate image for product: Olay Eco-friendly Shaving
+2025-03-15 03:07:58,293 - INFO - Processing product 204/10000: Estee Lauder Super Makeup (Batch 20/1000)
+2025-03-15 03:07:58,293 - INFO - Generating image for: Estee Lauder Super Makeup
+2025-03-15 03:07:58,293 - INFO - Prompt: A professional product photo of a Estee Lauder Makeup. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,338 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,338 - ERROR - Failed to generate image for product: Staples Classic Staplers
+2025-03-15 03:07:58,338 - INFO - Processing product 209/10000: Gillette Luxury Bath & Body (Batch 21/1000)
+2025-03-15 03:07:58,338 - INFO - Generating image for: Gillette Luxury Bath & Body
+2025-03-15 03:07:58,339 - INFO - Prompt: A professional product photo of a Gillette Bath & Body. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,381 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,381 - ERROR - Failed to generate image for product: Olay Portable Fragrances
+2025-03-15 03:07:58,381 - INFO - Processing product 219/10000: Bic Smart Paper (Batch 22/1000)
+2025-03-15 03:07:58,381 - INFO - Generating image for: Bic Smart Paper
+2025-03-15 03:07:58,381 - INFO - Prompt: A professional product photo of a Bic Paper, Black color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,465 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,465 - ERROR - Failed to generate image for product: Zara Advanced Men's Shirts
+2025-03-15 03:07:58,466 - INFO - Processing product 227/10000: Dove Essential Oral Care (Batch 23/1000)
+2025-03-15 03:07:58,466 - INFO - Generating image for: Dove Essential Oral Care
+2025-03-15 03:07:58,466 - INFO - Prompt: A professional product photo of a Dove Oral Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,466 - INFO - Batch 19/1000 completed. Generated 0 images.
+2025-03-15 03:07:58,486 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,486 - ERROR - Failed to generate image for product: Estee Lauder Super Makeup
+2025-03-15 03:07:58,486 - INFO - Processing product 205/10000: H&M Essential Hats (Batch 20/1000)
+2025-03-15 03:07:58,487 - INFO - Generating image for: H&M Essential Hats
+2025-03-15 03:07:58,487 - INFO - Prompt: A professional product photo of a H&M Hats. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,543 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,544 - ERROR - Failed to generate image for product: Gillette Luxury Bath & Body
+2025-03-15 03:07:58,544 - INFO - Processing product 210/10000: Nike Advanced Socks A635 (Batch 21/1000)
+2025-03-15 03:07:58,544 - INFO - Generating image for: Nike Advanced Socks A635
+2025-03-15 03:07:58,544 - INFO - Prompt: A professional product photo of a Nike Socks, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,563 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,564 - ERROR - Failed to generate image for product: Bic Smart Paper
+2025-03-15 03:07:58,564 - INFO - Processing product 220/10000: Zara Classic Jackets R291 (Batch 22/1000)
+2025-03-15 03:07:58,564 - INFO - Generating image for: Zara Classic Jackets R291
+2025-03-15 03:07:58,564 - INFO - Prompt: A professional product photo of a Zara Jackets, made of Polyester. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,624 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,625 - ERROR - Failed to generate image for product: H&M Essential Hats
+2025-03-15 03:07:58,625 - INFO - Processing product 206/10000: Dyson Essential Storage K965 (Batch 20/1000)
+2025-03-15 03:07:58,625 - INFO - Generating image for: Dyson Essential Storage K965
+2025-03-15 03:07:58,625 - INFO - Prompt: A professional product photo of a Dyson Storage, Silver color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,630 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,630 - ERROR - Failed to generate image for product: Dove Essential Oral Care
+2025-03-15 03:07:58,631 - INFO - Processing product 228/10000: Moleskine Ultra Staplers V193 (Batch 23/1000)
+2025-03-15 03:07:58,631 - INFO - Generating image for: Moleskine Ultra Staplers V193
+2025-03-15 03:07:58,631 - INFO - Prompt: A professional product photo of a Moleskine Staplers, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,726 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,726 - ERROR - Failed to generate image for product: Nike Advanced Socks A635
+2025-03-15 03:07:58,726 - INFO - Processing product 211/10000: Dyson Classic Appliances N405 (Batch 21/1000)
+2025-03-15 03:07:58,726 - INFO - Generating image for: Dyson Classic Appliances N405
+2025-03-15 03:07:58,727 - INFO - Prompt: A professional product photo of a Dyson Appliances, made of Silicone. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,743 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,743 - ERROR - Failed to generate image for product: Zara Classic Jackets R291
+2025-03-15 03:07:58,743 - INFO - Processing product 221/10000: Zebra Compact Desk Accessories G217 (Batch 22/1000)
+2025-03-15 03:07:58,743 - INFO - Generating image for: Zebra Compact Desk Accessories G217
+2025-03-15 03:07:58,743 - INFO - Prompt: A professional product photo of a Zebra Desk Accessories, Black color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,767 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,767 - ERROR - Failed to generate image for product: Moleskine Ultra Staplers V193
+2025-03-15 03:07:58,768 - INFO - Processing product 229/10000: Lenovo Ergonomic Wearables (Batch 23/1000)
+2025-03-15 03:07:58,768 - INFO - Generating image for: Lenovo Ergonomic Wearables
+2025-03-15 03:07:58,768 - INFO - Prompt: A professional product photo of a Lenovo Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,800 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,800 - ERROR - Failed to generate image for product: Dyson Essential Storage K965
+2025-03-15 03:07:58,801 - INFO - Processing product 237/10000: Ikea Eco-friendly Bath (Batch 24/1000)
+2025-03-15 03:07:58,801 - INFO - Generating image for: Ikea Eco-friendly Bath
+2025-03-15 03:07:58,801 - INFO - Prompt: A professional product photo of a Ikea Bath, Blue color, made of Glass. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,801 - INFO - Batch 20/1000 completed. Generated 0 images.
+2025-03-15 03:07:58,919 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,919 - ERROR - Failed to generate image for product: Zebra Compact Desk Accessories G217
+2025-03-15 03:07:58,919 - INFO - Processing product 222/10000: Calphalon High-end Storage O693 (Batch 22/1000)
+2025-03-15 03:07:58,919 - INFO - Generating image for: Calphalon High-end Storage O693
+2025-03-15 03:07:58,919 - INFO - Prompt: A professional product photo of a Calphalon Storage, Red color, made of Ceramic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,927 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,927 - ERROR - Failed to generate image for product: Dyson Classic Appliances N405
+2025-03-15 03:07:58,927 - INFO - Processing product 212/10000: Gap Classic Underwear Y632 (Batch 21/1000)
+2025-03-15 03:07:58,927 - INFO - Generating image for: Gap Classic Underwear Y632
+2025-03-15 03:07:58,927 - INFO - Prompt: A professional product photo of a Gap Underwear, made of Polyester. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:58,956 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:58,957 - ERROR - Failed to generate image for product: Lenovo Ergonomic Wearables
+2025-03-15 03:07:58,957 - INFO - Processing product 230/10000: Zebra Modern Binders (Batch 23/1000)
+2025-03-15 03:07:58,957 - INFO - Generating image for: Zebra Modern Binders
+2025-03-15 03:07:58,957 - INFO - Prompt: A professional product photo of a Zebra Binders, Assorted color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,010 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,010 - ERROR - Failed to generate image for product: Ikea Eco-friendly Bath
+2025-03-15 03:07:59,011 - INFO - Processing product 238/10000: Bose Portable Printers (Batch 24/1000)
+2025-03-15 03:07:59,011 - INFO - Generating image for: Bose Portable Printers
+2025-03-15 03:07:59,011 - INFO - Prompt: A professional product photo of a Bose Printers. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,069 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,069 - ERROR - Failed to generate image for product: Gap Classic Underwear Y632
+2025-03-15 03:07:59,069 - INFO - Processing product 213/10000: Rubbermaid Premium Furniture (Batch 21/1000)
+2025-03-15 03:07:59,069 - INFO - Generating image for: Rubbermaid Premium Furniture
+2025-03-15 03:07:59,069 - INFO - Prompt: A professional product photo of a Rubbermaid Furniture, made of Ceramic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,105 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,105 - ERROR - Failed to generate image for product: Calphalon High-end Storage O693
+2025-03-15 03:07:59,105 - INFO - Processing product 223/10000: L'Oreal Essential Fragrances (Batch 22/1000)
+2025-03-15 03:07:59,105 - INFO - Generating image for: L'Oreal Essential Fragrances
+2025-03-15 03:07:59,105 - INFO - Prompt: A professional product photo of a L'Oreal Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,120 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,120 - ERROR - Failed to generate image for product: Zebra Modern Binders
+2025-03-15 03:07:59,120 - INFO - Processing product 231/10000: HP High-end Staplers R585 (Batch 23/1000)
+2025-03-15 03:07:59,120 - INFO - Generating image for: HP High-end Staplers R585
+2025-03-15 03:07:59,120 - INFO - Prompt: A professional product photo of a HP Staplers, Yellow color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,181 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,181 - ERROR - Failed to generate image for product: Bose Portable Printers
+2025-03-15 03:07:59,181 - INFO - Processing product 239/10000: Gillette Budget Makeup Y965 (Batch 24/1000)
+2025-03-15 03:07:59,182 - INFO - Generating image for: Gillette Budget Makeup Y965
+2025-03-15 03:07:59,182 - INFO - Prompt: A professional product photo of a Gillette Makeup. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,238 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,238 - ERROR - Failed to generate image for product: Rubbermaid Premium Furniture
+2025-03-15 03:07:59,238 - INFO - Processing product 214/10000: Puma Portable Underwear Y519 (Batch 21/1000)
+2025-03-15 03:07:59,238 - INFO - Generating image for: Puma Portable Underwear Y519
+2025-03-15 03:07:59,238 - INFO - Prompt: A professional product photo of a Puma Underwear, made of Cotton. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,303 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,303 - ERROR - Failed to generate image for product: L'Oreal Essential Fragrances
+2025-03-15 03:07:59,304 - INFO - Processing product 224/10000: Maybelline Smart Hair Care (Batch 22/1000)
+2025-03-15 03:07:59,304 - INFO - Generating image for: Maybelline Smart Hair Care
+2025-03-15 03:07:59,304 - INFO - Prompt: A professional product photo of a Maybelline Hair Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,308 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,308 - ERROR - Failed to generate image for product: HP High-end Staplers R585
+2025-03-15 03:07:59,308 - INFO - Processing product 232/10000: Shark Smart Cookware C387 (Batch 23/1000)
+2025-03-15 03:07:59,308 - INFO - Generating image for: Shark Smart Cookware C387
+2025-03-15 03:07:59,308 - INFO - Prompt: A professional product photo of a Shark Cookware, Green color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:07:59,335 - ERROR - Error generating image: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/images/generations
+2025-03-15 03:07:59,335 - ERROR - Failed to generate image for product: Gillette Budget Makeup Y965
+2025-03-15 03:07:59,335 - INFO - Processing product 240/10000: Adidas Classic Shoes K932 (Batch 24/1000)
+2025-03-15 03:07:59,335 - INFO - Generating image for: Adidas Classic Shoes K932
+2025-03-15 03:07:59,335 - INFO - Prompt: A professional product photo of a Adidas Shoes, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:36:31,608 - INFO - Found 109 existing images
+2025-03-15 03:36:31,768 - INFO - Continuing from index 219 based on existing images
+2025-03-15 03:36:31,768 - INFO - Generating images for 9781 remaining products using 2 parallel workers
+2025-03-15 03:36:31,768 - INFO - Using smaller batch size (5) and fewer workers (2) to avoid rate limits
+2025-03-15 03:36:31,776 - INFO - Processing product 220/10000: Zara Classic Jackets R291 (Batch 1/1957)
+2025-03-15 03:36:31,776 - INFO - Processing product 225/10000: Scotch Durable Calendars M434 (Batch 2/1957)
+2025-03-15 03:36:31,777 - INFO - Generating image for: Zara Classic Jackets R291
+2025-03-15 03:36:31,777 - INFO - Generating image for: Scotch Durable Calendars M434
+2025-03-15 03:36:31,777 - INFO - Prompt: A professional product photo of a Scotch Calendars, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:36:31,777 - INFO - Prompt: A professional product photo of a Zara Jackets, made of Polyester. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:36:42,942 - INFO - Image saved to data/images/product_36e5abed-b303-46db-9472-e0edf6ad1be5.png
+2025-03-15 03:36:42,943 - INFO - Success! Image saved to data/images/product_36e5abed-b303-46db-9472-e0edf6ad1be5.png
+2025-03-15 03:36:42,943 - INFO - Processing product 226/10000: Keurig Ergonomic Cleaning (Batch 2/1957)
+2025-03-15 03:36:42,943 - INFO - Generating image for: Keurig Ergonomic Cleaning
+2025-03-15 03:36:42,943 - INFO - Prompt: A professional product photo of a Keurig Cleaning, Blue color, made of Stainless Steel. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:36:44,548 - INFO - Image saved to data/images/product_800b0f76-4c51-4b43-ac02-ba1822524a51.png
+2025-03-15 03:36:44,548 - INFO - Success! Image saved to data/images/product_800b0f76-4c51-4b43-ac02-ba1822524a51.png
+2025-03-15 03:36:44,549 - INFO - Processing product 221/10000: Zebra Compact Desk Accessories G217 (Batch 1/1957)
+2025-03-15 03:36:44,549 - INFO - Generating image for: Zebra Compact Desk Accessories G217
+2025-03-15 03:36:44,549 - INFO - Prompt: A professional product photo of a Zebra Desk Accessories, Black color, made of Wood. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:36:55,031 - INFO - Image saved to data/images/product_8e942776-33fb-44d2-99c2-963befc65695.png
+2025-03-15 03:36:55,031 - INFO - Success! Image saved to data/images/product_8e942776-33fb-44d2-99c2-963befc65695.png
+2025-03-15 03:36:55,031 - INFO - Processing product 227/10000: Dove Essential Oral Care (Batch 2/1957)
+2025-03-15 03:36:55,031 - INFO - Generating image for: Dove Essential Oral Care
+2025-03-15 03:36:55,032 - INFO - Prompt: A professional product photo of a Dove Oral Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:36:56,237 - INFO - Image saved to data/images/product_a8b97342-2c8a-4cc2-81ea-c426e6d6134b.png
+2025-03-15 03:36:56,237 - INFO - Success! Image saved to data/images/product_a8b97342-2c8a-4cc2-81ea-c426e6d6134b.png
+2025-03-15 03:36:56,237 - INFO - Processing product 222/10000: Calphalon High-end Storage O693 (Batch 1/1957)
+2025-03-15 03:36:56,237 - INFO - Generating image for: Calphalon High-end Storage O693
+2025-03-15 03:36:56,237 - INFO - Prompt: A professional product photo of a Calphalon Storage, Red color, made of Ceramic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:37:08,739 - INFO - Image saved to data/images/product_b07fbe26-ec17-4f5f-b337-47a9c87a16d0.png
+2025-03-15 03:37:08,739 - INFO - Success! Image saved to data/images/product_b07fbe26-ec17-4f5f-b337-47a9c87a16d0.png
+2025-03-15 03:37:08,740 - INFO - Processing product 228/10000: Moleskine Ultra Staplers V193 (Batch 2/1957)
+2025-03-15 03:37:08,740 - INFO - Generating image for: Moleskine Ultra Staplers V193
+2025-03-15 03:37:08,740 - INFO - Prompt: A professional product photo of a Moleskine Staplers, Blue color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:37:10,756 - INFO - Image saved to data/images/product_b87a41d5-b469-4da9-82b6-f94c3679ea94.png
+2025-03-15 03:37:10,757 - INFO - Success! Image saved to data/images/product_b87a41d5-b469-4da9-82b6-f94c3679ea94.png
+2025-03-15 03:37:10,757 - INFO - Processing product 223/10000: L'Oreal Essential Fragrances (Batch 1/1957)
+2025-03-15 03:37:10,757 - INFO - Generating image for: L'Oreal Essential Fragrances
+2025-03-15 03:37:10,757 - INFO - Prompt: A professional product photo of a L'Oreal Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:37:21,288 - INFO - Image saved to data/images/product_cb05eb78-7911-4a05-be51-3c91f93e334f.png
+2025-03-15 03:37:21,288 - INFO - Success! Image saved to data/images/product_cb05eb78-7911-4a05-be51-3c91f93e334f.png
+2025-03-15 03:37:21,288 - INFO - Processing product 229/10000: Lenovo Ergonomic Wearables (Batch 2/1957)
+2025-03-15 03:37:21,288 - INFO - Generating image for: Lenovo Ergonomic Wearables
+2025-03-15 03:37:21,288 - INFO - Prompt: A professional product photo of a Lenovo Wearables. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:37:24,862 - INFO - Image saved to data/images/product_cde4ed1f-5696-4b5c-a0c6-c28c28c74497.png
+2025-03-15 03:37:24,862 - INFO - Success! Image saved to data/images/product_cde4ed1f-5696-4b5c-a0c6-c28c28c74497.png
+2025-03-15 03:37:24,863 - INFO - Processing product 224/10000: Maybelline Smart Hair Care (Batch 1/1957)
+2025-03-15 03:37:24,863 - INFO - Generating image for: Maybelline Smart Hair Care
+2025-03-15 03:37:24,863 - INFO - Prompt: A professional product photo of a Maybelline Hair Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:37:32,794 - INFO - Image saved to data/images/product_69b35c49-51b2-4a43-913a-73bbd9fb10f8.png
+2025-03-15 03:37:32,795 - INFO - Success! Image saved to data/images/product_69b35c49-51b2-4a43-913a-73bbd9fb10f8.png
+2025-03-15 03:37:32,796 - INFO - Batch 2/1957 completed. Generated 5 images.
+2025-03-15 03:37:38,946 - INFO - Image saved to data/images/product_f033ba6c-7927-4ffd-a43a-a3f585d7911a.png
+2025-03-15 03:37:38,947 - INFO - Success! Image saved to data/images/product_f033ba6c-7927-4ffd-a43a-a3f585d7911a.png
+2025-03-15 03:37:42,796 - INFO - Batch 1/1957 completed. Generated 5 images.
+2025-03-15 03:37:42,797 - INFO - Processing product 230/10000: Zebra Modern Binders (Batch 3/1957)
+2025-03-15 03:37:42,797 - INFO - Generating image for: Zebra Modern Binders
+2025-03-15 03:37:42,797 - INFO - Prompt: A professional product photo of a Zebra Binders, Assorted color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:37:52,798 - INFO - Processing product 235/10000: Sharpie Modern Staplers (Batch 4/1957)
+2025-03-15 03:37:52,798 - INFO - Generating image for: Sharpie Modern Staplers
+2025-03-15 03:37:52,798 - INFO - Prompt: A professional product photo of a Sharpie Staplers, made of Paper. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:37:53,727 - INFO - Image saved to data/images/product_af33b355-b6d4-4a71-98f1-73066552ad1d.png
+2025-03-15 03:37:53,727 - INFO - Success! Image saved to data/images/product_af33b355-b6d4-4a71-98f1-73066552ad1d.png
+2025-03-15 03:37:53,727 - INFO - Processing product 231/10000: HP High-end Staplers R585 (Batch 3/1957)
+2025-03-15 03:37:53,727 - INFO - Generating image for: HP High-end Staplers R585
+2025-03-15 03:37:53,727 - INFO - Prompt: A professional product photo of a HP Staplers, Yellow color, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:06,051 - INFO - Image saved to data/images/product_30501e60-6a7d-4a65-bfb7-a6a66d87ae2b.png
+2025-03-15 03:38:06,052 - INFO - Success! Image saved to data/images/product_30501e60-6a7d-4a65-bfb7-a6a66d87ae2b.png
+2025-03-15 03:38:06,052 - INFO - Processing product 236/10000: Dove Eco-friendly Fragrances (Batch 4/1957)
+2025-03-15 03:38:06,052 - INFO - Generating image for: Dove Eco-friendly Fragrances
+2025-03-15 03:38:06,052 - INFO - Prompt: A professional product photo of a Dove Fragrances. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:06,900 - INFO - Image saved to data/images/product_cfefc8e3-4dc6-418b-9e40-645cdd9ebc86.png
+2025-03-15 03:38:06,900 - INFO - Success! Image saved to data/images/product_cfefc8e3-4dc6-418b-9e40-645cdd9ebc86.png
+2025-03-15 03:38:06,900 - INFO - Processing product 232/10000: Shark Smart Cookware C387 (Batch 3/1957)
+2025-03-15 03:38:06,900 - INFO - Generating image for: Shark Smart Cookware C387
+2025-03-15 03:38:06,900 - INFO - Prompt: A professional product photo of a Shark Cookware, Green color, made of Plastic. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:18,684 - INFO - Image saved to data/images/product_aa3cc1d5-7034-4f47-87b9-92ed5052187d.png
+2025-03-15 03:38:18,684 - INFO - Success! Image saved to data/images/product_aa3cc1d5-7034-4f47-87b9-92ed5052187d.png
+2025-03-15 03:38:18,684 - INFO - Processing product 233/10000: Estee Lauder Smart Oral Care (Batch 3/1957)
+2025-03-15 03:38:18,685 - INFO - Generating image for: Estee Lauder Smart Oral Care
+2025-03-15 03:38:18,685 - INFO - Prompt: A professional product photo of a Estee Lauder Oral Care. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:19,946 - INFO - Image saved to data/images/product_86717de9-14df-4846-b8e4-3e7a44cbef0b.png
+2025-03-15 03:38:19,947 - INFO - Success! Image saved to data/images/product_86717de9-14df-4846-b8e4-3e7a44cbef0b.png
+2025-03-15 03:38:19,947 - INFO - Processing product 237/10000: Ikea Eco-friendly Bath (Batch 4/1957)
+2025-03-15 03:38:19,947 - INFO - Generating image for: Ikea Eco-friendly Bath
+2025-03-15 03:38:19,947 - INFO - Prompt: A professional product photo of a Ikea Bath, Blue color, made of Glass. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:31,589 - INFO - Image saved to data/images/product_995589dd-3435-4147-88b0-f0744a14f3b6.png
+2025-03-15 03:38:31,590 - INFO - Success! Image saved to data/images/product_995589dd-3435-4147-88b0-f0744a14f3b6.png
+2025-03-15 03:38:31,590 - INFO - Processing product 234/10000: Zebra Deluxe Printers & Ink (Batch 3/1957)
+2025-03-15 03:38:31,590 - INFO - Generating image for: Zebra Deluxe Printers & Ink
+2025-03-15 03:38:31,590 - INFO - Prompt: A professional product photo of a Zebra Printers & Ink, made of Cardboard. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:33,198 - INFO - Image saved to data/images/product_21fe1456-85d3-4127-94d1-5f613de6ae97.png
+2025-03-15 03:38:33,198 - INFO - Success! Image saved to data/images/product_21fe1456-85d3-4127-94d1-5f613de6ae97.png
+2025-03-15 03:38:33,198 - INFO - Processing product 238/10000: Bose Portable Printers (Batch 4/1957)
+2025-03-15 03:38:33,199 - INFO - Generating image for: Bose Portable Printers
+2025-03-15 03:38:33,199 - INFO - Prompt: A professional product photo of a Bose Printers. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:43,817 - INFO - Image saved to data/images/product_6c60f514-6f7c-4491-abc5-db44cb046fe1.png
+2025-03-15 03:38:43,817 - INFO - Success! Image saved to data/images/product_6c60f514-6f7c-4491-abc5-db44cb046fe1.png
+2025-03-15 03:38:44,337 - INFO - Image saved to data/images/product_f3dda952-c830-4167-80e3-49e2b17726dd.png
+2025-03-15 03:38:44,338 - INFO - Success! Image saved to data/images/product_f3dda952-c830-4167-80e3-49e2b17726dd.png
+2025-03-15 03:38:44,338 - INFO - Processing product 239/10000: Gillette Budget Makeup Y965 (Batch 4/1957)
+2025-03-15 03:38:44,338 - INFO - Generating image for: Gillette Budget Makeup Y965
+2025-03-15 03:38:44,338 - INFO - Prompt: A professional product photo of a Gillette Makeup. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:38:56,534 - INFO - Image saved to data/images/product_60283f6d-c111-410b-8a21-4c6037fd71f5.png
+2025-03-15 03:38:56,535 - INFO - Success! Image saved to data/images/product_60283f6d-c111-410b-8a21-4c6037fd71f5.png
+2025-03-15 03:38:56,540 - INFO - 
+All product images generated successfully!

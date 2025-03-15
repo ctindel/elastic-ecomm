@@ -186,3 +186,34 @@ All office and school supplies images generated successfully!
 2025-03-15 03:15:41,308 - INFO - Processing product 16/5: Tommy Hilfiger Compact Jackets I971 (Batch 4/1598)
 2025-03-15 03:15:41,309 - INFO - Generating image for: Tommy Hilfiger Compact Jackets I971
 2025-03-15 03:15:41,309 - INFO - Prompt: A professional product photo of a Tommy Hilfiger Jackets, Red color, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:49,586 - INFO - Image saved to data/images/product_1c51576a-43fe-452b-b1d7-b53fbfd29121.png
+2025-03-15 03:15:49,587 - INFO - Success! Image saved to data/images/product_1c51576a-43fe-452b-b1d7-b53fbfd29121.png
+2025-03-15 03:15:49,587 - INFO - Processing product 15/5: Nivea Durable Tools & Accessories K191 (Batch 3/1598)
+2025-03-15 03:15:49,587 - INFO - Generating image for: Nivea Durable Tools & Accessories K191
+2025-03-15 03:15:49,587 - INFO - Prompt: A professional product photo of a Nivea Tools & Accessories. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:52,019 - INFO - Image saved to data/images/product_85a6220a-e512-455f-a38d-06cbd0a37f08.png
+2025-03-15 03:15:52,020 - INFO - Success! Image saved to data/images/product_85a6220a-e512-455f-a38d-06cbd0a37f08.png
+2025-03-15 03:15:52,020 - INFO - Processing product 17/5: Under Armour Durable Jackets (Batch 4/1598)
+2025-03-15 03:15:52,020 - INFO - Generating image for: Under Armour Durable Jackets
+2025-03-15 03:15:52,020 - INFO - Prompt: A professional product photo of a Under Armour Jackets, Pink color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:15:59,802 - INFO - Image saved to data/images/product_7037640f-0466-46a4-9ec8-9c262d16165d.png
+2025-03-15 03:15:59,803 - INFO - Success! Image saved to data/images/product_7037640f-0466-46a4-9ec8-9c262d16165d.png
+2025-03-15 03:16:03,267 - INFO - Image saved to data/images/product_73576143-15bc-4b91-a869-984ceddaba64.png
+2025-03-15 03:16:03,267 - INFO - Success! Image saved to data/images/product_73576143-15bc-4b91-a869-984ceddaba64.png
+2025-03-15 03:16:03,267 - INFO - Processing product 18/5: H&M Super Men's Shirts X384 (Batch 4/1598)
+2025-03-15 03:16:03,268 - INFO - Generating image for: H&M Super Men's Shirts X384
+2025-03-15 03:16:03,268 - INFO - Prompt: A professional product photo of a H&M Men's Shirts, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:16:15,546 - INFO - Image saved to data/images/product_10adbc18-14af-4d93-94b4-628378cc6d3b.png
+2025-03-15 03:16:15,547 - INFO - Success! Image saved to data/images/product_10adbc18-14af-4d93-94b4-628378cc6d3b.png
+2025-03-15 03:16:15,547 - INFO - Processing product 19/5: Gucci Advanced Women's Dresses L122 (Batch 4/1598)
+2025-03-15 03:16:15,547 - INFO - Generating image for: Gucci Advanced Women's Dresses L122
+2025-03-15 03:16:15,547 - INFO - Prompt: A professional product photo of a Gucci Women's Dresses, Black color, made of Denim. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:16:32,144 - INFO - Image saved to data/images/product_a3e38904-ec19-4025-9239-9e34935844eb.png
+2025-03-15 03:16:32,144 - INFO - Success! Image saved to data/images/product_a3e38904-ec19-4025-9239-9e34935844eb.png
+2025-03-15 03:16:32,145 - INFO - Processing product 20/5: Apple Advanced Printers C161 (Batch 4/1598)
+2025-03-15 03:16:32,145 - INFO - Generating image for: Apple Advanced Printers C161
+2025-03-15 03:16:32,145 - INFO - Prompt: A professional product photo of a Apple Printers, Gray color. High-quality e-commerce product image with white background, professional lighting.
+2025-03-15 03:16:43,457 - INFO - Image saved to data/images/product_0524004c-110d-4d75-84be-66ab34126f53.png
+2025-03-15 03:16:43,457 - INFO - Success! Image saved to data/images/product_0524004c-110d-4d75-84be-66ab34126f53.png
+2025-03-15 03:16:43,462 - INFO - 
+All non-office product images generated successfully!
