@@ -61,14 +61,75 @@ export const classifySearchQuery = (query: string): SearchType => {
 export const generateSearchExplanation = (query: string, searchType: SearchType): string => {
   switch (searchType) {
     case SearchType.BM25:
-      return `I'll search for "${query}" using keyword matching to find the most relevant products.`;
+      return `I'll search for "${query}" using keyword matching (BM25) with this Elasticsearch query:
+\`\`\`json
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "name": { "query": "${query}", "boost": 3.0 } } },
+        { "match": { "description": { "query": "${query}", "boost": 2.0 } } },
+        { "match": { "subcategory": { "query": "${query}", "boost": 1.5 } } },
+        { "match": { "category": { "query": "${query}", "boost": 1.0 } } }
+      ]
+    }
+  },
+  "size": 10
+}
+\`\`\``;
     case SearchType.VECTOR:
-      return `I'll search for "${query}" using semantic understanding to find products that match your description.`;
+      return `I'll search for "${query}" using semantic understanding (vector search) with this Elasticsearch query:
+\`\`\`json
+{
+  "query": {
+    "script_score": {
+      "query": { "match_all": {} },
+      "script": {
+        "source": "cosineSimilarity(params.query_vector, 'text_embedding') + 1.0",
+        "params": { "query_vector": "[vector embedding for '${query}']" }
+      }
+    }
+  },
+  "size": 10
+}
+\`\`\``;
     case SearchType.CUSTOMER_SUPPORT:
-      return `I'll help answer your question about "${query}" and find relevant products if needed.`;
+      return `I'll help answer your question about "${query}" and find relevant products if needed. I'll use this Elasticsearch query:
+\`\`\`json
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "category": "support" } },
+        { 
+          "multi_match": {
+            "query": "${query}",
+            "fields": ["question^3", "answer^2", "keywords"]
+          }
+        }
+      ]
+    }
+  },
+  "size": 5
+}
+\`\`\``;
     case SearchType.IMAGE:
-      return `I'll search for products that visually match "${query}".`;
+      return `I'll search for products that visually match "${query}" using this Elasticsearch query:
+\`\`\`json
+{
+  "query": {
+    "script_score": {
+      "query": { "match_all": {} },
+      "script": {
+        "source": "cosineSimilarity(params.image_vector, 'image_embedding') + 1.0",
+        "params": { "image_vector": "[image embedding for '${query}']" }
+      }
+    }
+  },
+  "size": 10
+}
+\`\`\``;
     default:
-      return `I'll search for "${query}" to find relevant products.`;
+      return `I'll search for "${query}" to find relevant products using a standard query.`;
   }
 };

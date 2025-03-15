@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import { Message, SearchResult } from '../types';
+import { Message, SearchResult, SearchType } from '../types';
 import { searchProducts, classifySearchQuery, generateSearchExplanation } from '../services/api';
 
 interface ChatWindowProps {
@@ -158,7 +158,13 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
                   You
                 </Typography>
               )}
-              <Typography variant="body1">{message.text}</Typography>
+              {message.type === 'search_query' ? (
+                <Box sx={{ whiteSpace: 'pre-wrap' }}>
+                  <Typography variant="body1" dangerouslySetInnerHTML={{ __html: message.text.replace(/```json([\s\S]*?)```/g, '<pre style="background-color: #f5f5f5; padding: 8px; border-radius: 4px; overflow-x: auto;"><code>$1</code></pre>') }} />
+                </Box>
+              ) : (
+                <Typography variant="body1">{message.text}</Typography>
+              )}
               <Typography variant="caption" color={message.sender === 'customer' ? 'white' : 'text.secondary'}>
                 {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </Typography>
