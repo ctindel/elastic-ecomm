@@ -29,7 +29,11 @@ export interface Message {
   text: string;
   sender: 'customer' | 'agent';
   timestamp: Date;
-  type?: 'query_classification' | 'search_query' | 'search_results' | 'general';
+  type?: 'query_classification' | 'search_query' | 'search_results' | 'general' | 'file_upload';
+  file?: {
+    name: string;
+    type: string;
+  };
 }
 
 export interface ChatState {

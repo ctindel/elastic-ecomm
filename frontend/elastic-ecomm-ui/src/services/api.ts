@@ -133,3 +133,21 @@ export const generateSearchExplanation = (query: string, searchType: SearchType)
       return `I'll search for "${query}" to find relevant products using a standard query.`;
   }
 };
+
+// Function to upload an image file for OCR processing and product recommendations
+export const uploadImage = async (file: File, userId?: string, limit: number = 10): Promise<SearchResult[]> => {
+  try {
+    const formData = new FormData();
+    formData.append('image_file', file);
+    if (userId) formData.append('user_id', userId);
+    formData.append('limit', limit.toString());
+    
+    const response = await axios.post<SearchResult[]>(`${API_URL}/api/search/upload`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    throw error;
+  }
+};

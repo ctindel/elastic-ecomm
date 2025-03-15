@@ -116,3 +116,42 @@ async def search_methods():
         List[str]: List of available search methods
     """
     return [method.value for method in SearchType]
+
+@router.post("/upload", response_model=List[SearchResult])
+async def upload_image(
+    image_file: UploadFile = File(...),
+    user_id: Optional[str] = Form(None),
+    limit: int = Form(10),
+    es_client: Elasticsearch = Depends(get_elasticsearch_client)
+):
+    """
+    Process an uploaded image containing a list of supplies and return recommended products.
+    
+    This endpoint accepts an uploaded image, extracts text using OpenAI's API,
+    identifies required items, and suggests products from the catalog.
+    """
+    # Validate image file
+    valid_mime_types = ["image/jpeg", "image/png", "application/pdf"]
+    if image_file.content_type not in valid_mime_types:
+        raise HTTPException(status_code=400, detail=f"File must be one of: {', '.join(valid_mime_types)}")
+    
+    # Check if OpenAI API key is available
+    from app.config.settings import OPENAI_API_KEY
+    if not OPENAI_API_KEY:
+        raise HTTPException(
+            status_code=503, 
+            detail="Image-based search is currently unavailable. OpenAI API key is missing or invalid."
+        )
+    
+    try:
+        # Process the image to extract text and identify items
+        results = await process_image_query(
+            image_file=image_file,
+            user_id=user_id,
+            limit=limit,
+            elasticsearch_client=es_client
+        )
+        
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Image processing failed: {str(e)}")

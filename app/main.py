@@ -207,6 +207,14 @@ async def health_check():
 
 if __name__ == "__main__":
     import uvicorn
+    from app.utils.validation import check_openai_connection
+    
+    # Verify OpenAI API key at startup
+    openai_status = check_openai_connection()
+    if not openai_status["configured"] or not openai_status["api_key_valid"]:
+        error_msg = "ERROR: OpenAI API key is missing or invalid. Please set a valid OPENAI_API_KEY environment variable."
+        logger.error(error_msg)
+        sys.exit(1)
     
     uvicorn.run(
         "app.main:app",

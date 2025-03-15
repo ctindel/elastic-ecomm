@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress } from '@mui/material';
+import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress, IconButton } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { Message, SearchResult } from '../types';
-import { searchProducts, classifySearchQuery, generateSearchExplanation } from '../services/api';
+import { searchProducts, classifySearchQuery, generateSearchExplanation, uploadImage } from '../services/api';
 
 interface ChatWindowProps {
   onSearchResults: (results: SearchResult[]) => void;
@@ -20,7 +21,88 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
   ]);
   const [newMessage, setNewMessage] = useState('');
   const [isSearching, setIsSearching] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // Handle file selection
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setSelectedFile(event.target.files[0]);
+      
+      // Add a message showing the selected file
+      const fileMessage: Message = {
+        id: messages.length + 1,
+        text: `Selected file: ${event.target.files[0].name}`,
+        sender: 'customer',
+        timestamp: new Date(),
+        type: 'file_upload',
+        file: {
+          name: event.target.files[0].name,
+          type: event.target.files[0].type
+        }
+      };
+      
+      setMessages(prevMessages => [...prevMessages, fileMessage]);
+    }
+  };
+  
+  // Handle file upload
+  const handleFileUpload = async () => {
+    if (!selectedFile) return;
+    
+    setIsSearching(true);
+    
+    try {
+      // Add processing message
+      const processingMessage: Message = {
+        id: messages.length + 1,
+        text: `Processing file: ${selectedFile.name}...`,
+        sender: 'agent',
+        timestamp: new Date(),
+        type: 'general'
+      };
+      
+      setMessages(prevMessages => [...prevMessages, processingMessage]);
+      
+      // Upload the file and get product recommendations
+      const results = await uploadImage(selectedFile);
+      
+      // Add results message
+      const resultsMessage: Message = {
+        id: messages.length + 2,
+        text: results.length > 0 
+          ? `I found the following items in your image: ${results.map(r => r.product_name).join(', ')}. Here are some recommended products!` 
+          : 'I couldn\'t identify any items in your image. Could you try a clearer image?',
+        sender: 'agent',
+        timestamp: new Date(),
+        type: 'search_results'
+      };
+      
+      setMessages(prevMessages => [...prevMessages, resultsMessage]);
+      
+      // Update search results in parent component
+      onSearchResults(results);
+      
+      // Clear the selected file
+      setSelectedFile(null);
+    } catch (error) {
+      console.error('Error processing file:', error);
+      
+      // Add error message
+      const errorMessage: Message = {
+        id: messages.length + 3,
+        text: 'Sorry, I encountered an error while processing your file. Please try again.',
+        sender: 'agent',
+        timestamp: new Date(),
+        type: 'general'
+      };
+      
+      setMessages(prevMessages => [...prevMessages, errorMessage]);
+      onSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
 
   // Auto-scroll to bottom of messages
   useEffect(() => {
@@ -191,12 +273,35 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
           sx={{ mr: 1 }}
           disabled={isSearching}
         />
+        <input
+          type="file"
+          id="file-upload"
+          style={{ display: 'none' }}
+          onChange={handleFileSelect}
+          accept="image/jpeg,image/png,application/pdf"
+        />
+        <label htmlFor="file-upload">
+          <IconButton component="span" disabled={isSearching} sx={{ mr: 1 }}>
+            <AttachFileIcon />
+          </IconButton>
+        </label>
+        {selectedFile && (
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={handleFileUpload}
+            disabled={isSearching}
+            sx={{ mr: 1 }}
+          >
+            Upload
+          </Button>
+        )}
         <Button
           type="submit"
           variant="contained"
           color="primary"
           endIcon={<SendIcon />}
-          disabled={isSearching || !newMessage.trim()}
+          disabled={isSearching || (!newMessage.trim() && !selectedFile)}
         >
           Send
         </Button>
