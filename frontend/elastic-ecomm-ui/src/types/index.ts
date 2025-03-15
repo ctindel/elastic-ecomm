@@ -23,3 +23,17 @@ export interface SearchResult {
   alternatives?: Array<{[key: string]: string}>;
   explanation?: string;
 }
+
+export interface Message {
+  id: number;
+  text: string;
+  sender: 'customer' | 'agent';
+  timestamp: Date;
+  type?: 'query_classification' | 'search_query' | 'search_results' | 'general';
+}
+
+export interface ChatState {
+  messages: Message[];
+  searchResults: SearchResult[];
+  isSearching: boolean;
+}

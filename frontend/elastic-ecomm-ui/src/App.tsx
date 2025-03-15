@@ -14,6 +14,14 @@ const theme = createTheme({
     secondary: {
       main: '#dc004e',
     },
+    info: {
+      main: '#0288d1',
+      light: '#e3f2fd',
+    },
+    success: {
+      main: '#2e7d32',
+      light: '#e8f5e9',
+    },
   },
 });
 
@@ -22,7 +30,12 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // This function is now only used by the SearchBar component
+  // The actual search is handled by the ChatWindow component
   const handleSearch = async (query: string) => {
+    // When search is triggered from the search bar, we need to pass it to the chat window
+    // This would require a ref to the chat window component, which is beyond the scope
+    // of this implementation. For now, we'll just perform the search directly
     setLoading(true);
     setError(null);
     
@@ -35,6 +48,12 @@ function App() {
     } finally {
       setLoading(false);
     }
+  };
+  
+  const handleSearchResults = (results: SearchResult[]) => {
+    setProducts(results);
+    setLoading(false);
+    setError(null);
   };
 
   return (
@@ -55,7 +74,7 @@ function App() {
           
           {/* Right side - Chat Window (30%) */}
           <Box sx={{ width: '30%', pl: 2 }}>
-            <ChatWindow />
+            <ChatWindow onSearchResults={handleSearchResults} />
           </Box>
         </Box>
       </Container>
