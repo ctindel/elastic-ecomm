@@ -7,7 +7,7 @@ set -e
 trap 'echo "Error: Command failed at line $LINENO"' ERR
 
 # Define variables
-KAFKA_HOST="localhost:9092"
+KAFKA_HOST="kafka:9092"
 KAFKA_PARTITIONS=3
 RETENTION_MS=604800000  # Standardized retention period for all topics
 
