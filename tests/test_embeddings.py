@@ -16,8 +16,7 @@ if project_root not in sys.path:
 from app.utils.embedding import (
     check_ollama_connection,
     get_text_embedding,
-    get_image_embedding,
-    generate_mock_embedding
+    get_image_embedding
 )
 from app.config.settings import TEXT_EMBEDDING_DIMS, IMAGE_EMBEDDING_DIMS
 

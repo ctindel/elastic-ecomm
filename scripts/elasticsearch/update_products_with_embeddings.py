@@ -62,10 +62,10 @@ def check_ollama_availability(ollama_url):
         logger.warning(f"Ollama is not available: {str(e)}")
         return False
 
-def generate_text_embedding_with_ollama(text, ollama_url, ollama_model, max_retries=5, retry_delay=5):
-    """Generate vector embedding for text using Ollama with retries."""
+def generate_text_embedding_with_ollama(text, ollama_url, ollama_model, retry_delay=5, max_delay=60):
+    """Generate vector embedding for text using Ollama with TRUE infinite retry."""
     retries = 0
-    while retries < max_retries:
+    while True:  # True infinite retry - will never give up
         try:
             payload = {
                 "model": ollama_model,
@@ -76,55 +76,32 @@ def generate_text_embedding_with_ollama(text, ollama_url, ollama_model, max_retr
             
             if response.status_code == 200:
                 embedding = response.json().get("embedding")
+                logger.info(f"Successfully generated embedding after {retries} retries")
                 return embedding
             else:
                 logger.error(f"Error generating embedding: {response.status_code} - {response.text}")
                 retries += 1
-                logger.warning(f"Retrying embedding generation (attempt {retries}/{max_retries})")
-                time.sleep(retry_delay * (2 ** (retries - 1)))  # Exponential backoff
+                # Calculate delay with exponential backoff and jitter, capped at max_delay
+                delay = min(retry_delay * (2 ** (retries - 1)) * (0.5 + random.random()), max_delay)
+                logger.warning(f"Retrying embedding generation (attempt {retries}, waiting {delay:.2f}s)")
+                time.sleep(delay)
         except requests.exceptions.RequestException as e:
             logger.error(f"Request error generating embedding: {e}")
             retries += 1
-            logger.warning(f"Retrying embedding generation after request error (attempt {retries}/{max_retries})")
-            time.sleep(retry_delay * (2 ** (retries - 1)))  # Exponential backoff
+            # Calculate delay with exponential backoff and jitter, capped at max_delay
+            delay = min(retry_delay * (2 ** (retries - 1)) * (0.5 + random.random()), max_delay)
+            logger.warning(f"Retrying embedding generation after request error (attempt {retries}, waiting {delay:.2f}s)")
+            time.sleep(delay)
         except Exception as e:
             logger.error(f"Error generating embedding: {e}")
             retries += 1
-            logger.warning(f"Retrying embedding generation after error (attempt {retries}/{max_retries})")
-            time.sleep(retry_delay * (2 ** (retries - 1)))  # Exponential backoff
-    
-    logger.error(f"Failed to generate embedding after {max_retries} attempts")
-    return None
+            # Calculate delay with exponential backoff and jitter, capped at max_delay
+            delay = min(retry_delay * (2 ** (retries - 1)) * (0.5 + random.random()), max_delay)
+            logger.warning(f"Retrying embedding generation after error (attempt {retries}, waiting {delay:.2f}s)")
+            time.sleep(delay)
 
-def generate_mock_text_embedding(text, dims=384):
-    """Generate a mock text embedding for testing purposes."""
-    # Use a deterministic seed based on the text to ensure consistency
-    seed = sum(ord(c) for c in text)
-    random.seed(seed)
-    np.random.seed(seed)
-    
-    # Generate a random vector and normalize it
-    vector = np.random.normal(0, 1, dims)
-    norm = np.linalg.norm(vector)
-    if norm > 0:
-        vector = vector / norm
-    
-    return vector.tolist()
-
-def generate_mock_image_embedding(image_path, dims=512):
-    """Generate a mock image embedding for testing purposes."""
-    # Use a deterministic seed based on the image path to ensure consistency
-    seed = sum(ord(c) for c in image_path)
-    random.seed(seed)
-    np.random.seed(seed)
-    
-    # Generate a random vector and normalize it
-    vector = np.random.normal(0, 1, dims)
-    norm = np.linalg.norm(vector)
-    if norm > 0:
-        vector = vector / norm
-    
-    return vector.tolist()
+# Mock embedding functions have been removed to ensure we always use real embeddings from Ollama
+# with true infinite retry until Ollama becomes available
 
 def get_products_without_embeddings(es, batch_size=100, max_products=None):
     """Get products from Elasticsearch that don't have text embeddings."""
@@ -215,7 +192,7 @@ def update_product_with_embedding(es, product, text_embedding):
         logger.error(f"Error updating product {product['id']} with text embedding: {e}")
         return False
 
-def update_products_with_embeddings(es, products, ollama_available, ollama_url, ollama_model):
+def update_products_with_embeddings(es, products, ollama_url, ollama_model):
     """Update products with embeddings."""
     success_count = 0
     failure_count = 0
@@ -224,16 +201,8 @@ def update_products_with_embeddings(es, products, ollama_available, ollama_url, 
         # Generate text embedding
         text = f"{product.get('name', '')} {product.get('description', '')}"
         
-        if ollama_available:
-            # Generate embedding with Ollama
-            text_embedding = generate_text_embedding_with_ollama(text, ollama_url, ollama_model)
-            if not text_embedding:
-                logger.warning(f"Failed to generate text embedding with Ollama for product {product['id']}, falling back to mock embedding")
-                text_embedding = generate_mock_text_embedding(text)
-        else:
-            # Generate mock embedding
-            logger.info(f"Ollama not available, generating mock text embedding for product {product['id']}")
-            text_embedding = generate_mock_text_embedding(text)
+        # Generate embedding with Ollama - will retry indefinitely until successful
+        text_embedding = generate_text_embedding_with_ollama(text, ollama_url, ollama_model)
         
         # Update product with embedding
         success = update_product_with_embedding(es, product, text_embedding)
@@ -257,7 +226,6 @@ def main():
     parser.add_argument("--ollama-model", default="llama3", help="Ollama model to use for embeddings")
     parser.add_argument("--batch-size", type=int, default=100, help="Batch size for processing")
     parser.add_argument("--max-products", type=int, help="Maximum number of products to process")
-    parser.add_argument("--force-mock", action="store_true", help="Force using mock embeddings even if Ollama is available")
     args = parser.parse_args()
     
     # Connect to Elasticsearch
@@ -265,12 +233,6 @@ def main():
     if not es:
         logger.error("Failed to connect to Elasticsearch, exiting")
         return
-    
-    # Check if Ollama is available
-    ollama_available = check_ollama_availability(args.ollama_host)
-    if args.force_mock:
-        logger.info("Forcing use of mock embeddings")
-        ollama_available = False
     
     # Get products without embeddings
     products = get_products_without_embeddings(es, args.batch_size, args.max_products)
@@ -281,7 +243,7 @@ def main():
     
     # Update products with embeddings
     success_count, failure_count = update_products_with_embeddings(
-        es, products, ollama_available, args.ollama_host, args.ollama_model
+        es, products, args.ollama_host, args.ollama_model
     )
     
     logger.info(f"Updated {success_count} products with embeddings (failed: {failure_count})")
