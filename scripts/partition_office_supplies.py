@@ -80,43 +80,82 @@ def partition_products(products, num_partitions=10):
     return partitions
 
 def save_partitions(partitions):
-    """Save partitions to temporary JSON files."""
+    """Save partitions to JSON files in a permanent location."""
     partition_files = []
     
+    # Create directory if it doesn't exist
+    partition_dir = Path("data/partitions")
+    partition_dir.mkdir(parents=True, exist_ok=True)
+    
     for i, partition in enumerate(partitions):
-        partition_file = f"/tmp/office_supplies_partition_{i+1}.json"
-        with open(partition_file, "w") as f:
-            json.dump(partition, f, indent=2)
+        # Save to both locations for backward compatibility
+        tmp_partition_file = f"/tmp/office_supplies_partition_{i+1}.json"
+        perm_partition_file = f"data/partitions/office_supplies_partition_{i+1}.json"
         
-        logger.info(f"Saved partition {i+1} with {len(partition)} products to {partition_file}")
-        partition_files.append(partition_file)
+        # Write to both locations
+        for file_path in [tmp_partition_file, perm_partition_file]:
+            with open(file_path, "w") as f:
+                json.dump(partition, f, indent=2)
+        
+        logger.info(f"Saved partition {i+1} with {len(partition)} products to {tmp_partition_file} and {perm_partition_file}")
+        partition_files.append(tmp_partition_file)  # Return tmp path for backward compatibility
     
     return partition_files
 
 def create_runner_script():
-    """Create a script to run image generation with TRUE infinite retry."""
+    """Create a script to run image generation with TRUE infinite retry for all partitions."""
     runner_script = "/tmp/run_image_generator.sh"
     
     script_content = """#!/bin/bash
-# Script to run image generation with TRUE infinite retry
-PARTITION_FILE=$1
-PARTITION_NUM=$2
-LOG_FILE="/tmp/image_generation_partition_${PARTITION_NUM}.log"
+# Script to run image generation with TRUE infinite retry for all partitions
+LOG_DIR="/tmp"
+PARTITION_DIR="data/partitions"
 
-echo "Starting image generation for partition ${PARTITION_NUM} using ${PARTITION_FILE}"
-echo "Logs will be written to ${LOG_FILE}"
+echo "Starting image generation for all partitions"
 
-# True infinite retry - never exit, always keep trying
-while true; do
-    echo "$(date) - Attempt to run image generation for partition ${PARTITION_NUM}" >> ${LOG_FILE}
-    OPENAI_API_KEY=$OPENAI_APIKEY python3 /home/ubuntu/elastic-ecomm/scripts/generate_partition_images.py ${PARTITION_FILE} ${PARTITION_NUM} >> ${LOG_FILE} 2>&1
+# Kill any existing image generation processes
+pkill -f "python3 /home/ubuntu/elastic-ecomm/scripts/generate_partition_images.py" || true
+
+# Function to start a single partition
+start_partition() {
+    PARTITION_FILE=$1
+    PARTITION_NUM=$2
+    LOG_FILE="${LOG_DIR}/image_generation_partition_${PARTITION_NUM}.log"
     
-    # Always continue running, regardless of exit code
-    # This ensures we keep trying even if the script exits with success (0)
-    # because we want to make sure ALL images are generated
-    echo "$(date) - Image generation for partition ${PARTITION_NUM} completed or encountered an error, continuing in 10 seconds..." >> ${LOG_FILE}
-    sleep 10
+    echo "Starting image generation for partition ${PARTITION_NUM} using ${PARTITION_FILE}"
+    echo "Logs will be written to ${LOG_FILE}"
+    
+    # True infinite retry - never exit, always keep trying
+    while true; do
+        echo "$(date) - Attempt to run image generation for partition ${PARTITION_NUM}" >> ${LOG_FILE}
+        OPENAI_API_KEY=$OPENAI_APIKEY python3 /home/ubuntu/elastic-ecomm/scripts/generate_partition_images.py ${PARTITION_FILE} ${PARTITION_NUM} >> ${LOG_FILE} 2>&1
+        
+        # Always continue running, regardless of exit code
+        # This ensures we keep trying even if the script exits with success (0)
+        # because we want to make sure ALL images are generated
+        echo "$(date) - Image generation for partition ${PARTITION_NUM} completed or encountered an error, continuing in 10 seconds..." >> ${LOG_FILE}
+        sleep 10
+    done
+}
+
+# Start all partitions in the background
+for i in {1..10}; do
+    # Try permanent location first, fall back to tmp if not found
+    if [ -f "${PARTITION_DIR}/office_supplies_partition_${i}.json" ]; then
+        PARTITION_FILE="${PARTITION_DIR}/office_supplies_partition_${i}.json"
+    else
+        PARTITION_FILE="/tmp/office_supplies_partition_${i}.json"
+    fi
+    
+    # Start the process in the background
+    start_partition "$PARTITION_FILE" "$i" &
+    
+    # Sleep briefly to stagger the starts
+    sleep 1
 done
+
+echo "All image generation processes started. Check logs in ${LOG_DIR} for progress."
+wait  # Wait for all background processes (which should never exit)
 """
     
     with open(runner_script, "w") as f:
