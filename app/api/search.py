@@ -1,3 +1,4 @@
+from app.utils.image_processor import process_image_query
 """
 Search API endpoints for the E-Commerce Search Demo.
 """
