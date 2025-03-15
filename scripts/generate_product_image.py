@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to generate product images using OpenAI's DALL-E API.
+Script to generate product images using OpenAI's DALL-E API with parallel processing.
 """
 import os
 import sys
@@ -9,6 +9,20 @@ import requests
 from pathlib import Path
 import base64
 import time
+import multiprocessing
+from concurrent.futures import ProcessPoolExecutor, as_completed
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler("product_image_generation.log")
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # Add project root to Python path
 project_root = str(Path(__file__).parent.parent.absolute())
@@ -36,6 +50,11 @@ def generate_image_for_product(product):
     image_filename = f"product_{product['id']}.png"
     image_path = image_dir / image_filename
     
+    # Skip if image already exists
+    if image_path.exists():
+        logger.info(f"Image already exists at {image_path}, skipping")
+        return str(image_path)
+    
     # Create a detailed prompt for the image
     prompt = f"A professional product photo of a {product['brand']} {product['subcategory']}"
     
@@ -50,8 +69,8 @@ def generate_image_for_product(product):
     # Add style context
     prompt += f". High-quality e-commerce product image with white background, professional lighting."
     
-    print(f"Generating image for: {product['name']}")
-    print(f"Prompt: {prompt}")
+    logger.info(f"Generating image for: {product['name']}")
+    logger.info(f"Prompt: {prompt}")
     
     # Call OpenAI API
     url = "https://api.openai.com/v1/images/generations"
@@ -79,53 +98,81 @@ def generate_image_for_product(product):
         with open(image_path, "wb") as f:
             f.write(base64.b64decode(image_data))
         
-        print(f"Image saved to {image_path}")
+        logger.info(f"Image saved to {image_path}")
         return str(image_path)
     
     except requests.RequestException as e:
-        print(f"Error generating image: {e}")
+        logger.error(f"Error generating image: {e}")
         if hasattr(e, 'response') and e.response:
-            print(f"Response: {e.response.text}")
+            logger.error(f"Response: {e.response.text}")
         return None
     except Exception as e:
-        print(f"Unexpected error generating image: {e}")
+        logger.error(f"Unexpected error generating image: {e}")
         return None
 
-def generate_batch_images(start_index=0, count=5):
-    """Generate images for a batch of products in products.json"""
-    # Load products
-    with open("data/products.json", "r") as f:
-        products = json.load(f)
+def process_batch(batch, batch_num, total_batches, start_index):
+    """Process a batch of products in parallel"""
+    results = []
     
-    if not products:
-        print("No products found in data/products.json")
-        return
-    
-    # Calculate end index
-    end_index = min(start_index + count, len(products))
-    batch = products[start_index:end_index]
-    
-    print(f"Generating images for products {start_index+1} to {end_index} (total: {len(batch)})")
-    
-    generated_images = []
     for i, product in enumerate(batch):
-        print(f"\nProcessing product {start_index+i+1}/{end_index}: {product['name']}")
+        product_index = start_index + i
+        logger.info(f"Processing product {product_index+1}/10000: {product['name']} (Batch {batch_num+1}/{total_batches})")
         
         # Generate image
         image_path = generate_image_for_product(product)
         
         if image_path:
-            print(f"Success! Image saved to {image_path}")
-            generated_images.append(image_path)
+            logger.info(f"Success! Image saved to {image_path}")
+            results.append(image_path)
         else:
-            print(f"Failed to generate image for product: {product['name']}")
-        
-        # Add a small delay to avoid rate limiting
-        if i < len(batch) - 1:
-            time.sleep(1)
+            logger.error(f"Failed to generate image for product: {product['name']}")
     
-    print(f"\nBatch processing complete. Generated {len(generated_images)} images.")
-    return generated_images
+    return results
+
+def generate_images_parallel(start_index=6, num_workers=4, batch_size=10):
+    """Generate images for all remaining products in parallel"""
+    # Load products
+    with open("data/products.json", "r") as f:
+        products = json.load(f)
+    
+    if not products:
+        logger.error("No products found in data/products.json")
+        return
+    
+    # Calculate total remaining products
+    total_remaining = len(products) - start_index
+    
+    if total_remaining <= 0:
+        logger.info(f"No remaining products to process (starting from index {start_index})")
+        return
+    
+    logger.info(f"Generating images for {total_remaining} remaining products using {num_workers} parallel workers")
+    
+    # Process in batches to avoid overwhelming the API
+    num_batches = (total_remaining + batch_size - 1) // batch_size  # Ceiling division
+    
+    # Create batches
+    batches = []
+    for batch_num in range(num_batches):
+        batch_start = start_index + (batch_num * batch_size)
+        batch_end = min(batch_start + batch_size, len(products))
+        batches.append((products[batch_start:batch_end], batch_num, num_batches, batch_start))
+    
+    # Process batches in parallel
+    with ProcessPoolExecutor(max_workers=num_workers) as executor:
+        futures = {executor.submit(process_batch, *batch): batch for batch in batches}
+        
+        for future in as_completed(futures):
+            batch = futures[future]
+            try:
+                results = future.result()
+                batch_num = batch[1]
+                logger.info(f"Batch {batch_num+1}/{num_batches} completed. Generated {len(results)} images.")
+            except Exception as e:
+                logger.error(f"Batch processing error: {e}")
+    
+    logger.info(f"\nAll product images generated successfully!")
+    return True
 
 def test_first_product():
     """Generate an image for the first product in products.json"""
@@ -134,88 +181,30 @@ def test_first_product():
         products = json.load(f)
     
     if not products:
-        print("No products found in data/products.json")
+        logger.error("No products found in data/products.json")
         return
     
     # Generate image for first product
     first_product = products[0]
-    print(f"Testing image generation with first product: {first_product['name']}")
+    logger.info(f"Testing image generation with first product: {first_product['name']}")
     
     image_path = generate_image_for_product(first_product)
     
     if image_path:
-        print(f"Test successful! Image saved to {image_path}")
-        print(f"Product details: {json.dumps(first_product, indent=2)}")
+        logger.info(f"Test successful! Image saved to {image_path}")
+        logger.info(f"Product details: {json.dumps(first_product, indent=2)}")
     else:
-        print("Test failed. Could not generate image.")
-
-def generate_all_remaining_products(start_index=6):
-    """Generate images for all remaining products in products.json"""
-    # Load products
-    with open("data/products.json", "r") as f:
-        products = json.load(f)
-    
-    if not products:
-        print("No products found in data/products.json")
-        return
-    
-    # Calculate total remaining products
-    total_remaining = len(products) - start_index
-    
-    if total_remaining <= 0:
-        print(f"No remaining products to process (starting from index {start_index})")
-        return
-    
-    print(f"Generating images for {total_remaining} remaining products (starting from index {start_index})")
-    
-    # Process in batches to avoid overwhelming the API
-    batch_size = 10
-    num_batches = (total_remaining + batch_size - 1) // batch_size  # Ceiling division
-    
-    for batch_num in range(num_batches):
-        batch_start = start_index + (batch_num * batch_size)
-        batch_end = min(batch_start + batch_size, len(products))
-        batch = products[batch_start:batch_end]
-        
-        print(f"\nProcessing batch {batch_num+1}/{num_batches}: products {batch_start+1} to {batch_end}")
-        
-        for i, product in enumerate(batch):
-            print(f"\nProcessing product {batch_start+i+1}/{len(products)}: {product['name']}")
-            
-            # Skip if image already exists
-            image_filename = f"product_{product['id']}.png"
-            image_path = Path("data/images") / image_filename
-            
-            if image_path.exists():
-                print(f"Image already exists at {image_path}, skipping")
-                continue
-            
-            # Generate image
-            image_path = generate_image_for_product(product)
-            
-            if image_path:
-                print(f"Success! Image saved to {image_path}")
-            else:
-                print(f"Failed to generate image for product: {product['name']}")
-            
-            # Add a small delay to avoid rate limiting
-            if i < len(batch) - 1:
-                time.sleep(1)
-        
-        # Add a delay between batches to avoid rate limiting
-        if batch_num < num_batches - 1:
-            print(f"Waiting 5 seconds before next batch...")
-            time.sleep(5)
-    
-    print(f"\nAll product images generated successfully!")
-    return True
+        logger.error("Test failed. Could not generate image.")
 
 if __name__ == "__main__":
     # Check if API key is set in environment
     if "OPENAI_API_KEY" not in os.environ:
-        print("Error: OPENAI_API_KEY environment variable is not set.")
-        print("Please set it with: export OPENAI_API_KEY='your-api-key'")
+        logger.error("Error: OPENAI_API_KEY environment variable is not set.")
+        logger.error("Please set it with: export OPENAI_API_KEY='your-api-key'")
         sys.exit(1)
     
-    # Generate all remaining products
-    generate_all_remaining_products(start_index=6)
+    # Number of parallel workers (adjust based on your system capabilities)
+    num_workers = 4
+    
+    # Generate all remaining products in parallel
+    generate_images_parallel(start_index=6, num_workers=num_workers, batch_size=10)
