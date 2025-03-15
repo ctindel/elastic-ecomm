@@ -7,6 +7,9 @@ import sys
 import logging
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pathlib import Path
 from elasticsearch import Elasticsearch
 
 # Configure logging
@@ -42,6 +45,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount static files directory
+app.mount("/static", StaticFiles(directory="data"), name="static")
 
 # Add routers
 app.include_router(search_router, prefix="/api/search", tags=["search"])

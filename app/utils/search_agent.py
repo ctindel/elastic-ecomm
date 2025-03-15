@@ -96,13 +96,26 @@ class SearchAgent:
         # Convert to SearchResult objects
         results = []
         for hit in search_results.get("results", []):
+            # Update image URL to use static file serving
+            image_url = hit.get("image", {}).get("url", "")
+            if image_url and image_url.startswith("data/"):
+                # Check if the image file exists before updating the URL
+                import os
+                image_path = os.path.join(os.getcwd(), image_url)
+                if os.path.exists(image_path):
+                    # Convert data/images/product_xxx.png to /static/images/product_xxx.png
+                    image_url = "/static/" + image_url[5:]
+                else:
+                    # If image doesn't exist, set to empty string to use placeholder
+                    image_url = ""
+            
             result = SearchResult(
                 query=query,
                 product_id=hit.get("id", ""),
                 product_name=hit.get("name", ""),
                 product_description=hit.get("description", ""),
                 price=hit.get("price", 0.0),
-                image_url=hit.get("image", {}).get("url", ""),
+                image_url=image_url,
                 score=hit.get("score", 0.0),
                 search_type=search_type
             )
