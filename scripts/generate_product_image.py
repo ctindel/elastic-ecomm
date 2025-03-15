@@ -9,6 +9,7 @@ import requests
 from pathlib import Path
 import base64
 import time
+import random
 import multiprocessing
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import logging
@@ -32,12 +33,13 @@ if project_root not in sys.path:
 # OpenAI API key should be set in the environment
 # Example: export OPENAI_API_KEY="your-api-key"
 
-def generate_image_for_product(product):
+def generate_image_for_product(product, max_retries=5):
     """
     Generate an image for a product using OpenAI's DALL-E API.
     
     Args:
         product: Product dictionary with details
+        max_retries: Maximum number of retry attempts for rate limiting
         
     Returns:
         Path to the saved image
@@ -72,7 +74,7 @@ def generate_image_for_product(product):
     logger.info(f"Generating image for: {product['name']}")
     logger.info(f"Prompt: {prompt}")
     
-    # Call OpenAI API
+    # Call OpenAI API with retry logic
     url = "https://api.openai.com/v1/images/generations"
     headers = {
         "Content-Type": "application/json",
@@ -87,28 +89,46 @@ def generate_image_for_product(product):
         "response_format": "b64_json"
     }
     
-    try:
-        response = requests.post(url, headers=headers, json=data)
-        response.raise_for_status()
+    # Implement exponential backoff with jitter
+    for attempt in range(max_retries):
+        try:
+            response = requests.post(url, headers=headers, json=data)
+            response.raise_for_status()
+            
+            # Extract image data
+            image_data = response.json()["data"][0]["b64_json"]
+            
+            # Save image
+            with open(image_path, "wb") as f:
+                f.write(base64.b64decode(image_data))
+            
+            logger.info(f"Image saved to {image_path}")
+            return str(image_path)
         
-        # Extract image data
-        image_data = response.json()["data"][0]["b64_json"]
-        
-        # Save image
-        with open(image_path, "wb") as f:
-            f.write(base64.b64decode(image_data))
-        
-        logger.info(f"Image saved to {image_path}")
-        return str(image_path)
+        except requests.RequestException as e:
+            # Check if it's a rate limit error (429)
+            if hasattr(e, 'response') and e.response and e.response.status_code == 429:
+                # Calculate backoff time with exponential increase and jitter
+                backoff_time = min(2 ** attempt + random.uniform(0, 1), 60)
+                logger.warning(f"Rate limit hit. Retrying in {backoff_time:.2f} seconds... (Attempt {attempt+1}/{max_retries})")
+                time.sleep(backoff_time)
+                
+                # If this is the last attempt, log and return None
+                if attempt == max_retries - 1:
+                    logger.error(f"Max retries reached for rate limiting. Failed to generate image for: {product['name']}")
+                    return None
+            else:
+                # For other request errors, log and return None
+                logger.error(f"Error generating image: {e}")
+                if hasattr(e, 'response') and e.response:
+                    logger.error(f"Response: {e.response.text}")
+                return None
+                
+        except Exception as e:
+            logger.error(f"Unexpected error generating image: {e}")
+            return None
     
-    except requests.RequestException as e:
-        logger.error(f"Error generating image: {e}")
-        if hasattr(e, 'response') and e.response:
-            logger.error(f"Response: {e.response.text}")
-        return None
-    except Exception as e:
-        logger.error(f"Unexpected error generating image: {e}")
-        return None
+    return None
 
 def process_batch(batch, batch_num, total_batches, start_index):
     """Process a batch of products in parallel"""
