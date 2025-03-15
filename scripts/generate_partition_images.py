@@ -27,7 +27,7 @@ project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-def generate_image_for_product(product, max_retries=10, partition_num=0):
+def generate_image_for_product(product, max_retries=5):
     """
     Generate an image for a product using OpenAI's DALL-E API.
     """
@@ -79,12 +79,6 @@ def generate_image_for_product(product, max_retries=10, partition_num=0):
     # Implement exponential backoff with jitter
     for attempt in range(max_retries):
         try:
-            # Add a longer initial delay based on partition number to stagger requests
-            initial_delay = partition_num * 5  # 5 seconds per partition
-            if attempt == 0 and initial_delay > 0:
-                logger.info(f"Initial delay of {initial_delay}s for partition {partition_num}")
-                time.sleep(initial_delay)
-            
             response = requests.post(url, headers=headers, json=data)
             response.raise_for_status()
             
@@ -102,7 +96,7 @@ def generate_image_for_product(product, max_retries=10, partition_num=0):
             # Check if it's a rate limit error (429)
             if hasattr(e, 'response') and e.response and e.response.status_code == 429:
                 # Calculate backoff time with exponential increase and jitter
-                backoff_time = min(30 + (2 ** attempt) + random.uniform(0, 10), 120)
+                backoff_time = min(2 ** attempt + random.uniform(0, 1), 60)
                 logger.warning(f"Rate limit hit. Retrying in {backoff_time:.2f} seconds... (Attempt {attempt+1}/{max_retries})")
                 time.sleep(backoff_time)
                 
@@ -115,22 +109,16 @@ def generate_image_for_product(product, max_retries=10, partition_num=0):
                 logger.error(f"Error generating image: {e}")
                 if hasattr(e, 'response') and e.response:
                     logger.error(f"Response: {e.response.text}")
-                # Add a delay even for non-rate-limit errors
-                time.sleep(10 + random.uniform(0, 5))
-                if attempt == max_retries - 1:
-                    return None
+                return None
                 
         except Exception as e:
             logger.error(f"Unexpected error generating image: {e}")
-            time.sleep(10 + random.uniform(0, 5))
-            if attempt == max_retries - 1:
-                return None
+            return None
     
     return None
 
 def generate_images_for_partition(partition_file, partition_num):
     """Generate images for products in a partition."""
-    partition_num = int(partition_num)
     logger.info(f"Processing partition {partition_num} from {partition_file}")
     
     # Load products from partition file
@@ -144,26 +132,21 @@ def generate_images_for_partition(partition_file, partition_num):
     logger.info(f"Generating images for {len(products)} products in partition {partition_num}")
     
     # Process products one by one with a small delay between each
-    success_count = 0
     for i, product in enumerate(products):
         logger.info(f"Processing product {i+1}/{len(products)} in partition {partition_num}: {product['name']}")
         
         # Generate image
-        image_path = generate_image_for_product(product, partition_num=partition_num)
+        image_path = generate_image_for_product(product)
         
         if image_path:
             logger.info(f"Success! Image saved to {image_path}")
-            success_count += 1
         else:
             logger.error(f"Failed to generate image for product: {product['name']}")
         
-        # Add a longer delay between products to avoid rate limits
-        # Vary delay based on partition number to stagger requests
-        delay = 5 + (partition_num % 3) * 2 + random.uniform(0, 3)
-        logger.info(f"Waiting {delay:.2f}s before next product...")
-        time.sleep(delay)
+        # Add a small delay between products to avoid rate limits
+        time.sleep(1)
     
-    logger.info(f"Completed image generation for partition {partition_num}. Generated {success_count}/{len(products)} images.")
+    logger.info(f"Completed image generation for partition {partition_num}")
     return True
 
 if __name__ == "__main__":
@@ -184,8 +167,8 @@ if __name__ == "__main__":
     success = generate_images_for_partition(partition_file, partition_num)
     
     if success:
-        logger.info(f"Successfully generated images for partition {partition_num}")
+        logger.info(f"Successfully generated all images for partition {partition_num}")
         sys.exit(0)
     else:
-        logger.error(f"Failed to generate images for partition {partition_num}")
+        logger.error(f"Failed to generate all images for partition {partition_num}")
         sys.exit(1)
