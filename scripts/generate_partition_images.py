@@ -160,6 +160,7 @@ def generate_images_for_partition(partition_file, partition_num):
     # Process each product
     for product in products:
         product_id = product['id']
+        filename = f"product_{product_id}.png"
         
         # Skip if already processed in this run
         if product_id in processed_ids:
@@ -177,7 +178,7 @@ def generate_images_for_partition(partition_file, partition_num):
     missing_images = [p['id'] for p in products if not image_exists(p['id'])]
     
     if missing_images:
-        logger.warning(f"Partition {partition_num}: {len(missing_images)} products still missing images: {missing_images[:5]}...")
+        logger.warning(f"Partition {partition_num}: {len(missing_images)} products still missing images. First few: {missing_images[:5]}")
         return False
     else:
         logger.info(f"Partition {partition_num}: All {len(products)} products have images")
