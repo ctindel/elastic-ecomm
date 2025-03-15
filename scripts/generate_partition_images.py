@@ -41,7 +41,7 @@ def generate_image_for_product(product):
     
     # Skip if image already exists
     if image_path.exists():
-        logger.info(f"Image already exists at {image_path}, skipping")
+        logger.info(f"Image already exists for product ID: {product['id']} at {image_path}, skipping")
         return str(image_path)
     
     # Create a detailed prompt for the image
@@ -184,7 +184,7 @@ def generate_images_for_partition(partition_file, partition_num):
     # Process products one by one with a small delay between each
     success_count = 0
     for i, product in enumerate(remaining_products):
-        logger.info(f"Processing product {i+1}/{len(remaining_products)} in partition {partition_num}: {product['name']}")
+        logger.info(f"Processing product {i+1}/{len(remaining_products)} in partition {partition_num}: {product['id']} - {product['name']}")
         
         # Generate image with true infinite retry
         image_path = generate_image_for_product(product)
