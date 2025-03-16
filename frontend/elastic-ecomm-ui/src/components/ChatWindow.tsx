@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress, IconButton } from '@mui/material';
+import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, FormControlLabel, Checkbox } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { Message, SearchResult } from '../types';
@@ -22,12 +22,26 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
   const [newMessage, setNewMessage] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileDialogOpen, setFileDialogOpen] = useState(false);
+  const [showAllFileTypes, setShowAllFileTypes] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // Handle file dialog open
+  const handleOpenFileDialog = () => {
+    setFileDialogOpen(true);
+  };
+  
+  // Handle file dialog close
+  const handleCloseFileDialog = () => {
+    setFileDialogOpen(false);
+  };
   
   // Handle file selection
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       setSelectedFile(event.target.files[0]);
+      setFileDialogOpen(false);
       
       // Add a message showing the selected file
       const fileMessage: Message = {
@@ -292,15 +306,56 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
         <input
           type="file"
           id="file-upload"
+          ref={fileInputRef}
           style={{ display: 'none' }}
           onChange={handleFileSelect}
-          accept="image/jpeg,image/png,application/pdf"
+          accept={showAllFileTypes ? "*" : "image/jpeg,image/png,image/gif,application/pdf"}
         />
-        <label htmlFor="file-upload">
-          <IconButton component="span" disabled={isSearching} sx={{ mr: 1 }}>
-            <AttachFileIcon />
-          </IconButton>
-        </label>
+        <IconButton 
+          onClick={handleOpenFileDialog} 
+          disabled={isSearching} 
+          sx={{ mr: 1 }}
+        >
+          <AttachFileIcon />
+        </IconButton>
+        
+        <Dialog open={fileDialogOpen} onClose={handleCloseFileDialog}>
+          <DialogTitle>Select File to Upload</DialogTitle>
+          <DialogContent>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              Select a file to upload for product recommendations.
+            </Typography>
+            <FormControlLabel
+              control={
+                <Checkbox 
+                  checked={showAllFileTypes} 
+                  onChange={(e) => setShowAllFileTypes(e.target.checked)} 
+                />
+              }
+              label="Show all file types (default is images only)"
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button 
+              onClick={() => {
+                setFileDialogOpen(false);
+              }}
+              color="inherit"
+            >
+              Cancel
+            </Button>
+            <Button 
+              onClick={() => {
+                fileInputRef.current?.click();
+                setFileDialogOpen(false);
+              }}
+              variant="contained" 
+              color="primary"
+            >
+              Browse Files
+            </Button>
+          </DialogActions>
+        </Dialog>
         {selectedFile && (
           <Button
             variant="outlined"
