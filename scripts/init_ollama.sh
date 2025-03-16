@@ -23,8 +23,8 @@ fi
 echo "Pulling llama3 model for text embeddings and query classification..."
 ollama pull llama3
 
-echo "Pulling llava:34b model for vision processing..."
-ollama pull llava:34b
+echo "Pulling llava:7b model for vision processing..."
+ollama pull llava:7b
 
 # Verify models were installed
 echo "Verifying installed models..."
@@ -37,16 +37,16 @@ else
     exit 1
 fi
 
-if echo "$MODELS" | grep -q "llava:34b"; then
-    echo "✅ llava:34b model installed successfully"
+if echo "$MODELS" | grep -q "llava:7b"; then
+    echo "✅ llava:7b model installed successfully"
 else
-    echo "❌ Failed to install llava:34b model"
+    echo "❌ Failed to install llava:7b model"
     exit 1
 fi
 
 echo "Ollama initialization complete! The following models are now available:"
 echo "- llama3: Used for text embeddings and query classification"
-echo "- llava:34b: Used for vision processing (when VISION_PROVIDER=ollama)"
+echo "- llava:7b: Used for vision processing (when VISION_PROVIDER=ollama)"
 
 echo ""
 echo "To use Ollama for vision processing, set the following environment variable:"

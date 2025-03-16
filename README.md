@@ -36,7 +36,7 @@ scripts/init_ollama.sh
 
 This script will install the following models:
 - `llama3`: Used for text embeddings and query classification
-- `llava:34b`: Used for vision processing (image analysis)
+- `llava:7b`: Used for vision processing (image analysis)
 
 ### 5. Start Backend API
 
@@ -95,7 +95,7 @@ python scripts/partition_office_supplies.py
 The application supports multiple vision providers for processing image uploads:
 
 - **OpenAI** (default): Uses OpenAI's GPT-4o model for image analysis
-- **Ollama**: Uses Ollama's llava:34b model for local image analysis
+- **Ollama**: Uses Ollama's llava:7b model for local image analysis
 
 To configure the vision provider:
 
