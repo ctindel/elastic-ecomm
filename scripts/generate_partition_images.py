@@ -141,12 +141,7 @@ def generate_images_for_partition(partition_file, partition_num):
         return False
     
     # Create checkpoint file path
-    # Create directory if it doesn't exist
-    checkpoint_dir = Path("data/partitions")
-    checkpoint_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Use permanent location for checkpoint file
-    checkpoint_file = f"data/partitions/partition_{partition_num}_checkpoint.json"
+    checkpoint_file = f"/tmp/partition_{partition_num}_checkpoint.json"
     
     # Load checkpoint if exists
     processed_ids = set()

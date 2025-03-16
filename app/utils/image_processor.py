@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-import io
+import os
+import sys
 import json
 import logging
 from typing import List, Dict, Any, Optional
@@ -7,11 +7,14 @@ import base64
 from fastapi import UploadFile
 from elasticsearch import Elasticsearch
 from app.models.search import SearchResult, SearchType
-from app.config.settings import OPENAI_API_KEY
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Import vision processor
+from app.utils.vision_processor import process_image
+from app.config.settings import VISION_PROVIDER
 
 async def process_image_query(
     image_file: UploadFile,
@@ -32,139 +35,156 @@ async def process_image_query(
         List of SearchResult objects with recommended products
     """
     try:
-        # Read the image file
-        contents = await image_file.read()
+        # Process the image using the configured vision provider
+        items_data = await process_image(image_file)
         
-        # Convert to base64 for OpenAI API
-        base64_image = base64.b64encode(contents).decode('utf-8')
+        # Log the extracted items
+        logger.info(f"Extracted items using {VISION_PROVIDER} provider: {items_data}")
         
-        # Use OpenAI to extract text and identify items
-        import openai
+        # Search for products based on extracted items
+        results = []
         
-        client = openai.OpenAI(api_key=OPENAI_API_KEY)
+        # Create a list to store item matching information
+        item_matches = []
         
-        # Define the system prompt
-        system_prompt = """
-        You are an assistant that analyzes images of shopping lists or product requests.
-        Extract all items from the image and return them in the following JSON format:
-        {
-            "items": [
-                {
-                    "name": "item name",
-                    "quantity": "quantity (if specified)",
-                    "attributes": "any attributes like color, size, etc."
-                }
-            ]
-        }
-        Only include items that are clearly visible in the image. If quantities are specified, include them.
-        """
-        
-        # Make the API call
-        response = client.chat.completions.create(
-            model="gpt-4-vision-preview",
-            messages=[
-                {
-                    "role": "system",
-                    "content": system_prompt
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": "What items are in this shopping list? Extract them according to the format."},
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/{image_file.content_type.split('/')[-1]};base64,{base64_image}"
-                            }
-                        }
-                    ]
-                }
-            ],
-            max_tokens=1000
-        )
-        
-        # Extract the JSON response
-        try:
-            content = response.choices[0].message.content
-            # Extract JSON from the response (it might be wrapped in markdown code blocks)
-            if "```json" in content:
-                json_str = content.split("```json")[1].split("```")[0].strip()
-            elif "```" in content:
-                json_str = content.split("```")[1].strip()
-            else:
-                json_str = content.strip()
-                
-            items_data = json.loads(json_str)
+        for item in items_data.get("items", []):
+            # Construct search query
+            item_name = item.get("name", "")
+            quantity = item.get("quantity", "")
+            attributes = item.get("attributes", "")
+            search_query = f"{item_name} {attributes}".strip()
             
-            # Log the extracted items
-            logger.info(f"Extracted items: {items_data}")
+            if not search_query:
+                continue
             
-            # Search for products based on extracted items
-            results = []
+            # Create item match entry
+            item_match = {
+                "item": item_name,
+                "quantity": quantity,
+                "attributes": attributes,
+                "matched_product_id": "",  # Empty string instead of None
+                "matched_product_name": ""  # Empty string instead of None
+            }
             
-            for item in items_data.get("items", []):
-                # Construct search query
-                item_name = item.get("name", "")
-                attributes = item.get("attributes", "")
-                search_query = f"{item_name} {attributes}".strip()
-                
-                if not search_query:
-                    continue
-                
-                # Search in Elasticsearch
-                query = {
-                    "query": {
-                        "bool": {
-                            "must": [
-                                {"match": {"category": "Office Supplies"}},
-                                {
-                                    "multi_match": {
-                                        "query": search_query,
-                                        "fields": ["name^3", "description^2", "subcategory"],
-                                        "fuzziness": "AUTO"
-                                    }
+            # Search in Elasticsearch
+            query = {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {"match": {"category": "Office Supplies"}},
+                            {
+                                "multi_match": {
+                                    "query": search_query,
+                                    "fields": ["name^3", "description^2", "subcategory"],
+                                    "fuzziness": "AUTO"
                                 }
-                            ]
-                        }
-                    },
-                    "size": limit // len(items_data.get("items", [1]))  # Distribute limit among items
-                }
+                            }
+                        ]
+                    }
+                },
+                "size": max(1, limit // len(items_data.get("items", [1])))  # Distribute limit among items
+            }
+            
+            try:
+                search_response = elasticsearch_client.search(index="products", body=query)
                 
-                try:
-                    search_response = elasticsearch_client.search(index="products", body=query)
+                # Process search results
+                if search_response["hits"]["hits"]:
+                    # Get the top match
+                    top_hit = search_response["hits"]["hits"][0]
+                    source = top_hit["_source"]
                     
-                    # Process search results
-                    for hit in search_response["hits"]["hits"]:
-                        source = hit["_source"]
-                        
-                        # Create SearchResult object
-                        result = SearchResult(
-                            query=search_query,
-                            product_id=source.get("id", ""),
-                            product_name=source.get("name", ""),
-                            product_description=source.get("description", ""),
-                            price=source.get("price", 0.0),
-                            image_url=source.get("image", {}).get("url", ""),
-                            score=hit["_score"],
-                            search_type=SearchType.BM25,
-                            explanation=f"Found based on your request for: {item_name}"
-                        )
-                        
-                        results.append(result)
+                    # Update item match with product info
+                    item_match["matched_product_id"] = source.get("id", "")
+                    item_match["matched_product_name"] = source.get("name", "")
+                    
+                    # Create SearchResult object
+                    result = SearchResult(
+                        query=search_query,
+                        product_id=source.get("id", ""),
+                        product_name=source.get("name", ""),
+                        product_description=source.get("description", ""),
+                        price=source.get("price", 0.0),
+                        image_url=source.get("image", {}).get("url", ""),
+                        score=top_hit["_score"],
+                        search_type=SearchType.IMAGE,
+                        explanation=f"Found based on your request for: {item_name}",
+                        alternatives=[item_match]  # Include item match info in alternatives
+                    )
+                    
+                    results.append(result)
+                else:
+                    # No match found, still add item to matches
+                    item_match["matched_product_id"] = ""  # Empty string instead of None
+                    item_match["matched_product_name"] = ""  # Empty string instead of None
+                    
+                    # Create a placeholder result for unmatched items
+                    result = SearchResult(
+                        query=search_query,
+                        product_id="not_found",
+                        product_name=f"No match found for: {item_name}",
+                        product_description=f"Could not find a matching product for {item_name} {attributes}",
+                        price=0.0,
+                        image_url=None,
+                        score=0.0,
+                        search_type=SearchType.IMAGE,
+                        explanation=f"No matching product found for: {item_name}",
+                        alternatives=[item_match]  # Include item match info in alternatives
+                    )
+                    
+                    results.append(result)
                 
-                except Exception as e:
-                    logger.error(f"Error searching for products: {str(e)}")
+                # Add item match to the list
+                item_matches.append(item_match)
             
-            # If no results were found, return an empty list with explanation
-            if not results:
-                logger.warning("No products found for the extracted items")
+            except Exception as e:
+                logger.error(f"Error searching for products: {str(e)}")
                 
-            return results
+                # Add error information to item match
+                item_match["error"] = str(e)
+                item_matches.append(item_match)
+        
+        # Add item matches to the first result's alternatives if there are results
+        if results:
+            # Create a summary result with all item matches
+            summary_result = SearchResult(
+                query="Image Upload Analysis",
+                product_id="summary",
+                product_name="Image Analysis Results",
+                product_description=f"Analysis of items found in the uploaded image (using {VISION_PROVIDER})",
+                price=0.0,
+                image_url=None,
+                score=1.0,
+                search_type=SearchType.IMAGE,
+                explanation=f"Found {len(item_matches)} items in the uploaded image",
+                alternatives=item_matches  # Include all item matches
+            )
             
-        except json.JSONDecodeError:
-            logger.error(f"Failed to parse JSON from OpenAI response: {content}")
-            raise ValueError("Failed to parse items from the image")
+            # Insert summary at the beginning
+            results.insert(0, summary_result)
+        
+        # If no results were found, return an empty list with explanation
+        if not results:
+            logger.warning("No products found for the extracted items")
             
+            # Create a summary result with all item matches
+            summary_result = SearchResult(
+                query="Image Upload Analysis",
+                product_id="summary",
+                product_name="No Matching Products Found",
+                product_description="No matching products were found for the items in the uploaded image",
+                price=0.0,
+                image_url=None,
+                score=0.0,
+                search_type=SearchType.IMAGE,
+                explanation="No matching products found",
+                alternatives=item_matches  # Include all item matches
+            )
+            
+            results.append(summary_result)
+            
+        return results
+        
     except Exception as e:
         logger.error(f"Error processing image: {str(e)}")
         raise

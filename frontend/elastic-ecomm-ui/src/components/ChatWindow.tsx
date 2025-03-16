@@ -67,11 +67,27 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
       // Upload the file and get product recommendations
       const results = await uploadImage(selectedFile);
       
+      // Find the summary result (first result with all item matches)
+      const summaryResult = results.find(r => r.product_id === 'summary');
+      const itemMatches = summaryResult?.alternatives || [];
+      
+      // Format the item list for display
+      const itemList = itemMatches.map(item => {
+        const itemName = item.item || '';
+        const quantity = item.quantity ? `${item.quantity} of ` : '';
+        const attributes = item.attributes ? ` (${item.attributes})` : '';
+        const matchedProduct = item.matched_product_name 
+          ? ` → Matched with: ${item.matched_product_name}`
+          : ' → No matching product found';
+        
+        return `${quantity}${itemName}${attributes}${matchedProduct}`;
+      }).join('\n');
+      
       // Add results message
       const resultsMessage: Message = {
         id: messages.length + 2,
         text: results.length > 0 
-          ? `I found the following items in your image: ${results.map(r => r.product_name).join(', ')}. Here are some recommended products!` 
+          ? `I analyzed your image and found these items:\n\n${itemList}\n\nHere are the recommended products!` 
           : 'I couldn\'t identify any items in your image. Could you try a clearer image?',
         sender: 'agent',
         timestamp: new Date(),
