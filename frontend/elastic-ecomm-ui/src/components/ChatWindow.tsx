@@ -21,7 +21,6 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
   ]);
   const [newMessage, setNewMessage] = useState('');
   const [isSearching, setIsSearching] = useState(false);
-  const [showAllFileTypes, setShowAllFileTypes] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
@@ -299,35 +298,15 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
           ref={fileInputRef}
           style={{ display: 'none' }}
           onChange={handleFileSelect}
-          accept={showAllFileTypes ? "*" : "image/jpeg,image/png,image/gif,application/pdf"}
+          accept="image/jpeg,image/png,image/gif,application/pdf,*"
         />
         <IconButton 
           onClick={handleOpenFileDialog} 
           disabled={isSearching} 
           sx={{ mr: 1 }}
-          title={showAllFileTypes ? "Upload any file" : "Upload image file"}
+          title="Upload a file"
         >
           <AttachFileIcon />
-        </IconButton>
-        
-        {/* File type toggle button */}
-        <IconButton
-          onClick={() => setShowAllFileTypes(!showAllFileTypes)}
-          disabled={isSearching}
-          sx={{ 
-            mr: 1, 
-            fontSize: '0.75rem',
-            bgcolor: showAllFileTypes ? 'primary.light' : 'grey.300',
-            color: showAllFileTypes ? 'white' : 'text.primary',
-            '&:hover': {
-              bgcolor: showAllFileTypes ? 'primary.main' : 'grey.400',
-            },
-            width: 24,
-            height: 24
-          }}
-          title={showAllFileTypes ? "Currently accepting all files - Click to accept only images" : "Currently accepting only images - Click to accept all files"}
-        >
-          {showAllFileTypes ? "ALL" : "IMG"}
         </IconButton>
         {/* Removed separate upload button since we're uploading automatically */}
         <Button
