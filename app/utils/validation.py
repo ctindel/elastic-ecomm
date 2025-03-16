@@ -69,8 +69,8 @@ def check_ollama_vision_model():
     }
     
     try:
-        # Check if Ollama is running
-        response = requests.get(OLLAMA_API_URL.replace("/generate", "/models"))
+        # Check if Ollama is running - use /api/tags endpoint which is more reliable
+        response = requests.get("http://localhost:11434/api/tags")
         
         if response.status_code != 200:
             result["error"] = f"Ollama API returned status code {response.status_code}"
@@ -80,13 +80,18 @@ def check_ollama_vision_model():
         result["available"] = True
         
         # Check if the vision model is installed
-        models = response.json()
+        models = response.json().get("models", [])
         model_names = [model.get("name", "") for model in models]
         
         if OLLAMA_VISION_MODEL in model_names:
             result["model_installed"] = True
         else:
-            result["error"] = f"Vision model '{OLLAMA_VISION_MODEL}' is not installed"
+            # Try with just the model name without tag
+            base_model_name = OLLAMA_VISION_MODEL.split(":")[0]
+            if any(base_model_name in name for name in model_names):
+                result["model_installed"] = True
+            else:
+                result["error"] = f"Vision model '{OLLAMA_VISION_MODEL}' is not installed"
     
     except Exception as e:
         result["error"] = f"Error connecting to Ollama: {str(e)}"
