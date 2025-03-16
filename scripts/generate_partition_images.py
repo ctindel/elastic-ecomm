@@ -65,12 +65,15 @@ def generate_product_image(client, product, output_dir, checkpoint_file):
     if "material" in product:
         attributes.append(f"made of {product['material']}")
     
-    # Define the output file path - always use the root data/images directory
-    root_output_file = "/home/ubuntu/elastic-ecomm/data/images/product_{}.png".format(product_id)
+    # Create the output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
     
-    # Check if the image already exists in the root data/images directory
-    if os.path.exists(root_output_file):
-        logger.info(f"Image already exists at {root_output_file}, skipping generation")
+    # Define the output file path
+    output_file = os.path.join(output_dir, f"product_{product_id}.png")
+    
+    # Check if the image already exists
+    if os.path.exists(output_file):
+        logger.info(f"Image already exists at {output_file}, skipping generation")
         return True
     
     # Generate a prompt for the image
@@ -104,11 +107,11 @@ def generate_product_image(client, product, output_dir, checkpoint_file):
             response = requests.get(image_url)
             response.raise_for_status()
             
-            # Save the image to the root data/images directory
-            with open(root_output_file, "wb") as f:
+            # Save the image
+            with open(output_file, "wb") as f:
                 f.write(response.content)
                 
-            logger.info(f"Success! Image saved to {root_output_file}")
+            logger.info(f"Success! Image saved to {output_file}")
             
             # Update the checkpoint file
             with open(checkpoint_file, "w") as f:
@@ -137,13 +140,14 @@ def generate_product_image(client, product, output_dir, checkpoint_file):
     logger.error(f"Failed to generate image after {max_retries} attempts")
     return False
 
-def process_partition(partition_file, output_dir):
+def process_partition(partition_file, output_dir, checkpoint_dir):
     """
     Process a partition of products and generate images.
     
     Args:
         partition_file: Path to the partition file
         output_dir: Directory to save the images
+        checkpoint_dir: Directory to save checkpoint files
     """
     # Set up OpenAI client
     client = setup_openai_client()
@@ -156,7 +160,8 @@ def process_partition(partition_file, output_dir):
     
     # Create checkpoint file path
     partition_num = os.environ.get("PARTITION_NUM", "unknown")
-    checkpoint_file = f"/tmp/image_generation_checkpoint_partition_{partition_num}.json"
+    os.makedirs(checkpoint_dir, exist_ok=True)
+    checkpoint_file = os.path.join(checkpoint_dir, f"image_generation_checkpoint_partition_{partition_num}.json")
     
     # Load checkpoint if it exists
     start_index = 0
@@ -192,12 +197,18 @@ def main():
     """
     parser = argparse.ArgumentParser(description="Generate product images for a partition")
     parser.add_argument("partition_file", help="Path to the partition file")
-    parser.add_argument("--output-dir", default="/home/ubuntu/elastic-ecomm/data/images", help="Directory to save images")
+    parser.add_argument("--output-dir", required=True, help="Directory to save images")
+    parser.add_argument("--checkpoint-dir", default="/tmp", help="Directory to save checkpoint files")
+    parser.add_argument("--partition-num", help="Partition number (overrides PARTITION_NUM env var)")
     
     args = parser.parse_args()
     
+    # Set partition number from CLI if provided
+    if args.partition_num:
+        os.environ["PARTITION_NUM"] = args.partition_num
+    
     # Process the partition
-    process_partition(args.partition_file, args.output_dir)
+    process_partition(args.partition_file, args.output_dir, args.checkpoint_dir)
 
 if __name__ == "__main__":
     main()
