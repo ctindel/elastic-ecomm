@@ -47,7 +47,7 @@ app.add_middleware(
 )
 
 # Mount static files directory
-app.mount("/static", StaticFiles(directory="data"), name="static")
+app.mount("/static", StaticFiles(directory=str(Path(__file__).parent.parent / "data")), name="static")
 
 # Add routers
 app.include_router(search_router, prefix="/api/search", tags=["search"])
