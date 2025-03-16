@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, FormControlLabel, Checkbox } from '@mui/material';
+import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress, IconButton } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { Message, SearchResult } from '../types';
@@ -21,56 +21,49 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
   ]);
   const [newMessage, setNewMessage] = useState('');
   const [isSearching, setIsSearching] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [fileDialogOpen, setFileDialogOpen] = useState(false);
   const [showAllFileTypes, setShowAllFileTypes] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
-  // Handle file dialog open
+  // Handle file dialog open - directly trigger the native file selector
   const handleOpenFileDialog = () => {
-    setFileDialogOpen(true);
-  };
-  
-  // Handle file dialog close
-  const handleCloseFileDialog = () => {
-    setFileDialogOpen(false);
+    fileInputRef.current?.click();
   };
   
   // Handle file selection
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
-      setSelectedFile(event.target.files[0]);
-      setFileDialogOpen(false);
+      const file = event.target.files[0];
       
       // Add a message showing the selected file
       const fileMessage: Message = {
         id: messages.length + 1,
-        text: `Selected file: ${event.target.files[0].name}`,
+        text: `Selected file: ${file.name}`,
         sender: 'customer',
         timestamp: new Date(),
         type: 'file_upload',
         file: {
-          name: event.target.files[0].name,
-          type: event.target.files[0].type
+          name: file.name,
+          type: file.type
         }
       };
       
       setMessages(prevMessages => [...prevMessages, fileMessage]);
+      
+      // Automatically upload the file after selection
+      handleFileUpload(file);
     }
   };
   
   // Handle file upload
-  const handleFileUpload = async () => {
-    if (!selectedFile) return;
-    
+  const handleFileUpload = async (file: File) => {
     setIsSearching(true);
     
     try {
       // Add processing message
       const processingMessage: Message = {
         id: messages.length + 1,
-        text: `Processing file: ${selectedFile.name}...`,
+        text: `Processing file: ${file.name}...`,
         sender: 'agent',
         timestamp: new Date(),
         type: 'general'
@@ -79,7 +72,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
       setMessages(prevMessages => [...prevMessages, processingMessage]);
       
       // Upload the file and get product recommendations
-      const results = await uploadImage(selectedFile);
+      const results = await uploadImage(file);
       
       // Find the summary result (first result with all item matches)
       const summaryResult = results.find(r => r.product_id === 'summary');
@@ -112,9 +105,6 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
       
       // Update search results in parent component
       onSearchResults(results);
-      
-      // Clear the selected file
-      setSelectedFile(null);
     } catch (error) {
       console.error('Error processing file:', error);
       
@@ -315,64 +305,37 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
           onClick={handleOpenFileDialog} 
           disabled={isSearching} 
           sx={{ mr: 1 }}
+          title={showAllFileTypes ? "Upload any file" : "Upload image file"}
         >
           <AttachFileIcon />
         </IconButton>
         
-        <Dialog open={fileDialogOpen} onClose={handleCloseFileDialog}>
-          <DialogTitle>Select File to Upload</DialogTitle>
-          <DialogContent>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              Select a file to upload for product recommendations.
-            </Typography>
-            <FormControlLabel
-              control={
-                <Checkbox 
-                  checked={showAllFileTypes} 
-                  onChange={(e) => setShowAllFileTypes(e.target.checked)} 
-                />
-              }
-              label="Show all file types (default is images only)"
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button 
-              onClick={() => {
-                setFileDialogOpen(false);
-              }}
-              color="inherit"
-            >
-              Cancel
-            </Button>
-            <Button 
-              onClick={() => {
-                fileInputRef.current?.click();
-                setFileDialogOpen(false);
-              }}
-              variant="contained" 
-              color="primary"
-            >
-              Browse Files
-            </Button>
-          </DialogActions>
-        </Dialog>
-        {selectedFile && (
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={handleFileUpload}
-            disabled={isSearching}
-            sx={{ mr: 1 }}
-          >
-            Upload
-          </Button>
-        )}
+        {/* File type toggle button */}
+        <IconButton
+          onClick={() => setShowAllFileTypes(!showAllFileTypes)}
+          disabled={isSearching}
+          sx={{ 
+            mr: 1, 
+            fontSize: '0.75rem',
+            bgcolor: showAllFileTypes ? 'primary.light' : 'grey.300',
+            color: showAllFileTypes ? 'white' : 'text.primary',
+            '&:hover': {
+              bgcolor: showAllFileTypes ? 'primary.main' : 'grey.400',
+            },
+            width: 24,
+            height: 24
+          }}
+          title={showAllFileTypes ? "Currently accepting all files - Click to accept only images" : "Currently accepting only images - Click to accept all files"}
+        >
+          {showAllFileTypes ? "ALL" : "IMG"}
+        </IconButton>
+        {/* Removed separate upload button since we're uploading automatically */}
         <Button
           type="submit"
           variant="contained"
           color="primary"
           endIcon={<SendIcon />}
-          disabled={isSearching || (!newMessage.trim() && !selectedFile)}
+          disabled={isSearching || !newMessage.trim()}
         >
           Send
         </Button>
