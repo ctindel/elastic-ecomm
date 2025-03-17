@@ -21,7 +21,6 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
   ]);
   const [newMessage, setNewMessage] = useState('');
   const [isSearching, setIsSearching] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   // This function is no longer needed as we're using the label approach
@@ -290,24 +289,42 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
           sx={{ mr: 1 }}
           disabled={isSearching}
         />
-        <input
-          type="file"
-          id="file-upload"
-          ref={fileInputRef}
-          style={{ display: 'none' }}
-          onChange={handleFileSelect}
-          accept="image/*,application/pdf,*"
-        />
-        <label htmlFor="file-upload">
-          <IconButton 
-            component="span"
-            disabled={isSearching} 
-            sx={{ mr: 1 }}
-            title="Upload a file"
-          >
-            <AttachFileIcon />
-          </IconButton>
-        </label>
+        <IconButton 
+          onClick={() => {
+            // Create a new file input element for each click to ensure dialog opens
+            const input = document.createElement('input');
+            input.type = 'file';
+            // Default to image files but allow all files with a dropdown option
+            input.accept = 'image/*,.pdf,*/*';
+            
+            // Handle file selection
+            input.addEventListener('change', (e) => {
+              const target = e.target as HTMLInputElement;
+              if (target.files && target.files.length > 0) {
+                // Create a synthetic event that matches what handleFileSelect expects
+                const syntheticEvent = {
+                  target: {
+                    files: target.files
+                  }
+                } as React.ChangeEvent<HTMLInputElement>;
+                handleFileSelect(syntheticEvent);
+                
+                // Remove the input element after selection
+                document.body.removeChild(input);
+              }
+            });
+            
+            // Append to body and trigger click to open file dialog
+            document.body.appendChild(input);
+            input.click();
+          }}
+          disabled={isSearching} 
+          sx={{ mr: 1 }}
+          title="Upload a file"
+          aria-label="Upload a file"
+        >
+          <AttachFileIcon />
+        </IconButton>
         {/* Removed separate upload button since we're uploading automatically */}
         <Button
           type="submit"
