@@ -289,42 +289,29 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
           sx={{ mr: 1 }}
           disabled={isSearching}
         />
-        <IconButton 
+        <IconButton
           onClick={() => {
-            // Create a new file input element for each click to ensure dialog opens
-            const input = document.createElement('input');
-            input.type = 'file';
-            // Default to image files but allow all files with a dropdown option
-            input.accept = 'image/*,.pdf,*/*';
-            
-            // Handle file selection
-            input.addEventListener('change', (e) => {
-              const target = e.target as HTMLInputElement;
-              if (target.files && target.files.length > 0) {
-                // Create a synthetic event that matches what handleFileSelect expects
-                const syntheticEvent = {
-                  target: {
-                    files: target.files
-                  }
-                } as React.ChangeEvent<HTMLInputElement>;
-                handleFileSelect(syntheticEvent);
-                
-                // Remove the input element after selection
-                document.body.removeChild(input);
-              }
-            });
-            
-            // Append to body and trigger click to open file dialog
-            document.body.appendChild(input);
-            input.click();
+            const fileInput = document.getElementById('file-upload') as HTMLInputElement;
+            if (fileInput) {
+              fileInput.value = ''; // Reset value to ensure change event fires
+              fileInput.click();
+            }
           }}
-          disabled={isSearching} 
+          disabled={isSearching}
           sx={{ mr: 1 }}
           title="Upload a file"
           aria-label="Upload a file"
         >
           <AttachFileIcon />
         </IconButton>
+        {/* Hidden file input element */}
+        <input
+          type="file"
+          id="file-upload"
+          style={{ display: 'none' }}
+          onChange={handleFileSelect}
+          accept="image/*,.pdf,*/*"
+        />
         {/* Removed separate upload button since we're uploading automatically */}
         <Button
           type="submit"
