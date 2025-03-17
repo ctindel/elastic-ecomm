@@ -24,10 +24,8 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
-  // Handle file dialog open - directly trigger the native file selector
-  const handleOpenFileDialog = () => {
-    fileInputRef.current?.click();
-  };
+  // This function is no longer needed as we're using the label approach
+  // which automatically triggers the file input when clicked
   
   // Handle file selection
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -298,16 +296,18 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
           ref={fileInputRef}
           style={{ display: 'none' }}
           onChange={handleFileSelect}
-          accept="image/jpeg,image/png,image/gif,application/pdf,*"
+          accept="image/*,application/pdf,*"
         />
-        <IconButton 
-          onClick={handleOpenFileDialog} 
-          disabled={isSearching} 
-          sx={{ mr: 1 }}
-          title="Upload a file"
-        >
-          <AttachFileIcon />
-        </IconButton>
+        <label htmlFor="file-upload">
+          <IconButton 
+            component="span"
+            disabled={isSearching} 
+            sx={{ mr: 1 }}
+            title="Upload a file"
+          >
+            <AttachFileIcon />
+          </IconButton>
+        </label>
         {/* Removed separate upload button since we're uploading automatically */}
         <Button
           type="submit"
