@@ -290,28 +290,23 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
           disabled={isSearching}
         />
         <IconButton
-          onClick={() => {
-            const fileInput = document.getElementById('file-upload') as HTMLInputElement;
-            if (fileInput) {
-              fileInput.value = ''; // Reset value to ensure change event fires
-              fileInput.click();
-            }
-          }}
+          component="label"
+          htmlFor="file-upload"
           disabled={isSearching}
           sx={{ mr: 1 }}
-          title="Upload a file"
-          aria-label="Upload a file"
+          title="Upload an image or document"
+          aria-label="Upload an image or document"
         >
           <AttachFileIcon />
+          {/* Hidden file input element with specific accept types for "Image Files" dialog label */}
+          <input
+            type="file"
+            id="file-upload"
+            style={{ display: 'none' }}
+            onChange={handleFileSelect}
+            accept="image/jpeg,image/png,image/gif,.pdf,*/*"
+          />
         </IconButton>
-        {/* Hidden file input element */}
-        <input
-          type="file"
-          id="file-upload"
-          style={{ display: 'none' }}
-          onChange={handleFileSelect}
-          accept="image/*,.pdf,*/*"
-        />
         {/* Removed separate upload button since we're uploading automatically */}
         <Button
           type="submit"
