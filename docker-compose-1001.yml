@@ -14,9 +14,8 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./docker/elasticsearch/config:/usr/share/elasticsearch/config
-      - ./docker/elasticsearch/mappings:/usr/share/elasticsearch/mappings
-      - esdata:/usr/share/elasticsearch/data
+      - ./config/elasticsearch:/usr/share/elasticsearch/config
+      - ./docker-data/elasticsearch:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -28,7 +27,7 @@ services:
       context: .
       dockerfile: Dockerfile-kafka
     container_name: kafka
-    user: "1001:1001"
+    user: root
     depends_on:
       - zookeeper
     ports:

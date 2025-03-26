@@ -2,10 +2,12 @@
 .*~
 .*.swp
 *.pyc
+.venv
 package-lock.json
 node_modules
 bower_components
 .DS_Store
 /docker-data
+/docker
 .pytest_cache
 *.log

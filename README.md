@@ -18,16 +18,18 @@ docker compose up -d
 scripts/kafka/init_kafka.sh
 ```
 
-### 3. Generate Product Data
+### 3. Initialize Backend Python Dependencies and Setup Elasticsearch Mappings
 
 ```bash
-# Generate product data without vector embeddings
-python scripts/generate_products.py
+cd app
+python -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+cd ..
+python scripts/setup_elasticsearch.py
 ```
 
 ### 4. Initialize Ollama (Optional)
-
-If you want to use Ollama for vision processing and embeddings:
 
 ```bash
 # Install and initialize Ollama with required models
@@ -35,16 +37,15 @@ scripts/init_ollama.sh
 ```
 
 This script will install the following models:
-- `llama3`: Used for text embeddings and query classification
+- `llama3.2`: Used for text embeddings and query classification
 - `llava:7b`: Used for vision processing (image analysis)
+- `llava:34b`: Used for vision processing (image analysis)
 
-### 5. Start Backend API
+### 5. Ingest Sample Data into Elasticsearch
+
+### 6. Start Backend API
 
 ```bash
-# Install dependencies
-cd app
-pip install -r requirements.txt
-
 # Set OpenAI API key for image processing (required unless using Ollama)
 export OPENAI_API_KEY=your_api_key
 
@@ -52,14 +53,14 @@ export OPENAI_API_KEY=your_api_key
 # export VISION_PROVIDER=ollama
 
 # Set Python path and start the FastAPI backend
-PYTHONPATH=/home/ubuntu/elastic-ecomm python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+PYTHONPATH=/home/weaviate/src/elastic-ecomm python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 6. Start Frontend Application
+### 7. Start Frontend Application
 
 ```bash
 # Install dependencies
-cd frontend/elastic-ecomm-ui
+cd frontend/mui
 npm install
 
 # Start the React frontend application

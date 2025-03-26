@@ -54,7 +54,7 @@ def setup_elasticsearch_index(es_host, mapping_file):
             mapping = json.load(f)
         
         # Check if index exists
-        check_cmd = f"curl -s -X HEAD {es_host}/{ELASTICSEARCH_INDEX_PRODUCTS}"
+        check_cmd = f"curl -s {es_host}/{ELASTICSEARCH_INDEX_PRODUCTS}"
         result = subprocess.run(check_cmd, shell=True, capture_output=True, text=True)
         
         if result.returncode == 0:

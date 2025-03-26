@@ -20,11 +20,14 @@ if ! curl -s http://localhost:11434/api/health &> /dev/null; then
 fi
 
 # Pull required models
-echo "Pulling llama3 model for text embeddings and query classification..."
-ollama pull llama3
+echo "Pulling llama3.2 model for text embeddings and query classification..."
+ollama pull llama3.2
 
-echo "Pulling llava:7b model for vision processing..."
-ollama pull llava:7b
+#echo "Pulling llava:7b model for vision processing..."
+#ollama pull llava:7b
+
+#echo "Pulling llava:7b model for vision processing..."
+#ollama pull llava:34b
 
 # Verify models were installed
 echo "Verifying installed models..."

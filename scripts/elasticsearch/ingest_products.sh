@@ -10,7 +10,7 @@ PRODUCTS_FILE="data/products.json"
 MAPPING_FILE="config/elasticsearch/mappings/products.json"
 ES_HOST="http://localhost:9200"
 OLLAMA_HOST="http://localhost:11434"
-OLLAMA_MODEL="llama3"
+OLLAMA_MODEL="llama3.2"
 BATCH_SIZE=100
 MAX_PRODUCTS=""
 

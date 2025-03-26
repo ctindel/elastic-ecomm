@@ -47,7 +47,7 @@ def test_elasticsearch_index_setup():
         logger.info(f"Loaded mapping from {mapping_file}")
         
         # Check if index exists
-        check_cmd = f"curl -s -X HEAD {es_host}/{index_name}"
+        check_cmd = f"curl -s {es_host}/{index_name}"
         result = subprocess.run(check_cmd, shell=True, capture_output=True, text=True)
         
         if result.returncode == 0:
