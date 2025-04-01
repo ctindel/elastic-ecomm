@@ -6,7 +6,7 @@ import { SearchResult } from '../types';
 interface ProductListProps {
   products: SearchResult[];
   loading: boolean;
-  error: string | null;
+  error?: string;
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products, loading, error }) => {

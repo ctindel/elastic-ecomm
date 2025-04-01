@@ -57,12 +57,16 @@ def get_text_embedding(text):
     while True:  # True infinite retry - will never give up
         try:
             # Call Ollama API
+            api_url = OLLAMA_API_URL.replace("/generate", "/embeddings")
+            request_body = {
+                "model": OLLAMA_MODEL,
+                "prompt": text
+            }
+            logger.debug(f"Calling Ollama API at {api_url} with request body: {json.dumps(request_body, indent=2)}")
+            
             response = requests.post(
-                OLLAMA_API_URL.replace("/generate", "/embeddings"),
-                json={
-                    "model": OLLAMA_MODEL,
-                    "prompt": text
-                }
+                api_url,
+                json=request_body
             )
             
             if response.status_code == 200:

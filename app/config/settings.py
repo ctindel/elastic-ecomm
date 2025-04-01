@@ -3,10 +3,6 @@
 Configuration settings for the E-Commerce Search Demo.
 """
 import os
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
 
 # Elasticsearch settings
 ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")
@@ -15,19 +11,19 @@ ELASTICSEARCH_INDEX_PERSONAS = os.getenv("ELASTICSEARCH_INDEX_PERSONAS", "person
 ELASTICSEARCH_INDEX_QUERIES = os.getenv("ELASTICSEARCH_INDEX_QUERIES", "queries")
 
 # Ollama settings
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
 OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://localhost:11434/api/generate")
 OLLAMA_VISION_MODEL = os.getenv("OLLAMA_VISION_MODEL", "llava:7b")
 
-# Image processing settings
+# Vision provider settings
 VISION_PROVIDER = os.getenv("VISION_PROVIDER", "openai")  # Options: "openai" or "ollama"
 
 # OpenAI settings
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_API_URL = os.getenv("OPENAI_API_URL", "https://api.openai.com/v1")
 
-# Vector embedding dimensions
-TEXT_EMBEDDING_DIMS = int(os.getenv("TEXT_EMBEDDING_DIMS", "384"))
+# Embedding dimensions
+TEXT_EMBEDDING_DIMS = int(os.getenv("TEXT_EMBEDDING_DIMS", "4096"))
 IMAGE_EMBEDDING_DIMS = int(os.getenv("IMAGE_EMBEDDING_DIMS", "512"))
 
 # Kafka settings

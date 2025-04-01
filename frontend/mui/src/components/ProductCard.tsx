@@ -25,7 +25,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <Typography variant="subtitle1" color="text.secondary" component="div">
             ${product.price?.toFixed(2) || 'N/A'}
           </Typography>
-          <Typography variant="body2" color="text.secondary" noWrap>
+          <Typography 
+            variant="body2" 
+            color="text.secondary" 
+            sx={{ 
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
+            }}
+          >
             {product.product_description || 'No description available'}
           </Typography>
         </CardContent>

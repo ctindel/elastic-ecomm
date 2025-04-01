@@ -1,16 +1,14 @@
 import os
 import sys
 import json
-import logging
 from typing import List, Dict, Any, Optional
 import base64
 from fastapi import UploadFile
 from elasticsearch import Elasticsearch
 from app.models.search import SearchResult, SearchType
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+# Import our custom logger
+from app.utils.logger import logger
 
 # Import vision processor
 from app.utils.vision_processor import process_image
@@ -34,12 +32,16 @@ async def process_image_query(
     Returns:
         List of SearchResult objects with recommended products
     """
+    logger.info(f"Processing image query - File: {image_file.filename}, User: {user_id}, Limit: {limit}")
+    
     try:
         # Process the image using the configured vision provider
+        logger.debug(f"Sending image to {VISION_PROVIDER} for processing...")
         items_data = await process_image(image_file)
         
         # Log the extracted items
-        logger.info(f"Extracted items using {VISION_PROVIDER} provider: {items_data}")
+        logger.info(f"Extracted {len(items_data.get('items', []))} items using {VISION_PROVIDER} provider")
+        logger.debug(f"Extracted items data:\n{json.dumps(items_data, indent=2)}")
         
         # Search for products based on extracted items
         results = []
@@ -55,7 +57,10 @@ async def process_image_query(
             search_query = f"{item_name} {attributes}".strip()
             
             if not search_query:
+                logger.warning(f"Empty search query for item: {item}")
                 continue
+            
+            logger.debug(f"Processing item - Name: '{item_name}', Quantity: '{quantity}', Attributes: '{attributes}'")
             
             # Create item match entry
             item_match = {
@@ -85,14 +90,20 @@ async def process_image_query(
                 "size": max(1, limit // len(items_data.get("items", [1])))  # Distribute limit among items
             }
             
+            logger.debug(f"Executing Elasticsearch query for '{search_query}':\n{json.dumps(query, indent=2)}")
+            
             try:
                 search_response = elasticsearch_client.search(index="products", body=query)
+                total_hits = search_response["hits"]["total"]["value"]
+                logger.debug(f"Found {total_hits} potential matches for '{search_query}'")
                 
                 # Process search results
                 if search_response["hits"]["hits"]:
                     # Get the top match
                     top_hit = search_response["hits"]["hits"][0]
                     source = top_hit["_source"]
+                    
+                    logger.debug(f"Best match for '{item_name}' - Product: {source.get('name', '')}, Score: {top_hit['_score']}")
                     
                     # Update item match with product info
                     item_match["matched_product_id"] = source.get("id", "")
@@ -114,6 +125,7 @@ async def process_image_query(
                     
                     results.append(result)
                 else:
+                    logger.warning(f"No matches found for item '{item_name}'")
                     # No match found, still add item to matches
                     item_match["matched_product_id"] = ""  # Empty string instead of None
                     item_match["matched_product_name"] = ""  # Empty string instead of None
@@ -138,7 +150,7 @@ async def process_image_query(
                 item_matches.append(item_match)
             
             except Exception as e:
-                logger.error(f"Error searching for products: {str(e)}")
+                logger.error(f"Error searching for products matching '{item_name}': {str(e)}", exc_info=True)
                 
                 # Add error information to item match
                 item_match["error"] = str(e)
@@ -146,6 +158,7 @@ async def process_image_query(
         
         # Add item matches to the first result's alternatives if there are results
         if results:
+            logger.info(f"Successfully processed {len(item_matches)} items from image")
             # Create a summary result with all item matches
             summary_result = SearchResult(
                 query="Image Upload Analysis",
@@ -165,7 +178,7 @@ async def process_image_query(
         
         # If no results were found, return an empty list with explanation
         if not results:
-            logger.warning("No products found for the extracted items")
+            logger.warning(f"No products found for any of the {len(item_matches)} extracted items")
             
             # Create a summary result with all item matches
             summary_result = SearchResult(
@@ -186,5 +199,5 @@ async def process_image_query(
         return results
         
     except Exception as e:
-        logger.error(f"Error processing image: {str(e)}")
+        logger.error(f"Error processing image '{image_file.filename}': {str(e)}", exc_info=True)
         raise

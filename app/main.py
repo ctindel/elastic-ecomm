@@ -4,7 +4,6 @@ Main entry point for the E-Commerce Search Demo API.
 """
 import os
 import sys
-import logging
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -12,12 +11,8 @@ from fastapi.responses import FileResponse
 from pathlib import Path
 from elasticsearch import Elasticsearch
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-)
-logger = logging.getLogger(__name__)
+# Import our custom logger
+from app.utils.logger import logger
 
 from app.config.settings import (
     ELASTICSEARCH_HOST,

@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { Box, TextField, Button, Paper, Typography, Divider, CircularProgress, IconButton } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
-import { Message, SearchResult } from '../types';
+import { Message, SearchResult, SearchType } from '../types';
 import { searchProducts, classifySearchQuery, generateSearchExplanation, uploadImage } from '../services/api';
 
 interface ChatWindowProps {
-  onSearchResults: (results: SearchResult[]) => void;
+  onSearchResults: (results: SearchResult[], error?: string) => void;
 }
 
-const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
+const ChatWindow = forwardRef<{ handleSearch: (query: string) => Promise<void> }, ChatWindowProps>(({ onSearchResults }, ref) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
@@ -17,14 +17,252 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
       sender: 'agent',
       timestamp: new Date(),
       type: 'general'
-    },
+    }
   ]);
-  const [newMessage, setNewMessage] = useState('');
+  const [inputMessage, setInputMessage] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const sendButtonRef = useRef<HTMLButtonElement>(null);
   
-  // This function is no longer needed as we're using the label approach
-  // which automatically triggers the file input when clicked
+  const handleSendMessage = async (): Promise<void> => {
+    if (!inputMessage.trim() || isSearching) return;
+    
+    const newMessage: Message = {
+      id: messages.length + 1,
+      text: inputMessage,
+      sender: 'customer',
+      timestamp: new Date(),
+      type: 'general'
+    };
+    
+    setMessages(prevMessages => [...prevMessages, newMessage]);
+    setInputMessage('');
+    setIsSearching(true);
+    
+    try {
+      // Step 1: Classify the query
+      const analysis = await classifySearchQuery(inputMessage);
+      const searchType = analysis.type;
+      
+      // Add classification message with detailed analysis
+      const classificationMessage: Message = {
+        id: messages.length + 2,
+        text: `Query Analysis:
+
+• Type: ${searchType.toLowerCase()}
+• Confidence: ${analysis.confidence || 'unknown'}
+• Explanation: ${analysis.explanation || 'No explanation provided'}
+• Search Strategy: ${analysis.search_strategy || 'No strategy provided'}${analysis.examples?.length > 0 ? `
+
+• Similar queries:
+  - ${analysis.examples.join('\n  - ')}` : ''}${analysis.support_answer ? `
+
+• Support Answer:
+  ${analysis.support_answer}` : ''}`,
+        sender: 'agent',
+        timestamp: new Date(),
+        type: 'query_classification'
+      };
+      
+      setMessages(prevMessages => [...prevMessages, classificationMessage]);
+      
+      // If it's a customer support query, add the support answer in a separate message
+      if (searchType === SearchType.CUSTOMER_SUPPORT && analysis.support_answer) {
+        // Simulate a slight delay between messages for a more natural conversation flow
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        const supportMessage: Message = {
+          id: messages.length + 3,
+          text: analysis.support_answer,
+          sender: 'agent',
+          timestamp: new Date(),
+          type: 'support_answer'
+        };
+        setMessages(prevMessages => [...prevMessages, supportMessage]);
+        setIsSearching(false);
+        return;
+      }
+      
+      // If it's a customer support query but no support answer, we're done
+      if (searchType === SearchType.CUSTOMER_SUPPORT) {
+        setIsSearching(false);
+        return;
+      }
+      
+      // Simulate a slight delay between messages for a more natural conversation flow
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // Step 2: Generate search explanation
+      const searchExplanationText = generateSearchExplanation(inputMessage, searchType);
+      
+      // Add search explanation message
+      const searchQueryMessage: Message = {
+        id: messages.length + 3,
+        text: searchExplanationText,
+        sender: 'agent',
+        timestamp: new Date(),
+        type: 'search_query'
+      };
+      
+      setMessages(prevMessages => [...prevMessages, searchQueryMessage]);
+      
+      // Simulate a slight delay for search processing
+      await new Promise(resolve => setTimeout(resolve, 1200));
+      
+      // Step 3: Perform the actual search
+      const searchResults = await searchProducts({ query: inputMessage });
+      
+      // Step 4: Add results message
+      const resultsMessage: Message = {
+        id: messages.length + 4,
+        text: searchResults.length > 0 
+          ? `I found ${searchResults.length} products that match your search. Here they are!` 
+          : 'I couldn\'t find any products matching your search. Could you try a different query?',
+        sender: 'agent',
+        timestamp: new Date(),
+        type: 'search_results'
+      };
+      
+      setMessages(prevMessages => [...prevMessages, resultsMessage]);
+      
+      // Update search results in parent component
+      onSearchResults(searchResults);
+    } catch (error) {
+      console.error('Error processing message:', error);
+      const errorMessage: Message = {
+        id: messages.length + 2,
+        text: 'Sorry, I encountered an error processing your request. Please try again.',
+        sender: 'agent',
+        timestamp: new Date(),
+        type: 'error'
+      };
+      setMessages(prevMessages => [...prevMessages, errorMessage]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  // Expose handleSearch method to parent component
+  React.useImperativeHandle(ref, () => ({
+    handleSearch: async (query: string) => {
+      // Set the input message
+      setInputMessage(query);
+      // Add the message to the messages list
+      const newMessage: Message = {
+        id: messages.length + 1,
+        text: query,
+        sender: 'customer',
+        timestamp: new Date(),
+        type: 'general'
+      };
+      setMessages(prevMessages => [...prevMessages, newMessage]);
+      // Trigger the search process
+      setIsSearching(true);
+      
+      try {
+        // Step 1: Classify the query
+        const analysis = await classifySearchQuery(query);
+        const searchType = analysis.type;
+        
+        // Add classification message with detailed analysis
+        const classificationMessage: Message = {
+          id: messages.length + 2,
+          text: `Query Analysis:
+
+• Type: ${searchType.toLowerCase()}
+• Confidence: ${analysis.confidence || 'unknown'}
+• Explanation: ${analysis.explanation || 'No explanation provided'}
+• Search Strategy: ${analysis.search_strategy || 'No strategy provided'}${analysis.examples?.length > 0 ? `
+
+• Similar queries:
+  - ${analysis.examples.join('\n  - ')}` : ''}${analysis.support_answer ? `
+
+• Support Answer:
+  ${analysis.support_answer}` : ''}`,
+          sender: 'agent',
+          timestamp: new Date(),
+          type: 'query_classification'
+        };
+        
+        setMessages(prevMessages => [...prevMessages, classificationMessage]);
+        
+        // If it's a customer support query, add the support answer in a separate message
+        if (searchType === SearchType.CUSTOMER_SUPPORT && analysis.support_answer) {
+          // Simulate a slight delay between messages for a more natural conversation flow
+          await new Promise(resolve => setTimeout(resolve, 800));
+          
+          const supportMessage: Message = {
+            id: messages.length + 3,
+            text: analysis.support_answer,
+            sender: 'agent',
+            timestamp: new Date(),
+            type: 'support_answer'
+          };
+          setMessages(prevMessages => [...prevMessages, supportMessage]);
+          setIsSearching(false);
+          return;
+        }
+        
+        // If it's a customer support query but no support answer, we're done
+        if (searchType === SearchType.CUSTOMER_SUPPORT) {
+          setIsSearching(false);
+          return;
+        }
+        
+        // Simulate a slight delay between messages for a more natural conversation flow
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Step 2: Generate search explanation
+        const searchExplanationText = generateSearchExplanation(query, searchType);
+        
+        // Add search explanation message
+        const searchQueryMessage: Message = {
+          id: messages.length + 3,
+          text: searchExplanationText,
+          sender: 'agent',
+          timestamp: new Date(),
+          type: 'search_query'
+        };
+        
+        setMessages(prevMessages => [...prevMessages, searchQueryMessage]);
+        
+        // Simulate a slight delay for search processing
+        await new Promise(resolve => setTimeout(resolve, 1200));
+        
+        // Step 3: Perform the actual search
+        const searchResults = await searchProducts({ query });
+        
+        // Step 4: Add results message
+        const resultsMessage: Message = {
+          id: messages.length + 4,
+          text: searchResults.length > 0 
+            ? `I found ${searchResults.length} products that match your search. Here they are!` 
+            : 'I couldn\'t find any products matching your search. Could you try a different query?',
+          sender: 'agent',
+          timestamp: new Date(),
+          type: 'search_results'
+        };
+        
+        setMessages(prevMessages => [...prevMessages, resultsMessage]);
+        
+        // Update search results in parent component
+        onSearchResults(searchResults);
+      } catch (error) {
+        console.error('Error processing message:', error);
+        const errorMessage: Message = {
+          id: messages.length + 2,
+          text: 'Sorry, I encountered an error processing your request. Please try again.',
+          sender: 'agent',
+          timestamp: new Date(),
+          type: 'error'
+        };
+        setMessages(prevMessages => [...prevMessages, errorMessage]);
+      } finally {
+        setIsSearching(false);
+        setInputMessage('');
+      }
+    }
+  }));
   
   // Handle file selection
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,7 +313,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
       const itemMatches = summaryResult?.alternatives || [];
       
       // Format the item list for display
-      const itemList = itemMatches.map(item => {
+      const itemList = itemMatches.map((item: { item: string; quantity?: number; attributes?: string; matched_product_name?: string }) => {
         const itemName = item.item || '';
         const quantity = item.quantity ? `${item.quantity} of ` : '';
         const attributes = item.attributes ? ` (${item.attributes})` : '';
@@ -110,11 +348,11 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
         text: 'Sorry, I encountered an error while processing your file. Please try again.',
         sender: 'agent',
         timestamp: new Date(),
-        type: 'general'
+        type: 'error'
       };
       
       setMessages(prevMessages => [...prevMessages, errorMessage]);
-      onSearchResults([]);
+      onSearchResults([], 'Sorry, I encountered an error while processing your file. Please try again.');
     } finally {
       setIsSearching(false);
     }
@@ -125,121 +363,50 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (newMessage.trim()) {
-      // Add customer message
-      const customerMessage: Message = {
-        id: messages.length + 1,
-        text: newMessage,
-        sender: 'customer',
-        timestamp: new Date(),
-        type: 'general'
-      };
-      
-      setMessages(prevMessages => [...prevMessages, customerMessage]);
-      setNewMessage('');
-      setIsSearching(true);
-      
-      try {
-        // Step 1: Classify the query
-        const queryType = classifySearchQuery(newMessage);
-        
-        // Add classification message
-        const classificationMessage: Message = {
-          id: messages.length + 2,
-          text: `I understand you're looking for ${queryType.toLowerCase()} information about "${newMessage}".`,
-          sender: 'agent',
-          timestamp: new Date(),
-          type: 'query_classification'
-        };
-        
-        setMessages(prevMessages => [...prevMessages, classificationMessage]);
-        
-        // Simulate a slight delay between messages for a more natural conversation flow
-        await new Promise(resolve => setTimeout(resolve, 800));
-        
-        // Step 2: Generate search explanation
-        const searchExplanation = generateSearchExplanation(newMessage, queryType);
-        
-        // Add search explanation message
-        const searchQueryMessage: Message = {
-          id: messages.length + 3,
-          text: searchExplanation,
-          sender: 'agent',
-          timestamp: new Date(),
-          type: 'search_query'
-        };
-        
-        setMessages(prevMessages => [...prevMessages, searchQueryMessage]);
-        
-        // Simulate a slight delay for search processing
-        await new Promise(resolve => setTimeout(resolve, 1200));
-        
-        // Step 3: Perform the actual search
-        const results = await searchProducts({ query: newMessage });
-        
-        // Step 4: Add results message
-        const resultsMessage: Message = {
-          id: messages.length + 4,
-          text: results.length > 0 
-            ? `I found ${results.length} products that match your search. Here they are!` 
-            : 'I couldn\'t find any products matching your search. Could you try a different query?',
-          sender: 'agent',
-          timestamp: new Date(),
-          type: 'search_results'
-        };
-        
-        setMessages(prevMessages => [...prevMessages, resultsMessage]);
-        
-        // Update search results in parent component
-        onSearchResults(results);
-      } catch (error) {
-        console.error('Error processing search:', error);
-        
-        // Add error message
-        const errorMessage: Message = {
-          id: messages.length + 5,
-          text: 'Sorry, I encountered an error while searching. Please try again.',
-          sender: 'agent',
-          timestamp: new Date(),
-          type: 'general'
-        };
-        
-        setMessages(prevMessages => [...prevMessages, errorMessage]);
-        onSearchResults([]);
-      } finally {
-        setIsSearching(false);
-      }
+  const getMessageBackgroundColor = (message: Message) => {
+    switch (message.type) {
+      case 'query_classification':
+        return '#E8F1FF';
+      case 'search_query':
+        return '#FFEBF5';
+      case 'search_results':
+        return '#F6F9FC';
+      case 'support_answer':
+        return '#F6F9FC';
+      default:
+        return message.sender === 'agent' ? '#F6F9FC' : '#C9F3E3';
+    }
+  };
+
+  const getMessageTextColor = (message: Message) => {
+    switch (message.type) {
+      case 'query_classification':
+      case 'search_query':
+      case 'search_results':
+        return '#000000';
+      default:
+        return message.sender === 'agent' ? '#000000' : '#000000';
     }
   };
 
   return (
-    <Paper sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ p: 2, bgcolor: 'primary.main', color: 'white' }}>
-        <Typography variant="h6">Product Assistant</Typography>
-      </Box>
-      <Divider />
-      
-      <Box sx={{ flexGrow: 1, overflow: 'auto', p: 2, maxHeight: 'calc(100vh - 200px)' }}>
+    <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ flexGrow: 1, overflow: 'auto', p: 2 }}>
         {messages.map((message) => (
           <Box
             key={message.id}
             sx={{
               display: 'flex',
               justifyContent: message.sender === 'customer' ? 'flex-end' : 'flex-start',
-              mb: 2,
+              mb: 2
             }}
           >
             <Paper
-              variant="outlined"
+              elevation={1}
               sx={{
                 p: 1.5,
-                bgcolor: message.sender === 'customer' ? 'primary.light' : 
-                  message.type === 'query_classification' ? 'info.light' :
-                  message.type === 'search_query' ? 'secondary.light' :
-                  message.type === 'search_results' ? 'success.light' : 'grey.100',
-                color: message.sender === 'customer' ? 'white' : 'text.primary',
+                bgcolor: getMessageBackgroundColor(message),
+                color: getMessageTextColor(message),
                 maxWidth: '80%',
                 borderRadius: '12px',
                 borderTopRightRadius: message.sender === 'customer' ? '4px' : '12px',
@@ -248,11 +415,11 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
             >
               {message.sender === 'agent' && (
                 <Typography variant="subtitle2" fontWeight="bold" color="text.secondary">
-                  Agent
+                  {message.type === 'query_classification' || message.type === 'search_query' ? 'DEBUG' : 'Agent'}
                 </Typography>
               )}
               {message.sender === 'customer' && (
-                <Typography variant="subtitle2" fontWeight="bold" color="white">
+                <Typography variant="subtitle2" fontWeight="bold" color="text.secondary">
                   You
                 </Typography>
               )}
@@ -260,66 +427,70 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ onSearchResults }) => {
                 <Box sx={{ whiteSpace: 'pre-wrap' }}>
                   <Typography variant="body1" dangerouslySetInnerHTML={{ __html: message.text.replace(/```json([\s\S]*?)```/g, '<pre style="background-color: #f5f5f5; padding: 8px; border-radius: 4px; overflow-x: auto;"><code>$1</code></pre>') }} />
                 </Box>
+              ) : message.type === 'query_classification' ? (
+                <Box sx={{ whiteSpace: 'pre-wrap' }}>
+                  <Typography variant="body1">{message.text}</Typography>
+                </Box>
+              ) : message.type === 'support_answer' ? (
+                <Box sx={{ whiteSpace: 'pre-wrap' }}>
+                  <Typography variant="body1" sx={{ fontWeight: 'medium' }}>{message.text}</Typography>
+                </Box>
               ) : (
                 <Typography variant="body1">{message.text}</Typography>
               )}
-              <Typography variant="caption" color={message.sender === 'customer' ? 'white' : 'text.secondary'}>
-                {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-              </Typography>
             </Paper>
           </Box>
         ))}
-        {isSearching && (
-          <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
-            <CircularProgress size={24} />
-          </Box>
-        )}
         <div ref={messagesEndRef} />
       </Box>
       
       <Divider />
-      <Box component="form" onSubmit={handleSendMessage} sx={{ p: 2, display: 'flex' }}>
+      
+      <Box sx={{ p: 2, display: 'flex', gap: 1 }}>
         <TextField
           fullWidth
           variant="outlined"
-          placeholder="Ask about products..."
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          size="small"
-          sx={{ mr: 1 }}
+          placeholder="Type your message..."
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
           disabled={isSearching}
         />
-        <IconButton
-          component="label"
-          htmlFor="file-upload"
+        <IconButton 
+          color="primary" 
+          onClick={() => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/jpeg,image/png,image/gif,.pdf,*/*';
+            input.onchange = (e) => {
+              const file = (e.target as HTMLInputElement).files?.[0];
+              if (file) {
+                handleFileUpload(file);
+              }
+            };
+            input.click();
+          }}
           disabled={isSearching}
-          sx={{ mr: 1 }}
-          title="Upload an image or document"
-          aria-label="Upload an image or document"
+          sx={{ 
+            bgcolor: 'background.paper',
+            '&:hover': { bgcolor: 'action.hover' }
+          }}
         >
           <AttachFileIcon />
-          {/* Hidden file input element with specific accept types for "Image Files" dialog label */}
-          <input
-            type="file"
-            id="file-upload"
-            style={{ display: 'none' }}
-            onChange={handleFileSelect}
-            accept="image/jpeg,image/png,image/gif,.pdf,*/*"
-          />
         </IconButton>
-        {/* Removed separate upload button since we're uploading automatically */}
         <Button
-          type="submit"
+          ref={sendButtonRef}
           variant="contained"
           color="primary"
-          endIcon={<SendIcon />}
-          disabled={isSearching || !newMessage.trim()}
+          onClick={handleSendMessage}
+          disabled={!inputMessage.trim() || isSearching}
+          endIcon={isSearching ? <CircularProgress size={20} /> : <SendIcon />}
         >
           Send
         </Button>
       </Box>
-    </Paper>
+    </Box>
   );
-};
+});
 
 export default ChatWindow;

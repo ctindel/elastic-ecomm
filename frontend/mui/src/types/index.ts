@@ -29,7 +29,7 @@ export interface Message {
   text: string;
   sender: 'customer' | 'agent';
   timestamp: Date;
-  type?: 'query_classification' | 'search_query' | 'search_results' | 'general' | 'file_upload';
+  type?: 'general' | 'query_classification' | 'search_query' | 'search_results' | 'file_upload' | 'error';
   file?: {
     name: string;
     type: string;

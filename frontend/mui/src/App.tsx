@@ -1,62 +1,59 @@
-import { useState } from 'react';
-import { Box, Container, CssBaseline, ThemeProvider, createTheme, Typography, Divider } from '@mui/material';
-import ProductList from './components/ProductList';
+import React, { useState, useRef } from 'react';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import ChatWindow from './components/ChatWindow';
+import ProductList from './components/ProductList';
+import HomePage from './components/HomePage';
 import { SearchResult } from './types';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1976d2',
-    },
-    secondary: {
-      main: '#dc004e',
-    },
-    info: {
-      main: '#0288d1',
-      light: '#e3f2fd',
-    },
-    success: {
-      main: '#2e7d32',
-      light: '#e8f5e9',
-    },
-  },
-});
+const App: React.FC = () => {
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [error, setError] = useState<string>();
+  const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const chatWindowRef = useRef<{ handleSearch: (query: string) => Promise<void> }>(null);
 
-function App() {
-  const [products, setProducts] = useState<SearchResult[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  
-  const handleSearchResults = (results: SearchResult[]) => {
-    setProducts(results);
-    setLoading(false);
-    setError(null);
+  const handleSearchResults = (results: SearchResult[], error?: string) => {
+    setSearchResults(results);
+    setError(error);
+    setHasSearched(true);
+    setIsLoading(false);
+  };
+
+  const handleSearch = (query: string) => {
+    // This will be called by the HomePage component
+    // The actual search will be handled by the ChatWindow component
+    setHasSearched(true);
+    setIsLoading(true);
+    // Set the input message and trigger send in ChatWindow
+    chatWindowRef.current?.handleSearch(query);
+  };
+
+  const handleMessage = (message: string) => {
+    // Add the message to the chat window without triggering a search
+    chatWindowRef.current?.handleSearch(message);
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Elastic E-Commerce Search
-        </Typography>
-        <Divider sx={{ mb: 3 }} />
+    <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Paper sx={{ p: 2, bgcolor: 'primary.main', color: 'white' }}>
+        <Typography variant="h5">Product Search Assistant</Typography>
+      </Paper>
+      
+      <Grid container sx={{ flexGrow: 1, overflow: 'auto' }}>
+        <Grid item xs={12} md={8} sx={{ height: '100%', overflow: 'auto' }}>
+          {!hasSearched ? (
+            <HomePage onSearch={handleSearch} />
+          ) : (
+            <ProductList products={searchResults} error={error} loading={isLoading} />
+          )}
+        </Grid>
         
-        <Box sx={{ display: 'flex', height: 'calc(100vh - 150px)' }}>
-          {/* Left side - Products Display (70%) */}
-          <Box sx={{ width: '70%', pr: 2 }}>
-            <ProductList products={products} loading={loading} error={error} />
-          </Box>
-          
-          {/* Right side - Chat Window (30%) */}
-          <Box sx={{ width: '30%', pl: 2 }}>
-            <ChatWindow onSearchResults={handleSearchResults} />
-          </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
+        <Grid item xs={12} md={4} sx={{ height: '100%', overflow: 'hidden' }}>
+          <ChatWindow ref={chatWindowRef} onSearchResults={handleSearchResults} />
+        </Grid>
+      </Grid>
+    </Box>
   );
-}
+};
 
 export default App;
