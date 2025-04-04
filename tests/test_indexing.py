@@ -8,20 +8,19 @@ import pytest
 import json
 from pathlib import Path
 from elasticsearch import Elasticsearch
+from app.config.settings import settings
 
 # Add project root to Python path
 project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.config.settings import ELASTICSEARCH_HOST
-
 # Skip all tests if Elasticsearch is not available
 @pytest.fixture(scope="module")
 def elasticsearch_client():
     """Fixture for Elasticsearch client."""
     try:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         if not es.ping():
             pytest.skip("Elasticsearch is not available")
         return es

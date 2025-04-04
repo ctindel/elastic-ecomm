@@ -11,11 +11,7 @@ import openai
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-from app.config.settings import (
-    OLLAMA_API_URL,
-    OLLAMA_VISION_MODEL,
-    VISION_PROVIDER
-)
+from app.config.settings import settings
 
 def check_openai_connection():
     """
@@ -70,7 +66,7 @@ def check_ollama_vision_model():
     
     try:
         # Check if Ollama is running - use /api/tags endpoint which is more reliable
-        response = requests.get("http://localhost:11434/api/tags")
+        response = requests.get(f"{settings.OLLAMA_API_URL}/api/tags")
         
         if response.status_code != 200:
             result["error"] = f"Ollama API returned status code {response.status_code}"
@@ -83,15 +79,15 @@ def check_ollama_vision_model():
         models = response.json().get("models", [])
         model_names = [model.get("name", "") for model in models]
         
-        if OLLAMA_VISION_MODEL in model_names:
+        if settings.OLLAMA_VISION_MODEL in model_names:
             result["model_installed"] = True
         else:
             # Try with just the model name without tag
-            base_model_name = OLLAMA_VISION_MODEL.split(":")[0]
+            base_model_name = settings.OLLAMA_VISION_MODEL.split(":")[0]
             if any(base_model_name in name for name in model_names):
                 result["model_installed"] = True
             else:
-                result["error"] = f"Vision model '{OLLAMA_VISION_MODEL}' is not installed"
+                result["error"] = f"Vision model '{settings.OLLAMA_VISION_MODEL}' is not installed"
     
     except Exception as e:
         result["error"] = f"Error connecting to Ollama: {str(e)}"
@@ -109,19 +105,19 @@ def check_vision_provider():
             - error: Error message if any
     """
     result = {
-        "provider": VISION_PROVIDER,
+        "provider": settings.VISION_PROVIDER,
         "available": False,
         "error": None
     }
     
-    if VISION_PROVIDER == "openai":
+    if settings.VISION_PROVIDER == "openai":
         # Check OpenAI
         openai_status = check_openai_connection()
         result["available"] = openai_status["configured"] and openai_status["api_key_valid"]
         if not result["available"]:
             result["error"] = openai_status["error"]
     
-    elif VISION_PROVIDER == "ollama":
+    elif settings.VISION_PROVIDER == "ollama":
         # Check Ollama
         ollama_status = check_ollama_vision_model()
         result["available"] = ollama_status["available"] and ollama_status["model_installed"]
@@ -129,6 +125,6 @@ def check_vision_provider():
             result["error"] = ollama_status["error"]
     
     else:
-        result["error"] = f"Unknown vision provider: {VISION_PROVIDER}"
+        result["error"] = f"Unknown vision provider: {settings.VISION_PROVIDER}"
     
     return result

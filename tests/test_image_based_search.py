@@ -5,7 +5,9 @@ Test cases for image-based search functionality.
 import os
 import sys
 import pytest
+import json
 from pathlib import Path
+from elasticsearch import Elasticsearch
 from fastapi.testclient import TestClient
 from fastapi import UploadFile
 import asyncio
@@ -19,13 +21,41 @@ if project_root not in sys.path:
 from app.main import app
 from app.utils.image_processor import process_image_query, extract_text_from_image, analyze_school_supply_list
 from app.models.search import SearchResult, SearchType
-from app.config.settings import OPENAI_API_KEY
+from app.config.settings import settings
+from app.utils.validation import check_vision_provider
 
 # Create a test client
 client = TestClient(app)
 
 # Path to test image
 TEST_IMAGE_PATH = "data/images/test_school_supply_list.png"
+
+# Skip all tests if OpenAI API key is not available
+@pytest.fixture(scope="module")
+def check_openai():
+    """Check if OpenAI API key is available."""
+    if not settings.OPENAI_API_KEY:
+        pytest.skip("OpenAI API key is not available")
+
+# Skip all tests if vision provider is not available
+@pytest.fixture(scope="module")
+def check_vision():
+    """Check if vision provider is available."""
+    vision_status = check_vision_provider()
+    if not vision_status["available"]:
+        pytest.skip(f"Vision provider '{settings.VISION_PROVIDER}' is not available: {vision_status['error']}")
+
+# Skip all tests if Elasticsearch is not available
+@pytest.fixture(scope="module")
+def elasticsearch_client():
+    """Fixture for Elasticsearch client."""
+    try:
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
+        if not es.ping():
+            pytest.skip("Elasticsearch is not available")
+        return es
+    except Exception:
+        pytest.skip("Elasticsearch is not available")
 
 @pytest.fixture
 def test_image():
@@ -37,7 +67,7 @@ def test_image():
 def test_extract_text_from_image(test_image):
     """Test text extraction from an image."""
     # Skip if OpenAI API key is not available
-    if not OPENAI_API_KEY:
+    if not settings.OPENAI_API_KEY:
         pytest.skip("OpenAI API key not available")
     
     # Extract text from the image
@@ -54,7 +84,7 @@ def test_extract_text_from_image(test_image):
 def test_analyze_school_supply_list(test_image):
     """Test school supply list analysis."""
     # Skip if OpenAI API key is not available
-    if not OPENAI_API_KEY:
+    if not settings.OPENAI_API_KEY:
         pytest.skip("OpenAI API key not available")
     
     # Analyze the school supply list
@@ -77,7 +107,7 @@ def test_analyze_school_supply_list(test_image):
 async def test_process_image_query():
     """Test processing an image query."""
     # Skip if OpenAI API key is not available
-    if not OPENAI_API_KEY:
+    if not settings.OPENAI_API_KEY:
         pytest.skip("OpenAI API key not available")
     
     # Skip if test image doesn't exist
@@ -123,7 +153,7 @@ def test_image_upload_api_validation():
         )
         assert response.status_code in [400, 422]  # Bad Request or Unprocessable Entity
 
-@pytest.mark.skipif(not OPENAI_API_KEY, reason="OpenAI API key not available")
+@pytest.mark.skipif(not settings.OPENAI_API_KEY, reason="OpenAI API key not available")
 def test_image_upload_api_with_mock():
     """Test the image upload API with mock data."""
     # Create a patch for the process_image_query function

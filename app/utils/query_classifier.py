@@ -16,10 +16,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from app.config.settings import (
-    OLLAMA_MODEL,
-    OLLAMA_API_URL
-)
+from app.config.settings import settings
 
 def classify_query(query):
     """
@@ -58,13 +55,13 @@ Respond with a JSON object in this format:
     "support_answer": "If this is a customer support query, provide a helpful answer as if from internal documentation"
 }}"""
         
-        logger.debug(f"Sending request to Ollama API ({OLLAMA_MODEL}):\nPrompt: {prompt}")
+        logger.debug(f"Sending request to Ollama API ({settings.OLLAMA_MODEL}):\nPrompt: {prompt}")
         
         # Call Ollama API
         response = requests.post(
-            OLLAMA_API_URL,
+            settings.OLLAMA_API_URL,
             json={
-                "model": OLLAMA_MODEL,
+                "model": settings.OLLAMA_MODEL,
                 "prompt": prompt,
                 "stream": False
             }

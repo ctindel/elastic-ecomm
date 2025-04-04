@@ -19,12 +19,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from app.config.settings import (
-    OLLAMA_MODEL,
-    OLLAMA_API_URL,
-    TEXT_EMBEDDING_DIMS,
-    IMAGE_EMBEDDING_DIMS
-)
+from app.config.settings import settings
 
 def check_ollama_connection():
     """
@@ -34,7 +29,7 @@ def check_ollama_connection():
         bool: True if Ollama is available, False otherwise
     """
     try:
-        response = requests.get(OLLAMA_API_URL.replace("/generate", "/models"))
+        response = requests.get(settings.OLLAMA_API_URL.replace("/generate", "/models"))
         return response.status_code == 200
     except Exception as e:
         logger.error(f"Error connecting to Ollama: {str(e)}")
@@ -57,9 +52,9 @@ def get_text_embedding(text):
     while True:  # True infinite retry - will never give up
         try:
             # Call Ollama API
-            api_url = OLLAMA_API_URL.replace("/generate", "/embeddings")
+            api_url = settings.OLLAMA_API_URL.replace("/generate", "/embeddings")
             request_body = {
-                "model": OLLAMA_MODEL,
+                "model": settings.OLLAMA_MODEL,
                 "prompt": text
             }
             logger.debug(f"Calling Ollama API at {api_url} with request body: {json.dumps(request_body, indent=2)}")
@@ -123,9 +118,9 @@ def get_image_embedding(image_path):
         try:
             # Call Ollama API
             response = requests.post(
-                OLLAMA_API_URL.replace("/generate", "/embeddings"),
+                settings.OLLAMA_API_URL.replace("/generate", "/embeddings"),
                 json={
-                    "model": OLLAMA_MODEL,
+                    "model": settings.OLLAMA_MODEL,
                     "prompt": f"<img src=\"data:image/jpeg;base64,{image_base64}\">"
                 }
             )

@@ -17,13 +17,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from app.config.settings import (
-    ELASTICSEARCH_HOST,
-    ELASTICSEARCH_INDEX_PRODUCTS,
-    ELASTICSEARCH_INDEX_PERSONAS,
-    ELASTICSEARCH_INDEX_QUERIES,
-    OPENAI_API_KEY
-)
+from app.config.settings import settings
 from app.models.search import SearchResult, SearchType
 from app.utils.query_classifier import classify_query
 from app.utils.embedding import get_text_embedding
@@ -39,9 +33,9 @@ class SearchAgent:
             elasticsearch_client: Elasticsearch client
             openai_api_key: OpenAI API key
         """
-        logger.debug(f"Initializing SearchAgent with Elasticsearch host: {ELASTICSEARCH_HOST}")
-        self.es = elasticsearch_client or Elasticsearch(ELASTICSEARCH_HOST)
-        self.openai_api_key = openai_api_key or OPENAI_API_KEY
+        logger.debug(f"Initializing SearchAgent with Elasticsearch host: {settings.ELASTICSEARCH_HOST}")
+        self.es = elasticsearch_client or Elasticsearch(settings.ELASTICSEARCH_HOST)
+        self.openai_api_key = openai_api_key or settings.OPENAI_API_KEY
     
     def determine_search_method(self, query):
         """
@@ -174,7 +168,7 @@ class SearchAgent:
             
             # Execute the search
             response = self.es.search(
-                index=ELASTICSEARCH_INDEX_PRODUCTS,
+                index=settings.ELASTICSEARCH_INDEX_PRODUCTS,
                 body=search_query
             )
             
@@ -237,7 +231,7 @@ class SearchAgent:
             
             # Execute the search
             response = self.es.search(
-                index=ELASTICSEARCH_INDEX_PRODUCTS,
+                index=settings.ELASTICSEARCH_INDEX_PRODUCTS,
                 body=search_query
             )
             
@@ -276,49 +270,56 @@ class SearchAgent:
             query: Customer support query
         
         Returns:
-            dict: Support response
+            dict: Search results
         """
-        # This is a placeholder for actual customer support handling
-        # In a real implementation, this would connect to a customer support system
+        try:
+            # Search in customer support index
+            search_query = {
+                "query": {
+                    "multi_match": {
+                        "query": query,
+                        "fields": ["question^3", "answer^2", "category"],
+                        "type": "best_fields",
+                        "fuzziness": "AUTO"
+                    }
+                },
+                "size": 5
+            }
+            
+            logger.debug(f"Executing customer support search query:\n{json.dumps(search_query, indent=2)}")
+            
+            # Execute the search
+            response = self.es.search(
+                index=settings.ELASTICSEARCH_INDEX_QUERIES,
+                body=search_query
+            )
+            
+            # Process the results
+            hits = response.get("hits", {})
+            total_hits = hits.get("total", {}).get("value", 0)
+            results = []
+            
+            logger.debug(f"Customer support search found {total_hits} total hits")
+            
+            for hit in hits.get("hits", []):
+                source = hit.get("_source", {})
+                source["id"] = hit.get("_id", "")
+                source["score"] = hit.get("_score", 0.0)
+                results.append(source)
+                logger.debug(f"Customer support hit - ID: {source['id']}, Score: {source['score']}, Question: {source.get('question', '')}")
+            
+            return {
+                "total_hits": total_hits,
+                "results": results
+            }
         
-        # Define some common customer support responses
-        support_responses = {
-            "return": "To return an item, please visit your order history and select 'Return Item'. Follow the instructions to print a return label.",
-            "refund": "Refunds are processed within 5-7 business days after we receive your returned item.",
-            "cancel": "To cancel an order, please visit your order history and select 'Cancel Order'. You can only cancel orders that haven't been shipped yet.",
-            "shipping": "Standard shipping takes 3-5 business days. Express shipping takes 1-2 business days.",
-            "delivery": "You can track your delivery by visiting your order history and selecting 'Track Package'.",
-            "order status": "To check your order status, please visit your order history.",
-            "track": "You can track your package by visiting your order history and selecting 'Track Package'.",
-            "payment": "We accept all major credit cards, PayPal, and Apple Pay.",
-            "contact": "You can contact our customer support team at support@example.com or call 1-800-123-4567.",
-            "help": "How can I help you today? You can ask about returns, refunds, shipping, or any other customer service issue."
-        }
-        
-        # Find the most relevant response
-        response_text = "I'm sorry, I don't have information about that. Please contact our customer support team at support@example.com or call 1-800-123-4567."
-        query_lower = query.lower()
-        
-        for keyword, response in support_responses.items():
-            if keyword in query_lower:
-                response_text = response
-                break
-        
-        # Create a mock result
-        result = {
-            "id": "support-1",
-            "name": "Customer Support",
-            "description": response_text,
-            "score": 1.0
-        }
-        
-        return {
-            "total_hits": 1,
-            "results": [result]
-        }
-
-# Create global search agent instance
-search_agent = SearchAgent()
+        except Exception as e:
+            logger.error(f"Error handling customer support query: {str(e)}", exc_info=True)
+            return {
+                "error": str(e),
+                "total_hits": 0,
+                "results": []
+            }
 
 def determine_search_method(query):
     """
@@ -330,7 +331,8 @@ def determine_search_method(query):
     Returns:
         SearchType: Search type
     """
-    return search_agent.determine_search_method(query)
+    agent = SearchAgent()
+    return agent.determine_search_method(query)
 
 def perform_search(query, search_type=None, user_id=None, limit=10):
     """
@@ -345,4 +347,5 @@ def perform_search(query, search_type=None, user_id=None, limit=10):
     Returns:
         List[SearchResult]: List of search results
     """
-    return search_agent.perform_search(query, search_type, user_id, limit)
+    agent = SearchAgent()
+    return agent.perform_search(query, search_type, user_id, limit)

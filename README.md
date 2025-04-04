@@ -29,6 +29,15 @@ cd ..
 python scripts/setup_elasticsearch.py
 ```
 
+If you encounter any missing dependency errors, you can update your dependencies with:
+
+```bash
+cd app
+. .venv/bin/activate
+pip install -r requirements.txt --upgrade
+cd ..
+```
+
 ### 4. Initialize Ollama (Optional)
 
 ```bash
@@ -50,10 +59,17 @@ This script will install the following models:
 export OPENAI_API_KEY=your_api_key
 
 # Optionally use Ollama for vision processing instead of OpenAI
-# export VISION_PROVIDER=ollama
+export VISION_PROVIDER=ollama
 
-# Set Python path and start the FastAPI backend
+# For local development (default):
 PYTHONPATH=/home/weaviate/src/elastic-ecomm python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+# For production with ngrok domains:
+PYTHONPATH=/home/weaviate/src/elastic-ecomm \
+  API_URL=https://api-ecomm.ngrok.tindel.net \
+  FRONTEND_URL=https://www-ecomm.ngrok.tindel.net \
+  CORS_ORIGINS=https://www-ecomm.ngrok.tindel.net \
+  python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### 7. Start Frontend Application
@@ -63,11 +79,19 @@ PYTHONPATH=/home/weaviate/src/elastic-ecomm python -m uvicorn main:app --reload 
 cd frontend/mui
 npm install
 
-# Start the React frontend application
+# For local development (default):
 npm run dev
+
+# For production with ngrok domains:
+VITE_API_URL=https://api.ecomm.ngrok.tindel.net \
+  VITE_FRONTEND_URL=https://www.ecomm.ngrok.tindel.net \
+  npm run dev
+
+# Or use the predefined ngrok target:
+npm run devngrok
 ```
 
-The frontend will be available at http://localhost:3000
+The frontend will be available at http://localhost:3000 (or your configured domain)
 
 ## Image Generation
 

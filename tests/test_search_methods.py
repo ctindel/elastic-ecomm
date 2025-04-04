@@ -16,14 +16,14 @@ if project_root not in sys.path:
 
 from app.utils.search_agent import SearchAgent
 from app.utils.query_classifier import SEARCH_METHOD_BM25, SEARCH_METHOD_VECTOR, SEARCH_METHOD_CUSTOMER_SUPPORT
-from app.config.settings import ELASTICSEARCH_HOST, OPENAI_API_KEY
+from app.config.settings import settings
 
 # Skip all tests if Elasticsearch is not available
 @pytest.fixture(scope="module")
 def elasticsearch_client():
     """Fixture for Elasticsearch client."""
     try:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         if not es.ping():
             pytest.skip("Elasticsearch is not available")
         return es
@@ -33,7 +33,7 @@ def elasticsearch_client():
 @pytest.fixture(scope="module")
 def search_agent(elasticsearch_client):
     """Fixture for search agent."""
-    return SearchAgent(elasticsearch_client, OPENAI_API_KEY)
+    return SearchAgent(elasticsearch_client, settings.OPENAI_API_KEY)
 
 def test_search_method_determination(search_agent):
     """Test the search method determination logic."""

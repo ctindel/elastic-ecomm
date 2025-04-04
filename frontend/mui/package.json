@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "devngrok": "VITE_API_URL=https://api-ecomm.ngrok.tindel.net VITE_FRONTEND_URL=https://www-ecomm.ngrok.tindel.net vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

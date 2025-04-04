@@ -12,7 +12,7 @@ from app.utils.logger import logger
 
 # Import vision processor
 from app.utils.vision_processor import process_image
-from app.config.settings import VISION_PROVIDER
+from app.config.settings import settings
 
 async def process_image_query(
     image_file: UploadFile,
@@ -36,11 +36,11 @@ async def process_image_query(
     
     try:
         # Process the image using the configured vision provider
-        logger.debug(f"Sending image to {VISION_PROVIDER} for processing...")
+        logger.debug(f"Sending image to {settings.VISION_PROVIDER} for processing...")
         items_data = await process_image(image_file)
         
         # Log the extracted items
-        logger.info(f"Extracted {len(items_data.get('items', []))} items using {VISION_PROVIDER} provider")
+        logger.info(f"Extracted {len(items_data.get('items', []))} items using {settings.VISION_PROVIDER} provider")
         logger.debug(f"Extracted items data:\n{json.dumps(items_data, indent=2)}")
         
         # Search for products based on extracted items
@@ -93,7 +93,7 @@ async def process_image_query(
             logger.debug(f"Executing Elasticsearch query for '{search_query}':\n{json.dumps(query, indent=2)}")
             
             try:
-                search_response = elasticsearch_client.search(index="products", body=query)
+                search_response = elasticsearch_client.search(index=settings.ELASTICSEARCH_INDEX_PRODUCTS, body=query)
                 total_hits = search_response["hits"]["total"]["value"]
                 logger.debug(f"Found {total_hits} potential matches for '{search_query}'")
                 
@@ -116,7 +116,7 @@ async def process_image_query(
                         product_name=source.get("name", ""),
                         product_description=source.get("description", ""),
                         price=source.get("price", 0.0),
-                        image_url=source.get("image", {}).get("url", ""),
+                        image_url=f"/static/images/product_{source.get('id', '')}.png",
                         score=top_hit["_score"],
                         search_type=SearchType.IMAGE,
                         explanation=f"Found based on your request for: {item_name}",
@@ -126,27 +126,11 @@ async def process_image_query(
                     results.append(result)
                 else:
                     logger.warning(f"No matches found for item '{item_name}'")
-                    # No match found, still add item to matches
+                    # No match found, still add item to matches for the summary
                     item_match["matched_product_id"] = ""  # Empty string instead of None
                     item_match["matched_product_name"] = ""  # Empty string instead of None
-                    
-                    # Create a placeholder result for unmatched items
-                    result = SearchResult(
-                        query=search_query,
-                        product_id="not_found",
-                        product_name=f"No match found for: {item_name}",
-                        product_description=f"Could not find a matching product for {item_name} {attributes}",
-                        price=0.0,
-                        image_url=None,
-                        score=0.0,
-                        search_type=SearchType.IMAGE,
-                        explanation=f"No matching product found for: {item_name}",
-                        alternatives=[item_match]  # Include item match info in alternatives
-                    )
-                    
-                    results.append(result)
                 
-                # Add item match to the list
+                # Add item match to the list for the summary
                 item_matches.append(item_match)
             
             except Exception as e:
@@ -164,7 +148,7 @@ async def process_image_query(
                 query="Image Upload Analysis",
                 product_id="summary",
                 product_name="Image Analysis Results",
-                product_description=f"Analysis of items found in the uploaded image (using {VISION_PROVIDER})",
+                product_description=f"Analysis of items found in the uploaded image (using {settings.VISION_PROVIDER})",
                 price=0.0,
                 image_url=None,
                 score=1.0,

@@ -87,14 +87,12 @@ export const generateSearchExplanation = (query: string, searchType: SearchType)
       return `I'll search for "${query}" using semantic understanding (vector search) with this Elasticsearch query:
 \`\`\`json
 {
-  "query": {
-    "script_score": {
-      "query": { "match_all": {} },
-      "script": {
-        "source": "cosineSimilarity(params.query_vector, 'text_embedding') + 1.0",
-        "params": { "query_vector": "${query}" }
-      }
-    }
+  "_source": true,
+  "knn": {
+    "field": "text_embedding",
+    "query_vector": "${query}",
+    "k": 10,
+    "num_candidates": 100
   }
 }
 \`\`\``;

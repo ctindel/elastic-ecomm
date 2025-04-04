@@ -313,15 +313,15 @@ const ChatWindow = forwardRef<{ handleSearch: (query: string) => Promise<void> }
       const itemMatches = summaryResult?.alternatives || [];
       
       // Format the item list for display
-      const itemList = itemMatches.map((item: { item: string; quantity?: number; attributes?: string; matched_product_name?: string }) => {
+      const itemList = itemMatches.map((item: { item: string; quantity?: number; attributes?: string; matched_product_name?: string; image_url?: string }) => {
         const itemName = item.item || '';
         const quantity = item.quantity ? `${item.quantity} of ` : '';
         const attributes = item.attributes ? ` (${item.attributes})` : '';
         const matchedProduct = item.matched_product_name 
-          ? ` → Matched with: ${item.matched_product_name}`
+          ? ` → Matched with: ${item.matched_product_name}${item.image_url ? `\n  <img src="${item.image_url}" alt="${item.matched_product_name}" style="max-width: 100px; max-height: 100px; margin-top: 8px;" />` : ''}`
           : ' → No matching product found';
         
-        return `${quantity}${itemName}${attributes}${matchedProduct}`;
+        return `• ${quantity}${itemName}${attributes}${matchedProduct}`;
       }).join('\n');
       
       // Add results message
@@ -337,8 +337,9 @@ const ChatWindow = forwardRef<{ handleSearch: (query: string) => Promise<void> }
       
       setMessages(prevMessages => [...prevMessages, resultsMessage]);
       
-      // Update search results in parent component
-      onSearchResults(results);
+      // Update search results in parent component - filter out the summary result
+      const productResults = results.filter(r => r.product_id !== 'summary');
+      onSearchResults(productResults);
     } catch (error) {
       console.error('Error processing file:', error);
       
@@ -370,9 +371,9 @@ const ChatWindow = forwardRef<{ handleSearch: (query: string) => Promise<void> }
       case 'search_query':
         return '#FFEBF5';
       case 'search_results':
-        return '#F6F9FC';
+        return '#E2F8F0';
       case 'support_answer':
-        return '#F6F9FC';
+        return '#E2F8F0';
       default:
         return message.sender === 'agent' ? '#F6F9FC' : '#C9F3E3';
     }
@@ -427,9 +428,19 @@ const ChatWindow = forwardRef<{ handleSearch: (query: string) => Promise<void> }
                 <Box sx={{ whiteSpace: 'pre-wrap' }}>
                   <Typography variant="body1" dangerouslySetInnerHTML={{ __html: message.text.replace(/```json([\s\S]*?)```/g, '<pre style="background-color: #f5f5f5; padding: 8px; border-radius: 4px; overflow-x: auto;"><code>$1</code></pre>') }} />
                 </Box>
-              ) : message.type === 'query_classification' ? (
+              ) : message.type === 'query_classification' || message.type === 'search_results' ? (
                 <Box sx={{ whiteSpace: 'pre-wrap' }}>
-                  <Typography variant="body1">{message.text}</Typography>
+                  <Typography variant="body1" component="div" dangerouslySetInnerHTML={{ 
+                    __html: message.text.split('\n').map((line, index) => {
+                      const trimmedLine = line.trim();
+                      if (trimmedLine.startsWith('•')) {
+                        return `<div style="margin-bottom: 8px;">${trimmedLine}</div>`;
+                      } else if (trimmedLine.startsWith('-')) {
+                        return `<div style="margin-left: 16px; margin-bottom: 8px;">${trimmedLine}</div>`;
+                      }
+                      return `<div style="margin-bottom: 8px;">${line}</div>`;
+                    }).join('')
+                  }} />
                 </Box>
               ) : message.type === 'support_answer' ? (
                 <Box sx={{ whiteSpace: 'pre-wrap' }}>
@@ -456,7 +467,7 @@ const ChatWindow = forwardRef<{ handleSearch: (query: string) => Promise<void> }
           onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
           disabled={isSearching}
         />
-        <IconButton 
+        <IconButton
           color="primary" 
           onClick={() => {
             const input = document.createElement('input');

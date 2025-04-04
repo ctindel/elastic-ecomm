@@ -15,14 +15,14 @@ from app.utils.logger import logger
 from app.models.search import SearchResult, SearchType
 from app.utils.search_agent import determine_search_method, perform_search
 from app.utils.image_processor import process_image_query
-from app.config.settings import ELASTICSEARCH_HOST, ELASTICSEARCH_INDEX_PRODUCTS
+from app.config.settings import settings
 
 router = APIRouter()
 
 def get_elasticsearch_client():
     """Get Elasticsearch client."""
     try:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         yield es
     except Exception as e:
         # Return a mock client for testing
@@ -34,7 +34,7 @@ class SearchQuery(BaseModel):
     user_id: Optional[str] = None
     limit: int = 10
 
-@router.post("/")
+@router.post("")
 async def search_products(
     query: SearchQuery,
     es_client: Elasticsearch = Depends(get_elasticsearch_client)
@@ -87,8 +87,7 @@ async def image_search(
         raise HTTPException(status_code=400, detail="File must be an image")
     
     # Check if OpenAI API key is available
-    from app.config.settings import OPENAI_API_KEY
-    if not OPENAI_API_KEY:
+    if not settings.OPENAI_API_KEY:
         logger.error("OpenAI API key is missing")
         raise HTTPException(
             status_code=503, 
@@ -98,8 +97,7 @@ async def image_search(
     try:
         # Get Elasticsearch client
         from elasticsearch import Elasticsearch
-        from app.config.settings import ELASTICSEARCH_HOST
-        es_client = Elasticsearch(ELASTICSEARCH_HOST)
+        es_client = Elasticsearch(settings.ELASTICSEARCH_HOST)
         
         logger.debug("Processing image to extract text and identify items...")
         # Process the image to extract text and identify items
@@ -173,7 +171,6 @@ async def upload_image(
     logger.info(f"Received image upload request - File: {image_file.filename}, User: {user_id}, Limit: {limit}")
     
     import traceback
-    from app.config.settings import VISION_PROVIDER
     from app.utils.validation import check_vision_provider
     
     # Validate image file
@@ -185,15 +182,15 @@ async def upload_image(
     # Check if vision provider is available
     vision_status = check_vision_provider()
     if not vision_status["available"]:
-        logger.error(f"Vision provider '{VISION_PROVIDER}' is not available: {vision_status['error']}")
+        logger.error(f"Vision provider '{settings.VISION_PROVIDER}' is not available: {vision_status['error']}")
         raise HTTPException(
             status_code=503, 
-            detail=f"Image-based search is currently unavailable. Vision provider '{VISION_PROVIDER}' is not available: {vision_status['error']}"
+            detail=f"Image-based search is currently unavailable. Vision provider '{settings.VISION_PROVIDER}' is not available: {vision_status['error']}"
         )
     
     try:
         # Process the image to extract text and identify items
-        logger.debug(f"Processing image using {VISION_PROVIDER} provider...")
+        logger.debug(f"Processing image using {settings.VISION_PROVIDER} provider...")
         from app.utils.image_processor import process_image_query
         results = await process_image_query(
             image_file=image_file,
@@ -242,7 +239,7 @@ async def get_random_products(
         
         logger.debug(f"Elasticsearch query: {json.dumps(query, indent=2)}")
         response = es_client.search(
-            index=ELASTICSEARCH_INDEX_PRODUCTS,
+            index=settings.ELASTICSEARCH_INDEX_PRODUCTS,
             body=query
         )
         
