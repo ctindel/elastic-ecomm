@@ -4,26 +4,21 @@ Main entry point for the E-Commerce Search Demo API.
 """
 import os
 import sys
-import logging
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pathlib import Path
 from elasticsearch import Elasticsearch
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-)
-logger = logging.getLogger(__name__)
+# Import our custom logger
+from app.utils.logger import logger
 
-from app.config.settings import (
-    ELASTICSEARCH_HOST,
-    API_HOST,
-    API_PORT,
-    API_DEBUG,
-    API_RELOAD
-)
+from app.config.settings import settings
 from app.api.search import router as search_router
+from app.utils.validation import check_vision_provider, check_openai_connection
+from app.utils.embedding import check_ollama_connection
+from app.utils.image_processor import process_image_query
 
 # Create FastAPI app
 app = FastAPI(
@@ -34,14 +29,32 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# Add CORS middleware
+# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Allow all origins
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allow all methods
+    allow_headers=["*"],  # Allow all headers
+    expose_headers=["*"],  # Expose all headers
 )
+
+# Add custom middleware to handle CORS headers
+@app.middleware("http")
+async def add_cors_headers(request, call_next):
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    return response
+
+# Add OPTIONS route handler for all paths
+@app.options("/{path:path}")
+async def options_handler(path: str):
+    return {"status": "ok"}
+
+# Mount static files directory
+app.mount("/static", StaticFiles(directory=str(Path(__file__).parent.parent / "data")), name="static")
 
 # Add routers
 app.include_router(search_router, prefix="/api/search", tags=["search"])
@@ -50,7 +63,7 @@ app.include_router(search_router, prefix="/api/search", tags=["search"])
 def get_elasticsearch_client():
     """Get Elasticsearch client."""
     try:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         yield es
     finally:
         es.close()
@@ -67,8 +80,6 @@ async def root():
 @app.get("/health", tags=["health"])
 async def health_check():
     """Health check endpoint."""
-    from app.config.settings import ELASTICSEARCH_INDEX_PRODUCTS, ELASTICSEARCH_INDEX_PERSONAS, ELASTICSEARCH_INDEX_QUERIES
-    
     # Initialize response
     response = {
         "status": "healthy",
@@ -89,7 +100,7 @@ async def health_check():
     
     # Check Elasticsearch connection
     try:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         es_health = es.cluster.health()
         response["elasticsearch"]["status"] = es_health.get("status", "unknown")
         response["elasticsearch"]["cluster_name"] = es_health.get("cluster_name", "unknown")
@@ -98,7 +109,7 @@ async def health_check():
         
         # Get index stats
         indices_info = {}
-        indices = [ELASTICSEARCH_INDEX_PRODUCTS, ELASTICSEARCH_INDEX_PERSONAS, ELASTICSEARCH_INDEX_QUERIES]
+        indices = [settings.ELASTICSEARCH_INDEX_PRODUCTS, settings.ELASTICSEARCH_INDEX_PERSONAS, settings.ELASTICSEARCH_INDEX_QUERIES]
         
         for index in indices:
             try:
@@ -177,7 +188,6 @@ async def health_check():
     
     # Check Ollama connection
     try:
-        from app.utils.embedding import check_ollama_connection
         ollama_available = check_ollama_connection()
         response["ollama"]["available"] = ollama_available
     except Exception as e:
@@ -186,25 +196,64 @@ async def health_check():
     
     # Check OpenAI API key and connectivity
     try:
-        from app.utils.validation import check_openai_connection
         openai_status = check_openai_connection()
         response["openai"] = openai_status
     except Exception as e:
         logger.warning(f"OpenAI API key check failed: {str(e)}")
         response["openai"]["error"] = str(e)
     
-    # Determine overall status
-    if not response["elasticsearch"]["connection"]:
-        response["status"] = "degraded"
-        
+    # Check vision provider
+    try:
+        vision_status = check_vision_provider()
+        response["vision"] = {
+            "provider": settings.VISION_PROVIDER,
+            "available": vision_status["available"],
+            "error": vision_status["error"]
+        }
+    except Exception as e:
+        logger.warning(f"Vision provider check failed: {str(e)}")
+        response["vision"] = {
+            "provider": settings.VISION_PROVIDER,
+            "available": False,
+            "error": str(e)
+        }
+    
     return response
+
+@app.post("/process-image", tags=["image"])
+async def process_image(file: bytes = File(...)):
+    """Process an image and return search results."""
+    # Process image-based search
+    if file:
+        try:
+            # Process the image and get search results
+            if settings.VISION_PROVIDER == "openai":
+                search_results = await process_image_query(file, es_client)
+                return {"results": search_results}
+            else:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Unsupported vision provider: {settings.VISION_PROVIDER}"
+                )
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
     
+    # Verify vision provider at startup
+    vision_status = check_vision_provider()
+    if not vision_status["available"]:
+        if settings.VISION_PROVIDER == "openai":
+            error_msg = "ERROR: OpenAI API key is missing or invalid. Please set a valid OPENAI_API_KEY environment variable."
+        else:
+            error_msg = f"ERROR: Vision provider '{settings.VISION_PROVIDER}' is not available: {vision_status['error']}"
+        logger.error(error_msg)
+        sys.exit(1)
+    
     uvicorn.run(
         "app.main:app",
-        host=API_HOST,
-        port=API_PORT,
-        reload=API_RELOAD
+        host=settings.API_HOST,
+        port=settings.API_PORT,
+        reload=settings.API_RELOAD
     )

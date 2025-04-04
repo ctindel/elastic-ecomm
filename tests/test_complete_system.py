@@ -10,6 +10,7 @@ import logging
 import argparse
 from pathlib import Path
 from elasticsearch import Elasticsearch
+import requests
 
 # Add project root to Python path
 project_root = str(Path(__file__).parent.parent.absolute())
@@ -20,7 +21,7 @@ from app.utils.validation import validate_api_keys
 from app.utils.embedding import check_ollama_connection
 from app.utils.search_agent import SearchAgent, SEARCH_METHOD_BM25, SEARCH_METHOD_VECTOR, SEARCH_METHOD_CUSTOMER_SUPPORT, SEARCH_METHOD_IMAGE
 from app.utils.image_processor import extract_text_from_image, analyze_school_supply_list
-from app.config.settings import ELASTICSEARCH_HOST, OPENAI_API_KEY, OLLAMA_HOST, OLLAMA_MODEL
+from app.config.settings import settings
 
 # Configure logging
 logging.basicConfig(
@@ -61,7 +62,7 @@ def test_elasticsearch_connection():
     
     try:
         # Connect to Elasticsearch
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         
         # Check if Elasticsearch is running
         if es.ping():
@@ -91,11 +92,20 @@ def test_ollama_connection():
     """Test Ollama connection."""
     logger.info("Testing Ollama connection...")
     
-    if check_ollama_connection():
-        logger.info("✅ Successfully connected to Ollama")
-        return True
+    if settings.VISION_PROVIDER == "ollama":
+        logger.info(f"Testing Ollama connection at {settings.OLLAMA_API_URL}")
+        try:
+            response = requests.get(settings.OLLAMA_API_URL)
+            if response.status_code == 200:
+                logger.info("Successfully connected to Ollama")
+            else:
+                logger.error(f"Failed to connect to Ollama: {response.status_code}")
+                return False
+        except Exception as e:
+            logger.error(f"Failed to connect to Ollama: {str(e)}")
+            return False
     else:
-        logger.warning("⚠️ Failed to connect to Ollama")
+        logger.warning("⚠️ Ollama is not configured")
         logger.warning("Vector search functionality may be limited")
         return False
 
@@ -105,10 +115,10 @@ def test_search_agent():
     
     try:
         # Connect to Elasticsearch
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         
         # Initialize the search agent
-        agent = SearchAgent(es, OPENAI_API_KEY)
+        agent = SearchAgent(es, settings.OPENAI_API_KEY)
         
         # Test cases for different query types
         test_cases = [
@@ -147,7 +157,7 @@ def test_image_processing():
     logger.info("Testing image processing...")
     
     # Skip if OpenAI API key is not available
-    if not OPENAI_API_KEY:
+    if not settings.OPENAI_API_KEY:
         logger.warning("⚠️ OpenAI API key is not available")
         logger.warning("Image processing tests skipped")
         return False

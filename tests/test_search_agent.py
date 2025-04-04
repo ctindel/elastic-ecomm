@@ -15,7 +15,7 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 from app.utils.search_agent import SearchAgent, SEARCH_METHOD_BM25, SEARCH_METHOD_VECTOR, SEARCH_METHOD_CUSTOMER_SUPPORT, SEARCH_METHOD_IMAGE
-from app.config.settings import ELASTICSEARCH_HOST, OPENAI_API_KEY
+from app.config.settings import settings
 
 # Configure logging
 logging.basicConfig(
@@ -29,10 +29,10 @@ def test_search_method_determination():
     logger.info("Testing search method determination")
     
     # Connect to Elasticsearch
-    es = Elasticsearch(ELASTICSEARCH_HOST)
+    es = Elasticsearch(settings.ELASTICSEARCH_HOST)
     
     # Initialize the search agent
-    agent = SearchAgent(es, OPENAI_API_KEY)
+    agent = SearchAgent(es, settings.OPENAI_API_KEY)
     
     # Test cases for different query types
     test_cases = [
@@ -79,10 +79,10 @@ def test_bm25_search():
     logger.info("Testing BM25 search")
     
     # Connect to Elasticsearch
-    es = Elasticsearch(ELASTICSEARCH_HOST)
+    es = Elasticsearch(settings.ELASTICSEARCH_HOST)
     
     # Initialize the search agent
-    agent = SearchAgent(es, OPENAI_API_KEY)
+    agent = SearchAgent(es, settings.OPENAI_API_KEY)
     
     # Test BM25 search with a precision query
     query = "printer ink"
@@ -109,10 +109,10 @@ def test_vector_search():
     logger.info("Testing vector search")
     
     # Connect to Elasticsearch
-    es = Elasticsearch(ELASTICSEARCH_HOST)
+    es = Elasticsearch(settings.ELASTICSEARCH_HOST)
     
     # Initialize the search agent
-    agent = SearchAgent(es, OPENAI_API_KEY)
+    agent = SearchAgent(es, settings.OPENAI_API_KEY)
     
     # Test vector search with a semantic query
     query = "comfortable chair for office"
@@ -139,10 +139,10 @@ def test_customer_support_query():
     logger.info("Testing customer support query handling")
     
     # Connect to Elasticsearch
-    es = Elasticsearch(ELASTICSEARCH_HOST)
+    es = Elasticsearch(settings.ELASTICSEARCH_HOST)
     
     # Initialize the search agent
-    agent = SearchAgent(es, OPENAI_API_KEY)
+    agent = SearchAgent(es, settings.OPENAI_API_KEY)
     
     # Test customer support query
     query = "how do I return an item?"
@@ -169,7 +169,7 @@ def main():
     
     # Check Elasticsearch connection
     try:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+        es = Elasticsearch(settings.ELASTICSEARCH_HOST)
         if not es.ping():
             logger.error("Could not connect to Elasticsearch. Make sure it's running.")
             return 1

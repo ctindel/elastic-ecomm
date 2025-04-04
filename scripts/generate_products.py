@@ -19,7 +19,7 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 # Now we can import from app
-from app.config.settings import NUM_PRODUCTS, TEXT_EMBEDDING_DIMS, IMAGE_EMBEDDING_DIMS
+from app.config.settings import NUM_PRODUCTS, IMAGE_EMBEDDING_DIMS
 
 # Configure logging
 logging.basicConfig(
@@ -482,15 +482,6 @@ def generate_product_image(product_id, category, subcategory, color=None):
         "vector_embedding": None  # Placeholder for vector embedding
     }
 
-def generate_mock_embedding(dims):
-    """Generate a mock embedding vector of the specified dimension."""
-    # Generate random vector
-    embedding = np.random.normal(0, 1, dims)
-    
-    # Normalize to unit length
-    embedding = embedding / np.linalg.norm(embedding)
-    
-    return embedding.tolist()
 
 def generate_products(num_products):
     """
@@ -537,9 +528,6 @@ def generate_products(num_products):
             color=attributes.get("color")
         )
         
-        # Generate mock text embedding
-        text_embedding = generate_mock_embedding(TEXT_EMBEDDING_DIMS)
-        
         # Create product object
         product = {
             "id": product_id,
@@ -551,7 +539,6 @@ def generate_products(num_products):
             "brand": brand,
             "attributes": attributes,
             "image": image,
-            "text_embedding": text_embedding,
             "created_at": datetime.now().isoformat()
         }
         

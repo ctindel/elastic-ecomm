@@ -95,7 +95,7 @@ def main():
         return
     
     # Get mapping file paths
-    docker_dir = Path(__file__).parent.parent / "docker" / "elasticsearch" / "mappings"
+    docker_dir = Path(__file__).parent.parent / "config" / "elasticsearch" / "mappings"
     products_mapping = str(docker_dir / "products.json")
     personas_mapping = str(docker_dir / "personas.json")
     

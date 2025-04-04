@@ -2,8 +2,9 @@ version: '3.8'
 
 services:
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.6.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.3
     container_name: elasticsearch
+    user: "1000:1000"
     environment:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
@@ -14,19 +15,36 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./docker/elasticsearch/config:/usr/share/elasticsearch/config
-      - ./docker/elasticsearch/mappings:/usr/share/elasticsearch/mappings
-      - esdata:/usr/share/elasticsearch/data
+      - ./config/elasticsearch:/usr/share/elasticsearch/config
+      - ./docker-data/elasticsearch:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
     networks:
       - elastic-ecomm
 
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.17.3
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    user: "1000:1000"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - ELASTICSEARCH_PASSWORD=kibana
+      - XPACK_SECURITY_ENABLED=false
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./docker-data/kibana:/usr/share/kibana/data
+    networks:
+      - elastic-ecomm
+
   kafka:
     image: confluentinc/cp-kafka:7.3.0
     container_name: kafka
-    user: "1001:1001"
+    user: root
     depends_on:
       - zookeeper
     ports:
@@ -41,19 +59,20 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     volumes:
-      - ./docker/kafka/kafka-data:/var/lib/kafka/data
+      - ./docker-data/kafka/kafka-data:/var/lib/kafka/data
     networks:
       - elastic-ecomm
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
+    user: root
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     volumes:
-      - ./docker/kafka/zookeeper-data:/var/lib/zookeeper/data
-      - ./docker/kafka/zookeeper-log:/var/lib/zookeeper/log
+      - ./docker-data/kafka/zookeeper-data:/var/lib/zookeeper/data
+      - ./docker-data/kafka/zookeeper-log:/var/lib/zookeeper/log
     ports:
       - "2181:2181"
     networks:
@@ -65,16 +84,10 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - redisdata:/data
+      - ./docker-data/redis:/data
     networks:
       - elastic-ecomm
-
-volumes:
-  esdata:
-    driver: local
-  redisdata:
-    driver: local
-
+      
 networks:
   elastic-ecomm:
     driver: bridge

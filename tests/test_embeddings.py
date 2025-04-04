@@ -1,116 +1,86 @@
 #!/usr/bin/env python3
 """
-Script to test Ollama embeddings functionality.
+Test cases for embedding functionality.
 """
 import os
 import sys
+import pytest
 import json
-import logging
 from pathlib import Path
+from elasticsearch import Elasticsearch
 
 # Add project root to Python path
 project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.utils.embedding import (
-    check_ollama_connection,
-    get_text_embedding,
-    get_image_embedding,
-    generate_mock_embedding
-)
-from app.config.settings import TEXT_EMBEDDING_DIMS, IMAGE_EMBEDDING_DIMS
+from app.utils.embedding import get_text_embedding, get_image_embedding
+from app.utils.validation import check_ollama_connection
+from app.config.settings import settings
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-)
-logger = logging.getLogger(__name__)
+# Skip all tests if Ollama is not available
+@pytest.fixture(scope="module")
+def check_ollama():
+    """Check if Ollama is available."""
+    if not check_ollama_connection():
+        pytest.skip("Ollama is not available")
 
-def test_ollama_connection():
-    """Test connection to Ollama server."""
-    logger.info("Testing Ollama connection...")
-    if check_ollama_connection():
-        logger.info("✅ Successfully connected to Ollama")
-        return True
-    else:
-        logger.error("❌ Failed to connect to Ollama")
-        return False
+@pytest.fixture
+def test_image():
+    """Fixture for test image."""
+    # Create a test image if it doesn't exist
+    test_image_path = "data/images/test_school_supply_list.png"
+    if not os.path.exists(test_image_path):
+        from scripts.generate_test_image import generate_test_image
+        test_image_path = generate_test_image()
+    return test_image_path
 
-def test_text_embedding():
-    """Test text embedding generation."""
-    logger.info("Testing text embedding generation...")
+def test_text_embedding_dimensions(check_ollama):
+    """Test text embedding dimensions."""
+    # Get embedding for a test text
+    text = "This is a test text for embedding generation"
+    embedding = get_text_embedding(text)
     
-    # Test with a sample text
-    sample_text = "This is a test text for embedding generation using Ollama"
-    embedding = get_text_embedding(sample_text)
-    
-    if embedding is None:
-        logger.error("❌ Failed to generate text embedding")
-        return False
-    
-    # Check embedding dimensions
-    if len(embedding) != TEXT_EMBEDDING_DIMS:
-        logger.error(f"❌ Text embedding has incorrect dimensions: {len(embedding)} (expected {TEXT_EMBEDDING_DIMS})")
-        return False
-    
-    logger.info(f"✅ Successfully generated text embedding with {len(embedding)} dimensions")
-    logger.info(f"Sample values: {embedding[:5]}...")
-    return True
+    # Check if embedding has the correct dimensions
+    assert len(embedding) == settings.TEXT_EMBEDDING_DIMS
 
-def test_image_embedding():
-    """Test image embedding generation."""
-    logger.info("Testing image embedding generation...")
+def test_image_embedding_dimensions(check_ollama, test_image):
+    """Test image embedding dimensions."""
+    # Get embedding for the test image
+    embedding = get_image_embedding(test_image)
     
-    # Find a sample image from the data directory
-    data_dir = Path("data/images")
-    if not data_dir.exists() or not any(data_dir.iterdir()):
-        logger.error("❌ No images found in data/images directory")
-        return False
-    
-    # Get the first image file
-    image_file = next(data_dir.glob("*.png"))
-    logger.info(f"Using image file: {image_file}")
-    
-    # Generate embedding
-    embedding = get_image_embedding(str(image_file))
-    
-    if embedding is None:
-        logger.error("❌ Failed to generate image embedding")
-        return False
-    
-    # Check embedding dimensions
-    if len(embedding) != IMAGE_EMBEDDING_DIMS:
-        logger.error(f"❌ Image embedding has incorrect dimensions: {len(embedding)} (expected {IMAGE_EMBEDDING_DIMS})")
-        return False
-    
-    logger.info(f"✅ Successfully generated image embedding with {len(embedding)} dimensions")
-    logger.info(f"Sample values: {embedding[:5]}...")
-    return True
+    # Check if embedding has the correct dimensions
+    assert len(embedding) == settings.IMAGE_EMBEDDING_DIMS
 
-def main():
-    """Main function to test Ollama embeddings."""
-    logger.info("Starting Ollama embeddings test")
+def test_text_embedding_consistency(check_ollama):
+    """Test text embedding consistency."""
+    # Get embeddings for the same text multiple times
+    text = "This is a test text for embedding consistency"
+    embedding1 = get_text_embedding(text)
+    embedding2 = get_text_embedding(text)
     
-    # Test Ollama connection
-    if not test_ollama_connection():
-        logger.error("Ollama connection test failed. Exiting.")
-        return 1
-    
-    # Test text embedding
-    if not test_text_embedding():
-        logger.error("Text embedding test failed.")
-        return 1
-    
-    # Test image embedding
-    if not test_image_embedding():
-        logger.error("Image embedding test failed.")
-        return 1
-    
-    logger.info("All tests passed successfully!")
-    return 0
+    # Check if embeddings are consistent
+    assert len(embedding1) == len(embedding2)
+    assert all(abs(a - b) < 1e-6 for a, b in zip(embedding1, embedding2))
 
-if __name__ == "__main__":
-    exit_code = main()
-    exit(exit_code)
+def test_image_embedding_consistency(check_ollama, test_image):
+    """Test image embedding consistency."""
+    # Get embeddings for the same image multiple times
+    embedding1 = get_image_embedding(test_image)
+    embedding2 = get_image_embedding(test_image)
+    
+    # Check if embeddings are consistent
+    assert len(embedding1) == len(embedding2)
+    assert all(abs(a - b) < 1e-6 for a, b in zip(embedding1, embedding2))
+
+def test_text_embedding_invalid_input(check_ollama):
+    """Test text embedding with invalid input."""
+    # Try to get embedding for empty text
+    with pytest.raises(Exception):
+        get_text_embedding("")
+
+def test_image_embedding_invalid_input(check_ollama):
+    """Test image embedding with invalid input."""
+    # Try to get embedding for non-existent image
+    with pytest.raises(Exception):
+        get_image_embedding("nonexistent_image.png")

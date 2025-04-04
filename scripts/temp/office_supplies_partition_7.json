@@ -1,0 +1,3883 @@
+[
+  {
+    "id": "881720a3-9edb-4a04-8878-f57edbf2e306",
+    "name": "Papermate Luxury Printers & Ink",
+    "description": "The Yellow is perfect for office use. Made with Paper for durability and longevity. This Yellow printers & ink is perfect for everyday use. Buy now and experience the difference! An excellent choice for travel use.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 28.56,
+    "brand": "Papermate",
+    "attributes": {
+      "size": "Small",
+      "material": "Paper",
+      "color": "Yellow",
+      "quantity": "Pack of 5",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_881720a3-9edb-4a04-8878-f57edbf2e306.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:36.397523"
+  },
+  {
+    "id": "998dce43-9c09-47fc-90e2-181009074fd1",
+    "name": "Papermate Ultimate Desk Accessories",
+    "description": "An excellent choice for professional use. This Green desk accessories is perfect for everyday use. Buy now and experience the difference! Comes in a Pack of 50. Made with high-quality materials for durability and longevity. The Green is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 13.32,
+    "brand": "Papermate",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Large",
+      "refillable": "No",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_998dce43-9c09-47fc-90e2-181009074fd1.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:35.984074"
+  },
+  {
+    "id": "be815d24-f88d-44bb-a470-e4bbf2ebaa09",
+    "name": "Faber-Castell Ergonomic Printers & Ink",
+    "description": "Satisfaction guaranteed or your money back. The Yellow is perfect for office use. Featuring a classic design. An excellent choice for office use. Made with Wood for durability and longevity. Buy now and experience the difference! Comes in a convenient package.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 88.16,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Wood",
+      "size": "Medium",
+      "color": "Yellow",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_be815d24-f88d-44bb-a470-e4bbf2ebaa09.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:36.102178"
+  },
+  {
+    "id": "a07f327a-19fc-416c-a028-edc06883f00c",
+    "name": "Zebra Deluxe Desk Accessories F444",
+    "description": "An excellent choice for home use. This versatile desk accessories is perfect for everyday use. The professional color is perfect for office use. Featuring a elegant design.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 41.17,
+    "brand": "Zebra",
+    "attributes": {
+      "refillable": "Yes",
+      "quantity": "Pack of 5",
+      "material": "Metal",
+      "size": "Legal"
+    },
+    "image": {
+      "url": "data/images/product_a07f327a-19fc-416c-a028-edc06883f00c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:14.546410"
+  },
+  {
+    "id": "2ac4dd46-1e97-4500-9645-1e1e46934063",
+    "name": "Papermate Compact Markers",
+    "description": "Satisfaction guaranteed or your money back. Featuring a elegant design. Comes in a Pack of 20. An excellent choice for office use. The Blue is perfect for office use. Buy now and experience the difference! This Blue markers is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 8.97,
+    "brand": "Papermate",
+    "attributes": {
+      "color": "Blue",
+      "size": "Large",
+      "refillable": "No",
+      "quantity": "Pack of 20",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_2ac4dd46-1e97-4500-9645-1e1e46934063.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:22.484704"
+  },
+  {
+    "id": "92dd42ce-73f9-4c18-8ba0-c377a2cad557",
+    "name": "Brother Wireless Printers & Ink",
+    "description": "Buy now and experience the difference! Featuring a elegant design. Satisfaction guaranteed or your money back. An excellent choice for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 132.87,
+    "brand": "Brother",
+    "attributes": {
+      "refillable": "Yes",
+      "material": "Wood",
+      "color": "Black",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_92dd42ce-73f9-4c18-8ba0-c377a2cad557.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:17.131692"
+  },
+  {
+    "id": "a7794161-7a55-4b2f-8f38-64a26cf0b5cc",
+    "name": "Avery Classic Markers",
+    "description": "This versatile markers is perfect for everyday use. Comes in a Pack of 20. Designed for efficiency. Buy now and experience the difference! An excellent choice for everyday use. Made with Paper for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 3.96,
+    "brand": "Avery",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "size": "Letter",
+      "material": "Paper"
+    },
+    "image": {
+      "url": "data/images/product_a7794161-7a55-4b2f-8f38-64a26cf0b5cc.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:54.555232"
+  },
+  {
+    "id": "93ce35e6-aea0-4e43-bd1a-680f061fcb1f",
+    "name": "Faber-Castell Luxury Pens & Pencils D941",
+    "description": "Buy now and experience the difference! Designed for productivity. The Assorted is perfect for office use. Comes in a Pack of 5. An excellent choice for home use. Featuring a classic design.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 5.31,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "color": "Assorted",
+      "size": "Large",
+      "quantity": "Pack of 5"
+    },
+    "image": {
+      "url": "data/images/product_93ce35e6-aea0-4e43-bd1a-680f061fcb1f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:54.929439"
+  },
+  {
+    "id": "167c0f1e-658a-480a-ab43-3de0adb563a0",
+    "name": "Bic Premium Desk Accessories",
+    "description": "Satisfaction guaranteed or your money back. Buy now and experience the difference! This Blue desk accessories is perfect for everyday use. Comes in a Single. The Blue is perfect for office use. Featuring a modern design. An excellent choice for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 25.98,
+    "brand": "Bic",
+    "attributes": {
+      "color": "Blue",
+      "size": "Legal",
+      "material": "Paper",
+      "refillable": "No",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_167c0f1e-658a-480a-ab43-3de0adb563a0.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:27.039142"
+  },
+  {
+    "id": "69edcdad-c4f2-4537-a47b-009ee73028ca",
+    "name": "Moleskine Professional Notebooks",
+    "description": "Comes in a Pack of 50. Featuring a modern design. Buy now and experience the difference! Satisfaction guaranteed or your money back. This Green notebooks is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 19.22,
+    "brand": "Moleskine",
+    "attributes": {
+      "material": "Plastic",
+      "color": "Green",
+      "quantity": "Pack of 50",
+      "size": "Medium"
+    },
+    "image": {
+      "url": "data/images/product_69edcdad-c4f2-4537-a47b-009ee73028ca.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:57.632789"
+  },
+  {
+    "id": "bde70d14-6592-4b47-b906-373063604e07",
+    "name": "Epson Super Printers & Ink",
+    "description": "An excellent choice for professional use. This Red printers & ink is perfect for everyday use. Designed for organization. Comes in a Pack of 20. The Red is perfect for office use. Buy now and experience the difference! Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 158.48,
+    "brand": "Epson",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "size": "Large",
+      "color": "Red",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_bde70d14-6592-4b47-b906-373063604e07.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:01.487379"
+  },
+  {
+    "id": "469ac6cb-b771-417d-b71d-6866d336b359",
+    "name": "Zebra Premium Calendars D287",
+    "description": "Satisfaction guaranteed or your money back. Made with Cardboard for durability and longevity. Designed for organization. Comes in a convenient package.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 12.75,
+    "brand": "Zebra",
+    "attributes": {
+      "size": "Small",
+      "material": "Cardboard",
+      "color": "Yellow",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_469ac6cb-b771-417d-b71d-6866d336b359.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:16.399587"
+  },
+  {
+    "id": "698fc608-66c0-417f-8a9f-54ba5b4a2461",
+    "name": "Moleskine Ultimate Desk Accessories G545",
+    "description": "Designed for productivity. An excellent choice for travel use. Buy now and experience the difference! Featuring a sleek design. Made with Wood for durability and longevity. This Yellow desk accessories is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 24.87,
+    "brand": "Moleskine",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "refillable": "Yes",
+      "color": "Yellow",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_698fc608-66c0-417f-8a9f-54ba5b4a2461.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:06.135670"
+  },
+  {
+    "id": "19b9079d-4f01-4901-ba56-6c8c87264f19",
+    "name": "Epson Professional Paper N650",
+    "description": "Satisfaction guaranteed or your money back. Buy now and experience the difference! An excellent choice for home use. Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 12.08,
+    "brand": "Epson",
+    "attributes": {
+      "refillable": "Yes",
+      "color": "Black",
+      "quantity": "Pack of 5",
+      "size": "Medium"
+    },
+    "image": {
+      "url": "data/images/product_19b9079d-4f01-4901-ba56-6c8c87264f19.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:19.366384"
+  },
+  {
+    "id": "dc16f291-d2e9-4cb7-9c12-3ea70e00a1f3",
+    "name": "Pilot Smart Calendars O823",
+    "description": "This Yellow calendars is perfect for everyday use. An excellent choice for office use. Satisfaction guaranteed or your money back. Featuring a sleek design. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 13.15,
+    "brand": "Pilot",
+    "attributes": {
+      "material": "Metal",
+      "color": "Yellow",
+      "quantity": "Single",
+      "size": "Medium"
+    },
+    "image": {
+      "url": "data/images/product_dc16f291-d2e9-4cb7-9c12-3ea70e00a1f3.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:45.416060"
+  },
+  {
+    "id": "3fa317d4-312e-4c33-b755-78b36fbbdc59",
+    "name": "Sharpie Portable Desk Accessories P224",
+    "description": "An excellent choice for office use. Designed for organization. The Assorted is perfect for office use. This Assorted desk accessories is perfect for everyday use. Comes in a Pack of 5. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 36.96,
+    "brand": "Sharpie",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "color": "Assorted",
+      "refillable": "Yes",
+      "size": "Standard"
+    },
+    "image": {
+      "url": "data/images/product_3fa317d4-312e-4c33-b755-78b36fbbdc59.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:15.779850"
+  },
+  {
+    "id": "99804579-ac90-4e53-a7ca-d0690463f927",
+    "name": "Avery Ergonomic Printers & Ink N561",
+    "description": "This versatile printers & ink is perfect for everyday use. Satisfaction guaranteed or your money back. The professional color is perfect for office use. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 63.44,
+    "brand": "Avery",
+    "attributes": {
+      "material": "Paper",
+      "size": "Standard",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_99804579-ac90-4e53-a7ca-d0690463f927.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:58.432364"
+  },
+  {
+    "id": "eaf77d82-6db9-4a9e-bedb-2fd019addd0f",
+    "name": "Pilot Wireless Notebooks",
+    "description": "Featuring a elegant design. This versatile notebooks is perfect for everyday use. Designed for efficiency. Buy now and experience the difference! Comes in a Pack of 10.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 9.59,
+    "brand": "Pilot",
+    "attributes": {
+      "refillable": "No",
+      "quantity": "Pack of 10",
+      "size": "Standard"
+    },
+    "image": {
+      "url": "data/images/product_eaf77d82-6db9-4a9e-bedb-2fd019addd0f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:39.328837"
+  },
+  {
+    "id": "19a855e6-2408-452c-8af5-449c4c9e12c5",
+    "name": "Staples Ergonomic Desk Accessories",
+    "description": "Designed for efficiency. Buy now and experience the difference! Made with high-quality materials for durability and longevity. The Yellow is perfect for office use. An excellent choice for professional use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 17.85,
+    "brand": "Staples",
+    "attributes": {
+      "refillable": "Yes",
+      "quantity": "Pack of 10",
+      "color": "Yellow",
+      "size": "Large"
+    },
+    "image": {
+      "url": "data/images/product_19a855e6-2408-452c-8af5-449c4c9e12c5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:07.520248"
+  },
+  {
+    "id": "9b72b85e-70c7-46c0-acf8-51242a77f264",
+    "name": "Papermate Wireless Notebooks G567",
+    "description": "Featuring a modern design. Satisfaction guaranteed or your money back. Comes in a Pack of 50. An excellent choice for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 6.45,
+    "brand": "Papermate",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Small",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_9b72b85e-70c7-46c0-acf8-51242a77f264.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:52.300698"
+  },
+  {
+    "id": "583a031f-808d-4993-92df-7bf54c62750c",
+    "name": "Scotch Portable Calendars W126",
+    "description": "Buy now and experience the difference! An excellent choice for travel use. This Red calendars is perfect for everyday use. Designed for efficiency. Made with Cardboard for durability and longevity. The Red is perfect for office use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 18.51,
+    "brand": "Scotch",
+    "attributes": {
+      "size": "Medium",
+      "material": "Cardboard",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_583a031f-808d-4993-92df-7bf54c62750c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:15.499504"
+  },
+  {
+    "id": "680d9e9e-5f35-4951-8526-c6a63ed2a8f5",
+    "name": "Brother Professional Notebooks M960",
+    "description": "Designed for productivity. Buy now and experience the difference! The professional color is perfect for office use. Satisfaction guaranteed or your money back. Made with high-quality materials for durability and longevity. Comes in a Single. This versatile notebooks is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 17.49,
+    "brand": "Brother",
+    "attributes": {
+      "refillable": "Yes",
+      "size": "Large",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_680d9e9e-5f35-4951-8526-c6a63ed2a8f5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:35.142290"
+  },
+  {
+    "id": "c20bf275-11b6-4891-8e94-550ac0c3db8b",
+    "name": "Avery Premium Markers Z904",
+    "description": "Buy now and experience the difference! Made with Cardboard for durability and longevity. The Yellow is perfect for office use. Comes in a Single. Featuring a minimalist design.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 9.29,
+    "brand": "Avery",
+    "attributes": {
+      "quantity": "Single",
+      "refillable": "No",
+      "color": "Yellow",
+      "size": "Legal",
+      "material": "Cardboard"
+    },
+    "image": {
+      "url": "data/images/product_c20bf275-11b6-4891-8e94-550ac0c3db8b.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:00.094723"
+  },
+  {
+    "id": "882749e4-df7c-4a44-a708-0a0e944afa29",
+    "name": "Epson Professional Scissors",
+    "description": "This Yellow scissors is perfect for everyday use. Featuring a minimalist design. Comes in a Pack of 50. Made with Metal for durability and longevity. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 12.18,
+    "brand": "Epson",
+    "attributes": {
+      "color": "Yellow",
+      "size": "Large",
+      "material": "Metal",
+      "refillable": "No",
+      "quantity": "Pack of 50"
+    },
+    "image": {
+      "url": "data/images/product_882749e4-df7c-4a44-a708-0a0e944afa29.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.572623"
+  },
+  {
+    "id": "cdc7c37d-0293-4b1f-9190-e6c7fa6895df",
+    "name": "Scotch Ultra Markers",
+    "description": "Comes in a Pack of 100. Buy now and experience the difference! Designed for efficiency. Featuring a sleek design. This Red markers is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 4.89,
+    "brand": "Scotch",
+    "attributes": {
+      "size": "Letter",
+      "color": "Red",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_cdc7c37d-0293-4b1f-9190-e6c7fa6895df.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:44.664392"
+  },
+  {
+    "id": "d630e03e-f453-448b-85d4-6db3857f7b6a",
+    "name": "Brother Durable Scissors",
+    "description": "Featuring a classic design. Satisfaction guaranteed or your money back. Designed for productivity. The Assorted is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 17.09,
+    "brand": "Brother",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "size": "Legal",
+      "color": "Assorted"
+    },
+    "image": {
+      "url": "data/images/product_d630e03e-f453-448b-85d4-6db3857f7b6a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:45.689843"
+  },
+  {
+    "id": "ef4568db-71ec-40a2-91e1-348b3b1ac90c",
+    "name": "3M High-end Pens & Pencils",
+    "description": "An excellent choice for professional use. Designed for efficiency. Satisfaction guaranteed or your money back. Buy now and experience the difference! The Green is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 21.29,
+    "brand": "3M",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Small",
+      "refillable": "No",
+      "material": "Plastic",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_ef4568db-71ec-40a2-91e1-348b3b1ac90c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:07.304579"
+  },
+  {
+    "id": "1116c4f7-0963-4335-a2a2-d2e9b5a94fb5",
+    "name": "Faber-Castell Deluxe Calendars",
+    "description": "Designed for efficiency. Featuring a modern design. This versatile calendars is perfect for everyday use. An excellent choice for home use. Made with Cardboard for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 15.79,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Cardboard",
+      "quantity": "Pack of 10",
+      "size": "Letter",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_1116c4f7-0963-4335-a2a2-d2e9b5a94fb5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:54.572678"
+  },
+  {
+    "id": "2a7c7af3-6bea-4b69-bc6d-580923669438",
+    "name": "HP Budget Pens & Pencils",
+    "description": "An excellent choice for home use. This Red pens & pencils is perfect for everyday use. The Red is perfect for office use. Designed for convenience. Featuring a sleek design. Made with high-quality materials for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 23.31,
+    "brand": "HP",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "size": "Standard",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_2a7c7af3-6bea-4b69-bc6d-580923669438.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:18.019683"
+  },
+  {
+    "id": "e245818f-ef55-42a5-bea2-e50ee4f4cced",
+    "name": "Scotch High-end Printers & Ink L275",
+    "description": "Featuring a elegant design. Buy now and experience the difference! This Green printers & ink is perfect for everyday use. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 154.98,
+    "brand": "Scotch",
+    "attributes": {
+      "material": "Metal",
+      "color": "Green",
+      "size": "Medium",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_e245818f-ef55-42a5-bea2-e50ee4f4cced.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.943396"
+  },
+  {
+    "id": "dc7ca437-c859-44db-bd2c-7f9fd1c2dfc4",
+    "name": "Papermate Compact Paper E515",
+    "description": "Made with Wood for durability and longevity. Featuring a sleek design. The professional color is perfect for office use. Comes in a Single. An excellent choice for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 13.7,
+    "brand": "Papermate",
+    "attributes": {
+      "size": "Letter",
+      "material": "Wood",
+      "quantity": "Single",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_dc7ca437-c859-44db-bd2c-7f9fd1c2dfc4.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.440376"
+  },
+  {
+    "id": "3f58d9d7-87f4-4a0f-b415-88f19dc80eb8",
+    "name": "Avery Wireless Calendars",
+    "description": "Satisfaction guaranteed or your money back. Designed for efficiency. An excellent choice for office use. Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 12.47,
+    "brand": "Avery",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "material": "Wood",
+      "refillable": "No",
+      "size": "Legal"
+    },
+    "image": {
+      "url": "data/images/product_3f58d9d7-87f4-4a0f-b415-88f19dc80eb8.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:54.148366"
+  },
+  {
+    "id": "0a1b9a4f-aeb6-47a0-b301-7d4556443698",
+    "name": "Bic Portable Markers X416",
+    "description": "Buy now and experience the difference! Satisfaction guaranteed or your money back. This Yellow markers is perfect for everyday use. An excellent choice for professional use. The Yellow is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 13.43,
+    "brand": "Bic",
+    "attributes": {
+      "material": "Paper",
+      "color": "Yellow",
+      "quantity": "Pack of 20"
+    },
+    "image": {
+      "url": "data/images/product_0a1b9a4f-aeb6-47a0-b301-7d4556443698.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:20.887632"
+  },
+  {
+    "id": "932fc847-69d8-4415-9c3b-d70c96561fd0",
+    "name": "Moleskine Modern Pens & Pencils A387",
+    "description": "Buy now and experience the difference! An excellent choice for everyday use. This Red pens & pencils is perfect for everyday use. Made with Cardboard for durability and longevity. Satisfaction guaranteed or your money back. Comes in a Single.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 28.46,
+    "brand": "Moleskine",
+    "attributes": {
+      "color": "Red",
+      "material": "Cardboard",
+      "refillable": "Yes",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_932fc847-69d8-4415-9c3b-d70c96561fd0.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:39.220221"
+  },
+  {
+    "id": "59b9ef7f-11c6-4a5f-a193-583a00fb571c",
+    "name": "Pilot Premium Markers",
+    "description": "Buy now and experience the difference! Designed for efficiency. Comes in a Pack of 10. The Black is perfect for office use. Satisfaction guaranteed or your money back. This Black markers is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 9.91,
+    "brand": "Pilot",
+    "attributes": {
+      "material": "Metal",
+      "color": "Black",
+      "quantity": "Pack of 10",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_59b9ef7f-11c6-4a5f-a193-583a00fb571c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:50.803662"
+  },
+  {
+    "id": "e32723bc-5d0a-414c-978a-e466a9b88729",
+    "name": "Staples Compact Markers F244",
+    "description": "Made with high-quality materials for durability and longevity. An excellent choice for office use. Featuring a elegant design. Designed for productivity. Buy now and experience the difference! This Black markers is perfect for everyday use. The Black is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 4.63,
+    "brand": "Staples",
+    "attributes": {
+      "size": "Small",
+      "quantity": "Pack of 5",
+      "color": "Black"
+    },
+    "image": {
+      "url": "data/images/product_e32723bc-5d0a-414c-978a-e466a9b88729.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:30.097917"
+  },
+  {
+    "id": "4951089f-0bc1-46ec-8cb0-fe6c50bdad9d",
+    "name": "Pilot Durable Staplers G544",
+    "description": "Satisfaction guaranteed or your money back. Comes in a Pack of 5. This versatile staplers is perfect for everyday use. An excellent choice for home use. Buy now and experience the difference! Designed for organization. The professional color is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 9.35,
+    "brand": "Pilot",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "size": "Legal",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_4951089f-0bc1-46ec-8cb0-fe6c50bdad9d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:40.428465"
+  },
+  {
+    "id": "a29b86e0-b948-4402-9a4c-2264ba330069",
+    "name": "HP Ultimate Notebooks",
+    "description": "Made with Plastic for durability and longevity. Buy now and experience the difference! An excellent choice for professional use. Satisfaction guaranteed or your money back. This versatile notebooks is perfect for everyday use. Designed for productivity.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 6.5,
+    "brand": "HP",
+    "attributes": {
+      "quantity": "Pack of 10",
+      "material": "Plastic",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_a29b86e0-b948-4402-9a4c-2264ba330069.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:34.674268"
+  },
+  {
+    "id": "bc6f54c8-f3d8-4137-a1f6-c08ae5a4880a",
+    "name": "Papermate Classic Pens & Pencils G789",
+    "description": "This versatile pens & pencils is perfect for everyday use. Designed for organization. Buy now and experience the difference! Satisfaction guaranteed or your money back. The professional color is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 27.86,
+    "brand": "Papermate",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "refillable": "No",
+      "material": "Plastic",
+      "size": "Letter"
+    },
+    "image": {
+      "url": "data/images/product_bc6f54c8-f3d8-4137-a1f6-c08ae5a4880a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:22.692751"
+  },
+  {
+    "id": "3739c63f-0be3-44ab-96a3-5d3999608a80",
+    "name": "3M Wireless Pens & Pencils",
+    "description": "Comes in a Single. Featuring a modern design. An excellent choice for everyday use. Made with Paper for durability and longevity. Designed for productivity.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 11.92,
+    "brand": "3M",
+    "attributes": {
+      "quantity": "Single",
+      "material": "Paper",
+      "size": "Letter",
+      "refillable": "No",
+      "color": "Yellow"
+    },
+    "image": {
+      "url": "data/images/product_3739c63f-0be3-44ab-96a3-5d3999608a80.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:03.124032"
+  },
+  {
+    "id": "267b70c8-7f57-48ee-b7db-618407c4d5aa",
+    "name": "Epson Modern Paper",
+    "description": "Buy now and experience the difference! Satisfaction guaranteed or your money back. Made with Paper for durability and longevity. This Green paper is perfect for everyday use. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 11.11,
+    "brand": "Epson",
+    "attributes": {
+      "color": "Green",
+      "material": "Paper",
+      "size": "Legal"
+    },
+    "image": {
+      "url": "data/images/product_267b70c8-7f57-48ee-b7db-618407c4d5aa.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:03.374973"
+  },
+  {
+    "id": "57e79de5-c327-4513-851e-093fb4bbca1d",
+    "name": "Brother Advanced Desk Accessories E627",
+    "description": "Featuring a elegant design. This versatile desk accessories is perfect for everyday use. Comes in a Pack of 100. An excellent choice for everyday use. Buy now and experience the difference! Designed for efficiency.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 25.43,
+    "brand": "Brother",
+    "attributes": {
+      "material": "Metal",
+      "size": "Medium",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_57e79de5-c327-4513-851e-093fb4bbca1d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:20.591486"
+  },
+  {
+    "id": "82cf9d5b-f358-40d1-b5df-81bcc8c2dc71",
+    "name": "HP Luxury Notebooks F399",
+    "description": "Featuring a classic design. Designed for productivity. Comes in a Pack of 10. Buy now and experience the difference! Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 12.71,
+    "brand": "HP",
+    "attributes": {
+      "size": "Medium",
+      "color": "Yellow",
+      "quantity": "Pack of 10",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_82cf9d5b-f358-40d1-b5df-81bcc8c2dc71.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:34.023466"
+  },
+  {
+    "id": "a7d742c6-6dd9-487d-ae35-32d2ce7251fb",
+    "name": "3M Smart Desk Accessories",
+    "description": "Made with Paper for durability and longevity. Buy now and experience the difference! Comes in a Pack of 5. The Green is perfect for office use. An excellent choice for home use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 19.55,
+    "brand": "3M",
+    "attributes": {
+      "size": "Large",
+      "material": "Paper",
+      "quantity": "Pack of 5",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_a7d742c6-6dd9-487d-ae35-32d2ce7251fb.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:24.843216"
+  },
+  {
+    "id": "905f21ca-6e19-42f9-92b6-f7b5636faa6c",
+    "name": "3M Portable Notebooks G732",
+    "description": "An excellent choice for professional use. Satisfaction guaranteed or your money back. Buy now and experience the difference! The Blue is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 16.91,
+    "brand": "3M",
+    "attributes": {
+      "color": "Blue",
+      "material": "Plastic",
+      "refillable": "Yes",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_905f21ca-6e19-42f9-92b6-f7b5636faa6c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:38.871136"
+  },
+  {
+    "id": "de04b3c7-b2f9-48fb-884c-69a01b05322d",
+    "name": "Scotch Budget Notebooks X230",
+    "description": "Buy now and experience the difference! The Yellow is perfect for office use. An excellent choice for professional use. This Yellow notebooks is perfect for everyday use. Designed for organization. Made with Cardboard for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 13.68,
+    "brand": "Scotch",
+    "attributes": {
+      "quantity": "Pack of 100",
+      "color": "Yellow",
+      "material": "Cardboard",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_de04b3c7-b2f9-48fb-884c-69a01b05322d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:29.559548"
+  },
+  {
+    "id": "7d01943c-5d1d-4479-9bcf-72f452afb64d",
+    "name": "Avery Ultimate Markers",
+    "description": "Made with Metal for durability and longevity. Buy now and experience the difference! Featuring a sleek design. Designed for efficiency. Comes in a Pack of 10. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 8.26,
+    "brand": "Avery",
+    "attributes": {
+      "size": "Large",
+      "quantity": "Pack of 10",
+      "refillable": "Yes",
+      "color": "Red",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_7d01943c-5d1d-4479-9bcf-72f452afb64d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:41.223960"
+  },
+  {
+    "id": "ac426a99-ba67-4255-8309-4d6cfb64626f",
+    "name": "Pilot High-end Calendars O321",
+    "description": "Featuring a minimalist design. An excellent choice for office use. Buy now and experience the difference! The Yellow is perfect for office use. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 12.8,
+    "brand": "Pilot",
+    "attributes": {
+      "color": "Yellow",
+      "material": "Paper",
+      "refillable": "No",
+      "quantity": "Pack of 20"
+    },
+    "image": {
+      "url": "data/images/product_ac426a99-ba67-4255-8309-4d6cfb64626f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:58.747380"
+  },
+  {
+    "id": "830bf9be-213f-49d0-9761-18938a4d99db",
+    "name": "Avery Ergonomic Paper",
+    "description": "This Blue paper is perfect for everyday use. The Blue is perfect for office use. Comes in a convenient package. Satisfaction guaranteed or your money back. An excellent choice for everyday use. Featuring a modern design.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 22.76,
+    "brand": "Avery",
+    "attributes": {
+      "color": "Blue",
+      "material": "Plastic",
+      "size": "Standard"
+    },
+    "image": {
+      "url": "data/images/product_830bf9be-213f-49d0-9761-18938a4d99db.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:03.817402"
+  },
+  {
+    "id": "23a07fcd-28e2-482a-bf38-e5d58e70512d",
+    "name": "Scotch Wireless Calendars",
+    "description": "Satisfaction guaranteed or your money back. Buy now and experience the difference! Comes in a Pack of 20. An excellent choice for home use. The Green is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 15.55,
+    "brand": "Scotch",
+    "attributes": {
+      "size": "Standard",
+      "refillable": "No",
+      "color": "Green",
+      "quantity": "Pack of 20",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_23a07fcd-28e2-482a-bf38-e5d58e70512d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:22.583785"
+  },
+  {
+    "id": "ee1f489b-a5c1-4ff1-85f8-042c653c721f",
+    "name": "Faber-Castell Essential Calendars G239",
+    "description": "This versatile calendars is perfect for everyday use. An excellent choice for everyday use. The professional color is perfect for office use. Featuring a elegant design. Comes in a Pack of 20.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 11.29,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "size": "Standard",
+      "material": "Plastic"
+    },
+    "image": {
+      "url": "data/images/product_ee1f489b-a5c1-4ff1-85f8-042c653c721f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:39.186209"
+  },
+  {
+    "id": "d76b93ca-65f4-4b4b-a262-aead957a77cb",
+    "name": "Papermate Ultra Staplers",
+    "description": "This versatile staplers is perfect for everyday use. Featuring a sleek design. An excellent choice for office use. Satisfaction guaranteed or your money back. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 19.77,
+    "brand": "Papermate",
+    "attributes": {
+      "quantity": "Pack of 100",
+      "refillable": "Yes",
+      "material": "Plastic",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_d76b93ca-65f4-4b4b-a262-aead957a77cb.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:08.015706"
+  },
+  {
+    "id": "ff77da9c-75d0-43af-8bc5-e8467c4abbb7",
+    "name": "Brother Super Markers D575",
+    "description": "Buy now and experience the difference! Featuring a elegant design. This Assorted markers is perfect for everyday use. An excellent choice for everyday use. Designed for efficiency.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 7.51,
+    "brand": "Brother",
+    "attributes": {
+      "material": "Plastic",
+      "refillable": "Yes",
+      "color": "Assorted"
+    },
+    "image": {
+      "url": "data/images/product_ff77da9c-75d0-43af-8bc5-e8467c4abbb7.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:07.831716"
+  },
+  {
+    "id": "96212760-dfe9-41bb-994b-c623d5333fd5",
+    "name": "Zebra Luxury Calendars G356",
+    "description": "Satisfaction guaranteed or your money back. Buy now and experience the difference! Made with high-quality materials for durability and longevity. Comes in a Single.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 18.61,
+    "brand": "Zebra",
+    "attributes": {
+      "quantity": "Single",
+      "size": "Small",
+      "color": "Green",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_96212760-dfe9-41bb-994b-c623d5333fd5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:40.764380"
+  },
+  {
+    "id": "b69fe89d-7345-4f32-a64a-705bb68b4296",
+    "name": "Epson Essential Pens & Pencils",
+    "description": "The Green is perfect for office use. This Green pens & pencils is perfect for everyday use. Satisfaction guaranteed or your money back. Comes in a Pack of 10. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 26.27,
+    "brand": "Epson",
+    "attributes": {
+      "color": "Green",
+      "refillable": "Yes",
+      "quantity": "Pack of 10",
+      "size": "Standard",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_b69fe89d-7345-4f32-a64a-705bb68b4296.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:25.726074"
+  },
+  {
+    "id": "2436ca0d-f637-42bd-8187-8871d2c87550",
+    "name": "Bic Super Calendars",
+    "description": "Featuring a classic design. Buy now and experience the difference! The Red is perfect for office use. Satisfaction guaranteed or your money back. An excellent choice for home use.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 21.09,
+    "brand": "Bic",
+    "attributes": {
+      "size": "Large",
+      "color": "Red",
+      "material": "Cardboard",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_2436ca0d-f637-42bd-8187-8871d2c87550.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:39.048633"
+  },
+  {
+    "id": "1fdcc2e4-1d56-4166-b581-45f2a3a91775",
+    "name": "Scotch Wireless Desk Accessories",
+    "description": "Satisfaction guaranteed or your money back. Comes in a Pack of 100. This versatile desk accessories is perfect for everyday use. Featuring a modern design.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 37.48,
+    "brand": "Scotch",
+    "attributes": {
+      "material": "Metal",
+      "refillable": "Yes",
+      "quantity": "Pack of 100",
+      "size": "Large"
+    },
+    "image": {
+      "url": "data/images/product_1fdcc2e4-1d56-4166-b581-45f2a3a91775.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:50.704237"
+  },
+  {
+    "id": "ff40994d-8b0d-4a5c-84c8-d7a91f216006",
+    "name": "Papermate Professional Notebooks",
+    "description": "This versatile notebooks is perfect for everyday use. Featuring a sleek design. Buy now and experience the difference! Made with Paper for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 23.85,
+    "brand": "Papermate",
+    "attributes": {
+      "size": "Standard",
+      "material": "Paper",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_ff40994d-8b0d-4a5c-84c8-d7a91f216006.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:21.693795"
+  },
+  {
+    "id": "b8029808-dc99-4148-b819-c4e8706b9b9f",
+    "name": "Pilot Wireless Desk Accessories U416",
+    "description": "Made with Wood for durability and longevity. An excellent choice for professional use. Featuring a elegant design. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 25.13,
+    "brand": "Pilot",
+    "attributes": {
+      "refillable": "No",
+      "quantity": "Pack of 10",
+      "material": "Wood",
+      "size": "Standard",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_b8029808-dc99-4148-b819-c4e8706b9b9f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:58.105343"
+  },
+  {
+    "id": "9591d969-31a2-4835-a004-1f27809e064c",
+    "name": "3M Essential Paper",
+    "description": "Comes in a Pack of 10. Satisfaction guaranteed or your money back. This Blue paper is perfect for everyday use. Featuring a minimalist design. Made with high-quality materials for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 24.03,
+    "brand": "3M",
+    "attributes": {
+      "refillable": "No",
+      "color": "Blue",
+      "quantity": "Pack of 10"
+    },
+    "image": {
+      "url": "data/images/product_9591d969-31a2-4835-a004-1f27809e064c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:46.920982"
+  },
+  {
+    "id": "ee1597d4-bb84-4583-9920-28f0e204d751",
+    "name": "Avery Budget Markers E837",
+    "description": "Designed for organization. This Red markers is perfect for everyday use. An excellent choice for home use. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 13.54,
+    "brand": "Avery",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "color": "Red",
+      "material": "Metal",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_ee1597d4-bb84-4583-9920-28f0e204d751.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:04.747901"
+  },
+  {
+    "id": "09054667-e341-4b12-826d-de629c02c23f",
+    "name": "3M Wireless Markers R840",
+    "description": "Designed for efficiency. Made with Paper for durability and longevity. Buy now and experience the difference! Comes in a Pack of 5.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 15.0,
+    "brand": "3M",
+    "attributes": {
+      "size": "Letter",
+      "material": "Paper",
+      "quantity": "Pack of 5",
+      "color": "Yellow"
+    },
+    "image": {
+      "url": "data/images/product_09054667-e341-4b12-826d-de629c02c23f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:52.879299"
+  },
+  {
+    "id": "bd9abc79-55b3-4bde-a950-a9bbaaa8bb68",
+    "name": "Moleskine Ergonomic Notebooks",
+    "description": "The Green is perfect for office use. Satisfaction guaranteed or your money back. Buy now and experience the difference! An excellent choice for office use. Made with Paper for durability and longevity. Designed for efficiency. This Green notebooks is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 22.08,
+    "brand": "Moleskine",
+    "attributes": {
+      "material": "Paper",
+      "size": "Large",
+      "quantity": "Pack of 20",
+      "color": "Green",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_bd9abc79-55b3-4bde-a950-a9bbaaa8bb68.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:33.648725"
+  },
+  {
+    "id": "fba11643-3e24-497f-bbf6-0c3d90704dfc",
+    "name": "Bic Budget Pens & Pencils W604",
+    "description": "The Red is perfect for office use. An excellent choice for home use. Buy now and experience the difference! Featuring a minimalist design. This Red pens & pencils is perfect for everyday use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 26.06,
+    "brand": "Bic",
+    "attributes": {
+      "size": "Letter",
+      "refillable": "No",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_fba11643-3e24-497f-bbf6-0c3d90704dfc.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:48.413066"
+  },
+  {
+    "id": "e75e2f78-5d49-4bef-878d-91f4f1e825b8",
+    "name": "Staples Wireless Staplers",
+    "description": "This Black staplers is perfect for everyday use. Comes in a convenient package. Designed for productivity. An excellent choice for home use. Satisfaction guaranteed or your money back. Made with Cardboard for durability and longevity. Featuring a classic design.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 15.81,
+    "brand": "Staples",
+    "attributes": {
+      "size": "Small",
+      "color": "Black",
+      "refillable": "No",
+      "material": "Cardboard"
+    },
+    "image": {
+      "url": "data/images/product_e75e2f78-5d49-4bef-878d-91f4f1e825b8.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:22.027663"
+  },
+  {
+    "id": "236440de-7694-4fbf-9dee-89a25f60545a",
+    "name": "Papermate Budget Pens & Pencils T165",
+    "description": "The Red is perfect for office use. This Red pens & pencils is perfect for everyday use. Satisfaction guaranteed or your money back. An excellent choice for home use. Comes in a Pack of 10.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 13.41,
+    "brand": "Papermate",
+    "attributes": {
+      "color": "Red",
+      "material": "Plastic",
+      "quantity": "Pack of 10",
+      "size": "Letter"
+    },
+    "image": {
+      "url": "data/images/product_236440de-7694-4fbf-9dee-89a25f60545a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:27.090316"
+  },
+  {
+    "id": "6c674a3d-fd31-4805-b204-2634534e9fc4",
+    "name": "Moleskine Smart Scissors",
+    "description": "Buy now and experience the difference! Satisfaction guaranteed or your money back. This Red scissors is perfect for everyday use. Made with high-quality materials for durability and longevity. The Red is perfect for office use. Comes in a Pack of 5. Designed for organization.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 16.39,
+    "brand": "Moleskine",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "size": "Legal",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_6c674a3d-fd31-4805-b204-2634534e9fc4.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:32.743156"
+  },
+  {
+    "id": "854a954a-32bd-4bf3-89aa-b4522839f05a",
+    "name": "3M Professional Calendars U843",
+    "description": "Designed for efficiency. The Assorted is perfect for office use. Satisfaction guaranteed or your money back. Featuring a sleek design. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 21.21,
+    "brand": "3M",
+    "attributes": {
+      "refillable": "No",
+      "quantity": "Pack of 20",
+      "color": "Assorted",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_854a954a-32bd-4bf3-89aa-b4522839f05a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:36.973432"
+  },
+  {
+    "id": "ddc43bc2-cb3e-4c27-a419-1e94a3c78f06",
+    "name": "Papermate Super Desk Accessories",
+    "description": "An excellent choice for everyday use. Featuring a modern design. Buy now and experience the difference! Comes in a Single.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 18.72,
+    "brand": "Papermate",
+    "attributes": {
+      "material": "Wood",
+      "refillable": "Yes",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_ddc43bc2-cb3e-4c27-a419-1e94a3c78f06.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:25.397152"
+  },
+  {
+    "id": "e6c89f0c-dc3c-4ed0-a12f-161acf78ffb7",
+    "name": "Epson Ultra Desk Accessories",
+    "description": "The Assorted is perfect for office use. Comes in a Pack of 50. Featuring a sleek design. Buy now and experience the difference! An excellent choice for home use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 28.96,
+    "brand": "Epson",
+    "attributes": {
+      "color": "Assorted",
+      "refillable": "No",
+      "quantity": "Pack of 50",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_e6c89f0c-dc3c-4ed0-a12f-161acf78ffb7.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:27.653673"
+  },
+  {
+    "id": "ab5e26f1-5036-46b7-a255-196dd1f3aa86",
+    "name": "Bic Portable Markers D948",
+    "description": "Comes in a Pack of 50. Made with Cardboard for durability and longevity. The Black is perfect for office use. An excellent choice for professional use. Buy now and experience the difference! Featuring a sleek design. Designed for efficiency.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 14.34,
+    "brand": "Bic",
+    "attributes": {
+      "refillable": "No",
+      "material": "Cardboard",
+      "quantity": "Pack of 50",
+      "color": "Black",
+      "size": "Standard"
+    },
+    "image": {
+      "url": "data/images/product_ab5e26f1-5036-46b7-a255-196dd1f3aa86.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:32.127425"
+  },
+  {
+    "id": "e6dbf300-9969-493a-9427-bc6c273fd8f6",
+    "name": "3M Budget Binders Z924",
+    "description": "The Blue is perfect for office use. Featuring a classic design. Satisfaction guaranteed or your money back. Made with high-quality materials for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 16.45,
+    "brand": "3M",
+    "attributes": {
+      "color": "Blue",
+      "quantity": "Single",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_e6dbf300-9969-493a-9427-bc6c273fd8f6.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:27.324823"
+  },
+  {
+    "id": "5192c2dd-9106-44fa-abe5-0e2e0461135f",
+    "name": "Avery Deluxe Calendars",
+    "description": "The professional color is perfect for office use. Comes in a Pack of 5. Made with Metal for durability and longevity. An excellent choice for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 21.67,
+    "brand": "Avery",
+    "attributes": {
+      "material": "Metal",
+      "size": "Standard",
+      "quantity": "Pack of 5"
+    },
+    "image": {
+      "url": "data/images/product_5192c2dd-9106-44fa-abe5-0e2e0461135f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:30.345443"
+  },
+  {
+    "id": "d9eaee9f-d752-4e2f-bd62-6ef5f67a2278",
+    "name": "Papermate Advanced Pens & Pencils S315",
+    "description": "The Red is perfect for office use. Made with Metal for durability and longevity. Designed for productivity. This Red pens & pencils is perfect for everyday use. Comes in a Single. Buy now and experience the difference! Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 19.14,
+    "brand": "Papermate",
+    "attributes": {
+      "quantity": "Single",
+      "color": "Red",
+      "refillable": "Yes",
+      "size": "Medium",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_d9eaee9f-d752-4e2f-bd62-6ef5f67a2278.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:32.669064"
+  },
+  {
+    "id": "fb628aa0-5a74-47e1-9995-1007e38d9279",
+    "name": "Scotch Durable Printers & Ink Z751",
+    "description": "Featuring a modern design. Made with high-quality materials for durability and longevity. This Yellow printers & ink is perfect for everyday use. Comes in a Pack of 50. Satisfaction guaranteed or your money back. An excellent choice for office use. The Yellow is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 74.02,
+    "brand": "Scotch",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "color": "Yellow",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_fb628aa0-5a74-47e1-9995-1007e38d9279.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:16.489348"
+  },
+  {
+    "id": "ce930536-f919-4985-ba9a-e2acdf6af9a9",
+    "name": "Pilot Advanced Calendars U303",
+    "description": "Designed for productivity. Made with Plastic for durability and longevity. Satisfaction guaranteed or your money back. Comes in a convenient package. This Green calendars is perfect for everyday use. Buy now and experience the difference! Featuring a classic design.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 13.27,
+    "brand": "Pilot",
+    "attributes": {
+      "material": "Plastic",
+      "refillable": "No",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_ce930536-f919-4985-ba9a-e2acdf6af9a9.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:09.408851"
+  },
+  {
+    "id": "b23d3261-c858-4d51-ad2e-8b9d863ae790",
+    "name": "Moleskine High-end Printers & Ink",
+    "description": "This Blue printers & ink is perfect for everyday use. Satisfaction guaranteed or your money back. An excellent choice for home use. The Blue is perfect for office use. Made with Cardboard for durability and longevity. Designed for efficiency.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 143.27,
+    "brand": "Moleskine",
+    "attributes": {
+      "color": "Blue",
+      "size": "Medium",
+      "material": "Cardboard",
+      "refillable": "No",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_b23d3261-c858-4d51-ad2e-8b9d863ae790.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:02.850862"
+  },
+  {
+    "id": "d0c070a7-5c96-4f61-a711-6a0b41762445",
+    "name": "Papermate Portable Binders",
+    "description": "Comes in a Pack of 100. Designed for organization. The Blue is perfect for office use. Made with high-quality materials for durability and longevity. Featuring a modern design. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 11.17,
+    "brand": "Papermate",
+    "attributes": {
+      "quantity": "Pack of 100",
+      "color": "Blue",
+      "size": "Medium"
+    },
+    "image": {
+      "url": "data/images/product_d0c070a7-5c96-4f61-a711-6a0b41762445.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.007491"
+  },
+  {
+    "id": "78f93d18-6f27-438c-9f9e-d361c941ab4d",
+    "name": "Sharpie Durable Binders W165",
+    "description": "Satisfaction guaranteed or your money back. Designed for convenience. Buy now and experience the difference! The Assorted is perfect for office use. Comes in a Pack of 10.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 14.44,
+    "brand": "Sharpie",
+    "attributes": {
+      "quantity": "Pack of 10",
+      "material": "Cardboard",
+      "color": "Assorted",
+      "size": "Medium",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_78f93d18-6f27-438c-9f9e-d361c941ab4d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:18.118330"
+  },
+  {
+    "id": "47088725-f885-420f-be5a-a370616e0ef5",
+    "name": "Brother Professional Notebooks",
+    "description": "The Black is perfect for office use. Comes in a Pack of 50. Designed for efficiency. This Black notebooks is perfect for everyday use. Featuring a modern design. Buy now and experience the difference! Made with Paper for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 23.99,
+    "brand": "Brother",
+    "attributes": {
+      "size": "Legal",
+      "material": "Paper",
+      "refillable": "Yes",
+      "color": "Black",
+      "quantity": "Pack of 50"
+    },
+    "image": {
+      "url": "data/images/product_47088725-f885-420f-be5a-a370616e0ef5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:41.617698"
+  },
+  {
+    "id": "bba72512-7afc-41dc-8323-ac35b5e15fba",
+    "name": "Moleskine Eco-friendly Scissors Y570",
+    "description": "This Black scissors is perfect for everyday use. Designed for efficiency. Buy now and experience the difference! An excellent choice for home use. Made with high-quality materials for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 12.55,
+    "brand": "Moleskine",
+    "attributes": {
+      "refillable": "Yes",
+      "color": "Black",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_bba72512-7afc-41dc-8323-ac35b5e15fba.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:39.975068"
+  },
+  {
+    "id": "823987c3-e435-48f3-8b07-d7e898451bc1",
+    "name": "Faber-Castell Ultra Scissors",
+    "description": "The Blue is perfect for office use. Made with Paper for durability and longevity. Comes in a convenient package. Featuring a elegant design.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 10.86,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "color": "Blue",
+      "material": "Paper",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_823987c3-e435-48f3-8b07-d7e898451bc1.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:45.099500"
+  },
+  {
+    "id": "79bd7d1f-adff-4e6c-a456-08926c371f9d",
+    "name": "Staples Classic Desk Accessories",
+    "description": "Comes in a Single. This Black desk accessories is perfect for everyday use. An excellent choice for travel use. Designed for productivity. Featuring a modern design. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 48.3,
+    "brand": "Staples",
+    "attributes": {
+      "size": "Standard",
+      "material": "Metal",
+      "refillable": "Yes",
+      "quantity": "Single",
+      "color": "Black"
+    },
+    "image": {
+      "url": "data/images/product_79bd7d1f-adff-4e6c-a456-08926c371f9d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:50.096474"
+  },
+  {
+    "id": "9bf7cab4-04dc-4663-84dc-ec722edcd3f2",
+    "name": "Avery Essential Scissors",
+    "description": "Featuring a classic design. Comes in a convenient package. This Assorted scissors is perfect for everyday use. An excellent choice for professional use. Buy now and experience the difference! Made with high-quality materials for durability and longevity. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 17.58,
+    "brand": "Avery",
+    "attributes": {
+      "size": "Medium",
+      "color": "Assorted",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_9bf7cab4-04dc-4663-84dc-ec722edcd3f2.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:47.520990"
+  },
+  {
+    "id": "94a10e1e-9df1-4cfe-9287-808ef06f4589",
+    "name": "Sharpie Premium Notebooks",
+    "description": "Buy now and experience the difference! Made with Cardboard for durability and longevity. Designed for organization. An excellent choice for everyday use. This Blue notebooks is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 10.77,
+    "brand": "Sharpie",
+    "attributes": {
+      "quantity": "Single",
+      "material": "Cardboard",
+      "color": "Blue"
+    },
+    "image": {
+      "url": "data/images/product_94a10e1e-9df1-4cfe-9287-808ef06f4589.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:02.249760"
+  },
+  {
+    "id": "505e8225-5ae4-4f38-a3b4-86dba71db3d7",
+    "name": "Scotch Compact Calendars",
+    "description": "An excellent choice for professional use. This Black calendars is perfect for everyday use. Buy now and experience the difference! Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 13.24,
+    "brand": "Scotch",
+    "attributes": {
+      "color": "Black",
+      "quantity": "Pack of 20",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_505e8225-5ae4-4f38-a3b4-86dba71db3d7.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:49.729439"
+  },
+  {
+    "id": "918b852d-3858-4dde-a9bd-029e7f620e50",
+    "name": "Bic Ultimate Markers M170",
+    "description": "Buy now and experience the difference! An excellent choice for travel use. This Blue markers is perfect for everyday use. Satisfaction guaranteed or your money back. Designed for productivity. The Blue is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 15.09,
+    "brand": "Bic",
+    "attributes": {
+      "quantity": "Pack of 10",
+      "color": "Blue",
+      "material": "Plastic",
+      "refillable": "Yes",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_918b852d-3858-4dde-a9bd-029e7f620e50.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:31.997795"
+  },
+  {
+    "id": "e1bca2f2-566f-40f1-94d1-1f539446d0e4",
+    "name": "Sharpie Compact Printers & Ink V376",
+    "description": "Buy now and experience the difference! The professional color is perfect for office use. Comes in a Pack of 10. Featuring a classic design. Satisfaction guaranteed or your money back. An excellent choice for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 39.6,
+    "brand": "Sharpie",
+    "attributes": {
+      "quantity": "Pack of 10",
+      "refillable": "No",
+      "material": "Plastic"
+    },
+    "image": {
+      "url": "data/images/product_e1bca2f2-566f-40f1-94d1-1f539446d0e4.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:18.082882"
+  },
+  {
+    "id": "fd5d9f61-a33c-4076-be17-035918ad2e8f",
+    "name": "3M High-end Staplers",
+    "description": "An excellent choice for professional use. Featuring a elegant design. Comes in a Pack of 100. The professional color is perfect for office use. Made with Plastic for durability and longevity. Satisfaction guaranteed or your money back. This versatile staplers is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 20.9,
+    "brand": "3M",
+    "attributes": {
+      "size": "Letter",
+      "quantity": "Pack of 100",
+      "material": "Plastic"
+    },
+    "image": {
+      "url": "data/images/product_fd5d9f61-a33c-4076-be17-035918ad2e8f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.750079"
+  },
+  {
+    "id": "f7c1ab2c-7842-4ff9-8339-ebf3b843e6d7",
+    "name": "Papermate Eco-friendly Notebooks L425",
+    "description": "Designed for convenience. This Assorted notebooks is perfect for everyday use. Featuring a minimalist design. Comes in a convenient package. Satisfaction guaranteed or your money back. An excellent choice for professional use. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 21.64,
+    "brand": "Papermate",
+    "attributes": {
+      "refillable": "Yes",
+      "size": "Small",
+      "color": "Assorted"
+    },
+    "image": {
+      "url": "data/images/product_f7c1ab2c-7842-4ff9-8339-ebf3b843e6d7.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:48.019059"
+  },
+  {
+    "id": "41eb197f-8003-4317-b9a0-a8fdf44e2600",
+    "name": "3M Premium Binders A187",
+    "description": "Made with Paper for durability and longevity. The professional color is perfect for office use. Satisfaction guaranteed or your money back. Buy now and experience the difference! An excellent choice for professional use. Comes in a convenient package. Designed for efficiency.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 19.39,
+    "brand": "3M",
+    "attributes": {
+      "size": "Letter",
+      "refillable": "Yes",
+      "material": "Paper"
+    },
+    "image": {
+      "url": "data/images/product_41eb197f-8003-4317-b9a0-a8fdf44e2600.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:41.462225"
+  },
+  {
+    "id": "4e650eba-c4e4-411f-8999-a607de192d30",
+    "name": "HP Essential Binders",
+    "description": "This Assorted binders is perfect for everyday use. Made with Metal for durability and longevity. Comes in a convenient package. Designed for productivity. An excellent choice for office use. The Assorted is perfect for office use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 13.93,
+    "brand": "HP",
+    "attributes": {
+      "refillable": "Yes",
+      "color": "Assorted",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_4e650eba-c4e4-411f-8999-a607de192d30.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.920361"
+  },
+  {
+    "id": "e0351bc3-9de0-4dc3-9838-6bf39ad1a6f2",
+    "name": "Bic Ultimate Desk Accessories",
+    "description": "Buy now and experience the difference! The Red is perfect for office use. This Red desk accessories is perfect for everyday use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 28.03,
+    "brand": "Bic",
+    "attributes": {
+      "material": "Cardboard",
+      "quantity": "Single",
+      "size": "Small",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_e0351bc3-9de0-4dc3-9838-6bf39ad1a6f2.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.035716"
+  },
+  {
+    "id": "a9a15f45-85b2-4201-bb65-fb4281da5b32",
+    "name": "Zebra Luxury Paper B654",
+    "description": "Buy now and experience the difference! Designed for organization. The professional color is perfect for office use. An excellent choice for everyday use. Featuring a minimalist design. Made with Wood for durability and longevity. Comes in a Single.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 7.95,
+    "brand": "Zebra",
+    "attributes": {
+      "quantity": "Single",
+      "refillable": "Yes",
+      "material": "Wood",
+      "size": "Letter"
+    },
+    "image": {
+      "url": "data/images/product_a9a15f45-85b2-4201-bb65-fb4281da5b32.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.223960"
+  },
+  {
+    "id": "493432a8-7d24-4f8b-bb57-bf04815a9f9a",
+    "name": "Staples Eco-friendly Binders W717",
+    "description": "This Green binders is perfect for everyday use. Satisfaction guaranteed or your money back. An excellent choice for everyday use. Made with Cardboard for durability and longevity. Designed for efficiency. Comes in a Single. Featuring a elegant design.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 9.8,
+    "brand": "Staples",
+    "attributes": {
+      "quantity": "Single",
+      "material": "Cardboard",
+      "size": "Small",
+      "color": "Green",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_493432a8-7d24-4f8b-bb57-bf04815a9f9a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:57.001898"
+  },
+  {
+    "id": "6e312cd5-7583-4a5f-b862-ba1f38655ecb",
+    "name": "Faber-Castell Essential Staplers",
+    "description": "Designed for convenience. The professional color is perfect for office use. Buy now and experience the difference! Comes in a Pack of 20. This versatile staplers is perfect for everyday use. Satisfaction guaranteed or your money back. Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 28.19,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "size": "Medium",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_6e312cd5-7583-4a5f-b862-ba1f38655ecb.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:22.450907"
+  },
+  {
+    "id": "69139f18-5afa-4bc7-b714-054934c5402f",
+    "name": "Staples Durable Staplers",
+    "description": "Designed for organization. The Yellow is perfect for office use. An excellent choice for home use. Comes in a Pack of 5.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 16.21,
+    "brand": "Staples",
+    "attributes": {
+      "refillable": "No",
+      "material": "Metal",
+      "size": "Small",
+      "color": "Yellow",
+      "quantity": "Pack of 5"
+    },
+    "image": {
+      "url": "data/images/product_69139f18-5afa-4bc7-b714-054934c5402f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:15.903773"
+  },
+  {
+    "id": "ec3ad827-8693-4bc4-b9d6-4b0aa540d640",
+    "name": "Moleskine Eco-friendly Pens & Pencils E118",
+    "description": "An excellent choice for office use. Featuring a sleek design. This Blue pens & pencils is perfect for everyday use. Satisfaction guaranteed or your money back. Made with Wood for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 15.33,
+    "brand": "Moleskine",
+    "attributes": {
+      "refillable": "Yes",
+      "size": "Small",
+      "material": "Wood",
+      "quantity": "Single",
+      "color": "Blue"
+    },
+    "image": {
+      "url": "data/images/product_ec3ad827-8693-4bc4-b9d6-4b0aa540d640.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:26.652656"
+  },
+  {
+    "id": "99baefa7-9501-4b39-9a2c-75df42dcfdf0",
+    "name": "3M Super Paper I348",
+    "description": "Made with high-quality materials for durability and longevity. Comes in a Pack of 20. Buy now and experience the difference! Designed for organization. Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 4.97,
+    "brand": "3M",
+    "attributes": {
+      "color": "Red",
+      "size": "Standard",
+      "quantity": "Pack of 20",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_99baefa7-9501-4b39-9a2c-75df42dcfdf0.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:53.208262"
+  },
+  {
+    "id": "338d708f-e397-4c05-95a8-44ebc40b6f23",
+    "name": "Sharpie Modern Staplers",
+    "description": "Comes in a Pack of 10. Featuring a classic design. Buy now and experience the difference! Designed for convenience. Made with Metal for durability and longevity. This versatile staplers is perfect for everyday use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 16.03,
+    "brand": "Sharpie",
+    "attributes": {
+      "quantity": "Pack of 10",
+      "refillable": "No",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_338d708f-e397-4c05-95a8-44ebc40b6f23.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.692446"
+  },
+  {
+    "id": "55450b9d-2ae0-4208-9f7d-00916684c888",
+    "name": "Moleskine Portable Binders M974",
+    "description": "Designed for organization. Featuring a minimalist design. Comes in a Pack of 20. This versatile binders is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 15.96,
+    "brand": "Moleskine",
+    "attributes": {
+      "refillable": "Yes",
+      "size": "Standard",
+      "quantity": "Pack of 20"
+    },
+    "image": {
+      "url": "data/images/product_55450b9d-2ae0-4208-9f7d-00916684c888.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:05.880896"
+  },
+  {
+    "id": "de9aadc3-db78-4deb-959f-7fd54d5de33c",
+    "name": "Zebra Ultimate Desk Accessories",
+    "description": "Comes in a Pack of 20. Made with Metal for durability and longevity. Featuring a classic design. The Green is perfect for office use. Designed for productivity. Buy now and experience the difference! Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 47.11,
+    "brand": "Zebra",
+    "attributes": {
+      "material": "Metal",
+      "quantity": "Pack of 20",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_de9aadc3-db78-4deb-959f-7fd54d5de33c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.665333"
+  },
+  {
+    "id": "0d0886ae-dbf3-419c-8f62-f52033e12c8d",
+    "name": "HP Portable Binders Q318",
+    "description": "This Blue binders is perfect for everyday use. Satisfaction guaranteed or your money back. Featuring a minimalist design. Designed for organization. Buy now and experience the difference! An excellent choice for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 16.84,
+    "brand": "HP",
+    "attributes": {
+      "color": "Blue",
+      "refillable": "Yes",
+      "material": "Cardboard",
+      "size": "Legal",
+      "quantity": "Pack of 10"
+    },
+    "image": {
+      "url": "data/images/product_0d0886ae-dbf3-419c-8f62-f52033e12c8d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:03.079472"
+  },
+  {
+    "id": "e4d1bd47-90a3-4cce-a508-8923d0a092ee",
+    "name": "HP High-end Notebooks",
+    "description": "Comes in a Pack of 50. Featuring a sleek design. An excellent choice for professional use. The professional color is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 24.45,
+    "brand": "HP",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Standard",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_e4d1bd47-90a3-4cce-a508-8923d0a092ee.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:05.608113"
+  },
+  {
+    "id": "857b1acd-be0b-43b6-944a-d8d9d4ec7082",
+    "name": "Faber-Castell Modern Staplers S969",
+    "description": "The Red is perfect for office use. Buy now and experience the difference! Designed for convenience. Comes in a Pack of 20. This Red staplers is perfect for everyday use. Made with Metal for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 18.69,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Metal",
+      "quantity": "Pack of 20",
+      "refillable": "No",
+      "size": "Legal",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_857b1acd-be0b-43b6-944a-d8d9d4ec7082.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:33.835262"
+  },
+  {
+    "id": "9a13ab44-b254-4d30-9584-b8db307e144e",
+    "name": "Brother Ultimate Calendars S678",
+    "description": "Buy now and experience the difference! The Red is perfect for office use. Comes in a convenient package. Satisfaction guaranteed or your money back. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 12.35,
+    "brand": "Brother",
+    "attributes": {
+      "color": "Red",
+      "material": "Paper",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_9a13ab44-b254-4d30-9584-b8db307e144e.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:01.980272"
+  },
+  {
+    "id": "3b625a3b-a30a-45ef-96f5-387d5bbe2e47",
+    "name": "Bic High-end Notebooks L243",
+    "description": "Satisfaction guaranteed or your money back. This Green notebooks is perfect for everyday use. Featuring a modern design. Buy now and experience the difference! Made with Paper for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 16.84,
+    "brand": "Bic",
+    "attributes": {
+      "size": "Large",
+      "quantity": "Pack of 50",
+      "refillable": "Yes",
+      "color": "Green",
+      "material": "Paper"
+    },
+    "image": {
+      "url": "data/images/product_3b625a3b-a30a-45ef-96f5-387d5bbe2e47.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:14.540577"
+  },
+  {
+    "id": "bba40c75-ea83-45b5-bf6a-7dba0a6233b6",
+    "name": "Scotch Super Desk Accessories N869",
+    "description": "Comes in a Single. Satisfaction guaranteed or your money back. The Green is perfect for office use. An excellent choice for home use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 46.43,
+    "brand": "Scotch",
+    "attributes": {
+      "quantity": "Single",
+      "color": "Green",
+      "size": "Large"
+    },
+    "image": {
+      "url": "data/images/product_bba40c75-ea83-45b5-bf6a-7dba0a6233b6.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:08.640247"
+  },
+  {
+    "id": "12110d5b-8d99-4ae9-8122-cd7e2582a8e1",
+    "name": "Brother Ultimate Notebooks N377",
+    "description": "Comes in a Pack of 10. Made with Metal for durability and longevity. Designed for organization. The Assorted is perfect for office use. Featuring a modern design. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 7.6,
+    "brand": "Brother",
+    "attributes": {
+      "material": "Metal",
+      "color": "Assorted",
+      "quantity": "Pack of 10",
+      "size": "Medium",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_12110d5b-8d99-4ae9-8122-cd7e2582a8e1.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.823858"
+  },
+  {
+    "id": "30ee0242-5690-4239-9336-a84f5051c1c0",
+    "name": "Zebra Ultimate Binders K107",
+    "description": "The Yellow is perfect for office use. Made with Paper for durability and longevity. This Yellow binders is perfect for everyday use. Satisfaction guaranteed or your money back. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 18.19,
+    "brand": "Zebra",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "color": "Yellow",
+      "material": "Paper"
+    },
+    "image": {
+      "url": "data/images/product_30ee0242-5690-4239-9336-a84f5051c1c0.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:56.823185"
+  },
+  {
+    "id": "ab6c9738-1d90-41a4-bf8b-07fde6667d2a",
+    "name": "Zebra Modern Calendars C665",
+    "description": "The Green is perfect for office use. Featuring a classic design. This Green calendars is perfect for everyday use. Buy now and experience the difference! Designed for organization. An excellent choice for home use.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 14.17,
+    "brand": "Zebra",
+    "attributes": {
+      "refillable": "Yes",
+      "color": "Green",
+      "size": "Standard"
+    },
+    "image": {
+      "url": "data/images/product_ab6c9738-1d90-41a4-bf8b-07fde6667d2a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:02.293355"
+  },
+  {
+    "id": "8fbd07d1-6c1f-4c44-8449-501f83104fc5",
+    "name": "Scotch Luxury Markers Y748",
+    "description": "Featuring a minimalist design. This versatile markers is perfect for everyday use. An excellent choice for everyday use. Made with Cardboard for durability and longevity. The professional color is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 12.92,
+    "brand": "Scotch",
+    "attributes": {
+      "material": "Cardboard",
+      "quantity": "Pack of 20",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_8fbd07d1-6c1f-4c44-8449-501f83104fc5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:02.221567"
+  },
+  {
+    "id": "256824af-a80b-4137-80f6-365771ccde37",
+    "name": "3M Durable Scissors Z134",
+    "description": "An excellent choice for home use. Made with high-quality materials for durability and longevity. Designed for organization. Featuring a elegant design. The Black is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 19.96,
+    "brand": "3M",
+    "attributes": {
+      "color": "Black",
+      "size": "Letter",
+      "refillable": "Yes",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_256824af-a80b-4137-80f6-365771ccde37.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:24.063726"
+  },
+  {
+    "id": "25f9e188-ed54-49f0-a447-ea0ec0bff019",
+    "name": "Pilot Luxury Binders E710",
+    "description": "An excellent choice for home use. This versatile binders is perfect for everyday use. Buy now and experience the difference! Comes in a Pack of 10. Designed for productivity. Featuring a elegant design.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 14.35,
+    "brand": "Pilot",
+    "attributes": {
+      "quantity": "Pack of 10",
+      "refillable": "No",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_25f9e188-ed54-49f0-a447-ea0ec0bff019.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:06.951370"
+  },
+  {
+    "id": "1747f4ca-5150-4e2c-9ddd-1428475fa54e",
+    "name": "Faber-Castell Premium Notebooks",
+    "description": "Featuring a modern design. This Assorted notebooks is perfect for everyday use. An excellent choice for everyday use. Satisfaction guaranteed or your money back. Buy now and experience the difference! Comes in a Pack of 20. Made with Cardboard for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 15.22,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "refillable": "No",
+      "color": "Assorted",
+      "material": "Cardboard",
+      "quantity": "Pack of 20"
+    },
+    "image": {
+      "url": "data/images/product_1747f4ca-5150-4e2c-9ddd-1428475fa54e.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:59.545321"
+  },
+  {
+    "id": "73224174-64d8-42e6-be36-f15c2cb10cca",
+    "name": "Pilot Compact Calendars",
+    "description": "This Red calendars is perfect for everyday use. Buy now and experience the difference! The Red is perfect for office use. Featuring a modern design.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 20.13,
+    "brand": "Pilot",
+    "attributes": {
+      "material": "Plastic",
+      "size": "Large",
+      "color": "Red",
+      "quantity": "Pack of 20"
+    },
+    "image": {
+      "url": "data/images/product_73224174-64d8-42e6-be36-f15c2cb10cca.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:04.415102"
+  },
+  {
+    "id": "ea200d69-8ca8-4144-8506-6b98f651a4de",
+    "name": "HP Advanced Pens & Pencils E776",
+    "description": "Made with Paper for durability and longevity. Designed for organization. An excellent choice for professional use. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 11.51,
+    "brand": "HP",
+    "attributes": {
+      "quantity": "Pack of 100",
+      "material": "Paper",
+      "refillable": "No",
+      "size": "Small",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_ea200d69-8ca8-4144-8506-6b98f651a4de.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:17.501740"
+  },
+  {
+    "id": "697d22f9-d70c-4a8a-8848-a9cf5706985c",
+    "name": "Moleskine High-end Printers & Ink Q524",
+    "description": "The Assorted is perfect for office use. Buy now and experience the difference! Made with Metal for durability and longevity. Featuring a classic design.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 107.94,
+    "brand": "Moleskine",
+    "attributes": {
+      "color": "Assorted",
+      "material": "Metal",
+      "refillable": "Yes",
+      "quantity": "Pack of 5"
+    },
+    "image": {
+      "url": "data/images/product_697d22f9-d70c-4a8a-8848-a9cf5706985c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:28.331981"
+  },
+  {
+    "id": "ee5ecfa6-348a-43c2-9cac-541cb97bc227",
+    "name": "Bic Smart Markers I934",
+    "description": "This Assorted markers is perfect for everyday use. Buy now and experience the difference! Designed for productivity. The Assorted is perfect for office use. Featuring a sleek design. Comes in a Pack of 10. An excellent choice for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 13.2,
+    "brand": "Bic",
+    "attributes": {
+      "refillable": "Yes",
+      "quantity": "Pack of 10",
+      "color": "Assorted"
+    },
+    "image": {
+      "url": "data/images/product_ee5ecfa6-348a-43c2-9cac-541cb97bc227.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.836858"
+  },
+  {
+    "id": "bacc4037-f6d3-4f03-afc7-70afa0de2ce2",
+    "name": "Bic Compact Binders B302",
+    "description": "An excellent choice for everyday use. This Blue binders is perfect for everyday use. Made with high-quality materials for durability and longevity. Satisfaction guaranteed or your money back. Comes in a Pack of 20. Designed for productivity. Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 7.04,
+    "brand": "Bic",
+    "attributes": {
+      "color": "Blue",
+      "quantity": "Pack of 20",
+      "size": "Medium",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_bacc4037-f6d3-4f03-afc7-70afa0de2ce2.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:14.507424"
+  },
+  {
+    "id": "f2e9f263-0eaa-4db5-92a2-b1935cd8524a",
+    "name": "Sharpie Modern Desk Accessories",
+    "description": "Made with Cardboard for durability and longevity. The professional color is perfect for office use. This versatile desk accessories is perfect for everyday use. Satisfaction guaranteed or your money back. Designed for efficiency.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 13.33,
+    "brand": "Sharpie",
+    "attributes": {
+      "quantity": "Single",
+      "material": "Cardboard",
+      "size": "Large",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_f2e9f263-0eaa-4db5-92a2-b1935cd8524a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:35.912249"
+  },
+  {
+    "id": "264a4414-31b6-4c7b-8af9-8126f49d29fd",
+    "name": "Zebra High-end Binders",
+    "description": "Comes in a convenient package. Buy now and experience the difference! Made with Metal for durability and longevity. Satisfaction guaranteed or your money back. Featuring a minimalist design. An excellent choice for travel use. Designed for productivity.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 9.49,
+    "brand": "Zebra",
+    "attributes": {
+      "refillable": "No",
+      "material": "Metal",
+      "size": "Standard"
+    },
+    "image": {
+      "url": "data/images/product_264a4414-31b6-4c7b-8af9-8126f49d29fd.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:57.868830"
+  },
+  {
+    "id": "2ab6876b-f2e6-4e22-859d-8db88e579730",
+    "name": "Epson Eco-friendly Scissors X422",
+    "description": "Made with Wood for durability and longevity. Comes in a Pack of 20. Designed for organization. Satisfaction guaranteed or your money back. An excellent choice for office use. The professional color is perfect for office use. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 11.74,
+    "brand": "Epson",
+    "attributes": {
+      "size": "Letter",
+      "quantity": "Pack of 20",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_2ab6876b-f2e6-4e22-859d-8db88e579730.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:30.924843"
+  },
+  {
+    "id": "2e037e68-c6c4-471b-970e-ebf6dd11d323",
+    "name": "Zebra Advanced Scissors U707",
+    "description": "An excellent choice for everyday use. Comes in a Pack of 5. Made with Wood for durability and longevity. This versatile scissors is perfect for everyday use. Designed for organization. The professional color is perfect for office use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 14.61,
+    "brand": "Zebra",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "size": "Small",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_2e037e68-c6c4-471b-970e-ebf6dd11d323.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:14.940303"
+  },
+  {
+    "id": "4f237d26-2944-4e66-8a68-69910d5c4f80",
+    "name": "Faber-Castell Professional Markers",
+    "description": "Comes in a Single. Designed for convenience. The Assorted is perfect for office use. Featuring a classic design.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 11.79,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "size": "Standard",
+      "color": "Assorted",
+      "quantity": "Single",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_4f237d26-2944-4e66-8a68-69910d5c4f80.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:15.989524"
+  },
+  {
+    "id": "d9e85bc5-46e6-4931-b292-8eebd9958f12",
+    "name": "3M Durable Printers & Ink U614",
+    "description": "Satisfaction guaranteed or your money back. This Blue printers & ink is perfect for everyday use. Designed for convenience. Made with Plastic for durability and longevity. An excellent choice for home use. Featuring a elegant design. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 71.28,
+    "brand": "3M",
+    "attributes": {
+      "material": "Plastic",
+      "color": "Blue",
+      "quantity": "Pack of 5"
+    },
+    "image": {
+      "url": "data/images/product_d9e85bc5-46e6-4931-b292-8eebd9958f12.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:30.733278"
+  },
+  {
+    "id": "ba9bbd33-a9fd-4a67-a28a-84e194592212",
+    "name": "Zebra Ultra Markers V590",
+    "description": "An excellent choice for home use. Designed for efficiency. The Assorted is perfect for office use. Buy now and experience the difference! Featuring a minimalist design.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 6.85,
+    "brand": "Zebra",
+    "attributes": {
+      "color": "Assorted",
+      "size": "Legal",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_ba9bbd33-a9fd-4a67-a28a-84e194592212.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:31.116579"
+  },
+  {
+    "id": "8dc42566-bc03-4059-8889-fd8fea8c50a1",
+    "name": "Sharpie Ultra Binders A973",
+    "description": "Comes in a Pack of 100. Featuring a classic design. An excellent choice for office use. This Black binders is perfect for everyday use. The Black is perfect for office use. Satisfaction guaranteed or your money back. Made with Paper for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 8.8,
+    "brand": "Sharpie",
+    "attributes": {
+      "material": "Paper",
+      "refillable": "No",
+      "color": "Black",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_8dc42566-bc03-4059-8889-fd8fea8c50a1.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:20.404202"
+  },
+  {
+    "id": "d949dfcd-bdf0-4bc6-97e9-f021495879ea",
+    "name": "Brother Professional Notebooks",
+    "description": "An excellent choice for professional use. Comes in a Pack of 5. This versatile notebooks is perfect for everyday use. Satisfaction guaranteed or your money back. Designed for efficiency. The professional color is perfect for office use. Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 19.51,
+    "brand": "Brother",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "size": "Medium",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_d949dfcd-bdf0-4bc6-97e9-f021495879ea.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:46.550108"
+  },
+  {
+    "id": "d836b790-0c47-4f85-a2e5-32d9cdc385c0",
+    "name": "Faber-Castell Portable Pens & Pencils L701",
+    "description": "An excellent choice for office use. Buy now and experience the difference! Comes in a Pack of 5. Featuring a modern design. Designed for productivity. This Blue pens & pencils is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 13.35,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Wood",
+      "size": "Standard",
+      "color": "Blue",
+      "refillable": "No",
+      "quantity": "Pack of 5"
+    },
+    "image": {
+      "url": "data/images/product_d836b790-0c47-4f85-a2e5-32d9cdc385c0.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:53.925404"
+  },
+  {
+    "id": "0a3d7bf5-6a5b-444d-89ae-509c8e55d4ad",
+    "name": "HP Eco-friendly Notebooks",
+    "description": "Satisfaction guaranteed or your money back. Buy now and experience the difference! Comes in a Single. The Green is perfect for office use. Made with Wood for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 6.17,
+    "brand": "HP",
+    "attributes": {
+      "size": "Standard",
+      "color": "Green",
+      "material": "Wood",
+      "refillable": "Yes",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_0a3d7bf5-6a5b-444d-89ae-509c8e55d4ad.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:22.496326"
+  },
+  {
+    "id": "d70efcb6-a542-4f97-92f1-ec1e2a5e0e62",
+    "name": "Faber-Castell Wireless Desk Accessories",
+    "description": "An excellent choice for everyday use. Buy now and experience the difference! Featuring a elegant design. This Assorted desk accessories is perfect for everyday use. Satisfaction guaranteed or your money back. The Assorted is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 22.94,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "color": "Assorted",
+      "quantity": "Pack of 50",
+      "material": "Plastic"
+    },
+    "image": {
+      "url": "data/images/product_d70efcb6-a542-4f97-92f1-ec1e2a5e0e62.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:34.326451"
+  },
+  {
+    "id": "7f66917b-d494-4463-80c3-bb696a5d9029",
+    "name": "Avery Modern Paper",
+    "description": "An excellent choice for travel use. Buy now and experience the difference! Satisfaction guaranteed or your money back. Featuring a classic design. Made with Metal for durability and longevity. The Red is perfect for office use. Designed for productivity.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 13.29,
+    "brand": "Avery",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Letter",
+      "refillable": "No",
+      "color": "Red",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_7f66917b-d494-4463-80c3-bb696a5d9029.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:28.731051"
+  },
+  {
+    "id": "49343b77-850c-44ff-9ac5-e1897db1dc5b",
+    "name": "Faber-Castell High-end Printers & Ink N342",
+    "description": "An excellent choice for everyday use. Buy now and experience the difference! Featuring a sleek design. This Assorted printers & ink is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 134.7,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "refillable": "No",
+      "quantity": "Pack of 20",
+      "color": "Assorted",
+      "size": "Small",
+      "material": "Cardboard"
+    },
+    "image": {
+      "url": "data/images/product_49343b77-850c-44ff-9ac5-e1897db1dc5b.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:57.087761"
+  },
+  {
+    "id": "391c172f-8e8f-4c8d-9998-e5fb980db4c5",
+    "name": "3M Deluxe Paper W494",
+    "description": "Satisfaction guaranteed or your money back. This Black paper is perfect for everyday use. An excellent choice for travel use. Comes in a convenient package.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 10.21,
+    "brand": "3M",
+    "attributes": {
+      "color": "Black",
+      "refillable": "No",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_391c172f-8e8f-4c8d-9998-e5fb980db4c5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:15.622524"
+  },
+  {
+    "id": "74276230-d25a-46a1-823b-5984e5db23cf",
+    "name": "Papermate Luxury Staplers V771",
+    "description": "Satisfaction guaranteed or your money back. The Black is perfect for office use. An excellent choice for home use. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 15.18,
+    "brand": "Papermate",
+    "attributes": {
+      "refillable": "Yes",
+      "color": "Black",
+      "material": "Wood",
+      "size": "Legal",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_74276230-d25a-46a1-823b-5984e5db23cf.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:34.941274"
+  },
+  {
+    "id": "c2fee368-cb4b-4edd-8c58-b0e07c21e82c",
+    "name": "Pilot Advanced Notebooks P836",
+    "description": "Buy now and experience the difference! Featuring a classic design. The professional color is perfect for office use. This versatile notebooks is perfect for everyday use. Comes in a Pack of 100.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 16.94,
+    "brand": "Pilot",
+    "attributes": {
+      "quantity": "Pack of 100",
+      "size": "Legal",
+      "refillable": "No",
+      "material": "Cardboard"
+    },
+    "image": {
+      "url": "data/images/product_c2fee368-cb4b-4edd-8c58-b0e07c21e82c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:56.624222"
+  },
+  {
+    "id": "26f15bbc-7456-4ce4-9de9-9dd4f8662fa1",
+    "name": "Faber-Castell Luxury Markers",
+    "description": "Satisfaction guaranteed or your money back. This Red markers is perfect for everyday use. An excellent choice for professional use. Designed for organization.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 12.39,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Cardboard",
+      "size": "Letter",
+      "quantity": "Pack of 100",
+      "refillable": "No",
+      "color": "Red"
+    },
+    "image": {
+      "url": "data/images/product_26f15bbc-7456-4ce4-9de9-9dd4f8662fa1.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.414763"
+  },
+  {
+    "id": "c7fed145-9ee3-411e-8408-eb3ebbf3b514",
+    "name": "Brother Durable Calendars P432",
+    "description": "An excellent choice for office use. The Black is perfect for office use. Designed for productivity. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 16.99,
+    "brand": "Brother",
+    "attributes": {
+      "color": "Black",
+      "quantity": "Pack of 100",
+      "size": "Small",
+      "refillable": "Yes",
+      "material": "Paper"
+    },
+    "image": {
+      "url": "data/images/product_c7fed145-9ee3-411e-8408-eb3ebbf3b514.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:35.658914"
+  },
+  {
+    "id": "587a57b4-26d3-4e3e-8f49-c16d8dc40d35",
+    "name": "Staples Ultimate Notebooks",
+    "description": "Featuring a elegant design. Comes in a Pack of 20. The Assorted is perfect for office use. Made with Paper for durability and longevity. Designed for productivity. Satisfaction guaranteed or your money back. An excellent choice for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 12.03,
+    "brand": "Staples",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "size": "Standard",
+      "color": "Assorted",
+      "material": "Paper"
+    },
+    "image": {
+      "url": "data/images/product_587a57b4-26d3-4e3e-8f49-c16d8dc40d35.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:50.079173"
+  },
+  {
+    "id": "f0248416-f977-49fc-9b32-230d7db3ce03",
+    "name": "Scotch Luxury Markers U751",
+    "description": "Made with Plastic for durability and longevity. Comes in a Pack of 50. Satisfaction guaranteed or your money back. Buy now and experience the difference! The Green is perfect for office use. An excellent choice for travel use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 8.39,
+    "brand": "Scotch",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "material": "Plastic",
+      "color": "Green",
+      "refillable": "No",
+      "size": "Legal"
+    },
+    "image": {
+      "url": "data/images/product_f0248416-f977-49fc-9b32-230d7db3ce03.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:49.022415"
+  },
+  {
+    "id": "5da6f6f6-3107-4244-ba29-a0bfd0d7bb32",
+    "name": "HP Luxury Paper",
+    "description": "Made with Metal for durability and longevity. Designed for productivity. Comes in a Pack of 20. This Assorted paper is perfect for everyday use. Buy now and experience the difference! Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 16.85,
+    "brand": "HP",
+    "attributes": {
+      "color": "Assorted",
+      "refillable": "Yes",
+      "quantity": "Pack of 20",
+      "material": "Metal",
+      "size": "Standard"
+    },
+    "image": {
+      "url": "data/images/product_5da6f6f6-3107-4244-ba29-a0bfd0d7bb32.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:08.681332"
+  },
+  {
+    "id": "e98c4c11-af18-40df-8fa3-2e95d8c87350",
+    "name": "HP Ergonomic Pens & Pencils",
+    "description": "Designed for organization. Made with high-quality materials for durability and longevity. Comes in a convenient package. The Green is perfect for office use. Featuring a classic design. An excellent choice for professional use.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 11.42,
+    "brand": "HP",
+    "attributes": {
+      "color": "Green",
+      "size": "Letter",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_e98c4c11-af18-40df-8fa3-2e95d8c87350.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:07.369613"
+  },
+  {
+    "id": "37430518-2cc7-43bd-9720-e8e62cf8abce",
+    "name": "Faber-Castell Eco-friendly Calendars Q198",
+    "description": "Comes in a Pack of 5. Designed for organization. Featuring a elegant design. Made with Wood for durability and longevity. Satisfaction guaranteed or your money back. The Green is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 24.52,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Wood",
+      "quantity": "Pack of 5",
+      "size": "Letter",
+      "color": "Green",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_37430518-2cc7-43bd-9720-e8e62cf8abce.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:58.334144"
+  },
+  {
+    "id": "f9ee715b-14d9-44a9-b38d-9d691a66ffc2",
+    "name": "Zebra Luxury Scissors M366",
+    "description": "Made with Paper for durability and longevity. An excellent choice for office use. Designed for convenience. Satisfaction guaranteed or your money back. The Red is perfect for office use. Featuring a elegant design. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 6.24,
+    "brand": "Zebra",
+    "attributes": {
+      "size": "Letter",
+      "color": "Red",
+      "material": "Paper",
+      "refillable": "No",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_f9ee715b-14d9-44a9-b38d-9d691a66ffc2.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:19.925000"
+  },
+  {
+    "id": "932760be-0da3-408b-a32d-598dc0882c70",
+    "name": "Avery Advanced Paper",
+    "description": "Comes in a Pack of 20. An excellent choice for everyday use. Buy now and experience the difference! Satisfaction guaranteed or your money back. Designed for organization.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 11.21,
+    "brand": "Avery",
+    "attributes": {
+      "color": "Blue",
+      "material": "Metal",
+      "size": "Standard",
+      "quantity": "Pack of 20"
+    },
+    "image": {
+      "url": "data/images/product_932760be-0da3-408b-a32d-598dc0882c70.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:34.783669"
+  },
+  {
+    "id": "23e98cb9-d035-4c3e-a204-56018a416634",
+    "name": "Staples Super Notebooks",
+    "description": "An excellent choice for office use. The Assorted is perfect for office use. Made with Cardboard for durability and longevity. Comes in a Pack of 50. This Assorted notebooks is perfect for everyday use. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 19.38,
+    "brand": "Staples",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Legal",
+      "refillable": "Yes",
+      "color": "Assorted",
+      "material": "Cardboard"
+    },
+    "image": {
+      "url": "data/images/product_23e98cb9-d035-4c3e-a204-56018a416634.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:01.682496"
+  },
+  {
+    "id": "788a8383-365d-4c17-b73d-b806cdc69e13",
+    "name": "Staples Classic Staplers",
+    "description": "Designed for productivity. Buy now and experience the difference! The Yellow is perfect for office use. Made with high-quality materials for durability and longevity. Featuring a sleek design. An excellent choice for office use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 27.18,
+    "brand": "Staples",
+    "attributes": {
+      "refillable": "Yes",
+      "quantity": "Pack of 50",
+      "color": "Yellow"
+    },
+    "image": {
+      "url": "data/images/product_788a8383-365d-4c17-b73d-b806cdc69e13.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:14.580351"
+  },
+  {
+    "id": "a3db0a52-b492-476e-9044-f10ad9e4a406",
+    "name": "Zebra High-end Pens & Pencils F714",
+    "description": "Designed for efficiency. Comes in a Pack of 10. Buy now and experience the difference! Made with Plastic for durability and longevity. Featuring a minimalist design. The Black is perfect for office use. This Black pens & pencils is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 22.89,
+    "brand": "Zebra",
+    "attributes": {
+      "material": "Plastic",
+      "size": "Medium",
+      "quantity": "Pack of 10",
+      "refillable": "Yes",
+      "color": "Black"
+    },
+    "image": {
+      "url": "data/images/product_a3db0a52-b492-476e-9044-f10ad9e4a406.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:31.828884"
+  },
+  {
+    "id": "43fc97f2-7d7f-4626-bd09-f9fd9f652a30",
+    "name": "Zebra Compact Markers",
+    "description": "An excellent choice for everyday use. The Red is perfect for office use. Satisfaction guaranteed or your money back. Comes in a convenient package. Designed for convenience. This Red markers is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 5.12,
+    "brand": "Zebra",
+    "attributes": {
+      "color": "Red",
+      "size": "Medium",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_43fc97f2-7d7f-4626-bd09-f9fd9f652a30.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:46.174692"
+  },
+  {
+    "id": "8da638d8-faa6-4f0f-9a28-1de62bb086b8",
+    "name": "HP Classic Pens & Pencils U584",
+    "description": "This versatile pens & pencils is perfect for everyday use. Comes in a Pack of 100. Designed for productivity. An excellent choice for travel use. Buy now and experience the difference! Featuring a elegant design.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 3.83,
+    "brand": "HP",
+    "attributes": {
+      "refillable": "No",
+      "quantity": "Pack of 100",
+      "material": "Cardboard"
+    },
+    "image": {
+      "url": "data/images/product_8da638d8-faa6-4f0f-9a28-1de62bb086b8.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:04.476200"
+  },
+  {
+    "id": "475bba76-edbd-47ca-a432-6040b9d029a1",
+    "name": "Bic Classic Printers & Ink R869",
+    "description": "This versatile printers & ink is perfect for everyday use. Comes in a Pack of 20. Made with Cardboard for durability and longevity. Featuring a modern design.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 100.36,
+    "brand": "Bic",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "size": "Small",
+      "material": "Cardboard"
+    },
+    "image": {
+      "url": "data/images/product_475bba76-edbd-47ca-a432-6040b9d029a1.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:06.278609"
+  },
+  {
+    "id": "60905488-d02c-4834-be08-df42eba7be70",
+    "name": "Brother Super Paper",
+    "description": "An excellent choice for travel use. Satisfaction guaranteed or your money back. This Black paper is perfect for everyday use. Comes in a Single. The Black is perfect for office use. Designed for convenience. Made with Plastic for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 22.28,
+    "brand": "Brother",
+    "attributes": {
+      "refillable": "Yes",
+      "color": "Black",
+      "quantity": "Single",
+      "size": "Standard",
+      "material": "Plastic"
+    },
+    "image": {
+      "url": "data/images/product_60905488-d02c-4834-be08-df42eba7be70.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:49.401495"
+  },
+  {
+    "id": "3c29f1c9-0d35-4594-bf0f-ce2b17d4ffac",
+    "name": "Sharpie Eco-friendly Notebooks Y213",
+    "description": "This Red notebooks is perfect for everyday use. Made with high-quality materials for durability and longevity. Designed for convenience. Featuring a elegant design. Buy now and experience the difference! Satisfaction guaranteed or your money back. The Red is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 16.94,
+    "brand": "Sharpie",
+    "attributes": {
+      "color": "Red",
+      "quantity": "Single",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_3c29f1c9-0d35-4594-bf0f-ce2b17d4ffac.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:55.196234"
+  },
+  {
+    "id": "13be3c03-44f4-4b30-8367-050c131da611",
+    "name": "Papermate Luxury Scissors I190",
+    "description": "Buy now and experience the difference! Satisfaction guaranteed or your money back. Featuring a elegant design. This Black scissors is perfect for everyday use. An excellent choice for professional use. Comes in a Pack of 50. Made with Cardboard for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 7.39,
+    "brand": "Papermate",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Large",
+      "refillable": "No",
+      "material": "Cardboard",
+      "color": "Black"
+    },
+    "image": {
+      "url": "data/images/product_13be3c03-44f4-4b30-8367-050c131da611.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:03.135189"
+  },
+  {
+    "id": "fc101c9b-8137-4d90-93b7-ce9a826b17ec",
+    "name": "3M Durable Scissors",
+    "description": "Designed for efficiency. Satisfaction guaranteed or your money back. Comes in a Pack of 100. The Blue is perfect for office use. Buy now and experience the difference! This Blue scissors is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 17.12,
+    "brand": "3M",
+    "attributes": {
+      "quantity": "Pack of 100",
+      "size": "Letter",
+      "refillable": "No",
+      "color": "Blue"
+    },
+    "image": {
+      "url": "data/images/product_fc101c9b-8137-4d90-93b7-ce9a826b17ec.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:28.061528"
+  },
+  {
+    "id": "e31fabb4-febd-43c7-bf7e-69006065e7e5",
+    "name": "Pilot Essential Staplers",
+    "description": "Featuring a minimalist design. Comes in a Single. The Green is perfect for office use. This Green staplers is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 15.12,
+    "brand": "Pilot",
+    "attributes": {
+      "size": "Letter",
+      "refillable": "No",
+      "color": "Green",
+      "quantity": "Single",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_e31fabb4-febd-43c7-bf7e-69006065e7e5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:02.993593"
+  },
+  {
+    "id": "4ff287ad-9ffb-488b-a58f-c32496ace830",
+    "name": "Scotch Classic Markers",
+    "description": "Made with Metal for durability and longevity. This Green markers is perfect for everyday use. Buy now and experience the difference! An excellent choice for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 12.73,
+    "brand": "Scotch",
+    "attributes": {
+      "material": "Metal",
+      "quantity": "Pack of 20",
+      "color": "Green",
+      "refillable": "Yes",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_4ff287ad-9ffb-488b-a58f-c32496ace830.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:15.595736"
+  },
+  {
+    "id": "1dc955eb-1017-4262-b52d-b6127d853f1f",
+    "name": "Moleskine Smart Staplers",
+    "description": "An excellent choice for travel use. Designed for productivity. Featuring a sleek design. Comes in a Pack of 50.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 21.49,
+    "brand": "Moleskine",
+    "attributes": {
+      "refillable": "No",
+      "quantity": "Pack of 50",
+      "size": "Legal"
+    },
+    "image": {
+      "url": "data/images/product_1dc955eb-1017-4262-b52d-b6127d853f1f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:04.238081"
+  },
+  {
+    "id": "0f9fb92b-06bc-440c-843b-c7b41b1dc66e",
+    "name": "Bic Wireless Pens & Pencils I464",
+    "description": "Comes in a convenient package. Satisfaction guaranteed or your money back. Featuring a elegant design. The Green is perfect for office use. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 19.14,
+    "brand": "Bic",
+    "attributes": {
+      "material": "Metal",
+      "size": "Standard",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_0f9fb92b-06bc-440c-843b-c7b41b1dc66e.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:54.504955"
+  },
+  {
+    "id": "f008dab3-2982-4979-ac25-2909a59b5cdc",
+    "name": "Moleskine Ultra Staplers B539",
+    "description": "Featuring a elegant design. This Green staplers is perfect for everyday use. An excellent choice for office use. Made with high-quality materials for durability and longevity. Satisfaction guaranteed or your money back. Comes in a Pack of 50. The Green is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 7.08,
+    "brand": "Moleskine",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Medium",
+      "color": "Green",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_f008dab3-2982-4979-ac25-2909a59b5cdc.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:27.371144"
+  },
+  {
+    "id": "35872a7e-eb08-4604-8e27-a551b44aae5a",
+    "name": "Faber-Castell Wireless Scissors",
+    "description": "Featuring a minimalist design. Buy now and experience the difference! Satisfaction guaranteed or your money back. The professional color is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 16.84,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Metal",
+      "quantity": "Single",
+      "size": "Legal",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_35872a7e-eb08-4604-8e27-a551b44aae5a.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:53.363533"
+  },
+  {
+    "id": "b4d8ae92-e52a-4aaa-88ec-3c6505924f20",
+    "name": "Moleskine Super Calendars L945",
+    "description": "An excellent choice for travel use. This versatile calendars is perfect for everyday use. Comes in a Pack of 5. Made with Metal for durability and longevity. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 22.4,
+    "brand": "Moleskine",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "size": "Letter",
+      "material": "Metal"
+    },
+    "image": {
+      "url": "data/images/product_b4d8ae92-e52a-4aaa-88ec-3c6505924f20.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:44.898805"
+  },
+  {
+    "id": "456bcb54-1040-40c9-a8af-10a089fe4bbf",
+    "name": "Avery Essential Notebooks",
+    "description": "Comes in a Pack of 100. Satisfaction guaranteed or your money back. Made with Cardboard for durability and longevity. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 7.17,
+    "brand": "Avery",
+    "attributes": {
+      "material": "Cardboard",
+      "size": "Legal",
+      "color": "Green",
+      "refillable": "Yes",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_456bcb54-1040-40c9-a8af-10a089fe4bbf.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:59.050604"
+  },
+  {
+    "id": "964e7046-b284-4095-b02f-2d3424cb0007",
+    "name": "3M Professional Markers",
+    "description": "Featuring a elegant design. Comes in a convenient package. An excellent choice for travel use. The Red is perfect for office use. Made with Wood for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 10.59,
+    "brand": "3M",
+    "attributes": {
+      "size": "Large",
+      "color": "Red",
+      "refillable": "No",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_964e7046-b284-4095-b02f-2d3424cb0007.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:23.583011"
+  },
+  {
+    "id": "d797e387-26e4-4256-b7e2-8d95ccc2db50",
+    "name": "Moleskine Advanced Calendars",
+    "description": "Comes in a Pack of 20. Featuring a modern design. An excellent choice for office use. Designed for efficiency.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 17.61,
+    "brand": "Moleskine",
+    "attributes": {
+      "material": "Metal",
+      "size": "Medium",
+      "quantity": "Pack of 20",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_d797e387-26e4-4256-b7e2-8d95ccc2db50.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:31.556823"
+  },
+  {
+    "id": "8cde7839-1275-4ca5-897a-9d4623a5cd99",
+    "name": "Scotch Professional Markers",
+    "description": "Made with Metal for durability and longevity. The Yellow is perfect for office use. Comes in a Pack of 50. An excellent choice for travel use. This Yellow markers is perfect for everyday use. Satisfaction guaranteed or your money back. Designed for productivity.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 11.95,
+    "brand": "Scotch",
+    "attributes": {
+      "material": "Metal",
+      "color": "Yellow",
+      "refillable": "No",
+      "quantity": "Pack of 50",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_8cde7839-1275-4ca5-897a-9d4623a5cd99.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:33.116728"
+  },
+  {
+    "id": "022b6c5f-08b5-4626-8b33-48deaa13a56d",
+    "name": "Faber-Castell Eco-friendly Markers",
+    "description": "The Assorted is perfect for office use. Featuring a minimalist design. Buy now and experience the difference! Made with Paper for durability and longevity. Designed for organization.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 8.32,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "color": "Assorted",
+      "material": "Paper",
+      "refillable": "No",
+      "quantity": "Single",
+      "size": "Medium"
+    },
+    "image": {
+      "url": "data/images/product_022b6c5f-08b5-4626-8b33-48deaa13a56d.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:49.202997"
+  },
+  {
+    "id": "1493f31a-aeeb-456c-8920-cc58115d66cb",
+    "name": "Pilot Ultra Pens & Pencils",
+    "description": "This Red pens & pencils is perfect for everyday use. Designed for convenience. Buy now and experience the difference! The Red is perfect for office use. Made with Paper for durability and longevity. Satisfaction guaranteed or your money back. Comes in a Pack of 5.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 26.5,
+    "brand": "Pilot",
+    "attributes": {
+      "size": "Large",
+      "refillable": "Yes",
+      "quantity": "Pack of 5",
+      "color": "Red",
+      "material": "Paper"
+    },
+    "image": {
+      "url": "data/images/product_1493f31a-aeeb-456c-8920-cc58115d66cb.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:46.349412"
+  },
+  {
+    "id": "5ef3cf0e-32a0-4b2e-a3a7-d0333323f567",
+    "name": "3M Smart Binders P231",
+    "description": "This Assorted binders is perfect for everyday use. Designed for efficiency. Comes in a convenient package. Satisfaction guaranteed or your money back. Featuring a sleek design.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 17.57,
+    "brand": "3M",
+    "attributes": {
+      "size": "Letter",
+      "color": "Assorted",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_5ef3cf0e-32a0-4b2e-a3a7-d0333323f567.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:07.531355"
+  },
+  {
+    "id": "52a3d353-ddce-42df-b526-e16be47e57b7",
+    "name": "Staples Wireless Calendars X887",
+    "description": "This Yellow calendars is perfect for everyday use. Buy now and experience the difference! Satisfaction guaranteed or your money back. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 20.61,
+    "brand": "Staples",
+    "attributes": {
+      "color": "Yellow",
+      "quantity": "Pack of 50",
+      "material": "Metal",
+      "refillable": "Yes",
+      "size": "Medium"
+    },
+    "image": {
+      "url": "data/images/product_52a3d353-ddce-42df-b526-e16be47e57b7.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:04.968994"
+  },
+  {
+    "id": "cd7183f7-eef9-4392-80f1-a86c51a69073",
+    "name": "Pilot High-end Markers",
+    "description": "Buy now and experience the difference! Featuring a modern design. An excellent choice for professional use. Comes in a Pack of 100. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 4.58,
+    "brand": "Pilot",
+    "attributes": {
+      "size": "Large",
+      "quantity": "Pack of 100",
+      "color": "Yellow"
+    },
+    "image": {
+      "url": "data/images/product_cd7183f7-eef9-4392-80f1-a86c51a69073.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:17.347550"
+  },
+  {
+    "id": "f33252c0-51d3-460f-a7a3-ac58230774cf",
+    "name": "Faber-Castell Luxury Pens & Pencils",
+    "description": "Buy now and experience the difference! Designed for efficiency. Comes in a Pack of 20. An excellent choice for travel use.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 27.91,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "size": "Large",
+      "material": "Cardboard",
+      "color": "Yellow",
+      "quantity": "Pack of 20"
+    },
+    "image": {
+      "url": "data/images/product_f33252c0-51d3-460f-a7a3-ac58230774cf.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:06.044876"
+  },
+  {
+    "id": "92d3af8c-8174-4e55-a49b-9be6f61a2942",
+    "name": "Faber-Castell Budget Scissors",
+    "description": "Made with Paper for durability and longevity. The Assorted is perfect for office use. Satisfaction guaranteed or your money back. Featuring a minimalist design.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 7.84,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Paper",
+      "quantity": "Pack of 20",
+      "size": "Standard",
+      "color": "Assorted"
+    },
+    "image": {
+      "url": "data/images/product_92d3af8c-8174-4e55-a49b-9be6f61a2942.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:50.299477"
+  },
+  {
+    "id": "8063ccc5-b846-4f6a-bf7f-8bd0b5bfbcac",
+    "name": "Sharpie Modern Scissors",
+    "description": "The Blue is perfect for office use. Designed for organization. Buy now and experience the difference! This Blue scissors is perfect for everyday use. An excellent choice for everyday use. Comes in a Pack of 100. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Scissors",
+    "price": 11.3,
+    "brand": "Sharpie",
+    "attributes": {
+      "material": "Metal",
+      "color": "Blue",
+      "quantity": "Pack of 100"
+    },
+    "image": {
+      "url": "data/images/product_8063ccc5-b846-4f6a-bf7f-8bd0b5bfbcac.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:54.683826"
+  },
+  {
+    "id": "6756ed78-05f1-40b1-9e84-402aac762013",
+    "name": "Bic Professional Binders",
+    "description": "An excellent choice for office use. Made with Paper for durability and longevity. Featuring a elegant design. Designed for efficiency. The Blue is perfect for office use. Satisfaction guaranteed or your money back.",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 13.38,
+    "brand": "Bic",
+    "attributes": {
+      "color": "Blue",
+      "material": "Paper",
+      "quantity": "Pack of 5",
+      "size": "Large",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_6756ed78-05f1-40b1-9e84-402aac762013.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:23.247522"
+  },
+  {
+    "id": "20b74f28-74a4-43a2-ba0a-623b14751e14",
+    "name": "Bic Ultra Markers",
+    "description": "Satisfaction guaranteed or your money back. Comes in a Pack of 5. An excellent choice for everyday use. Buy now and experience the difference! Featuring a minimalist design. Designed for convenience.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 9.97,
+    "brand": "Bic",
+    "attributes": {
+      "quantity": "Pack of 5",
+      "size": "Large",
+      "color": "Blue"
+    },
+    "image": {
+      "url": "data/images/product_20b74f28-74a4-43a2-ba0a-623b14751e14.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:13.800870"
+  },
+  {
+    "id": "2be98fa9-2594-4d3a-b2e7-801f75b72f24",
+    "name": "Zebra Professional Staplers K303",
+    "description": "Designed for organization. An excellent choice for home use. Satisfaction guaranteed or your money back. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 23.22,
+    "brand": "Zebra",
+    "attributes": {
+      "quantity": "Single",
+      "material": "Metal",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_2be98fa9-2594-4d3a-b2e7-801f75b72f24.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:02.530910"
+  },
+  {
+    "id": "aeb174a3-a63c-4128-8277-890710ab07d8",
+    "name": "3M Ergonomic Printers & Ink S675",
+    "description": "Designed for organization. The professional color is perfect for office use. Buy now and experience the difference! Satisfaction guaranteed or your money back. Featuring a classic design. Made with Plastic for durability and longevity. This versatile printers & ink is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 175.63,
+    "brand": "3M",
+    "attributes": {
+      "quantity": "Single",
+      "material": "Plastic",
+      "size": "Standard",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_aeb174a3-a63c-4128-8277-890710ab07d8.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:07.008524"
+  },
+  {
+    "id": "c09acf51-280e-4fc8-beb2-a09fe14838e3",
+    "name": "3M Premium Binders I583",
+    "description": "Comes in a Pack of 50. Designed for efficiency. This Green binders is perfect for everyday use. Made with Wood for durability and longevity. The Green is perfect for office use. Featuring a classic design. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Binders",
+    "price": 9.24,
+    "brand": "3M",
+    "attributes": {
+      "size": "Standard",
+      "quantity": "Pack of 50",
+      "refillable": "Yes",
+      "color": "Green",
+      "material": "Wood"
+    },
+    "image": {
+      "url": "data/images/product_c09acf51-280e-4fc8-beb2-a09fe14838e3.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:39.808279"
+  },
+  {
+    "id": "e4d4c29f-5c96-41e7-ba34-a6e7c9148998",
+    "name": "Avery Eco-friendly Printers & Ink",
+    "description": "The Red is perfect for office use. Buy now and experience the difference! Comes in a Pack of 5. This Red printers & ink is perfect for everyday use. Featuring a minimalist design.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 84.71,
+    "brand": "Avery",
+    "attributes": {
+      "color": "Red",
+      "refillable": "No",
+      "quantity": "Pack of 5"
+    },
+    "image": {
+      "url": "data/images/product_e4d4c29f-5c96-41e7-ba34-a6e7c9148998.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:45.789074"
+  },
+  {
+    "id": "839bf134-fd39-4b27-aa3f-2f087b261170",
+    "name": "Pilot Budget Desk Accessories O564",
+    "description": "Satisfaction guaranteed or your money back. Comes in a Pack of 100. Buy now and experience the difference! Made with Wood for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 23.91,
+    "brand": "Pilot",
+    "attributes": {
+      "color": "Red",
+      "quantity": "Pack of 100",
+      "size": "Standard",
+      "material": "Wood",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_839bf134-fd39-4b27-aa3f-2f087b261170.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:08.179421"
+  },
+  {
+    "id": "00833182-29f2-490e-80bf-f92a198e0079",
+    "name": "HP Ultimate Desk Accessories L388",
+    "description": "The professional color is perfect for office use. Made with Metal for durability and longevity. An excellent choice for everyday use. Featuring a elegant design. Satisfaction guaranteed or your money back. Comes in a Single.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 34.74,
+    "brand": "HP",
+    "attributes": {
+      "material": "Metal",
+      "size": "Letter",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_00833182-29f2-490e-80bf-f92a198e0079.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:51.869167"
+  },
+  {
+    "id": "aacda061-d83b-4edc-be03-c8e5805a1b9e",
+    "name": "Faber-Castell Durable Pens & Pencils",
+    "description": "Comes in a convenient package. The Blue is perfect for office use. Designed for efficiency. Satisfaction guaranteed or your money back. An excellent choice for travel use. Made with Metal for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Pens & Pencils",
+    "price": 11.72,
+    "brand": "Faber-Castell",
+    "attributes": {
+      "material": "Metal",
+      "color": "Blue",
+      "size": "Legal",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_aacda061-d83b-4edc-be03-c8e5805a1b9e.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:47:07.121528"
+  },
+  {
+    "id": "719c4ac6-5b14-4b17-96dd-f88343a1d6e5",
+    "name": "Sharpie High-end Desk Accessories",
+    "description": "Featuring a elegant design. Comes in a convenient package. An excellent choice for everyday use. Satisfaction guaranteed or your money back. This Green desk accessories is perfect for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Desk Accessories",
+    "price": 10.94,
+    "brand": "Sharpie",
+    "attributes": {
+      "size": "Medium",
+      "material": "Paper",
+      "color": "Green"
+    },
+    "image": {
+      "url": "data/images/product_719c4ac6-5b14-4b17-96dd-f88343a1d6e5.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:58.901435"
+  },
+  {
+    "id": "09891f82-9cc5-416c-ad5b-e9ff0fc33438",
+    "name": "Moleskine Compact Paper O102",
+    "description": "An excellent choice for professional use. This Assorted paper is perfect for everyday use. Made with Plastic for durability and longevity. Designed for organization. The Assorted is perfect for office use. Featuring a minimalist design. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 10.23,
+    "brand": "Moleskine",
+    "attributes": {
+      "quantity": "Pack of 50",
+      "size": "Small",
+      "material": "Plastic",
+      "color": "Assorted",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_09891f82-9cc5-416c-ad5b-e9ff0fc33438.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:46.400442"
+  },
+  {
+    "id": "ddb9bcf0-d4b1-4fd5-8c21-98b64486c024",
+    "name": "Brother Ultra Calendars A579",
+    "description": "Comes in a Pack of 50. Made with Wood for durability and longevity. An excellent choice for home use. Designed for productivity. Featuring a modern design.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 16.88,
+    "brand": "Brother",
+    "attributes": {
+      "material": "Wood",
+      "size": "Letter",
+      "quantity": "Pack of 50",
+      "color": "Blue",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_ddb9bcf0-d4b1-4fd5-8c21-98b64486c024.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:26.300288"
+  },
+  {
+    "id": "15919999-2d0b-455d-8860-a5089be1c6bf",
+    "name": "Brother Advanced Notebooks D754",
+    "description": "Satisfaction guaranteed or your money back. Featuring a minimalist design. Designed for efficiency. This Assorted notebooks is perfect for everyday use. An excellent choice for travel use.",
+    "category": "Office Supplies",
+    "subcategory": "Notebooks",
+    "price": 17.06,
+    "brand": "Brother",
+    "attributes": {
+      "color": "Assorted",
+      "material": "Metal",
+      "size": "Small"
+    },
+    "image": {
+      "url": "data/images/product_15919999-2d0b-455d-8860-a5089be1c6bf.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:21.159238"
+  },
+  {
+    "id": "30ab6fa7-8979-44f3-9bac-5cfb50cfec5f",
+    "name": "Staples Compact Calendars M992",
+    "description": "Featuring a classic design. The Assorted is perfect for office use. Designed for efficiency. An excellent choice for professional use.",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 15.1,
+    "brand": "Staples",
+    "attributes": {
+      "quantity": "Pack of 20",
+      "material": "Wood",
+      "color": "Assorted",
+      "size": "Letter",
+      "refillable": "No"
+    },
+    "image": {
+      "url": "data/images/product_30ab6fa7-8979-44f3-9bac-5cfb50cfec5f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.623760"
+  },
+  {
+    "id": "56cff49c-4281-4318-8ab5-b16adc4a316f",
+    "name": "Scotch Super Printers & Ink B624",
+    "description": "This Yellow printers & ink is perfect for everyday use. Featuring a classic design. Buy now and experience the difference! Made with Wood for durability and longevity.",
+    "category": "Office Supplies",
+    "subcategory": "Printers & Ink",
+    "price": 185.05,
+    "brand": "Scotch",
+    "attributes": {
+      "material": "Wood",
+      "size": "Standard",
+      "color": "Yellow",
+      "quantity": "Single"
+    },
+    "image": {
+      "url": "data/images/product_56cff49c-4281-4318-8ab5-b16adc4a316f.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:46.300242"
+  },
+  {
+    "id": "132c8196-c2d6-4269-b32c-d6de1509abdd",
+    "name": "3M Budget Calendars Q470",
+    "description": "Made with Wood for durability and longevity. Comes in a Pack of 100. Designed for convenience. Buy now and experience the difference!",
+    "category": "Office Supplies",
+    "subcategory": "Calendars",
+    "price": 18.91,
+    "brand": "3M",
+    "attributes": {
+      "size": "Large",
+      "refillable": "No",
+      "material": "Wood",
+      "quantity": "Pack of 100",
+      "color": "Assorted"
+    },
+    "image": {
+      "url": "data/images/product_132c8196-c2d6-4269-b32c-d6de1509abdd.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:21.245697"
+  },
+  {
+    "id": "94ea31a4-02ad-4f71-b371-570038c721ce",
+    "name": "Bic Deluxe Staplers I169",
+    "description": "Designed for productivity. Featuring a sleek design. Satisfaction guaranteed or your money back. Buy now and experience the difference! Made with Plastic for durability and longevity. The Yellow is perfect for office use. An excellent choice for professional use.",
+    "category": "Office Supplies",
+    "subcategory": "Staplers",
+    "price": 29.26,
+    "brand": "Bic",
+    "attributes": {
+      "color": "Yellow",
+      "quantity": "Pack of 20",
+      "material": "Plastic"
+    },
+    "image": {
+      "url": "data/images/product_94ea31a4-02ad-4f71-b371-570038c721ce.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:37.768027"
+  },
+  {
+    "id": "d659af14-e45d-46e5-82c8-40dd509510a1",
+    "name": "Staples Advanced Markers",
+    "description": "This Yellow markers is perfect for everyday use. Made with Metal for durability and longevity. Designed for productivity. Featuring a modern design. The Yellow is perfect for office use. Satisfaction guaranteed or your money back. An excellent choice for everyday use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 12.96,
+    "brand": "Staples",
+    "attributes": {
+      "refillable": "Yes",
+      "quantity": "Pack of 50",
+      "size": "Legal",
+      "material": "Metal",
+      "color": "Yellow"
+    },
+    "image": {
+      "url": "data/images/product_d659af14-e45d-46e5-82c8-40dd509510a1.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:57.093061"
+  },
+  {
+    "id": "d8d66090-6ec7-4dbe-8a8c-19efb3d9ec7c",
+    "name": "Scotch Durable Markers",
+    "description": "Buy now and experience the difference! This Blue markers is perfect for everyday use. Made with Wood for durability and longevity. Satisfaction guaranteed or your money back. An excellent choice for travel use. The Blue is perfect for office use.",
+    "category": "Office Supplies",
+    "subcategory": "Markers",
+    "price": 5.15,
+    "brand": "Scotch",
+    "attributes": {
+      "quantity": "Pack of 100",
+      "material": "Wood",
+      "size": "Legal",
+      "refillable": "No",
+      "color": "Blue"
+    },
+    "image": {
+      "url": "data/images/product_d8d66090-6ec7-4dbe-8a8c-19efb3d9ec7c.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:29.489299"
+  },
+  {
+    "id": "9e6cc997-a566-4f97-9a34-f0e2a4ef791b",
+    "name": "Papermate Premium Paper R195",
+    "description": "Satisfaction guaranteed or your money back. An excellent choice for everyday use. The Yellow is perfect for office use. Comes in a Single.",
+    "category": "Office Supplies",
+    "subcategory": "Paper",
+    "price": 21.05,
+    "brand": "Papermate",
+    "attributes": {
+      "size": "Legal",
+      "color": "Yellow",
+      "material": "Metal",
+      "quantity": "Single",
+      "refillable": "Yes"
+    },
+    "image": {
+      "url": "data/images/product_9e6cc997-a566-4f97-9a34-f0e2a4ef791b.png",
+      "vector_embedding": null
+    },
+    "created_at": "2025-03-15T02:46:53.472446"
+  }
+]

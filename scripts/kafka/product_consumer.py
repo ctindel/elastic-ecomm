@@ -178,8 +178,6 @@ def generate_image_embedding(image_path, ollama_url, ollama_model, max_retries=1
             logger.warning(f"Retrying image embedding generation after error (attempt {retries})")
             time.sleep(retry_delay)
 
-# Mock embedding generation has been removed to ensure we always use real embeddings from Ollama
-
 def index_product(es, product, ollama_url, ollama_model):
     """Index a product in Elasticsearch"""
     try:
@@ -187,8 +185,10 @@ def index_product(es, product, ollama_url, ollama_model):
             logger.warning("Elasticsearch circuit breaker is open, skipping indexing")
             return False
         
+        logger.info(f"Begin index_product {product}")
         # Generate text embedding if not already present
         if "text_embedding" not in product:
+            logger.info(f"Generating text_embedding vector for {product.get('id', '')}")
             # Combine name and description for better embedding
             text = f"{product.get('name', '')} {product.get('description', '')}"
             
@@ -200,6 +200,7 @@ def index_product(es, product, ollama_url, ollama_model):
             logger.info(f"Generated text embedding for product {product['id']}")
         
         # Index the product
+        logger.info(f"Sending {product} to elasticsearch")
         result = es.index(index="products", document=product, id=product["id"])
         
         if result["result"] in ["created", "updated"]:
@@ -406,7 +407,7 @@ def process_product_image(record, es, ollama_url, ollama_model):
         return False
 
 def consume_from_topic(topic, max_messages=None, es_host="http://localhost:9200", 
-                      ollama_host="http://localhost:11434", ollama_model="llama3"):
+                      ollama_host="http://localhost:11434", ollama_model="llama3.2"):
     """Consume messages from a Kafka topic"""
     logger.info(f"Starting consumer for topic {topic}")
     
@@ -507,7 +508,7 @@ def main():
     parser.add_argument("--max-messages", type=int, help="Maximum number of messages to consume")
     parser.add_argument("--es-host", default="http://localhost:9200", help="Elasticsearch host")
     parser.add_argument("--ollama-host", default="http://localhost:11434", help="Ollama host")
-    parser.add_argument("--ollama-model", default="llama3", help="Ollama model to use for embeddings")
+    parser.add_argument("--ollama-model", default="llama3.2", help="Ollama model to use for embeddings")
     args = parser.parse_args()
     
     # Consume from topics

@@ -1,0 +1,390 @@
+[
+  {
+    "id": "e3aba89d-48d6-42ea-acf4-bccefb4338a0",
+    "name": "Luxury Buyer",
+    "preferences": {
+      "categories": [
+        "Clothing",
+        "Beauty & Personal Care"
+      ],
+      "price_range": [
+        100,
+        5000
+      ],
+      "brands": [
+        "Gucci",
+        "Prada",
+        "Chanel",
+        "Louis Vuitton",
+        "Estee Lauder"
+      ],
+      "search_style": "descriptive",
+      "purchase_frequency": "low"
+    },
+    "search_history": [
+      "best pants",
+      "best face wash",
+      "best shirt",
+      "best dress",
+      "best shoes",
+      "best sunscreen",
+      "best sunscreen",
+      "best moisturizer",
+      "best pants",
+      "best face wash",
+      "best pants",
+      "best jeans",
+      "best coat",
+      "best pants",
+      "best jeans"
+    ],
+    "clickstream": [
+      "05cbbb6d-f824-4fbf-87e4-29395c03e919",
+      "82a43c61-c2f5-499d-a7e7-1e951a47c8b1",
+      "3d8bd887-1443-45ab-adc7-3acf0b59c230",
+      "5821f5c2-f5cc-40a7-8bb0-b4be7f61d0c9",
+      "c9bf39de-46b0-49d3-9f45-c10586a0d1f2",
+      "bf36d930-0221-45d1-bfa5-b9ed5a8f2d6c",
+      "9b2dc564-2d57-4735-bece-eee9495231cc",
+      "f80bdb45-b778-4263-8b45-2d3ad2a421a2",
+      "fe842ce2-0c4a-4411-8464-fcfd3d6bf3e8",
+      "7c290afe-6e30-4148-9f41-aeb70e51a878",
+      "f22548c3-edbd-412d-a9e8-d176f895f317",
+      "f8bd0514-35b4-4c79-a440-98534bd99081",
+      "57c61f77-4c9b-4e29-81ce-41dedf829415",
+      "33bdcc10-6e3b-4f51-9ba5-8805fca94fa2",
+      "76c326a4-d49e-44a8-b257-39afff496a8a",
+      "82b59545-0afc-4bb2-8251-d4511a7f6cc7",
+      "3f06162b-9a85-4657-8045-fe58df8ce96b",
+      "4e5fdde6-6346-4379-9698-5018f86c23dd",
+      "5de24a87-b82f-4c05-8802-608727020927",
+      "6136de7e-b280-4093-8dd0-2c4f2a7d3379"
+    ],
+    "purchase_history": [
+      "c9bf39de-46b0-49d3-9f45-c10586a0d1f2",
+      "bf36d930-0221-45d1-bfa5-b9ed5a8f2d6c",
+      "f22548c3-edbd-412d-a9e8-d176f895f317"
+    ],
+    "created_at": "2025-03-12T16:46:34.373257"
+  },
+  {
+    "id": "9b791fc8-4ae9-49da-948f-4c9084def080",
+    "name": "Tech Enthusiast",
+    "preferences": {
+      "categories": [
+        "Electronics"
+      ],
+      "price_range": [
+        200,
+        2000
+      ],
+      "brands": [
+        "Apple",
+        "Samsung",
+        "Sony",
+        "Google",
+        "Microsoft"
+      ],
+      "search_style": "precise",
+      "purchase_frequency": "medium"
+    },
+    "search_history": [
+      "best speaker",
+      "best speaker",
+      "best tablet",
+      "best TV",
+      "best speaker",
+      "best printer",
+      "best speaker",
+      "best camera",
+      "best monitor",
+      "best camera",
+      "best printer",
+      "best headphones",
+      "best speaker",
+      "best smartphone",
+      "best smartwatch"
+    ],
+    "clickstream": [
+      "a368c862-49c9-4c46-8453-170a06d4e4e7",
+      "e277d903-0aae-459d-ac47-877f7e3af6bf",
+      "a600d372-9b77-494a-aea2-ec5b5071e101",
+      "064acc5b-aa6d-4f99-97d2-923ca5ed2cb2",
+      "096f8360-4ec2-4c08-8837-86e0a27fd50c",
+      "94964861-190a-4108-a734-ad1f5aa44360",
+      "0bdc3ce0-1ceb-417c-81bb-66f89f2c63de",
+      "532b35e1-626a-4fc2-ab46-0520aaed6ea9",
+      "9e1713fc-a40e-49c8-a6b0-27260595882b",
+      "08c93d87-6b66-4292-997b-43c0f56752f4",
+      "826004d5-811e-415c-8662-23003b4577a9",
+      "8de8141c-b5d2-4f3d-b905-d3d667646f16",
+      "f9193895-cb5b-4bf8-aedf-20a7633173a3",
+      "ebe209f7-c8d1-48b8-abf4-a794ed17f77f",
+      "ca9c6641-0825-41ce-b40b-cc4c636358fd",
+      "c8a106f6-dc33-4e4e-9d9e-d1cd1d4049a4",
+      "6601768d-66ea-495e-94ef-258b7a6e1a69",
+      "24229fbe-5713-4c26-a802-585b1a831dce",
+      "6e3bdcfd-0122-4933-9e12-4eece6a917d6",
+      "a200e733-d960-484c-95e1-bb7825bec667"
+    ],
+    "purchase_history": [
+      "ebe209f7-c8d1-48b8-abf4-a794ed17f77f",
+      "e277d903-0aae-459d-ac47-877f7e3af6bf",
+      "a600d372-9b77-494a-aea2-ec5b5071e101",
+      "9e1713fc-a40e-49c8-a6b0-27260595882b",
+      "096f8360-4ec2-4c08-8837-86e0a27fd50c",
+      "a368c862-49c9-4c46-8453-170a06d4e4e7",
+      "6a4e49ef-1559-4222-88b1-c1f6640d6d4d",
+      "b7729abb-77f0-4e06-929e-aa69ebf85b92",
+      "bd3a9a85-4833-4f12-958c-1395bcd82076",
+      "4a350fff-807b-46ea-aef3-bc6008a20c22"
+    ],
+    "created_at": "2025-03-12T16:46:34.374032"
+  },
+  {
+    "id": "7112c0bd-c04b-460b-af15-1fe3769912ae",
+    "name": "Parent Shopper",
+    "preferences": {
+      "categories": [
+        "Clothing",
+        "Home & Kitchen",
+        "Office Supplies"
+      ],
+      "price_range": [
+        10,
+        150
+      ],
+      "brands": [
+        "Target",
+        "Old Navy",
+        "Gap",
+        "Amazon Basics",
+        "Walmart"
+      ],
+      "search_style": "general",
+      "purchase_frequency": "high"
+    },
+    "search_history": [
+      "best jacket",
+      "best whiteboard",
+      "best calendar",
+      "best pen",
+      "best calendar",
+      "best jacket",
+      "best Clothing",
+      "best whiteboard",
+      "best cutting board",
+      "best stapler",
+      "best dress",
+      "best knife set",
+      "best Home & Kitchen",
+      "best microwave",
+      "best coffee maker"
+    ],
+    "clickstream": [
+      "36ed4143-92db-4800-9cef-0a7a52cc96bc",
+      "d1c17d91-45c8-4228-8403-4b50fb17b42d",
+      "a835254d-25a7-408a-8779-1b2c6b392d4a",
+      "abe52b58-bbd8-41f1-958d-d492d8c74efe",
+      "48b82e8f-f0b7-4b5f-a4d2-46cd5b32e619",
+      "ba8a8a40-7be7-4472-beda-695dc78df0e4",
+      "a5602875-7988-48c7-b9e2-a38d5e438fe8",
+      "4177319c-30d2-4f54-8ef3-3f26d4d1dfb0",
+      "157044f8-0d90-46c4-bc37-7a5d468c9f01",
+      "03da1f40-e2de-4a27-af99-083dcc304e60",
+      "c3cb6a21-2da6-4075-ba4a-fb913ea4b01f",
+      "d0ffe27f-bf0e-4df3-9ae1-d709dad72d65",
+      "a07fde57-7fa6-40d6-8363-389a59a75ac0",
+      "266b0cfa-82b8-468d-91ca-705dee15e248",
+      "fe9c11f8-9f8e-4f99-a0d5-b985cd82c6f9",
+      "41cfdd62-9c76-4deb-81b2-6c4ece909eb0",
+      "e67d86d1-ff1a-4e54-9e51-7a699378a700",
+      "892058f9-36df-44e0-a683-33b0e29e45ea",
+      "57c61f77-4c9b-4e29-81ce-41dedf829415",
+      "de7abfee-b0a2-4ecb-83a5-d1a388204c26"
+    ],
+    "purchase_history": [
+      "e67d86d1-ff1a-4e54-9e51-7a699378a700",
+      "4177319c-30d2-4f54-8ef3-3f26d4d1dfb0",
+      "abe52b58-bbd8-41f1-958d-d492d8c74efe",
+      "57c61f77-4c9b-4e29-81ce-41dedf829415",
+      "a07fde57-7fa6-40d6-8363-389a59a75ac0",
+      "36ed4143-92db-4800-9cef-0a7a52cc96bc",
+      "157044f8-0d90-46c4-bc37-7a5d468c9f01",
+      "c3cb6a21-2da6-4075-ba4a-fb913ea4b01f",
+      "ba8a8a40-7be7-4472-beda-695dc78df0e4",
+      "48b82e8f-f0b7-4b5f-a4d2-46cd5b32e619",
+      "266b0cfa-82b8-468d-91ca-705dee15e248",
+      "de7abfee-b0a2-4ecb-83a5-d1a388204c26",
+      "57f0cfe4-8812-4142-bc20-cc7a84e8b916",
+      "496a45a2-056e-461b-810b-42ec9c043513",
+      "782c9a80-b7f9-4608-8128-4e19ad7521ee",
+      "c1ee67e9-727f-4a8b-a284-d2e3b383c4c8",
+      "4df0d25d-a635-4d0d-8a17-04b766a44610",
+      "10276a22-1215-4bc3-a005-9762cd223764",
+      "1b3a0981-4790-45a6-96bb-9689e07d5e2f",
+      "e5b9c336-fbfb-45c1-b0fe-43276e77b0f3"
+    ],
+    "created_at": "2025-03-12T16:46:34.375020"
+  },
+  {
+    "id": "3b913653-0e62-4cad-9b55-f85e566437f5",
+    "name": "Home Decorator",
+    "preferences": {
+      "categories": [
+        "Home & Kitchen"
+      ],
+      "price_range": [
+        50,
+        500
+      ],
+      "brands": [
+        "Crate & Barrel",
+        "West Elm",
+        "Pottery Barn",
+        "Wayfair",
+        "IKEA"
+      ],
+      "search_style": "semantic",
+      "purchase_frequency": "medium"
+    },
+    "search_history": [
+      "best knife set",
+      "best blender",
+      "best microwave",
+      "best food processor",
+      "best mixing bowl",
+      "best cutting board",
+      "best coffee maker",
+      "best microwave",
+      "best cutting board",
+      "best mixing bowl",
+      "best cookware set",
+      "best air fryer",
+      "best blender",
+      "best microwave",
+      "best coffee maker"
+    ],
+    "clickstream": [
+      "dd72f820-be16-464b-8db0-cad0185e09ef",
+      "058abcea-75f4-40e4-947a-9a85bbf659d8",
+      "b9403b6c-ad0c-4ef3-a33e-808366f404ed",
+      "11a74b5a-45ac-4d19-b072-ece250af4eae",
+      "d0ffe27f-bf0e-4df3-9ae1-d709dad72d65",
+      "c967205c-575f-4a9c-a970-f79f98a73c62",
+      "8bbfb921-458b-4171-9765-21335f17f14e",
+      "7157098a-83ab-43e8-bc48-07d423c36c3a",
+      "8a5c3f10-4ec3-4a89-a15f-5fb0c6bbac75",
+      "a790a0d9-1547-4dd6-8a45-ccf9f6b5cf3c",
+      "3079c1a9-2202-46b8-a545-51cffbc5be15",
+      "cff3dd7c-75fc-4ca2-9237-90d87a3623df",
+      "89fd8707-678c-4109-8718-fcb83872f84b",
+      "c85a9624-d975-46af-9dd3-74e8196fe2bd",
+      "7653c017-6ee4-4282-8dbf-96f9059b8343",
+      "49d0f196-c1cc-4450-94af-8609d8ca921f",
+      "56a71001-e07c-4697-9495-8b06c18bd1ac",
+      "d8d4eab1-5d49-4043-ada4-865b9753a8a3",
+      "dfa01307-966a-4b9d-adf6-4647a64518a4",
+      "a169cfac-0131-498f-80fa-8ef44f497315"
+    ],
+    "purchase_history": [
+      "8bbfb921-458b-4171-9765-21335f17f14e",
+      "b9403b6c-ad0c-4ef3-a33e-808366f404ed",
+      "49d0f196-c1cc-4450-94af-8609d8ca921f",
+      "8a5c3f10-4ec3-4a89-a15f-5fb0c6bbac75",
+      "7653c017-6ee4-4282-8dbf-96f9059b8343",
+      "7157098a-83ab-43e8-bc48-07d423c36c3a",
+      "41f0b09d-1cca-4c90-967e-c07cd6fcf8b1",
+      "72fc16a7-6e06-4ecd-9a69-f178f53095d2",
+      "1c2e9c89-7e50-4dbe-b2da-426f24d4ef9f",
+      "20278951-3231-4e7e-9e87-7a9076ccc8c9"
+    ],
+    "created_at": "2025-03-12T16:46:34.375753"
+  },
+  {
+    "id": "86fe5da3-fd61-40c4-bde0-a440e835ebdb",
+    "name": "Budget Shopper",
+    "preferences": {
+      "categories": [
+        "Clothing",
+        "Home & Kitchen",
+        "Office Supplies"
+      ],
+      "price_range": [
+        10,
+        100
+      ],
+      "brands": [
+        "H&M",
+        "Ikea",
+        "Amazon Basics",
+        "Target",
+        "Walmart"
+      ],
+      "search_style": "general",
+      "purchase_frequency": "high"
+    },
+    "search_history": [
+      "best air fryer",
+      "best stapler",
+      "best calendar",
+      "best notebook",
+      "best coat",
+      "best desk organizer",
+      "best blender",
+      "best jacket",
+      "best dress",
+      "best Office Supplies",
+      "best jacket",
+      "best pen",
+      "best Office Supplies",
+      "best air fryer",
+      "best pants"
+    ],
+    "clickstream": [
+      "01eb0c76-0f40-4d08-b794-caaf01ea3534",
+      "27f02f14-a564-415e-80c5-a2cc1e08012e",
+      "00ca9f89-adc7-4ef8-88a4-9c02a5e2f7c3",
+      "be9a41dd-0fe3-4b61-a3bd-802f20fea7d5",
+      "a5602875-7988-48c7-b9e2-a38d5e438fe8",
+      "22a60022-8081-467c-a4a2-bf8e66279fe1",
+      "dfa01307-966a-4b9d-adf6-4647a64518a4",
+      "e73b34b8-7c45-413a-bf26-f240a3c82143",
+      "843789e7-9f3a-4b71-9bf5-49aa3b079e73",
+      "f37ccbc0-1783-442a-9d2a-6ba6e60345dc",
+      "52199f27-954c-483b-b926-a933cdb40a4e",
+      "af1385dc-53f0-4626-b728-d290a2036019",
+      "f60f609b-d1a7-404b-b7c3-e31f09bb4c25",
+      "bbf5825f-cead-48c9-8f77-b0cd75a26af4",
+      "9939d78d-4842-425f-bbe9-a51fc2f874d7",
+      "25d66ee1-e690-4a81-9883-b4f6b67cbcb1",
+      "1829aea2-f7ec-4f14-bfe2-8b9e7344b80a",
+      "92c70ba7-df74-4a1b-8b20-fc2d2642689f",
+      "e1237f1f-bf7e-4592-b520-b21fb6030546",
+      "3f9e7b8a-4c0a-4adb-bf9f-51ce8fe56078"
+    ],
+    "purchase_history": [
+      "af1385dc-53f0-4626-b728-d290a2036019",
+      "9939d78d-4842-425f-bbe9-a51fc2f874d7",
+      "a5602875-7988-48c7-b9e2-a38d5e438fe8",
+      "843789e7-9f3a-4b71-9bf5-49aa3b079e73",
+      "52199f27-954c-483b-b926-a933cdb40a4e",
+      "22a60022-8081-467c-a4a2-bf8e66279fe1",
+      "25d66ee1-e690-4a81-9883-b4f6b67cbcb1",
+      "e73b34b8-7c45-413a-bf26-f240a3c82143",
+      "f60f609b-d1a7-404b-b7c3-e31f09bb4c25",
+      "dfa01307-966a-4b9d-adf6-4647a64518a4",
+      "27f02f14-a564-415e-80c5-a2cc1e08012e",
+      "be9a41dd-0fe3-4b61-a3bd-802f20fea7d5",
+      "7b8dbc57-777b-4b62-9225-46dffe03e26d",
+      "f6da5f2d-cbf2-455c-90ca-466aac7dead8",
+      "4177319c-30d2-4f54-8ef3-3f26d4d1dfb0",
+      "81a8dbfc-f90c-439c-936e-9acda9b416ea",
+      "b13fbc98-f3c0-496f-983e-49f96b76215f",
+      "6a911106-a4bb-4aeb-8ad9-1e35a345bb39",
+      "8cd82842-5c6b-4ab1-9e43-126902e86650",
+      "3079c1a9-2202-46b8-a545-51cffbc5be15"
+    ],
+    "created_at": "2025-03-12T16:46:34.376652"
+  }
+]

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Test cases for embedding functionality.
+Test cases for Ollama embedding functionality.
 """
 import os
 import sys
 import pytest
-import numpy as np
+import json
+import requests
 from pathlib import Path
 
 # Add project root to Python path
@@ -13,18 +14,33 @@ project_root = str(Path(__file__).parent.parent.absolute())
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.utils.embedding import get_text_embedding, get_image_embedding, check_ollama_connection
-from app.config.settings import OLLAMA_API_URL, OLLAMA_MODEL
-
-# Skip all tests if Ollama is not available
-pytestmark = pytest.mark.skipif(
-    not check_ollama_connection(),
-    reason="Ollama is not available"
-)
+from app.config.settings import settings
 
 def test_ollama_connection():
-    """Test connection to Ollama."""
-    assert check_ollama_connection() is True
+    """Test connection to Ollama server."""
+    try:
+        response = requests.get(f"{settings.OLLAMA_API_URL}/api/tags")
+        if response.status_code == 200:
+            # Check if our model is available
+            models = [tag["name"] for tag in response.json()["models"]]
+            return settings.OLLAMA_MODEL in models
+    except requests.exceptions.RequestException:
+        return False
+    return False
+
+def test_model_availability():
+    """Test if the specified Ollama model is available."""
+    assert test_ollama_connection(), f"Ollama model {settings.OLLAMA_MODEL} is not available"
+
+def test_api_url_configuration():
+    """Test if Ollama API URL is properly configured."""
+    assert settings.OLLAMA_API_URL, "Ollama API URL is not configured"
+    assert settings.OLLAMA_API_URL.startswith(("http://", "https://")), "Invalid Ollama API URL format"
+
+def test_model_configuration():
+    """Test if Ollama model is properly configured."""
+    assert settings.OLLAMA_MODEL, "Ollama model is not configured"
+    assert isinstance(settings.OLLAMA_MODEL, str), "Ollama model must be a string"
 
 def test_text_embedding_generation():
     """Test text embedding generation."""

@@ -1,276 +1,187 @@
-#!/usr/bin/env python3
-"""
-Image processing utilities for the E-Commerce Search Demo.
-"""
 import os
 import sys
 import json
-import logging
-import requests
-import base64
-from pathlib import Path
 from typing import List, Dict, Any, Optional
+import base64
 from fastapi import UploadFile
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-)
-logger = logging.getLogger(__name__)
-
-from app.config.settings import (
-    OPENAI_API_KEY,
-    OPENAI_API_URL,
-    ELASTICSEARCH_INDEX_PRODUCTS
-)
+from elasticsearch import Elasticsearch
 from app.models.search import SearchResult, SearchType
+
+# Import our custom logger
+from app.utils.logger import logger
+
+# Import vision processor
+from app.utils.vision_processor import process_image
+from app.config.settings import settings
 
 async def process_image_query(
     image_file: UploadFile,
-    user_id: Optional[str] = None,
-    limit: int = 10,
-    elasticsearch_client = None
+    user_id: Optional[str],
+    limit: int,
+    elasticsearch_client: Elasticsearch
 ) -> List[SearchResult]:
     """
-    Process an image query (e.g., school supply list) and return relevant product suggestions.
+    Process an uploaded image to extract text and identify items.
     
     Args:
-        image_file: Uploaded image file
-        user_id: User ID for personalization
+        image_file: The uploaded image file
+        user_id: Optional user ID for tracking
         limit: Maximum number of results to return
         elasticsearch_client: Elasticsearch client
-    
+        
     Returns:
-        List[SearchResult]: List of search results
+        List of SearchResult objects with recommended products
     """
+    logger.info(f"Processing image query - File: {image_file.filename}, User: {user_id}, Limit: {limit}")
+    
     try:
-        # Save the uploaded image to a temporary file
-        temp_file_path = f"/tmp/{image_file.filename}"
-        with open(temp_file_path, "wb") as f:
-            content = await image_file.read()
-            f.write(content)
+        # Process the image using the configured vision provider
+        logger.debug(f"Sending image to {settings.VISION_PROVIDER} for processing...")
+        items_data = await process_image(image_file)
         
-        # Extract text from the image
-        extracted_text = extract_text_from_image(temp_file_path)
+        # Log the extracted items
+        logger.info(f"Extracted {len(items_data.get('items', []))} items using {settings.VISION_PROVIDER} provider")
+        logger.debug(f"Extracted items data:\n{json.dumps(items_data, indent=2)}")
         
-        # Analyze the extracted text
-        if "school" in extracted_text.lower() and "supply" in extracted_text.lower():
-            # This appears to be a school supply list
-            analysis = analyze_school_supply_list(temp_file_path)
-            
-            # Convert analysis to search results
-            results = []
-            for item in analysis.get("items", []):
-                result = SearchResult(
-                    query=item.get("name", ""),
-                    product_id=f"school-supply-{len(results)}",
-                    product_name=item.get("name", ""),
-                    price=item.get("price", 0.0),
-                    image_url=item.get("image_url", ""),
-                    score=1.0,
-                    search_type=SearchType.IMAGE,
-                    alternatives=item.get("alternatives", []),
-                    explanation=f"Found on school supply list: {item.get('name', '')}"
-                )
-                results.append(result)
-            
-            # Clean up
-            os.remove(temp_file_path)
-            
-            return results[:limit]
-        
-        # For other types of images, perform a general search
-        # This is a placeholder for future implementation
+        # Search for products based on extracted items
         results = []
         
-        # Clean up
-        os.remove(temp_file_path)
+        # Create a list to store item matching information
+        item_matches = []
         
+        for item in items_data.get("items", []):
+            # Construct search query
+            item_name = item.get("name", "")
+            quantity = item.get("quantity", "")
+            attributes = item.get("attributes", "")
+            search_query = f"{item_name} {attributes}".strip()
+            
+            if not search_query:
+                logger.warning(f"Empty search query for item: {item}")
+                continue
+            
+            logger.debug(f"Processing item - Name: '{item_name}', Quantity: '{quantity}', Attributes: '{attributes}'")
+            
+            # Create item match entry
+            item_match = {
+                "item": item_name,
+                "quantity": quantity,
+                "attributes": attributes,
+                "matched_product_id": "",  # Empty string instead of None
+                "matched_product_name": ""  # Empty string instead of None
+            }
+            
+            # Search in Elasticsearch
+            query = {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {"match": {"category": "Office Supplies"}},
+                            {
+                                "multi_match": {
+                                    "query": search_query,
+                                    "fields": ["name^3", "description^2", "subcategory"],
+                                    "fuzziness": "AUTO"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "size": max(1, limit // len(items_data.get("items", [1])))  # Distribute limit among items
+            }
+            
+            logger.debug(f"Executing Elasticsearch query for '{search_query}':\n{json.dumps(query, indent=2)}")
+            
+            try:
+                search_response = elasticsearch_client.search(index=settings.ELASTICSEARCH_INDEX_PRODUCTS, body=query)
+                total_hits = search_response["hits"]["total"]["value"]
+                logger.debug(f"Found {total_hits} potential matches for '{search_query}'")
+                
+                # Process search results
+                if search_response["hits"]["hits"]:
+                    # Get the top match
+                    top_hit = search_response["hits"]["hits"][0]
+                    source = top_hit["_source"]
+                    
+                    logger.debug(f"Best match for '{item_name}' - Product: {source.get('name', '')}, Score: {top_hit['_score']}")
+                    
+                    # Update item match with product info
+                    item_match["matched_product_id"] = source.get("id", "")
+                    item_match["matched_product_name"] = source.get("name", "")
+                    
+                    # Create SearchResult object
+                    result = SearchResult(
+                        query=search_query,
+                        product_id=source.get("id", ""),
+                        product_name=source.get("name", ""),
+                        product_description=source.get("description", ""),
+                        price=source.get("price", 0.0),
+                        image_url=f"/static/images/product_{source.get('id', '')}.png",
+                        score=top_hit["_score"],
+                        search_type=SearchType.IMAGE,
+                        explanation=f"Found based on your request for: {item_name}",
+                        alternatives=[item_match]  # Include item match info in alternatives
+                    )
+                    
+                    results.append(result)
+                else:
+                    logger.warning(f"No matches found for item '{item_name}'")
+                    # No match found, still add item to matches for the summary
+                    item_match["matched_product_id"] = ""  # Empty string instead of None
+                    item_match["matched_product_name"] = ""  # Empty string instead of None
+                
+                # Add item match to the list for the summary
+                item_matches.append(item_match)
+            
+            except Exception as e:
+                logger.error(f"Error searching for products matching '{item_name}': {str(e)}", exc_info=True)
+                
+                # Add error information to item match
+                item_match["error"] = str(e)
+                item_matches.append(item_match)
+        
+        # Add item matches to the first result's alternatives if there are results
+        if results:
+            logger.info(f"Successfully processed {len(item_matches)} items from image")
+            # Create a summary result with all item matches
+            summary_result = SearchResult(
+                query="Image Upload Analysis",
+                product_id="summary",
+                product_name="Image Analysis Results",
+                product_description=f"Analysis of items found in the uploaded image (using {settings.VISION_PROVIDER})",
+                price=0.0,
+                image_url=None,
+                score=1.0,
+                search_type=SearchType.IMAGE,
+                explanation=f"Found {len(item_matches)} items in the uploaded image",
+                alternatives=item_matches  # Include all item matches
+            )
+            
+            # Insert summary at the beginning
+            results.insert(0, summary_result)
+        
+        # If no results were found, return an empty list with explanation
+        if not results:
+            logger.warning(f"No products found for any of the {len(item_matches)} extracted items")
+            
+            # Create a summary result with all item matches
+            summary_result = SearchResult(
+                query="Image Upload Analysis",
+                product_id="summary",
+                product_name="No Matching Products Found",
+                product_description="No matching products were found for the items in the uploaded image",
+                price=0.0,
+                image_url=None,
+                score=0.0,
+                search_type=SearchType.IMAGE,
+                explanation="No matching products found",
+                alternatives=item_matches  # Include all item matches
+            )
+            
+            results.append(summary_result)
+            
         return results
-    
+        
     except Exception as e:
-        logger.error(f"Error processing image query: {str(e)}")
-        return []
-
-def extract_text_from_image(image_path):
-    """
-    Extract text from an image using OpenAI's API.
-    
-    Args:
-        image_path: Path to image file
-    
-    Returns:
-        str: Extracted text
-    """
-    try:
-        # Check if OpenAI API key is available
-        if not OPENAI_API_KEY:
-            logger.error("OpenAI API key is missing")
-            return ""
-        
-        # Read image file
-        with open(image_path, "rb") as f:
-            image_data = f.read()
-        
-        # Encode image data as base64
-        image_base64 = base64.b64encode(image_data).decode("utf-8")
-        
-        # Call OpenAI API
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {OPENAI_API_KEY}"
-        }
-        
-        payload = {
-            "model": "gpt-4-vision-preview",
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": "Extract all text from this image. Return only the extracted text, nothing else."
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/jpeg;base64,{image_base64}"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "max_tokens": 1000
-        }
-        
-        response = requests.post(
-            f"{OPENAI_API_URL}/chat/completions",
-            headers=headers,
-            json=payload
-        )
-        
-        if response.status_code != 200:
-            logger.error(f"Error calling OpenAI API: {response.text}")
-            return ""
-        
-        # Parse response
-        result = response.json()
-        extracted_text = result.get("choices", [{}])[0].get("message", {}).get("content", "")
-        
-        return extracted_text
-    
-    except Exception as e:
-        logger.error(f"Error extracting text from image: {str(e)}")
-        return ""
-
-def analyze_school_supply_list(image_path):
-    """
-    Analyze a school supply list image and identify required items.
-    
-    Args:
-        image_path: Path to image file
-    
-    Returns:
-        dict: Analysis results
-    """
-    try:
-        # Check if OpenAI API key is available
-        if not OPENAI_API_KEY:
-            logger.error("OpenAI API key is missing")
-            return {"items": []}
-        
-        # Read image file
-        with open(image_path, "rb") as f:
-            image_data = f.read()
-        
-        # Encode image data as base64
-        image_base64 = base64.b64encode(image_data).decode("utf-8")
-        
-        # Call OpenAI API
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {OPENAI_API_KEY}"
-        }
-        
-        prompt = """
-        Analyze this school supply list image and identify all required items.
-        For each item, provide:
-        1. The name of the item
-        2. The quantity required
-        3. Any specific requirements (e.g., color, size)
-        4. Alternative options at different price points (budget, mid-range, premium)
-        
-        Return the results as a JSON object with the following structure:
-        {
-            "items": [
-                {
-                    "name": "Item name",
-                    "quantity": "Quantity",
-                    "requirements": "Specific requirements",
-                    "alternatives": [
-                        {"price_tier": "budget", "product": "Budget option"},
-                        {"price_tier": "mid-range", "product": "Mid-range option"},
-                        {"price_tier": "premium", "product": "Premium option"}
-                    ]
-                }
-            ]
-        }
-        """
-        
-        payload = {
-            "model": "gpt-4-vision-preview",
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": prompt
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/jpeg;base64,{image_base64}"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "max_tokens": 2000
-        }
-        
-        response = requests.post(
-            f"{OPENAI_API_URL}/chat/completions",
-            headers=headers,
-            json=payload
-        )
-        
-        if response.status_code != 200:
-            logger.error(f"Error calling OpenAI API: {response.text}")
-            return {"items": []}
-        
-        # Parse response
-        result = response.json()
-        analysis_text = result.get("choices", [{}])[0].get("message", {}).get("content", "")
-        
-        # Extract JSON from response
-        import re
-        json_match = re.search(r'```json\n(.*?)\n```', analysis_text, re.DOTALL)
-        if json_match:
-            analysis_json = json_match.group(1)
-        else:
-            analysis_json = analysis_text
-        
-        # Parse JSON
-        try:
-            analysis = json.loads(analysis_json)
-        except json.JSONDecodeError:
-            logger.error(f"Error parsing analysis JSON: {analysis_json}")
-            return {"items": []}
-        
-        return analysis
-    
-    except Exception as e:
-        logger.error(f"Error analyzing school supply list: {str(e)}")
-        return {"items": []}
+        logger.error(f"Error processing image '{image_file.filename}': {str(e)}", exc_info=True)
+        raise

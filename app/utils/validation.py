@@ -3,116 +3,128 @@
 Validation utilities for the E-Commerce Search Demo.
 """
 import os
-import sys
-import json
 import logging
 import requests
-from elasticsearch import Elasticsearch
+import openai
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-from app.config.settings import (
-    ELASTICSEARCH_HOST,
-    OLLAMA_API_URL,
-    OPENAI_API_KEY,
-    OPENAI_API_URL
-)
-
-def validate_api_keys():
-    """
-    Validate API keys and connections.
-    
-    Raises:
-        Exception: If Elasticsearch or Ollama connection fails
-    """
-    # Check Elasticsearch connection
-    try:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
-        if not es.ping():
-            raise Exception("Elasticsearch connection failed")
-    except Exception as e:
-        logger.error(f"Elasticsearch connection failed: {str(e)}")
-        raise Exception(f"Elasticsearch connection failed: {str(e)}")
-    
-    # Check Ollama connection
-    try:
-        response = requests.get(OLLAMA_API_URL.replace("/generate", "/models"))
-        if response.status_code != 200:
-            raise Exception("Ollama connection failed")
-    except Exception as e:
-        logger.error(f"Ollama connection failed: {str(e)}")
-        raise Exception(f"Ollama connection failed: {str(e)}")
-    
-    # Check OpenAI API key
-    if not OPENAI_API_KEY:
-        logger.warning("OpenAI API key is missing")
-    
-    return True
+from app.config.settings import settings
 
 def check_openai_connection():
     """
-    Check if OpenAI API is available and the API key is valid.
+    Verify that the OpenAI API key is configured and valid.
     
     Returns:
-        dict: Status information including connectivity and API key validity
+        dict: Status of OpenAI connection with keys:
+            - configured: Whether an API key is set
+            - api_key_valid: Whether the API key is valid
+            - error: Error message if any
     """
-    status = {
-        "configured": bool(OPENAI_API_KEY),
-        "connected": False,
+    result = {
+        "configured": False,
         "api_key_valid": False,
-        "models_available": [],
         "error": None
     }
     
-    # If API key is not configured, return early
-    if not OPENAI_API_KEY:
-        status["error"] = "API key not configured"
-        return status
+    # Check if API key is set
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        result["error"] = "OPENAI_API_KEY environment variable is not set"
+        return result
+    
+    result["configured"] = True
+    
+    # Verify API key by making a simple request
+    try:
+        client = openai.OpenAI(api_key=api_key)
+        # Make a minimal API call to verify the key
+        response = client.models.list()
+        result["api_key_valid"] = True
+    except Exception as e:
+        result["error"] = f"API key validation failed: {str(e)}"
+    
+    return result
+
+def check_ollama_vision_model():
+    """
+    Check if Ollama is available and the vision model is installed.
+    
+    Returns:
+        dict: Status of Ollama vision model with keys:
+            - available: Whether Ollama is available
+            - model_installed: Whether the vision model is installed
+            - error: Error message if any
+    """
+    result = {
+        "available": False,
+        "model_installed": False,
+        "error": None
+    }
     
     try:
-        # Test API connectivity with a simple models list request
-        headers = {
-            "Authorization": f"Bearer {OPENAI_API_KEY}"
-        }
+        # Check if Ollama is running - use /api/tags endpoint which is more reliable
+        response = requests.get(f"{settings.OLLAMA_API_URL}/api/tags")
         
-        response = requests.get(
-            f"{OPENAI_API_URL}/models",
-            headers=headers
-        )
+        if response.status_code != 200:
+            result["error"] = f"Ollama API returned status code {response.status_code}"
+            return result
         
-        # Check if the request was successful
-        if response.status_code == 200:
-            status["connected"] = True
-            status["api_key_valid"] = True
-            
-            # Get available models
-            result = response.json()
-            models = result.get("data", [])
-            status["models_available"] = [model.get("id") for model in models]
-            
-        elif response.status_code == 401:
-            # Unauthorized - API key is invalid
-            status["connected"] = True
-            status["api_key_valid"] = False
-            status["error"] = "Invalid API key"
-            
+        # Ollama is available
+        result["available"] = True
+        
+        # Check if the vision model is installed
+        models = response.json().get("models", [])
+        model_names = [model.get("name", "") for model in models]
+        
+        if settings.OLLAMA_VISION_MODEL in model_names:
+            result["model_installed"] = True
         else:
-            # Other error
-            status["connected"] = True
-            status["api_key_valid"] = False
-            status["error"] = f"API error: {response.status_code} - {response.text}"
-    
-    except requests.exceptions.ConnectionError:
-        # Connection error
-        status["error"] = "Connection error"
+            # Try with just the model name without tag
+            base_model_name = settings.OLLAMA_VISION_MODEL.split(":")[0]
+            if any(base_model_name in name for name in model_names):
+                result["model_installed"] = True
+            else:
+                result["error"] = f"Vision model '{settings.OLLAMA_VISION_MODEL}' is not installed"
     
     except Exception as e:
-        # Other exception
-        status["error"] = str(e)
+        result["error"] = f"Error connecting to Ollama: {str(e)}"
     
-    return status
+    return result
+
+def check_vision_provider():
+    """
+    Check if the configured vision provider is available.
+    
+    Returns:
+        dict: Status of vision provider with keys:
+            - provider: The configured provider
+            - available: Whether the provider is available
+            - error: Error message if any
+    """
+    result = {
+        "provider": settings.VISION_PROVIDER,
+        "available": False,
+        "error": None
+    }
+    
+    if settings.VISION_PROVIDER == "openai":
+        # Check OpenAI
+        openai_status = check_openai_connection()
+        result["available"] = openai_status["configured"] and openai_status["api_key_valid"]
+        if not result["available"]:
+            result["error"] = openai_status["error"]
+    
+    elif settings.VISION_PROVIDER == "ollama":
+        # Check Ollama
+        ollama_status = check_ollama_vision_model()
+        result["available"] = ollama_status["available"] and ollama_status["model_installed"]
+        if not result["available"]:
+            result["error"] = ollama_status["error"]
+    
+    else:
+        result["error"] = f"Unknown vision provider: {settings.VISION_PROVIDER}"
+    
+    return result
